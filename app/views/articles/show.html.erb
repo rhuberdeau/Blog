@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @article.title %>
-</p>
+<div class="span-17" id="article-content">
+  <h2><%= @article.title %></h2>
+  <p>By
+  	on <%= @article.created_at%>
+  </p>
+</div>
 
-<p>
   <b>Body:</b>
   <%= @article.body %>
 </p>
