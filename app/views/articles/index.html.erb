@@ -1,24 +1,17 @@
-<h1>Listing articles</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.body %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <div class="article_index">
+  	<div class="article_index_header">
+  	  <h2><%= article.title %></h2>
+  	  By <%= article.user_id %> on <%= article.created_at %><br />
+  	</div>
+  	
+    <%= truncate(article.body, :length => 500) %><br />
+  	<%= link_to 'Show', article %> |
+    <%= link_to 'Edit', edit_article_path(article) %> |
+    <%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
 <% end %>
-</table>
+
 
 <br />
 

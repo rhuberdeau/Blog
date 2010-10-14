@@ -1,4 +1,23 @@
+#content h1{
+  font-size:3em;
+  line-height:1;
+  padding-left:.5em;
+  margin-bottom: 0;	
+}
 
+.article_index {
+  padding:0 1.5em 0 1.5em;
+  margin-bottom:1.5em;
+}
+
+.article_index h2 {
+  font-size:2em;
+  margin-bottom: 0;
+}
+
+.article_index_header {
+  margin-bottom: 25px;  
+}
 #notice {
   color: green;
 }

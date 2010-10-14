@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
     
   def index
-    @articles = Article.find(:all, :conditions => ['published = ?', true], :order => "Created_at DESC")
+    @articles = Article.find(:all, :conditions => ['published = ?', true], :order => "Created_at DESC", :select => 'id, title, body, cached_slug, created_at, published, user_id' )
     
     respond_to do |format|
       format.html # index.html.erb
