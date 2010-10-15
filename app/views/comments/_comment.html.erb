@@ -1,3 +1,11 @@
 <% div_for comment do %>
+  <div id = "comment_author">
+  	<%= comment.name %>
+  </div
+  <div id = "comment_created_at">
+  	<%= comment.created_at %>
+  </div>
+  <div id = "comment_body">
 	<p><%= comment.body %></p>
+  </div>
 <% end %>

@@ -36,6 +36,7 @@
   <p><%= f.submit %></p>
 <% end %>
 
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
+<% if can? :update, @article %>
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+<% end %>
 <%= link_to 'Back', articles_path %>
