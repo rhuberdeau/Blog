@@ -18,6 +18,37 @@
 .article_index_header {
   margin-bottom: 25px;  
 }
+
+/* comment styling */
+
+#comments {
+  margin-bottom: 25px;
+  border-top: 1px solid #666;
+  border-left: 1px solid #666;
+  border-right: 1px solid #666;
+}
+
+.comment {
+  padding: 9px;
+  border-bottom: 1px solid #666; 
+}
+
+#comment_author {
+  font-weight:bold;
+  padding:9px 0 0 45px;	
+}
+
+#comment_created_at {
+  padding:0 0 9px 45px;
+  color:#666;
+  font-size:11px;
+}
+
+#comment_body {
+	padding: 0 0 0 45px;
+}
+
+/* notices and error messages */
 #notice {
   color: green;
 }
