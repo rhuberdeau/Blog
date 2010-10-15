@@ -37,14 +37,16 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
+    authorize! :edit, @article
   end
 
   # POST /articles
   # POST /articles.xml
   def create
-    @article = Article.new(params[:article])
+  	@article = Article.new(params[:article])
     @article.user_id = current_user.id
     @article.published = "false"
+    authorize! :create, @article
          
     respond_to do |format|
       if @article.save
@@ -61,7 +63,8 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.xml
   def update
     @article = Article.find(params[:id])
-
+    authorize! :update, @article
+    
     respond_to do |format|
       if @article.update_attributes(params[:article])
         format.html { redirect_to(@article, :notice => 'Article was successfully updated.') }
@@ -78,6 +81,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
+    authorize! :destroy, @article
 
     respond_to do |format|
       format.html { redirect_to(articles_url) }
