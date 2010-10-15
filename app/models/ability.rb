@@ -6,8 +6,16 @@ class Ability
  
     if user.role? :Admin
       can :manage, :all
-    else
+    elsif user.role? :Moderator
       can :read, :all
+      can [:create, :edit, :update], Article
+      can [:edit, :update], Comment
+    elsif user.role? :Member
+       can :read, :all
+       can [:create, :update, :destroy],  Article do |article|
+          article.try(:user) == user
+       end
+       can [:edit, :update], Comment
     end
   end
 end

@@ -5,23 +5,22 @@
   <p>By
   	on <%= @article.created_at%>
   </p>
+    <%= @article.body %>
+  </p>
+  <p>Tags:
+    <% @article.tags.each do |tag|%>
+      <%= tag.name %> |
+   <% end %>
+  </p>
 </div>
-
-  <b>Body:</b>
-  <%= @article.body %>
-</p>
-<b>Tags:</b>
-<% @article.tags.each do |tag|%>
-  <%= tag.name %> |
-<% end %>
 
 <h2>Comments</h2>
 <div id="comments">
   <%= render :partial => @article.comments %>
 </div>
 
+
 <%= form_for([@article, @article.comments.build]) do |f| %>
-  <%= f.error_messages %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -36,7 +35,6 @@
   </div>
   <p><%= f.submit %></p>
 <% end %>
-
 
 
 <%= link_to 'Edit', edit_article_path(@article) %> |

@@ -1,25 +1,21 @@
-<h1>Listing articles</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Published</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.body %></td>
-    <td><%= article.published %></td>
-    <td><%= link_to 'Show', :controller => :admin, :action => :show, :id => article.id %></td> 
-    <td><%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <div class="article_index">
+  	<div class="article_index_header">
+  	  <h2><%= article.title %></h2>
+  	  By <%= article.user_id %> on <%= article.created_at %><br />
+  	</div>
+  	<% if article.published == true %>
+  	  <strong>Published</strong><br />
+  	<% else %>
+  	  <strong>This article has not been published</strong><br />
+  	<% end %>
+    <%= truncate(article.body, :length => 500) %><br />
+  	<%= link_to 'Show', :controller => :admin, :action => :show, :id => article.id %> |
+    <%= link_to 'Edit', edit_article_path(article) %> |
+    <%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
 <% end %>
-</table>
+
 
 <br />
 

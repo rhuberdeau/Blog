@@ -5,6 +5,7 @@ class Article < ActiveRecord::Base
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
   has_many :comments, :dependent => :destroy
+  accepts_nested_attributes_for :comments
   belongs_to :user
     
   validates_presence_of :title, :body
