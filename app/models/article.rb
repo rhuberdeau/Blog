@@ -11,6 +11,8 @@ class Article < ActiveRecord::Base
   validates_presence_of :title, :body
   validates_uniqueness_of :title
   
+  named_scope :published, lambda { {:conditions => ['published = ?', true]} }
+  
   attr_writer :tag_names	
   after_save :assign_tags  
   

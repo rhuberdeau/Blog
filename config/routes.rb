@@ -1,4 +1,6 @@
 Blog::Application.routes.draw do
+  get "tags/show"
+
   get "admin/index"
 
   get "admin/show"

@@ -1,18 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="span-17" id="article-content">
-  <h2><%= @article.title %></h2>
-  <p>By
-  	on <%= @article.created_at%>
-  </p>
-    <%= @article.body %>
-  </p>
-  <p>Tags:
-    <% @article.tags.each do |tag|%>
-      <%= tag.name %> |
-   <% end %>
-  </p>
-</div>
+<%= render @article %>
 
 <h2>Comments</h2>
 <div id="comments">
