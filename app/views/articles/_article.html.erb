@@ -1,13 +1,13 @@
 <div class="span-17" id="article-content">
   <h2><%= article.title %></h2>
-  <p>By
-  	on <%= article.created_at%>
+  <p>By <%= article.user.email %>
+  	on <%= article.created_at.strftime( %A %B %e %I %p) %>
   </p>
     <%= article.body %>
   </p>
   <p>Tags:
     <% article.tags.each do |tag|%>
-      <%= tag.name %> |
+      <%= link_to "#{tag.name}", :controller => :tags, :action => :show, :id => tag.id %>
    <% end %>
   </p>
 </div>
