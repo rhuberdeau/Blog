@@ -2,7 +2,7 @@
   <div class="article_index">
   	<div class="article_index_header">
   	  <h2><%= article.title %></h2>
-  	  By <%= article.user_id %> on <%= article.created_at %><br />
+  	  By <%= article.user.email %> on <%= article.created_at.strftime("%B %d %Y") %><br />
   	</div>
   	
     <%= truncate(article.body, :length => 500) %><br />
