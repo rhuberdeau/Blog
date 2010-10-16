@@ -1,7 +1,7 @@
 <div class="span-17" id="article-content">
   <h2><%= article.title %></h2>
   <p>By <%= article.user.email %>
-  	on <%= article.created_at.strftime( %A %B %e %I %p) %>
+  	on <%= article.created_at.strftime("%B %d %Y") %>
   </p>
     <%= article.body %>
   </p>
