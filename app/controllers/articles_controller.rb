@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
     
   def index
-    @articles = Article.find(:all, :conditions => ['published = ?', true], :order => "Created_at DESC", :select => 'id, title, body, cached_slug, created_at, published, user_id' )
+    @articles = Article.find(:all, :conditions => ['published = ?', true], :order => "Created_at DESC", :select => 'id, title, body, created_at, published, user_id' )
     
     respond_to do |format|
       format.html # index.html.erb
@@ -50,6 +50,7 @@ class ArticlesController < ApplicationController
          
     respond_to do |format|
       if @article.save
+      	expire_fragment('all_tags')
         format.html { redirect_to(@article, :notice => 'Article was successfully created.') }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
       else
