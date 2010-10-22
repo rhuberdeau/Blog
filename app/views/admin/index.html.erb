@@ -10,7 +10,7 @@
   	  <strong>This article has not been published</strong><br />
   	<% end %>
     <%= truncate(article.body, :length => 500) %><br />
-  	<%= link_to 'Show', :controller => :admin, :action => :show, :id => article.id %> |
+  	<%= link_to 'Show', :controller => :admin, :action => :show, :id => article %> |
     <%= link_to 'Edit', edit_article_path(article) %> |
     <%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
   </div>

@@ -4,8 +4,8 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
     
   def index
-    @articles = Article.all(:include => :user, :conditions => ['published = ?', true], :order => "Created_at DESC", :select => 'id, title, body, created_at, published, user_id')
-           
+    @articles = Article.published.paginate :page => params[:page], :per_page => 5, :include => :user, :order => "Created_at DESC", :select => 'id, title, body, created_at, published, user_id' 
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @articles }
