@@ -1,7 +1,6 @@
 class Article < ActiveRecord::Base
   attr_accessible :title, :body, :tag_names, :published, :user_id
-  has_friendly_id :title, :use_slug => true
-  	
+    	
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
   has_many :comments, :dependent => :destroy
@@ -14,10 +13,18 @@ class Article < ActiveRecord::Base
   named_scope :published, lambda { {:conditions => ['published = ?', true]} }
   
   attr_writer :tag_names	
+  attr_reader :per_page
+  
   after_save :assign_tags  
+  
+  @@per_page = 5
   
   def tag_names  
     @tag_names || tags.map(&:name).join(' ')  
+  end
+  
+  def to_param
+    "#{id}-#{title.gsub(/[^a-z0-9]+/i, '-')}"
   end
 
   private  

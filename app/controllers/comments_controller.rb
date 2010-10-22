@@ -36,6 +36,7 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
+    @article = @comment.article
   end
 
   # POST /comments
@@ -59,10 +60,10 @@ class CommentsController < ApplicationController
   # PUT /comments/1.xml
   def update
     @comment = Comment.find(params[:id])
-
+    @article = @comment.article
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully updated.') }
+        format.html { redirect_to(@article, :notice => 'Comment was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -75,10 +76,11 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.xml
   def destroy
     @comment = Comment.find(params[:id])
+    @article = @comment.article
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(comments_url) }
+      format.html { redirect_to(@article, :notice => 'Comment was successfully deleted') }
       format.xml  { head :ok }
     end
   end

@@ -3,6 +3,8 @@
 </div>
 <% cache('all_tags') do %>	 
   <% for tag in Tag.find(:all, :order => 'name') %>
-    <li><%= link_to "#{tag.name}", :controller => :tags, :action => :show, :id => tag.id %></li>
+    <li><%= link_to "#{tag.name}", tag_path(tag) %></li>
+    
+    
   <% end %>
 <% end %>
