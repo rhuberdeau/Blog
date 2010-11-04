@@ -16,8 +16,10 @@
   </div>
 <% end %>
 
-<%= will_paginate @articles %>
-<br />
-<% if can? :create, @article %>
-  <%= link_to 'New Article', new_article_path %>
-<% end %>
+<div cass="pagination-links last">
+  <%= will_paginate @articles %>
+  <br />
+  <% if can? :create, @article %>
+    <%= link_to 'New Article', new_article_path %>
+  <% end %>
+</div>

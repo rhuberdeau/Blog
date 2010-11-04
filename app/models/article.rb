@@ -20,7 +20,7 @@ class Article < ActiveRecord::Base
   @@per_page = 5
   
   def tag_names  
-    @tag_names || tags.map(&:name).join(' ')  
+    @tag_names || tags.map(&:name).join(',')  
   end
   
   def to_param

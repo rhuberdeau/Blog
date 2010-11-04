@@ -3,7 +3,4 @@ class Tag < ActiveRecord::Base
   has_many :taggings, :dependent => :destroy  
   has_many :articles, :through => :taggings 
   
-  def to_param
-    "#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"
-  end
 end

@@ -1,8 +1,9 @@
-<div class="span-17" id="article-content">
+<div id="article-content" class="span-17">
   <h2><%= article.title %></h2>
   <p>By <%= article.user.email %>
   	on <%= article.created_at.strftime("%B %d %Y") %>
   </p>
+  <p>
     <%= article.body %>
   </p>
   <p>Tags:

@@ -7,7 +7,7 @@
   	<% if can? :destroy, comment %>
   	  <%= link_to 'Delete', article_comment_path(@article, comment), :confirm => 'Are you sure?', :method => :delete %>
   	<% end %>
-  </div
+  </div>
   <div id = "comment_created_at">
   	<%= comment.created_at %>
   </div>

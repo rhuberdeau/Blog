@@ -2,12 +2,12 @@ Blog::Application.routes.draw do
   resources :tags
 
   get "admin/index"
-
   get "admin/show"
 
   resources :roles
 
   devise_for :users
+  resources :users
 
   resources :articles do
     resources :comments
