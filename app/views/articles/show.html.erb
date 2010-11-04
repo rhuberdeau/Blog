@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <%= render @article %>
@@ -6,6 +7,7 @@
 <div id="comments">
   <%= render :partial => @article.comments %>
 </div>
+
 
 
 <%= form_for([@article, @article.comments.build]) do |f| %>
@@ -27,4 +29,7 @@
 <% if can? :update, @article %>
   <%= link_to 'Edit', edit_article_path(@article) %> |
 <% end %>
+
 <%= link_to 'Back', articles_path %>
+
+
