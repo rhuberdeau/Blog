@@ -6,7 +6,9 @@
   	</div>
   	
     <%= truncate(article.body, :length => 500) %><br />
-  	<%= link_to 'Show', article %> 
+    <div class="show_link">
+  	  <%= link_to 'Show', article %>
+  	</div> 
   	<% if can? :update, article %>
      | <%= link_to 'Edit', edit_article_path(article) %> |
     <% end %>
