@@ -1,24 +1,46 @@
 a { text-decoration:none }
-
+#header{
+ 
+}
 #content h1{
   font-size:3em;
   line-height:1;
   padding-left:.5em;
   margin-bottom: 0;	
 }
-
+/* Article Index Page */
 .article_index {
   padding:0 1.5em 0 1.5em;
   margin-bottom:1.5em;
+  
 }
-
 .article_index h2 {
   font-size:2em;
   margin-bottom: 0;
+  background: #d0e4f7; /* old browsers */
+  background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 24%, #0a77d5 50%, #539fe1 79%, #87bcea 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d0e4f7), color-stop(24%,#73b1e7), color-stop(50%,#0a77d5),
+  color-stop(79%,#539fe1), color-stop(100%,#87bcea)); /* webkit */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* ie */
 }
-
 .article_index_header {
   margin-bottom: 25px;  
+}
+.lightsaber{
+  background: #fff; /* old browsers */
+  background: -moz-linear-gradient(top, #fff 0%, #539fe1 24%, #0a77d5 50%, #73b1e7 79%, #d0e4f7 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(24%,#73b1e7), color-stop(50%,#fff),
+  color-stop(79%,#73b1e7), color-stop(100%,#fff)); /* webkit */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* ie */
+}
+
+/* Article Show Page */
+.article_title {
+  background: #d0e4f7; /* old browsers */
+  background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 24%, #0a77d5 50%, #539fe1 79%, #87bcea 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d0e4f7), color-stop(24%,#73b1e7), color-stop(50%,#0a77d5),
+  color-stop(79%,#539fe1), color-stop(100%,#87bcea)); /* webkit */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* ie */
 }
 
 /* comment styling */
@@ -33,6 +55,9 @@ a { text-decoration:none }
 .comment {
   padding: 9px;
   border-bottom: 1px solid #666; 
+  background: #f5f7f9; /* old browsers */
+
+
 }
 
 #comment_author {
@@ -49,7 +74,7 @@ a { text-decoration:none }
 #comment_text {
 	padding: 0 0 0 45px;
 }
-
+/* Sidebar Styles */
 #sidebar li {
   list-style-type:none;
 }

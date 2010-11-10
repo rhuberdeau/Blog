@@ -1,11 +1,15 @@
 <div id="article-content" class="span-17">
-  <h2><%= article.title %></h2>
-  <p>By <%= article.user.email %>
-  	on <%= article.created_at.strftime("%B %d %Y") %>
-  </p>
-  <p>
-    <%= article.body %>
-  </p>
+  <div class="article_title">
+    <h2><%= article.title %></h2>
+  </div>
+  <div class="article_body">
+    <p>By <%= article.user.email %>
+  	  on <%= article.created_at.strftime("%B %d %Y") %>
+    </p>
+    <p>
+      <%= article.body %>
+    </p>
+  </div>
   <p>Tags:
     <% article.tags.each do |tag|%>
       <%= link_to "#{tag.name}", :controller => :tags, :action => :show, :id => tag.id %>
