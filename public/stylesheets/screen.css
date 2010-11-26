@@ -26,15 +26,8 @@ a img {border:none;}
 
 /* typography.css */
 html {font-size:100.01%;}
-body {font-size:80%;color:#222;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
-background: #d0e4f7; /* old browsers */
-
-background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 24%, #0a77d5 50%, #539fe1 79%, #87bcea 100%); /* firefox */
-
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d0e4f7), color-stop(24%,#73b1e7), color-stop(50%,#0a77d5), color-stop(79%,#539fe1), color-stop(100%,#87bcea)); /* webkit */
-
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#87bcea',GradientType=0 ); /* ie */
-
+body {font-size:80%;color:#222;font-family: Verdana,Arial,Helvetica,sans-serif;
+background: #FFF;
 
 }
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
@@ -114,7 +107,7 @@ form.inline p {margin-bottom:0;}
 .info a {color:#205791;}
 
 /* grid.css */
-.container {width:950px;margin: auto;background: #fff;padding: 0 10px 0 10px }
+.container {width:950px;min-height: 600px; margin: auto;background: #FFF;padding: 0 10px 0 10px;border:1px solid #D3D1C7; }
 .showgrid {background:url(src/grid.png);}
 .column, .span-1, .span-2, .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11, .span-12, .span-13, .span-14, .span-15, .span-16, .span-17, .span-18, .span-19, .span-20, .span-21, .span-22, .span-23, .span-24 {float:left;margin-right:10px;}
 .last {margin-right:0;}
@@ -214,7 +207,7 @@ input.span-24, textarea.span-24 {width:938px;}
 .prepend-22 {padding-left:880px;}
 .prepend-23 {padding-left:920px;}
 .border {padding-right:4px;margin-right:5px;border-right:1px solid #ddd;}
-.colborder {padding-right:24px;margin-right:25px;border-right:1px solid #ddd;}
+.colborder {padding-right:20px;margin-right:20px;}
 .pull-1 {margin-left:-40px;}
 .pull-2 {margin-left:-80px;}
 .pull-3 {margin-left:-120px;}

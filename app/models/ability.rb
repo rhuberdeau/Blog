@@ -9,9 +9,10 @@ class Ability
     elsif user.role? :Moderator
       can :read, :all
       can [:edit, :update], Comment
-elsif user.role? :Author
+    elsif user.role? :Author
        can :read, :all
-       can [:create, :update, :destroy],  Article do |article|
+       can :create, Article
+       can [:update, :destroy],  Article do |article|
           article.try(:user) == user
        end
        can [:edit, :update], Comment
