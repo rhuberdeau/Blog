@@ -28,6 +28,7 @@ gem "devise", "~> 1.1.3"
 gem "cancan"
 gem "simple_form"
 gem "will_paginate", "~> 3.0.pre2"
+gem "wysihat-engine"
 # gem 'bj'
 # gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'

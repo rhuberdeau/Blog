@@ -1,23 +1,22 @@
+<div class="article_index">
 <% @articles.each do |article| %>
-  <div class="article_index">
+  <p class="article_body"> 
   	<div class="article_index_header">
   	  <h2><%= article.title %></h2>
   	  By <%= article.user.email %> on <%= article.created_at.strftime("%B %d %Y") %><br />
   	</div>
   	
-    <%= truncate(article.body, :length => 500) %><br />
-    <div class="show_link">
-  	  <%= link_to 'Show', article %>
-  	</div> 
+    <%= raw truncate(article.body, :length => 500) %><br />
+    <%= link_to 'Show', article %>
   	<% if can? :update, article %>
      | <%= link_to 'Edit', edit_article_path(article) %> |
     <% end %>
     <% if can? :destroy, article %>
       <%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
     <% end %>
-  </div>
+  </p>
 <% end %>
-
+</div>
 <div cass="pagination-links last">
   <%= will_paginate @articles %>
   <br />
