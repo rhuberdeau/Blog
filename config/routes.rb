@@ -6,9 +6,8 @@ Blog::Application.routes.draw do
 
   resources :roles
 
-  devise_for :users
-  resources :users
-
+  devise_for :users,  :controllers => { :registrations => "users/registrations" }
+  
   resources :articles do
     resources :comments
   end

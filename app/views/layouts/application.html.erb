@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+  <title><%= title %> </title>
   <%= stylesheet_link_tag 'scaffold', 'facebox', 'wysihat' %>
   <%= stylesheet_link_tag 'screen', :media => 'screen' %>
   <%= stylesheet_link_tag 'print',  :media => 'print' %>
@@ -13,19 +13,14 @@
 <body>
 <div id ="head_nav">
   <div id="logo">
-  	<h1>Robert Huberdeau</h1>
+  	<h2>Robert Huberdeau</h2>
   </div>
+  <% if user_signed_in? %>  
+      Signed in as <%= current_user.email %>.  
+      <%= link_to "Sign out", destroy_user_session_path %>
+  <% end %> 
 </div>  
 <div class="container">	
-  <div id="header" class="span-24 last">  
-    <% if user_signed_in? %>  
-      Signed in as <%= current_user.email %>. Not you?  
-      <%= link_to "Sign out", destroy_user_session_path %>
-    <% else %>  
-      <%= link_to "Sign up", new_user_registration_path %> or  
-      <%= link_to "Sign in", new_user_session_path %>  
-    <% end %>  
-  </div>
   <div class="span-17 colborder" id="content"> 
   	  <%= yield %>
   </div>
