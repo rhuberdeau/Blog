@@ -95,18 +95,8 @@ class UsersController < ApplicationController
         format.html { render :action => :new, :status => :unprocessable_entity }
       end
     end
+    authorize! :create, @user
   end
   
-  private
-  
-  def accessible_roles
-    @accessible_roles = Role.accessible_by(current_ability,:read)
-  end
- 
-  # Make the current user object available to views
-  #----------------------------------------
-  def get_user
-    @current_user = current_user
-  end
-  
+    
 end

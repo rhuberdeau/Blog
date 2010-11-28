@@ -1,9 +1,11 @@
+<%= link_to 'Home', articles_path %>
+
 <div class="article_index">
 <% @articles.each do |article| %>
   <p class="article_body"> 
   	<div class="article_index_header">
   	  <h2><%= article.title %></h2>
-  	  By <%= article.user.email %> on <%= article.created_at.strftime("%B %d %Y") %><br />
+  	  By <%= article.user.username %> on <%= article.created_at.strftime("%B %d %Y") %><br />
   	</div>
   	
     <%= raw truncate(article.body, :length => 500) %><br />
