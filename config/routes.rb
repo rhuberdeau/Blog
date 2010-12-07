@@ -3,7 +3,9 @@ Blog::Application.routes.draw do
 
   get "admin/index"
   get "admin/show"
-
+  get "articles/contact"  
+  get "articles/about"
+  
   resources :roles
 
   devise_for :users,  :controllers => { :registrations => "users/registrations" }
@@ -13,6 +15,7 @@ Blog::Application.routes.draw do
   end
   
     
+       
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

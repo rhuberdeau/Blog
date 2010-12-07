@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :about, :contact]
   # GET /articles
   # GET /articles.xml
     
@@ -17,12 +17,21 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @title = @article.title
+    @content = @article.summary
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @article }
     end
   end
-
+  
+  def contact
+  	@article = Article.first(:conditions => ['title = ?', "Contact"])
+  end
+  
+  def about
+  	@users = User.find(:all)
+  end
+  
   # GET /articles/new
   # GET /articles/new.xml
   def new

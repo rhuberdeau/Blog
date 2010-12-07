@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body, :tag_names, :published, :user_id
+  attr_accessible :title, :body, :tag_names, :published, :user_id, :summary
     	
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
@@ -11,6 +11,7 @@ class Article < ActiveRecord::Base
   validates_uniqueness_of :title
   
   named_scope :published, lambda { {:conditions => ['published = ?', true]} }
+  
   
   attr_writer :tag_names	
   attr_reader :per_page

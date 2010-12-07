@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101127210428) do
+ActiveRecord::Schema.define(:version => 20101207003029) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20101127210428) do
     t.datetime "updated_at"
     t.boolean  "published"
     t.integer  "user_id"
+    t.text     "summary"
   end
 
   add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
@@ -87,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20101127210428) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.text     "bio"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

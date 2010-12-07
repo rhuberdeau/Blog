@@ -1,8 +1,6 @@
-<%= link_to 'Home', articles_path %>
-
 <div class="article_index">
 <% @articles.each do |article| %>
-  <p class="article_body"> 
+  
   	<div class="article_index_header">
   	  <h2><%= article.title %></h2>
   	  By <%= article.user.username %> on <%= article.created_at.strftime("%B %d %Y") %><br />
@@ -16,7 +14,7 @@
     <% if can? :destroy, article %>
       <%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
     <% end %>
-  </p>
+    <br />
 <% end %>
 </div>
 <div cass="pagination-links last">

@@ -1,21 +1,82 @@
 a { text-decoration:none }
 #head_nav{
-  background:none repeat scroll 0 0 #CCCCCC;
+  background:none repeat scroll 0 0 #1e1b1a;
   border-bottom:5px solid #383332;
   padding:0;
-  
+ /* text-align: right; */
 }
+
+/* Top Nav */
 #logo{
   margin:0 auto;
-  padding:0 0 20px;
+  padding-top: 20px;
   color: #fff;
   width:980px;
 }
-#logo p{
-  
-padding:15px 0 0 10px;
-max-width:590px;
+#logo h2 {
+  color: #fff;
+  margin-bottom: 0px;
 }
+#logo p{
+  padding:15px 0 0 10px;
+  max-width:590px;
+}
+#navigation {
+  margin: auto;
+  width: 970px;
+  height: 43px;
+}
+ul#topnav {
+	background: #111;
+	margin: 0; padding: 0;
+	float: left;
+	width: 970px;
+	list-style: none;
+	position: relative; /*--Set relative positioning on the unordered list itself - not on the list item--*/
+	font-size: 1.2em;
+	color: #fff;
+}
+ul#topnav li {
+	float: left;
+	margin: 0; padding: 0;
+	
+}
+ul#topnav li a {
+	padding: 10px 15px;
+	display: block;
+	color: #fff;
+	text-decoration: none;
+}
+ul#topnav li:hover { background: #AAA  }
+
+ul#topnav li span {
+	float: left;
+	padding: 15px 0;
+	position: absolute;
+	left: 0; top:35px;
+	display: none; /*--Hide by default--*/
+	width: 970px;
+	background: #1376c9;
+	color: #000;
+	/*--Bottom right rounded corner--*/
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	/*--Bottom left rounded corner--*/
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+ul#topnav li:hover span { display: block; } /*--Show subnav on hover--*/
+ul#topnav li span a { display: inline; } /*--Since we declared a link style on the parent list link, we will correct it back to its original state--*/
+ul#topnav li span a:hover {text-decoration: underline;}
+.user_session {
+  float: right;
+}
+
+
+
+/* Content */
 #content h1{
   font-size:3em;
   line-height:1;
@@ -36,15 +97,18 @@ max-width:590px;
  
 }
 .article_index_header {
-  margin-bottom: 25px;  
+  margin-bottom: 15px;  
 }
 
 /* Article Show Page */
-.article_title {
- 
-}
 #article-content{
   padding:0 1.5em 0 1.5em;
+}
+#article-content h1{
+  font-size:3em;
+line-height:1;
+margin-bottom:0;
+padding-left: 0;
 }
 /* comment styling */
 
