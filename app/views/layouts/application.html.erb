@@ -2,12 +2,15 @@
 <html>
 <head>
   <title><%= title %> </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="description" content= "<%= metadescription %>" />
   <%= stylesheet_link_tag 'scaffold', 'facebox', 'wysihat' %>
   <%= stylesheet_link_tag 'screen', :media => 'screen' %>
   <%= stylesheet_link_tag 'print',  :media => 'print' %>
   <!--[if lt IE 8]><%= stylesheet_link_tag 'ie' %><![endif]-->
   <%= javascript_include_tag :defaults, 'wysihat_engine_pack' %>
   <%= csrf_meta_tag %>
+  
 </head>
 <body>
 <body>
@@ -15,13 +18,18 @@
   <div id="logo">
   	<h2>Robert Huberdeau</h2>
   </div>
-  <% if user_signed_in? %>  
-      Signed in as <%= current_user.email %>.  
-      <%= link_to "Sign out", destroy_user_session_path %>
-  <% end %> 
+  <div id= "navigation">
+  	<%= render(:partial => "shared/top_nav" ) %>
+  </div>	
 </div>  
 <div class="container">	
-  <div class="span-17 colborder" id="content"> 
+  <div class="span-17 colborder" id="content">
+  	<% if user_signed_in? %>
+      <div class= "user_session">  
+        Signed in as <%= current_user.username %>.  
+        <%= link_to "Sign out", destroy_user_session_path %> 
+      </div>
+  <% end %>  
   	  <%= yield %>
   </div>
   <div class="span-4 last" id="sidebar">

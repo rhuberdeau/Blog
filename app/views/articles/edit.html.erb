@@ -8,13 +8,20 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :summary %><br />
+    Summary is used as the meta description. Please keep it brief.
+    <%= f.text_area :summary %>
+  </div>
+  <div class="field">
     <%= f.label :body %><br />
     <%= f.wysihat_editor :body %>
   </div>
-  <div class="field">
-    <%= f.label :published %><br />
-    <%= f.check_box :published %>
-  </div>
+  <% if can? :publish, @article %>
+    <div class="field">
+      <%= f.label :published %><br />
+      <%= f.check_box :published %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :tag_names %><br />
     <%= f.text_field :tag_names %>
