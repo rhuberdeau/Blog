@@ -11,8 +11,7 @@ class Article < ActiveRecord::Base
   validates_uniqueness_of :title
   
   named_scope :published, lambda { {:conditions => ['published = ?', true]} }
-  
-  
+    
   attr_writer :tag_names	
   attr_reader :per_page
   
@@ -27,7 +26,7 @@ class Article < ActiveRecord::Base
   def to_param
     "#{id}-#{title.gsub(/[^a-z0-9]+/i, '-')}"
   end
-
+    
   private  
   def assign_tags  
     if @tag_names  

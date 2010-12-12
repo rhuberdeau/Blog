@@ -1,0 +1,12 @@
+<% if @articles.nil? %>
+  <p>Sorry, no posts were found</p>
+<% else %>	
+
+<% @article_months.keys.sort.each do |month| %>  
+<h2><%= month.strftime("%B %Y") %></h2>  
+  <% for article in @article_months[month] %> 
+    <p><b><%=link_to "#{article.title}", article %></b></p>  
+  <% end %>  
+<% end %>  
+<% end %>
+

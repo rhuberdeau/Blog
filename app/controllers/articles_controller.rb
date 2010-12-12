@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show, :about, :contact]
+  before_filter :authenticate_user!, :except => [:index, :show, :about, :contact, :archive]
   # GET /articles
   # GET /articles.xml
     
@@ -30,6 +30,11 @@ class ArticlesController < ApplicationController
   
   def about
   	@users = User.find(:all)
+  end
+  
+  def archive
+  	@articles = Article.published
+  	@article_months = @articles.group_by { |a| a.created_at.beginning_of_month }
   end
   
   # GET /articles/new
@@ -99,8 +104,5 @@ class ArticlesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-   
-  
-    
+      
 end
