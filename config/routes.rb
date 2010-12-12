@@ -3,9 +3,11 @@ Blog::Application.routes.draw do
 
   get "admin/index"
   get "admin/show"
-  get "articles/contact"  
-  get "articles/about"
+  match "/contact" => "articles#contact", :as => :contact
+  match "/about" => "articles#about", :as => :about
+  match "/archive" => "articles#archive", :as => :archive
   
+    
   resources :roles
 
   devise_for :users,  :controllers => { :registrations => "users/registrations" }
@@ -14,7 +16,8 @@ Blog::Application.routes.draw do
     resources :comments
   end
   
-    
+  match "/sitemap" => "sitemap#index", :as => :sitemap
+ 
        
   # The priority is based upon order of creation:
   # first created -> highest priority.
