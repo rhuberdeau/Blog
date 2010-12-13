@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
   end
   
   def about
-  	@users = User.find(:all)
+  	@users = User.approved
   end
   
   def archive

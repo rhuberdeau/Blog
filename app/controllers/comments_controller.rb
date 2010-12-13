@@ -53,7 +53,6 @@ class CommentsController < ApplicationController
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
     end
-    
   end
 
   # PUT /comments/1
