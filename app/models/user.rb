@@ -5,9 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_id, :username, :bio
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role_id, :username, :bio, :approved
   has_and_belongs_to_many :roles
   has_many :articles
+  
+  named_scope :approved, lambda { {:conditions => ['approved = ?', true]} }
   
   before_create :setup_role
   

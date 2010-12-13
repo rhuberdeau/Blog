@@ -20,7 +20,12 @@
 
   <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></p>
-
+  
+  <% if can? :approve, @user %>
+    <p><%= f.label :approved %><br />
+  	   <%= f.check_box :approved %> 
+    </p>
+  <% end %>
   <p><%= f.submit "Update" %></p>
 <% end %>
 
