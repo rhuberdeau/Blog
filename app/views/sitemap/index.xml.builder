@@ -1,4 +1,6 @@
-xml.urlset do
+xml.instruct!
+xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
+  	
   for a in @articles
     xml.url do
       xml.loc("http://www.roberthuberdeau.com", (url_for(a)))
