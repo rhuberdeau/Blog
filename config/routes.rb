@@ -16,7 +16,7 @@ Blog::Application.routes.draw do
     resources :comments
   end
   
-  match "/sitemap" => "sitemap#index", :as => :sitemap
+  match "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => {:format => :xml}
  
        
   # The priority is based upon order of creation:
