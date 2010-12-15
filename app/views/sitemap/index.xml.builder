@@ -1,9 +1,12 @@
 xml.instruct!
 xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
-  	
+  xml.url do
+    xml.loc "http://www.roberthuberdeau.com"
+    xml.priority 1.0
+  end  	
   for a in @articles
     xml.url do
-      xml.loc("http://www.roberthuberdeau.com", (url_for(a)))
+      xml.loc article_url(a)
       xml.changefreq("weekly")
       xml.priority("0.7")
       if a.updated_at.nil?
