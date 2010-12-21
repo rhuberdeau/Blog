@@ -1,4 +1,7 @@
-<% @users.each do |user| %>
-  <%= user.username%><br />
-  <%= user.bio %>	
-<% end %>
+<p id="notice"><%= notice %></p>
+<div class = "user_info">
+  <% @users.each do |user| %>
+    <p><%= user.username%><br />
+    <%= user.bio %></p>	
+  <% end %>
+</div>
