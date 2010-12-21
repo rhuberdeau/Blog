@@ -1,11 +1,12 @@
 <div id="article-content" class="span-17">
   <div class="article_title">
-    <h1><%= article.title %></h1>
-  </div>
-  <div class="article_body">
+  	<h1><%= article.title %></h1>
     <p>By <%= article.user.username %>
   	  on <%= article.created_at.strftime("%B %d, %Y") %>
     </p>
+  </div>
+    <iframe    src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fexample.com%2Fpage%2Fto%2Flike&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+  <div class="article_body">
     <p>
       <%= raw article.body %>
     </p>
