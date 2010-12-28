@@ -18,5 +18,12 @@ module ApplicationHelper
   	end
   end
   
-  
+  def keywords
+  	base_keywords = "rails 3 tutorial, rails 3 tutorials, rails tutorial, ruby on rails tutorial, tutorials"
+  	if @keywords.nil?
+  		base_keywords
+  	else
+  		"#{@keywords}, #{base_keywords}"
+  	end
+  end 
 end
