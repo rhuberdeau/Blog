@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @title = @article.title
     @content = @article.summary
+    @keywords = @article.title
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @article }
