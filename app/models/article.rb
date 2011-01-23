@@ -11,7 +11,7 @@ class Article < ActiveRecord::Base
   validates_uniqueness_of :title
   
   named_scope :published, lambda { {:conditions => ['published = ?', true]} }
-    
+      
   attr_writer :tag_names	
   attr_reader :per_page
   

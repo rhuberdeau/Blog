@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.xml
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new(:article=>@article)
     @title = @article.title
     @content = @article.summary
     @keywords = @article.title
@@ -34,8 +35,11 @@ class ArticlesController < ApplicationController
   end
   
   def archive
-  	@articles = Article.published
-  	@article_months = @articles.group_by { |a| a.created_at.beginning_of_month }
+  	#@articles = Article.published
+  	#@article_months = @articles.group_by { |a| a.created_at.beginning_of_month }
+  	date = params[:year] + (params[:month] ? '-' + params[:month] : '') + (params[:day] ? '-' + params[:day] : '') + '%'
+    @articles = Article.all(:conditions => ['created_at like ? and published = ?', date, true])
+    @size = @articles.size
   end
   
   # GET /articles/new

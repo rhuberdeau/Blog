@@ -5,8 +5,9 @@ Blog::Application.routes.draw do
   get "admin/show"
   match "/contact" => "articles#contact", :as => :contact
   match "/about" => "articles#about", :as => :about
-  match "/archive" => "articles#archive", :as => :archive
-  
+  #match "/archive" => "articles#archive", :as => :archive
+  #match "/:year(/:month(/:day))" => "articles#archive", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
+  match "/:year(/:month(/:day))" => "articles#archive", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
     
   resources :roles
 

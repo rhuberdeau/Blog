@@ -1,5 +1,8 @@
-module ApplicationHelper
+require 'recaptcha'
 
+module ApplicationHelper
+  
+  
   def title
     base_title = "Robert's Rails 3 tips and tutorials"
     if @title.nil?

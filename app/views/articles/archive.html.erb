@@ -1,12 +1,24 @@
-<% if @articles.nil? %>
-  <p>Sorry, no posts were found</p>
-<% else %>	
-
-<% @article_months.keys.sort.each do |month| %>  
-<h2><%= month.strftime("%B %Y") %></h2>  
-  <% for article in @article_months[month] %> 
-    <p><b><%=link_to "#{article.title}", article %></b></p>  
-  <% end %>  
-<% end %>  
-<% end %>
+<div class="article_index">
+  <% if @size = 0  %>
+    <p>Sorry, no posts were found</p>
+  <% end %>	
+  	
+  <% @articles.each do |article| %>
+  
+  	<div class="article_index_header">
+  	  <h2><%= article.title %></h2>
+  	  Published <%= article.created_at.strftime("%B %d %Y") %><br />
+  	</div>
+  	
+    <%= raw truncate(article.body, :length => 500) %><br />
+    <%= link_to 'Show', article %>
+  	<% if can? :update, article %>
+     | <%= link_to 'Edit', edit_article_path(article) %> |
+    <% end %>
+    <% if can? :destroy, article %>
+      <%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
+    <br />
+  <% end %>
+</div>
 
