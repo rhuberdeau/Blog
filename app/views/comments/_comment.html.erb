@@ -1,3 +1,4 @@
+<% unless comment.id.nil? %>
 <% div_for comment do %>
   <div id = "comment_author">
   	<%= comment.name %>
@@ -14,4 +15,5 @@
   <div id = "comment_text">
 	<p><%= comment.body %></p>
   </div>
+<% end %>
 <% end %>

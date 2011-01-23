@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.xml
   def new
-    @comment = Comment.new
+    @comment = @post.comments.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,16 +44,21 @@ class CommentsController < ApplicationController
   def create
   	@article = Article.find(params[:article_id])
     @comment = @article.comments.build(params[:comment])
-    respond_to do |format|
-      if @comment.save
+    if verify_recaptcha(:model => @comment) && @comment.save
+      respond_to do |format|
         format.html { redirect_to(@article, :notice => 'Comment was successfully created.') }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
-      else
-        format.html { redirect_to(@article, :notice => 'Comment could not be saved. Please fill in all fields')}
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
+      else
+      	respond_to do |format|
+          format.html { render :template => "articles/show", :notice => 'There was an error with the recaptcha. Please re-enter and submit.' }
+      	  format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+  	    end
     end
   end
+  
+  
+  
 
   # PUT /comments/1
   # PUT /comments/1.xml
