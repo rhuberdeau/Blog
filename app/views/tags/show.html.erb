@@ -2,5 +2,21 @@
 
 <h2>Articles with tag <%= @tag.name %></h2>
 
-<%= render @articles %>
+<% @articles.each do |article| %>
+  
+  	<div class="article_index_header">
+  	  <h2><%= article.title %></h2>
+  	  By <%= article.user.username %> on <%= article.created_at.strftime("%B %d %Y") %><br />
+  	</div>
+  	
+    <%= raw truncate(article.body, :length => 500) %><br />
+    <%= link_to 'Show', article %>
+  	<% if can? :update, article %>
+     | <%= link_to 'Edit', edit_article_path(article) %> |
+    <% end %>
+    <% if can? :destroy, article %>
+      <%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
+    <br />
+<% end %>
 
