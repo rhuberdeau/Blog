@@ -28,10 +28,12 @@ class ArticlesController < ApplicationController
   
   def contact
   	@article = Article.first(:conditions => ['title = ?', "Contact"])
+  	@title = "Contact me- Robert Huberdeau"
   end
   
   def about
   	@users = User.approved
+  	@title = "About me- Robert Huberdeau"
   end
   
   def archive
