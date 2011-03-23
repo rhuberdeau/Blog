@@ -9,8 +9,7 @@
 </div>
 
 
-<%= raw recaptcha_tags %>
-<%= form_for ([@article, @comment]) do |f| %>
+<%= form_for([@article, @comment]) do |f| %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -22,6 +21,9 @@
   <div class="field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>
+  </div>
+  <div id="captcha">
+	<%= render '/shared/recaptcha' %>
   </div>
   <p><%= f.submit %></p>
 <% end %>
