@@ -41,19 +41,34 @@ class CommentsController < ApplicationController
 
   # POST /comments
   # POST /comments.xml
+  
+  
+  # POST /comments
+  # POST /comments.xml
   def create
   	@article = Article.find(params[:article_id])
     @comment = @article.comments.build(params[:comment])
-    respond_to do |format|
-      if verify_recaptcha(:model => @comment, :message => "Oh! It's error with reCAPTCHA!") && @comment.save
-        format.html { redirect_to(@article, :notice => 'Comment was successfully created.') }
-        format.xml  { render :xml => @article, :status => :created, :location => @article }
-      else
+    
+    if verify_recaptcha(request.remote_ip, params)[:status] == 'false'
+      @notice = "captcha incorrect"
+      respond_to do |format|
         format.html { render :template => "articles/show", :notice => 'There was an error with the recaptcha. Please re-enter and submit.' }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-  	  end
+      end
+    elsif
+      respond_to do |format|
+        if @comment.save
+          format.html { redirect_to(@article, :notice => 'Comment was successfully created.') }
+          format.xml  { render :xml => @article, :status => :created, :location => @article }
+        else
+          format.html { render :template => "articles/show", :notice => 'There was an error with the recaptcha. Please re-enter and submit.' }
+        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+        end
+      end
     end
   end
+
+  
   
   # PUT /comments/1
   # PUT /comments/1.xml
