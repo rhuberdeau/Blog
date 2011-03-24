@@ -18,7 +18,7 @@ Blog::Application.routes.draw do
   end
   
   match "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => {:format => :xml}
- 
+  match "/allcomments" => "comments#getall", :as => :getall, :defaults => {:format => :html}
        
   # The priority is based upon order of creation:
   # first created -> highest priority.

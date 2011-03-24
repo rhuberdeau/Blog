@@ -1,0 +1,6 @@
+<% @comments.each do |comment| %>
+  <p>
+    <%= link_to "#{comment.article.title}", comment.article %>
+  	<%= comment.name %>
+  </p>
+<% end %>
