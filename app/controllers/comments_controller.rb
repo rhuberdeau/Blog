@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:create]
+  before_filter :authenticate_user!, :except => [:create, :getall]
   # GET /comments
   # GET /comments.xml
   def index
@@ -96,6 +96,12 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(@article, :notice => 'Comment was successfully deleted') }
       format.xml  { head :ok }
+    end
+  end
+  def getall
+  	@comments = Comment.all(:order => "Created_at DESC")
+  	respond_to do |format|
+      format.html { render :layout => false }
     end
   end
 end
