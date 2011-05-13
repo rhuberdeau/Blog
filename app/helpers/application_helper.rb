@@ -2,7 +2,7 @@ module ApplicationHelper
   
   
   def title
-    base_title = "Robert's Rails 3 tips and tutorials"
+    base_title = "Robert's Quality Assurance tips and rails 3 tutorials"
     if @title.nil?
       base_title
     else
@@ -20,7 +20,7 @@ module ApplicationHelper
   end
   
   def keywords
-  	base_keywords = "rails 3 tutorial, rails 3 tutorials, rails tutorial, ruby on rails tutorial, tutorials"
+  	base_keywords = "quality assurance, rails 3 tutorial, rails 3 tutorials, rails tutorial, ruby on rails tutorial, tutorials"
   	if @keywords.nil?
   		base_keywords
   	else

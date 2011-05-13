@@ -6,7 +6,7 @@ gem 'rails', '3.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production, :staging do
-  gem "pg"
+  gem "pg", '0.10.1'
 end
 
 group :development, :test do
@@ -27,7 +27,7 @@ gem "friendly_id", "3.1.7"
 gem "devise", "~> 1.1.3"
 gem "cancan"
 gem "simple_form"
-gem "will_paginate", "~> 3.0.pre2"
+gem 'kaminari'
 gem "wysihat-engine"
 gem "recaptcha", :require => "recaptcha/rails"
 # gem 'bj'

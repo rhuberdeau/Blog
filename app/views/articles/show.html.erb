@@ -1,14 +1,33 @@
 <p id="notice"><%= notice %></p>
-
-<%= render @article %>
-
+<iframe   
+src="http://www.facebook.com/plugins/like.php?href=www.roberthuberdeau.com&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true">
+</iframe>
+<div id="article-content" class="span-17">
+  <div class="article_title">
+  <h1><%= @article.title %></h1>
+  </div>
+ <div class="article_body">
+    <p>By <%= @article.user.username %>
+    on <%= @article.created_at.strftime("%B %d, %Y") %>
+    </p>
+    <p>
+      <%= raw @article.body %>
+    </p>
+    <p>Tags:
+    <% @article.tags.each do |tag|%>
+      <%= tag.name %>
+    <% end %>
+    </p>
+  </div>
+  <% if can? :update, @article%>
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+  <% end %>
+  <%= link_to 'Back', articles_path %>
+</div>
 <h2>Comments</h2>
-
-<div id="comments">
+<div id ="comments">
   <%= render :partial => @article.comments %>
 </div>
-
-
 <%= form_for([@article, @comment]) do |f| %>
   <div class="field">
     <%= f.label :name %><br />
@@ -27,11 +46,3 @@
   </div>
   <p><%= f.submit %></p>
 <% end %>
-
-<% if can? :update, @article %>
-  <%= link_to 'Edit', edit_article_path(@article) %> |
-<% end %>
-
-<%= link_to 'Back', articles_path %>
-
-

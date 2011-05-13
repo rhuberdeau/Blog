@@ -1,26 +1,7 @@
-<div class="article_index">
-<% @articles.each do |article| %>
-  
-  	<div class="article_index_header">
-  	  <h2><%= article.title %></h2>
-  	  By <%= article.user.username %> on <%= article.created_at.strftime("%B %d %Y") %><br />
-  	</div>
-  	
-    <%= raw truncate(article.body, :length => 500) %><br />
-    <%= link_to 'Show', article %>
-  	<% if can? :update, article %>
-     | <%= link_to 'Edit', edit_article_path(article) %> |
-    <% end %>
-    <% if can? :destroy, article %>
-      <%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
-    <% end %>
-    <br />
+<% if can? :create, @article %>
+  <%= link_to 'New Article', new_article_path %>
 <% end %>
+<div class="article_index">
+  <%= render @articles %>
 </div>
-<div cass="pagination-links last">
-  <%= will_paginate @articles %>
-  <br />
-  <% if can? :create, @article %>
-    <%= link_to 'New Article', new_article_path %>
-  <% end %>
-</div>
+<%= paginate @articles %>
