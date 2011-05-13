@@ -10,7 +10,8 @@ class Article < ActiveRecord::Base
   validates_presence_of :title, :body
   validates_uniqueness_of :title
   
-  named_scope :published, lambda { {:conditions => ['published = ?', true]} }
+  scope :published, lambda { {:conditions => ['published = ?', true]} }
+  scope :ordered, lambda {{:order => "Created_at DESC" }}
       
   attr_writer :tag_names	
   attr_reader :per_page
