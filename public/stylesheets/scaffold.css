@@ -77,19 +77,27 @@ ul#topnav li span a:hover {text-decoration: underline;}
 
 
 /* Content */
+#content {
+  float: left;
+  width: 600px;
+}
 #content h1{
   font-size:3em;
   line-height:1;
   padding-left:.5em;
   margin-bottom: 0;	
 }
+h2 a:link{
+  text-decoration:none;
+}
+
 /* Article Index Page */
 .article_index {
   padding:0 1.5em 0 1.5em;
   margin-bottom:1.5em;
 }
 .article_body{
-  margin-bottom:1.5em;
+  float: left;
 }
 .article_index h2 {
   font-size:2em;
@@ -139,6 +147,11 @@ padding-left: 0;
 	padding: 0 0 0 45px;
 }
 /* Sidebar Styles */
+#sidebar {
+  float: right;
+  width: 350px;
+}
+
 #sidebar li {
   list-style-type:none;
 }
