@@ -39,7 +39,7 @@
   </div>	
 </div>  
 <div class="container">	
-  <div class="span-17 colborder" id="content">
+  <div id="content">
   	<% if user_signed_in? %>
       <div class= "user_session">  
         Signed in as <%= current_user.username %>.  
@@ -48,11 +48,8 @@
   <% end %>  
   	  <%= yield %>
   </div>
-  <div class="span-4 last" id="sidebar">
+  <div id="sidebar">
   	<%= render(:partial => 'shared/side') %>
-  	<div class="sidead">
-  	  
-    </div>
   </div>
 </div>
 
