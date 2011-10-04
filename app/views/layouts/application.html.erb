@@ -30,28 +30,32 @@
 </head>
 <body>
 <body>
-<div id ="head_nav">
-  <div id="logo">
-  	<h2>Robert Huberdeau</h2>
-  </div>
-  <div id= "navigation">
-  	<%= render(:partial => "shared/top_nav" ) %>
-  </div>	
-</div>  
-<div class="container">	
+<div id="pagewrap">
+  <div id="header">
+    <div id = "site-logo">	Robert Huberdeau</div>
+  	<h2 id = "site-description">Ruby on Rails and Quality Assurance</h2>
+  	<ul id="main-nav" class="clearfix">
+      <%= render(:partial => "shared/top_nav" ) %>
+  	</ul>
+ </div>
+  	  	
   <div id="content">
-  	<% if user_signed_in? %>
+    <% if user_signed_in? %>
       <div class= "user_session">  
         Signed in as <%= current_user.username %>.  
         <%= link_to "Sign out", destroy_user_session_path %> 
       </div>
-  <% end %>  
-  	  <%= yield %>
+   <% end %>  
+   <%= yield %>
   </div>
-  <div id="sidebar">
-  	<%= render(:partial => 'shared/side') %>
+  
+  <div id ="sidebar">
+    <%= render(:partial => 'shared/side') %>
+  </div>
+    
+  <div id ="footer">
+    <p>footer!</p>
   </div>
 </div>
-
 </body>
 </html>
