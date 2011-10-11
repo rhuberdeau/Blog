@@ -28,7 +28,7 @@ class TutorialsController < ApplicationController
   # GET /tutorials/new.xml
   def new
     @tutorial = Tutorial.new
-	@tutorial = "New tutorial"
+	@title = "New tutorial"
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @tutorial }
