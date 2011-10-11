@@ -1,13 +1,15 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
-$(document).ready(function(){
+jQuery.noConflict();
+
+jQuery(document).ready(function(){
   var currentPosition = 0;
   var slideWidth = 560;
-  var slides = $('.slide');
+  var slides = jQuery('.slide');
   var numberOfSlides = slides.length;
 
   // Remove scrollbar in JS
-  $('#slidesContainer').css('overflow', 'hidden');
+  jQuery('#slidesContainer').css('overflow', 'hidden');
 
   // Wrap all .slides with #slideInner div
   slides
@@ -19,10 +21,10 @@ $(document).ready(function(){
   });
 
   // Set #slideInner width equal to total width of all slides
-  $('#slideInner').css('width', slideWidth * numberOfSlides);
+  jQuery('#slideInner').css('width', slideWidth * numberOfSlides);
 
   // Insert left and right arrow controls in the DOM
-  $('#slideshownav')
+  jQuery('#slideshownav')
     .prepend('<span class="control" id="leftControl">Move left</span>')
     .append('<span class="control" id="rightControl">Move right</span>');
 
@@ -30,16 +32,16 @@ $(document).ready(function(){
   manageControls(currentPosition);
 
   // Create event listeners for .controls clicks
-  $('.control')
+  jQuery('.control')
     .bind('click', function(){
     // Determine new position
-      currentPosition = ($(this).attr('id')=='rightControl')
+      currentPosition = (jQuery(this).attr('id')=='rightControl')
     ? currentPosition+1 : currentPosition-1;
 
       // Hide / show controls
       manageControls(currentPosition);
       // Move slideInner using margin-left
-      $('#slideInner').animate({
+      jQuery('#slideInner').animate({
         'marginLeft' : slideWidth*(-currentPosition)
       });
     });
@@ -47,10 +49,10 @@ $(document).ready(function(){
   // manageControls: Hides and shows controls depending on currentPosition
   function manageControls(position){
     // Hide left arrow if position is first slide
-    if(position==0){ $('#leftControl').hide() }
-    else{ $('#leftControl').show() }
+    if(position==0){ jQuery('#leftControl').hide() }
+    else{ jQuery('#leftControl').show() }
     // Hide right arrow if position is last slide
-    if(position==numberOfSlides-1){ $('#rightControl').hide() }
-    else{ $('#rightControl').show() }
+    if(position==numberOfSlides-1){ jQuery('#rightControl').hide() }
+    else{ jQuery('#rightControl').show() }
     }
   });
