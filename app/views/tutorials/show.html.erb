@@ -1,0 +1,31 @@
+<div id="breadcrumbs">
+  <%= link_to "Tutorials", tutorials_path %>--<%= @tutorial.name %>	
+</div>
+
+<div class="article-title">
+  <h1> <%= @tutorial.name %> </h1>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Summary:</b>
+  <%= @tutorial.summary %>
+</p>
+<% if can? :create, @tutorial %>
+  <p>
+    Create a new step
+    <%= link_to 'New Step', new_tutorial_step_path(@tutorial) %>
+  </p>
+<% end %>
+<% if can? :edit, @tutorial %>
+  <%= link_to 'Edit', edit_tutorial_path(@tutorial) %> |
+<% end %>
+<div id="slideshow">
+  <div id="slideshownav">
+  	<!--This is filled with the forward and backward links by jquery  -->
+  </div>
+  <div id="slidesContainer">
+    <%= render :partial => @tutorial.steps %>
+  </div>
+</div>

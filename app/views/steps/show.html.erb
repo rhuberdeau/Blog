@@ -1,0 +1,29 @@
+<div id="breadcrumbs">
+  <%= link_to "Tutorials", tutorials_path %>--<%= link_to "#{@tutorial.name}" %>	
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<h2>Step <%= @step.position %></h2>
+<p>
+  <b>Tutorial:</b>
+  <%= @tutorial.name %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @step.body %>
+</p>
+
+<%= link_to image_tag("/images/Knob Fast Rewind.png"), tutorial_step_path(@tutorial, previous_link) %> 
+<img src="/images/Knob Pause.png"/>
+<%= link_to image_tag("/images/Knob Play.png"), tutorial_step_path(@tutorial, next_link) %> 
+<%= link_to image_tag("/images/Knob Fast Forward.png"), tutorial_step_path(@tutorial, next_link) %> 
+
+<% if can? :edit, @step %>
+  <%= link_to 'Edit', edit_tutorial_step_path(@tutorial, @step) %> |
+<% end %>
+<% if can? :destroy, @step %>
+  <%= link_to 'Destroy', tutorial_step_path(@tutorial, @step), :confirm => 'Are you sure?', :method => :delete %> | 
+<% end %>
+<%= link_to 'Back', @tutorial %>

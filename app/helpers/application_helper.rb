@@ -26,5 +26,5 @@ module ApplicationHelper
   	else
   		"#{@keywords}, #{base_keywords}"
   	end
-  end 
+  end
 end
