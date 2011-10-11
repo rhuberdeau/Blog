@@ -1,0 +1,32 @@
+<h1>Listing steps</h1>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th>Position</th>
+    <th>Tutorial</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @steps.each do |step| %>
+  <tr>
+    <td><%= step.body %></td>
+    <td><%= step.position %></td>
+    <td><%= step.tutorial_id %></td>
+    <td><%= link_to 'Show', step %></td>
+    <% if can? :edit, @step %>
+      <td><%= link_to 'Edit', edit_step_path(step) %></td>
+    <% end %>
+    <% if can? :destroy, @step %>
+      <td><%= link_to 'Destroy', step, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if can? :create, @step %>
+  <%= link_to 'New Step', new_step_path %>
+<% end %>

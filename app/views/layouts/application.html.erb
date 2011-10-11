@@ -8,11 +8,8 @@
   <META name="y_key" content="8d25c37de00d4ec6" />
   <meta name="msvalidate.01" content="2197772BABCA691F6E16B4FFD6F1CEDD" />
   <meta name="google-site-verification" content="6MojtDLkmdHZbn2f7suKcVZbMEd8w14IPZ5EXu2O4EI" />
-  <%= stylesheet_link_tag 'scaffold', 'facebox', 'wysihat' %>
-  <%= stylesheet_link_tag 'screen', :media => 'screen' %>
-  <%= stylesheet_link_tag 'print',  :media => 'print' %>
-  <!--[if lt IE 8]><%= stylesheet_link_tag 'ie' %><![endif]-->
-  <%= javascript_include_tag :defaults, 'wysihat_engine_pack' %>
+  <%= stylesheet_link_tag 'scaffold', 'blog', 'facebox', 'wysihat' %>
+  <%= javascript_include_tag 'wysihat_engine_pack', 'jquery', 'application'  %>
   <%= csrf_meta_tag %>
   <script type="text/javascript">
 
@@ -45,7 +42,7 @@
         Signed in as <%= current_user.username %>.  
         <%= link_to "Sign out", destroy_user_session_path %> 
       </div>
-   <% end %>  
+   <% end %>
    <%= yield %>
   </div>
   

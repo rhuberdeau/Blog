@@ -1,4 +1,9 @@
 Blog::Application.routes.draw do
+  
+  resources :tutorials do
+  	resources :steps
+  end
+
   resources :tags
 
   get "admin/index"
