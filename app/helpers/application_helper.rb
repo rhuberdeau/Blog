@@ -1,6 +1,4 @@
 module ApplicationHelper
-  
-  
   def title
     base_title = "Robert's Quality Assurance tips and rails 3 tutorials"
     if @title.nil?
@@ -27,4 +25,10 @@ module ApplicationHelper
   		"#{@keywords}, #{base_keywords}"
   	end
   end
+  
+  def coderay(text)  
+    text.gsub(/\<code( lang="(.+?)")?\>(.+?)\<\/code\>/m) do  
+      CodeRay.scan($3, $2).div(:css => :class)  
+    end  
+  end 
 end

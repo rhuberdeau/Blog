@@ -3,7 +3,7 @@
 <%= form_for([@tutorial, @step]) do |f| %>
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.wysihat_editor :body %>
   </div>
   <p><%= f.submit %></p>
 <% end %>

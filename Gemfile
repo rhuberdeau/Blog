@@ -29,6 +29,7 @@ gem "simple_form"
 gem 'kaminari'
 gem "wysihat-engine"
 gem "recaptcha", :require => "recaptcha/rails"
+gem "coderay"
 # gem 'bj'
 # gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
