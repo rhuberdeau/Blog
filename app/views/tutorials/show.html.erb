@@ -9,7 +9,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= @tutorial.summary %>
+  <%= raw @tutorial.summary %>
 </p>
 <% if can? :create, @tutorial %>
   <p>
