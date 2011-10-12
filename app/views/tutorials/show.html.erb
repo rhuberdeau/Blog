@@ -9,7 +9,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Summary:</b>
   <%= @tutorial.summary %>
 </p>
 <% if can? :create, @tutorial %>
@@ -19,7 +18,7 @@
   </p>
 <% end %>
 <% if can? :edit, @tutorial %>
-  <%= link_to 'Edit', edit_tutorial_path(@tutorial) %> |
+  <%= link_to 'Edit Tutorial', edit_tutorial_path(@tutorial) %> |
 <% end %>
 <div id="slideshow">
   <div id="slideshownav">
