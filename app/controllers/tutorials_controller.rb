@@ -15,7 +15,7 @@ class TutorialsController < ApplicationController
   # GET /tutorials/1.xml
   def show
   	@tutorial = Tutorial.find_by_permalink(params[:id])
-    @steps = @tutorial.steps.order("position")
+    @steps = @tutorial.steps
     @next = @steps[0]
     @title = "#{@tutorial.name} - A Ruby on Rails tutorial"
     respond_to do |format|

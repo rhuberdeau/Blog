@@ -9,9 +9,6 @@ class Step < ActiveRecord::Base
   private
   
   def assign_position
-  	@tutorial = self.tutorial
-  	@position = @tutorial.steps.size
-    @position = @position + 1
-    self.position = @position
+  	self.position = tutorial.steps.size + 1
   end
 end
