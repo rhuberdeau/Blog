@@ -325,8 +325,23 @@ CLEARFIX
 .clearfix { display: block; zoom: 1; }
 
 /************************************************************************************
+TUTORIAL
+*************************************************************************************/
+.tutorial {
+
+}
+
+/************************************************************************************
 SLIDESHOW
 *************************************************************************************/
+#slideshow{
+  background: #000;
+}
+
+#slideshow h2{
+  color: #fff;
+}
+
 #slideshow #slidesContainer {
   margin:0 auto;
   width:560px;
@@ -338,11 +353,13 @@ SLIDESHOW
   margin:0 auto;
   width:540px; /* reduce by 20 pixels to avoid horizontal scroll */
   height:263px;
+  color: #fff;
+  /* background: #fff; */ 
 }
 .control {
   display:block;
-  width:39px;
-  height:32px;
+  width:45px;
+  height:45px;
   text-indent:-10000px;
   position:relative;
   cursor: pointer;
@@ -350,14 +367,14 @@ SLIDESHOW
 #leftControl {
   top:0;
   left:0;
-  background:transparent url("/images/Knob Fast Rewind.png") no-repeat 0 0;
+  background:transparent url("/images/Arrow Left.png") no-repeat 0 0;
   float: left;
 }
 #rightControl {
   float: right;
   top:0;
   right:0;
-  background:transparent url("/images/Knob Fast Forward.png") no-repeat 0 0;
+  background:transparent url("/images/Arrow Right.png") no-repeat 0 0;
   float: right;
 }
 #slideshownav {
