@@ -1,16 +1,29 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.2.6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
+
+  gem 'uglifier', '>= 1.0.3'
+end
+
+gem 'jquery-rails'
+gem 'redactor-rails'
+
 group :production, :staging do
-  gem "pg", '0.10.1'
+  gem "pg"
 end
 
 group :development, :test do
-  gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem "pg"
 end
 
 # Use unicorn as the web server
@@ -23,11 +36,10 @@ end
 # gem 'ruby-debug'
 
 # Bundle the extra gems:
-gem "devise", "~> 1.1.3"
+gem "devise"
 gem "cancan"
 gem "simple_form"
 gem 'kaminari'
-gem "wysihat-engine"
 gem "recaptcha", :require => "recaptcha/rails"
 gem "coderay"
 # gem 'bj'

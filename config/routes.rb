@@ -1,5 +1,6 @@
 Blog::Application.routes.draw do
-  
+  mount RedactorRails::Engine => '/redactor_rails'
+
   resources :tutorials do
   	resources :steps
   end
@@ -24,9 +25,6 @@ Blog::Application.routes.draw do
   
   match "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => {:format => :xml}
   match "/allcomments" => "comments#getall", :as => :getall, :defaults => {:format => :html}
-       
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -74,8 +72,8 @@ Blog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
-  root :controller => :articles, :action => :index
+  # root :to => 'welcome#index'
+  root :to => 'articles#index'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

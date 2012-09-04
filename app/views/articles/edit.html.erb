@@ -14,7 +14,7 @@
   </div>
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.wysihat_editor :body %>
+    <%= f.text_area :body, :class => "redactor" %>
   </div>
   <% if can? :publish, @article %>
     <div class="field">

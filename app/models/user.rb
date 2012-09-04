@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   has_many :articles
   
-  named_scope :approved, lambda { {:conditions => ['approved = ?', true]} }
+  scope :approved, where(:approved => true)  
   
   before_create :setup_role
   
