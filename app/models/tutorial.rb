@@ -18,7 +18,7 @@ class Tutorial < ActiveRecord::Base
   private
   
   def set_up_permalink
-  	permalink = self.name.gsub(' ', '-').gsub(/[^a-zA-Z0-9\_\-\.]/, '')
+  	permalink = self.name.gsub(' ', '-').gsub(/[^a-zA-Z0-9\_\-\.]/, '').downcase
     self.permalink = permalink
   end
 end

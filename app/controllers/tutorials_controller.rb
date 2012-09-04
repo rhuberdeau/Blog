@@ -18,6 +18,7 @@ class TutorialsController < ApplicationController
     @steps = @tutorial.steps
     @next = @steps[0]
     @title = "#{@tutorial.name} - A Ruby on Rails tutorial"
+    @content = "Building a forum application from scratch using Ruby on Rails 3"
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tutorial }
