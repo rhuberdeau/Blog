@@ -3,12 +3,8 @@ class Comment < ActiveRecord::Base
 	
 	belongs_to :article
 	
-	validates_presence_of :name, :email, :body, :article_id
+	validates_presence_of :name, :email, :article_id
+	validates :body,
+	          :presence => {:message => "Please enter a comment"} 
 	validates_numericality_of :article_id
-	validate :article_exists
-	
-	def article_exists
-	  errors.add('article does not exist') if article_id.nil? ||
-  	  article_id < 1
-    end	
 end

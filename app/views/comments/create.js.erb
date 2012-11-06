@@ -1,0 +1,18 @@
+<% if @comment.errors.any? %>
+  $('#error_explanation').hide();
+  $('#error_explanation').html('');
+  $('#new_comment').prepend("<div id='error_explanation'>")   
+     $('#error_explanation').append("<%= j pluralize(@comment.errors.count, 'error') %> prohibited this comment from being saved:</h2>") 
+     $('#error_explanation').append("<ul id = 'errors'>") 
+     <% @comment.errors.full_messages.each do |msg| %>
+       $('#errors').append("<li><%= j msg %></li>")
+     <% end %>
+     $('#errors').append("</ul>")
+  $('#error_explanation').append("</div>")
+<% else %>
+  $('#error_explanation').hide();
+  $('#error_explanation').html('');
+  $('#new_comment')[0].reset();
+  $('#comments').append('<%= j render(@comment) %>');
+  $('#comments').effect("highlight", {}, 3000);
+<% end %>

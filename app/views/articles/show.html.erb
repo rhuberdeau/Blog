@@ -2,14 +2,12 @@
 <iframe   
 src="http://www.facebook.com/plugins/like.php?href=www.roberthuberdeau.com&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true">
 </iframe>
-<div id="article-content">
   <div class="article_title">
+  <%= link_to 'Back to all articles', articles_path %>
   <h1><%= @article.title %></h1>
   </div>
  <div class="article_body">
-    <p>By <%= @article.user.username %>
-    on <%= @article.created_at.strftime("%B %d, %Y") %>
-    </p>
+    <p>By <%= @article.user.username %>. Published on <%= @article.created_at.strftime("%B %d, %Y") %></p>
     <p>
       <%= raw @article.body %>
     </p>
@@ -19,8 +17,44 @@ src="http://www.facebook.com/plugins/like.php?href=www.roberthuberdeau.com&amp;l
     <% end %>
     </p>
   </div>
-  <% if can? :update, @article%>
-    <%= link_to 'Edit', edit_article_path(@article) %> |
-  <% end %>
-  <%= link_to 'Back', articles_path %>
+  <%= link_to 'Back to all Articles', articles_path %>
+  
+<div id="comments">
+  <h3>Comments</h3>
+  <div id ="comments">
+    <%= render :partial => "comment", :collection => @article.comments %>
+  </div>
 </div>
+<div id ="new_comment_box">
+  <div id="social_media">
+  	Sign in with one of these services to leave a comment:
+  	<div id = "social_media_icons">
+      <%= link_to image_tag("twitter_32.png"), user_omniauth_authorize_path(:twitter) %>
+    </div>
+  </div>
+  
+    <%= form_for(@comment, remote: true) do |f| %>
+      <% if @comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+          <ul>
+            <% @comment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>(Nobody will see your email)
+      </div>
+      <div class="field">
+        <%= f.label :comment %><br />
+        <%= f.text_area :body %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Create Comment', :class =>"comment_button" %>
+      </div>
+    <% end %>
+  
+  </div>

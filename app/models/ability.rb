@@ -12,11 +12,10 @@ class Ability
       can [:edit, :update], Comment
     elsif user.role? :Member
        can :read, :all
-       can :create, [Article, Comment]
-       can [:update, :destroy],  Article do |article|
-          article.try(:user) == user
+       can :create, [Comment]
+       can [:update],  Comment do |comment|
+          comment.try(:user) == user
        end
-       can [:edit, :update], Comment
     end
   end
 end
