@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show, :about, :contact, :archive]
+  caches_action :index, :show
   # GET /articles
   # GET /articles.xml
     
@@ -16,7 +17,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1.xml
   def show
     @article = Article.find(params[:id])
-    @comment = Comment.new(:article=>@article)
+    @comment = Comment.new
+    @comment.article_id = @article.id
     @title = @article.title
     @content = @article.summary
     @keywords = @article.title
@@ -48,11 +50,11 @@ class ArticlesController < ApplicationController
   # GET /articles/new.xml
   def new
     @article = Article.new
-
+    authorize! :create, @article
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @article }
-    end
+    end    
   end
 
   # GET /articles/1/edit

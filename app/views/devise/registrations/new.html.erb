@@ -8,13 +8,13 @@
 
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
-
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
-
+  <% if f.object.password_required? %>
+    <p><%= f.label :password %><br />
+    <%= f.password_field :password %></p>
+  
+    <p><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %></p>
+  <% end %>
   <p><%= f.submit "Sign up" %></p>
 <% end %>
 

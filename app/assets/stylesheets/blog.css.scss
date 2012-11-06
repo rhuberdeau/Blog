@@ -29,7 +29,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 GENERAL STYLING
 *************************************************************************************/
 body {
-	font: .81em/150% Arial, Helvetica, sans-serif;
+	font: 1em/150% Arial, Helvetica, sans-serif;
 	color: #666;
 }
 a {
@@ -380,4 +380,55 @@ SLIDESHOW
 #slideshownav {
   width: 100%;
   height: 35px;
+}
+/************************************************************************************
+COMMENTS
+*************************************************************************************/
+.comment {
+  margin: 2em 0 2.5em;
+}
+#new_comment_box {
+  padding-top: 20px; 
+}
+#new_comment {
+  background: #4f4f4f;
+  border: solid 1px #282828; 
+  padding: 20px 25px 15px;
+  color: white;
+  -webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	/* box shadow */
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 1px rgba(0,0,0,.4);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 1px rgba(0,0,0,.4);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 1px rgba(0,0,0,.4);
+}
+#social_media {
+  font-weight: bold;
+}
+#social_media_icons {
+  padding-left: 25px;
+}
+#comment_email {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#comment_body {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.comment_button {
+  background: #F77B00;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 0;
+  height: 2em;
+  padding: 5px;
+  font-weight: bold;
+}
+.date {
+  color: #999999;
 }

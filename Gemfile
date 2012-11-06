@@ -26,6 +26,14 @@ group :development, :test do
   gem "pg"
 end
 
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "rspec-rails"
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -37,6 +45,7 @@ end
 
 # Bundle the extra gems:
 gem "devise"
+gem "omniauth-twitter"
 gem "cancan"
 gem "simple_form"
 gem 'kaminari'

@@ -46,24 +46,22 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
-  	@article = Article.find(params[:article_id])
-    @comment = @article.comments.build(params[:comment])
+  	@comment = Comment.new(params[:comment])
+    @comment.article_id = :article_id
+    @comment.article_id = @comment.article_id.to_i
+    @article = Article.find(@comment.article_id)
+    @comment.name = current_user.username
     
-    if verify_recaptcha(request.remote_ip, params)[:status] == 'false'
-      @notice = "captcha incorrect"
-      respond_to do |format|
-        format.html { render :template => "articles/show", :notice => 'There was an error with the recaptcha. Please re-enter and submit.' }
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to(@article, :notice => 'Comment was successfully created.') }
+        format.xml  { render :xml => @article, :status => :created, :location => @article }
+        format.js 
+        expire_action(:controller => 'articles', :action => 'show', :id => @article.id)
+      else
+        format.html { render 'articles/show', :object => @article }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-      end
-    elsif
-      respond_to do |format|
-        if @comment.save
-          format.html { redirect_to(@article, :notice => 'Comment was successfully created.') }
-          format.xml  { render :xml => @article, :status => :created, :location => @article }
-        else
-          format.html { render :template => "articles/show", :notice => 'There was an error with the recaptcha. Please re-enter and submit.' }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-        end
+        format.js
       end
     end
   end

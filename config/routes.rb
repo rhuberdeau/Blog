@@ -17,11 +17,11 @@ Blog::Application.routes.draw do
     
   resources :roles
 
-  devise_for :users,  :controllers => { :registrations => "users/registrations" }
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
+                   controllers: {:registrations => "users/registrations", omniauth_callbacks: "omniauth_callbacks"}
   
-  resources :articles do
-    resources :comments
-  end
+  resources :articles
+  resources :comments
   
   match "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => {:format => :xml}
   match "/allcomments" => "comments#getall", :as => :getall, :defaults => {:format => :html}
