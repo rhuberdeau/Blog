@@ -10,4 +10,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
   alias_method :twitter, :all
+  
+  def after_sign_in_path_for(resource)
+  	request.referrer || root_path
+  end
 end
