@@ -28,5 +28,7 @@ production:
   encoding: unicode
   database: blog_production
   pool: 5
-  username: blog
-  password:
+  username: postgres
+  password: aaaaaa
+  host: localhost
+  port: 5433
