@@ -17,8 +17,8 @@ Blog::Application.routes.draw do
     
   resources :roles
 
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
-                   controllers: {:registrations => "users/registrations", omniauth_callbacks: "omniauth_callbacks"}
+  devise_for :users, path_names: {:sign_in => "login", :sign_out => "logout"},
+                   controllers: {:registrations => "users/registrations", :omniauth_callbacks => "omniauth_callbacks"}
   
   resources :articles
   resources :comments
