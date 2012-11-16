@@ -9,6 +9,7 @@ Blog::Application.routes.draw do
 
   get "admin/index"
   get "admin/show"
+  get "admin/manage_comments"
   match "/contact" => "articles#contact", :as => :contact
   match "/about" => "articles#about", :as => :about
   #match "/archive" => "articles#archive", :as => :archive
@@ -24,7 +25,6 @@ Blog::Application.routes.draw do
   resources :comments
   
   match "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => {:format => :xml}
-  match "/allcomments" => "comments#getall", :as => :getall, :defaults => {:format => :html}
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

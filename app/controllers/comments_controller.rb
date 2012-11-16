@@ -92,7 +92,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(@article, :notice => 'Comment was successfully deleted') }
+      format.html { redirect_to(:controller => 'admin', :action => 'manage_comments', :notice => 'Comment was successfully deleted') }
       format.xml  { head :ok }
     end
   end

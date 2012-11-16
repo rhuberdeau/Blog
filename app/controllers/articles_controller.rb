@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show, :about, :contact, :archive]
-  caches_action :index, :show
+  caches_action :show
   # GET /articles
   # GET /articles.xml
     
