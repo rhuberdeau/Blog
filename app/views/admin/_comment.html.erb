@@ -1,5 +1,5 @@
 <div class="comment">
   <strong><%= comment.name %></strong> <span class="date"><%=comment.created_at.strftime("%B %d, %Y")%></span><br />
   <%= comment.body %><br />
-  <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
 </div>
