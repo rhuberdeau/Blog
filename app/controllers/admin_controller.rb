@@ -14,11 +14,15 @@ class AdminController < ApplicationController
     end
   end
   
+  def manage_comments
+  	@comments = Comment.all
+  end
+  
   private
   
   def user_must_be_admin
   	@user = current_user
-  	unless @user.role_ids == 1
+  	unless @user.role_ids == [1]
   	  redirect_to(articles_path)
   	end
   end
