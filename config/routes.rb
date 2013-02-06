@@ -1,6 +1,4 @@
 Blog::Application.routes.draw do
-  mount RedactorRails::Engine => '/redactor_rails'
-
   resources :tutorials do
   	resources :steps
   end
