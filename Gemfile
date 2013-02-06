@@ -49,7 +49,6 @@ gem "omniauth-twitter"
 gem "cancan"
 gem "simple_form"
 gem 'kaminari'
-gem "recaptcha", :require => "recaptcha/rails"
 gem "coderay"
 # gem 'bj'
 # gem 'nokogiri'
