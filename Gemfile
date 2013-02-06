@@ -13,10 +13,11 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'redactor-rails'
 end
 
 gem 'jquery-rails'
-gem 'redactor-rails'
+
 
 group :production, :staging do
   gem "pg"
