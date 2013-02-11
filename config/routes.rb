@@ -2,8 +2,15 @@ Blog::Application.routes.draw do
   resources :tutorials do
   	resources :steps
   end
-
+  
+  resources :users
   resources :tags
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   get "admin/index"
   get "admin/show"
@@ -15,10 +22,6 @@ Blog::Application.routes.draw do
   match "/:year(/:month(/:day))" => "articles#archive", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
     
   resources :roles
-
-  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"},
-                   :controllers => {:registrations => "users/registrations", :omniauth_callbacks => "omniauth_callbacks"}
-  
   resources :articles
   resources :comments
   

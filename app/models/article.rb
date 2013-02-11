@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  body        :text
+#  cached_slug :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  published   :boolean
+#  user_id     :integer
+#  summary     :text
+#
+
 class Article < ActiveRecord::Base
   attr_accessible :title, :body, :tag_names, :published, :user_id, :summary
     	
