@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.6'
+gem 'bcrypt-ruby'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,12 +9,12 @@ gem 'rails', '3.2.6'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'bootstrap-sass'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'redactor-rails'
 end
 
 gem 'jquery-rails'
@@ -25,6 +26,7 @@ end
 
 group :development, :test do
   gem "pg"
+  gem 'annotate'
 end
 
 group :test do
@@ -32,7 +34,8 @@ group :test do
   gem "capybara"
   gem "rspec-rails"
   gem 'database_cleaner'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
+  gem 'factory_girl_rails'
 end
 
 # Use unicorn as the web server
@@ -45,7 +48,6 @@ end
 # gem 'ruby-debug'
 
 # Bundle the extra gems:
-gem "devise"
 gem "omniauth-twitter"
 gem "cancan"
 gem "simple_form"

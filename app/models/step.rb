@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: steps
+#
+#  id          :integer          not null, primary key
+#  body        :text
+#  position    :integer
+#  tutorial_id :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Step < ActiveRecord::Base
   attr_accessible :tutorial_id, :body, :position
   belongs_to :tutorial

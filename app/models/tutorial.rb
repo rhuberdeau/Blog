@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: tutorials
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  summary    :text
+#  permalink  :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Tutorial < ActiveRecord::Base
   attr_accessible :name, :summary, :permalink 	
   has_many :steps, :order => 'id'
