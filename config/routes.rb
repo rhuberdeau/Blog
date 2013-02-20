@@ -21,7 +21,6 @@ Blog::Application.routes.draw do
   #match "/:year(/:month(/:day))" => "articles#archive", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
   match "/:year(/:month(/:day))" => "articles#archive", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
     
-  resources :roles
   resources :articles
   resources :comments
   

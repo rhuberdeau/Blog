@@ -7,7 +7,9 @@ src="http://www.facebook.com/plugins/like.php?href=www.roberthuberdeau.com&amp;l
   <h1><%= @article.title %></h1>
   </div>
  <div class="article_body">
-    <p>By <%= @article.user.username %>. Published on <%= @article.created_at.strftime("%B %d, %Y") %></p>
+    <% unless @article.user_id.nil? %>
+      <p>By <%= @article.user.username %>. Published on <%= @article.created_at.strftime("%B %d, %Y") %></p>
+    <% end %>
     <p>
       <%= raw @article.body %>
     </p>
@@ -26,12 +28,7 @@ src="http://www.facebook.com/plugins/like.php?href=www.roberthuberdeau.com&amp;l
   </div>
 </div>
 <div id ="new_comment_box">
-  <div id="social_media">
-  	Sign in with one of these services to leave a comment:
-  	<div id = "social_media_icons">
-      <%= link_to image_tag("twitter_32.png"), user_omniauth_authorize_path(:twitter) %>
-    </div>
-  </div>
+
   
     <%= form_for(@comment, :remote => true) do |f| %>
       <% if @comment.errors.any? %>

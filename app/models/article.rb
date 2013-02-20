@@ -20,17 +20,26 @@ class Article < ActiveRecord::Base
   has_many :tags, :through => :taggings
   has_many :comments, :dependent => :destroy
   belongs_to :user
+
+  VALID_TITLE_REGEX = /\A[a-zA-Z\s\d]+\z/i
+
+  validates :title,
+            presence: true,
+            format: { with: VALID_TITLE_REGEX },
+            uniqueness: { case_sensitive: false },
+            length: { maximum: 50, minimum: 6 }
     
-  validates_presence_of :title, :body
-  validates_uniqueness_of :title
-  
+  validates_presence_of :body
+  validates_presence_of :summary
+    
   scope :published, lambda { {:conditions => ['published = ?', true]} }
   scope :ordered, lambda {{:order => "Created_at DESC" }}
       
   attr_writer :tag_names	
   attr_reader :per_page
   
-  after_save :assign_tags  
+  after_save :assign_tags
+  #before_create :assign_user  
   
   @@per_page = 5
   
@@ -43,11 +52,11 @@ class Article < ActiveRecord::Base
   end
     
   private  
-  def assign_tags  
-    if @tag_names  
-      self.tags = @tag_names.split(/\,/).map do |name|
-      	Tag.find_or_create_by_name(name)  
+    def assign_tags  
+      if @tag_names  
+        self.tags = @tag_names.split(/\,/).map do |name|
+        	Tag.find_or_create_by_name(name)  
+        end  
       end  
-    end  
-  end
+    end
 end

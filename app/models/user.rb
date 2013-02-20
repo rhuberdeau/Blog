@@ -32,7 +32,6 @@ class User < ActiveRecord::Base
   validates :password_confirmation,
             presence: true
 
-  #has_and_belongs_to_many :roles
   has_many :articles
   
   scope :approved, where(:approved => true)  
@@ -40,7 +39,7 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
-  #before_create :setup_role
+  #before_save :setup_role
   
   #def self.from_omniauth(auth)
   #	where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -69,9 +68,9 @@ class User < ActiveRecord::Base
  #	super && provider.blank?
  #end
   
-  #def role?(role)
-  # return !!self.roles.find_by_name(role.to_s)
-  #end
+  def role?(role)
+   return !!self.roles.find_by_name(role.to_s)
+  end
   #
   private
     def create_remember_token
@@ -79,9 +78,9 @@ class User < ActiveRecord::Base
     end
   #
   ## this sets a default role for each new member. The default role value is "member" which translates to role_ids = 3 
-  #def setup_role
-  #	if self.role_ids.empty?
-  #	  self.role_ids = [3]
-  #	end
-  #end
+  def setup_role
+  	if self.role_ids.empty?
+  	  self.role_ids = [3]
+  	end
+  end
 end

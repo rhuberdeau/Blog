@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :user_must_be_admin	
+  before_filter :authenticate_user
+  #before_filter :user_must_be_admin	
   def index
   	@articles = Article.all(:order => "Created_at DESC")
   end

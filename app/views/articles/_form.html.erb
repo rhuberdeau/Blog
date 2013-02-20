@@ -1,5 +1,16 @@
 <%= simple_form_for(@article) do |f| %>
-  <%= render "shared/error_messages", :target => @article %>
+  <% if @article.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-error">
+      The form contains <%= pluralize(@article.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li>* <%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
   
   <%= f.input :title %>
   <%= f.input :summary %>

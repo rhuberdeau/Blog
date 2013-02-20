@@ -1,11 +1,27 @@
 <h1>New article</h1>
 
 <%= form_for(@article) do |f| %>
-  <%= render "shared/error_messages", :target => @article %>
+  <% if @article.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-error">
+      The form contains <%= pluralize(@article.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li>* <%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
+  </div>
+   <div class="field">
+    <%= f.label :summary %><br />
+    Summary is used as the meta description. Please keep it brief.
+    <%= f.text_area :summary %>
   </div>
   <div class="field">
     <%= f.label :body %><br />
