@@ -1,8 +1,6 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show, :about, :contact, :archive]
+  before_filter :authenticate_user, :except => [:index, :show, :about, :contact, :archive]
   caches_action :show
-  # GET /articles
-  # GET /articles.xml
     
   def index
     @articles = Article.published.page(params[:page]).per(5).ordered
@@ -13,8 +11,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # GET /articles/1
-  # GET /articles/1.xml
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
@@ -46,11 +42,9 @@ class ArticlesController < ApplicationController
     @size = @articles.size
   end
   
-  # GET /articles/new
-  # GET /articles/new.xml
   def new
     @article = Article.new
-    authorize! :create, @article
+    #authorize! :create, @article
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @article }
@@ -60,16 +54,14 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
-    authorize! :edit, @article
+    #authorize! :edit, @article
   end
 
-  # POST /articles
-  # POST /articles.xml
   def create
   	@article = Article.new(params[:article])
     @article.user_id = current_user.id
     @article.published = "false"
-    authorize! :create, @article
+    #authorize! :create, @article
          
     respond_to do |format|
       if @article.save
@@ -83,11 +75,9 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # PUT /articles/1
-  # PUT /articles/1.xml
   def update
     @article = Article.find(params[:id])
-    authorize! :update, @article
+    #authorize! :update, @article
     
     respond_to do |format|
       if @article.update_attributes(params[:article])
@@ -101,17 +91,14 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # DELETE /articles/1
-  # DELETE /articles/1.xml
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    authorize! :destroy, @article
+    #authorize! :destroy, @article
 
     respond_to do |format|
       format.html { redirect_to(articles_url) }
       format.xml  { head :ok }
     end
   end
-      
 end

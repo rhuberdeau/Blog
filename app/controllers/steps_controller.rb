@@ -1,5 +1,5 @@
 class StepsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user, :except => [:index, :show]
   # GET /steps
   # GET /steps.xml
   before_filter :find_tutorial, :except => [:update]

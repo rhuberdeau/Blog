@@ -184,7 +184,7 @@ DEPENDENCIES
   bcrypt-ruby
   bootstrap-sass
   cancan
-  capybara
+  capybara (< 2.0)
   coderay
   coffee-rails (~> 3.2.1)
   cucumber-rails

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:create, :getall]
+  before_filter :authenticate_user, :except => [:getall]
   # GET /comments
   # GET /comments.xml
   def index

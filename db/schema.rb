@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210212922) do
+ActiveRecord::Schema.define(:version => 20130220040147) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -31,12 +31,6 @@ ActiveRecord::Schema.define(:version => 20130210212922) do
     t.string   "email",      :null => false
     t.text     "body",       :null => false
     t.integer  "article_id", :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "roles", :force => true do |t|
-    t.string   "name",       :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -97,9 +91,9 @@ ActiveRecord::Schema.define(:version => 20130210212922) do
   add_index "tutorials", ["permalink"], :name => "index_tutorials_on_permalink", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "email",           :default => "", :null => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.string   "email",           :default => "",    :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "username"
     t.text     "bio"
     t.boolean  "approved"
@@ -107,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20130210212922) do
     t.string   "uid"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin",           :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -31,7 +31,7 @@ end
 
 group :test do
   #gem "factory_girl_rails"
-  gem "capybara"
+  gem "capybara", '< 2.0'
   gem "rspec-rails"
   gem 'database_cleaner'
   gem 'cucumber-rails', require: false
