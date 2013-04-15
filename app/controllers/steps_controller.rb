@@ -28,7 +28,7 @@ class StepsController < ApplicationController
   # GET /steps/new.xml
   def new
   	@step = Step.new(:tutorial=>@tutorial)
-    authorize! :new, @step
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @step }
@@ -45,7 +45,7 @@ class StepsController < ApplicationController
   # POST /steps.xml
   def create
   	@step = @tutorial.steps.build(params[:step])
-    authorize! :create, @step
+    
     respond_to do |format|
       if @step.save
         format.html { redirect_to(@tutorial, :notice => 'Step was successfully created.') }
@@ -62,7 +62,7 @@ class StepsController < ApplicationController
   def update
     @step = Step.find(params[:id])
     @tutorial = @step.tutorial
-    authorize! :update, @step
+    
     respond_to do |format|
       if @step.update_attributes(params[:step])
         format.html { redirect_to(@tutorial, :notice => 'Step was successfully updated.') }
@@ -79,7 +79,7 @@ class StepsController < ApplicationController
   def destroy
     @step = Step.find(params[:id])
     @step.destroy
-    authorize! :destroy, @step
+    
     respond_to do |format|
       format.html { redirect_to(@tutorial) }
       format.xml  { head :ok }

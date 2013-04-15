@@ -40,14 +40,13 @@ class TutorialsController < ApplicationController
   # GET /tutorials/1/edit
   def edit
   	@tutorial = Tutorial.find_by_permalink(params[:id])
-  	authorize! :edit, @tutorial
+  	
   end
 
   # POST /tutorials
   # POST /tutorials.xml
   def create
     @tutorial = Tutorial.new(params[:tutorial])
-    authorize! :create, @tutorial
     respond_to do |format|
       if @tutorial.save
         format.html { redirect_to(@tutorial, :notice => 'Tutorial was successfully created.') }
@@ -63,7 +62,6 @@ class TutorialsController < ApplicationController
   # PUT /tutorials/1.xml
   def update
     @tutorial = Tutorial.find_by_permalink(params[:id])
-    authorize! :update, @tutorial
     respond_to do |format|
       if @tutorial.update_attributes(params[:tutorial])
         format.html { redirect_to(@tutorial, :notice => 'Tutorial was successfully updated.') }
@@ -80,8 +78,6 @@ class TutorialsController < ApplicationController
   def destroy
     @tutorial = Tutorial.find_by_permalink(params[:id])
     @tutorial.destroy
-    authorize! :destroy, @tutorial
-
     respond_to do |format|
       format.html { redirect_to(tutorials_url) }
       format.xml  { head :ok }

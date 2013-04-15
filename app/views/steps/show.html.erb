@@ -16,14 +16,7 @@
 </p>
 
 <%= link_to image_tag("/images/Knob Fast Rewind.png"), tutorial_step_path(@tutorial, previous_link) %> 
-<img src="/images/Knob Pause.png"/>
 <%= link_to image_tag("/images/Knob Play.png"), tutorial_step_path(@tutorial, next_link) %> 
-<%= link_to image_tag("/images/Knob Fast Forward.png"), tutorial_step_path(@tutorial, next_link) %> 
 
-<% if can? :edit, @step %>
-  <%= link_to 'Edit', edit_tutorial_step_path(@tutorial, @step) %> |
-<% end %>
-<% if can? :destroy, @step %>
-  <%= link_to 'Destroy', tutorial_step_path(@tutorial, @step), :confirm => 'Are you sure?', :method => :delete %> | 
-<% end %>
+
 <%= link_to 'Back', @tutorial %>
