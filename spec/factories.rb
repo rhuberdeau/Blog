@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    username     "Rober Huberdeau"
-    email        "robert@example.com"
-    password     "foobar"
+    sequence(:username)  { |n| "Person #{n}" }
+    sequence(:email) { |n| "person_#{n}@example.com"}   
+    password "foobar"
     password_confirmation "foobar"
 
     factory :admin do
@@ -10,10 +10,12 @@ FactoryGirl.define do
     end
   end
 
+  
   factory :article do
-  	title		"this is a test post from factory girl"
-  	body		"this is the main content of the test post"
-  	summary     "test post summary"
-  	user_id     1
+    sequence(:title)  { |n| "Article #{n}" }
+    sequence(:summary) { |n| "Summary of article #{n}" }
+    sequence(:body) { |n| "This is the body of article #{n}"}   
+    published true
+    user 
   end
 end

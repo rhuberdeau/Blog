@@ -23,24 +23,23 @@ class User < ActiveRecord::Base
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, 
-             presence: true,
+             presence: true, if: "provider.nil?",
              format: { with: VALID_EMAIL_REGEX },
              uniqueness: { case_sensitive: false }
-  validates :password,
-            presence:{message: "Please provide a password" },
+  validates :password, 
+            presence:{message: "Please provide a password" },  if: "provider.nil?",
             length: { minimum: 6 }
-  validates :password_confirmation,
-            presence: true
+  validates :password_confirmation, 
+            presence: true,  if: "provider.nil?"
 
   has_many :articles
+  has_many :comments
   
   scope :approved, where(:approved => true)  
   
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
-  #before_save :setup_role
-  
   #def self.from_omniauth(auth)
   #	where(auth.slice(:provider, :uid)).first_or_create do |user|
   #	  user.provider = auth.provider
@@ -67,20 +66,23 @@ class User < ActiveRecord::Base
  #def email_required?
  #	super && provider.blank?
  #end
-  
-  def role?(role)
-   return !!self.roles.find_by_name(role.to_s)
+         
+def self.from_omniauth(auth)
+  provider = auth[0]['provider']
+  uid      = auth[0]['uid']
+  where(provider, uid).first || create_from_omniauth(auth)
+end
+
+def self.create_from_omniauth(auth)
+  create! do |user|
+    user.provider = auth["provider"]
+    user.uid      = auth["uid"]
+    user.username = auth["info"]["nickname"]
   end
-  #
+end
+  
   private
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end
-  #
-  ## this sets a default role for each new member. The default role value is "member" which translates to role_ids = 3 
-  def setup_role
-  	if self.role_ids.empty?
-  	  self.role_ids = [3]
-  	end
-  end
 end

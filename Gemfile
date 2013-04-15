@@ -48,8 +48,6 @@ end
 # gem 'ruby-debug'
 
 # Bundle the extra gems:
-gem "omniauth-twitter"
-gem "cancan"
 gem "simple_form"
 gem 'kaminari'
 gem "coderay"
@@ -64,5 +62,3 @@ gem "coderay"
 # group :development, :test do
 #   gem 'webrat'
 # end
-
-
