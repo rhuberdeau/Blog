@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user, :except => [:index, :show, :about, :contact, :archive]
+  before_filter :authenticate_user, :except => [:index, :show, :archive]
+  before_filter :user_must_be_admin, :except => [:index, :show, :archive]
   caches_action :show
     
   def index
@@ -24,16 +25,6 @@ class ArticlesController < ApplicationController
     end
   end
   
-  def contact
-  	@article = Article.first(:conditions => ['title = ?', "Contact"])
-  	@title = "Contact me- Robert Huberdeau"
-  end
-  
-  def about
-  	@users = User.approved
-  	@title = "About me- Robert Huberdeau"
-  end
-  
   def archive
   	#@articles = Article.published
   	#@article_months = @articles.group_by { |a| a.created_at.beginning_of_month }
@@ -44,7 +35,6 @@ class ArticlesController < ApplicationController
   
   def new
     @article = Article.new
-    #authorize! :create, @article
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @article }
@@ -54,15 +44,11 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
-    #authorize! :edit, @article
   end
 
   def create
-  	@article = Article.new(params[:article])
-    @article.user_id = current_user.id
-    @article.published = "false"
-    #authorize! :create, @article
-         
+  	@article = current_user.articles.build(params[:article])
+            
     respond_to do |format|
       if @article.save
       	expire_fragment('all_tags')
@@ -74,11 +60,9 @@ class ArticlesController < ApplicationController
       end
     end
   end
-
   def update
     @article = Article.find(params[:id])
-    #authorize! :update, @article
-    
+        
     respond_to do |format|
       if @article.update_attributes(params[:article])
       	expire_fragment('all_tags')
@@ -94,8 +78,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    #authorize! :destroy, @article
-
+    
     respond_to do |format|
       format.html { redirect_to(articles_url) }
       format.xml  { head :ok }

@@ -97,7 +97,7 @@ describe "Authentication" do
 
             describe "visiting Users#edit page" do
               before { visit edit_user_path(wrong_user) }
-              it { should_not have_selector('h1', text: ('Update your profile')) }
+              it { should_not have_selector('h1', text: 'Update your profile') }
             end
 
             describe "submitting a PUT request to the Users#update action" do
