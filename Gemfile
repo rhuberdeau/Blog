@@ -24,6 +24,10 @@ group :production, :staging do
   gem "pg"
 end
 
+group :production do
+  gem 'therubyracer-heroku'
+end
+
 group :development, :test do
   gem "pg"
   gem 'annotate'
