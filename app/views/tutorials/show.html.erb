@@ -20,15 +20,6 @@
   <p>
     <%= raw @tutorial.summary %>
   </p>
-  <% if can? :create, @tutorial %>
-    <p>
-      Create a new step
-      <%= link_to 'New Step', new_tutorial_step_path(@tutorial) %>
-    </p>
-  <% end %>
-  <% if can? :edit, @tutorial %>
-    <%= link_to 'Edit Tutorial', edit_tutorial_path(@tutorial) %> |
-  <% end %>
   <div id="slideshow">
     <div id="slideshownav">
   	  <!--This is filled with the forward and backward links by jquery  -->

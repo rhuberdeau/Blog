@@ -1,13 +1,6 @@
 <div id = <%= tutorial.permalink %> class="index_tutorial_name">
   <h2><%= link_to "#{tutorial.name}", tutorial %></h2>
-  <div class="index_tutorial_links">
-  	<% if can? :edit, @tutorial %>
-      <%= link_to 'Edit', edit_tutorial_path(tutorial) %> |
-    <% end %>
-    <% if can? :destroy, @tutorial %>
-  	  <%= link_to 'Destroy', tutorial, :confirm => 'Are you sure?', :method => :delete %>
-  	<% end %>
-  </div>
+  
   <div class="index_tutorial_summary">
     <%= raw tutorial.summary %>
   </div>
