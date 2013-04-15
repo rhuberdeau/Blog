@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   before_filter :authenticate_user
-  #before_filter :user_must_be_admin	
+  before_filter :user_must_be_admin	
   def index
   	@articles = Article.all(:order => "Created_at DESC")
   end
@@ -17,14 +17,4 @@ class AdminController < ApplicationController
   def manage_comments
   	@comments = Comment.all
   end
-  
-  private
-  
-  def user_must_be_admin
-  	@user = current_user
-  	unless @user.role_ids == [1]
-  	  redirect_to(articles_path)
-  	end
-  end
-
 end

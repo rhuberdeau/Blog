@@ -1,4 +1,8 @@
 Blog::Application.routes.draw do
+  match '/about',   to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
+  match 'auth/:provider/callback', to: 'sessions#callback'
+
   resources :tutorials do
   	resources :steps
   end
@@ -15,15 +19,14 @@ Blog::Application.routes.draw do
   get "admin/index"
   get "admin/show"
   get "admin/manage_comments"
-  match "/contact" => "articles#contact", :as => :contact
-  match "/about" => "articles#about", :as => :about
   #match "/archive" => "articles#archive", :as => :archive
   #match "/:year(/:month(/:day))" => "articles#archive", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
   match "/:year(/:month(/:day))" => "articles#archive", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
     
-  resources :articles
-  resources :comments
-  
+  resources :articles do
+    resources :comments
+  end
+
   match "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => {:format => :xml}
 
   # Sample of regular route:

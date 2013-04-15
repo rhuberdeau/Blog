@@ -1,18 +1,7 @@
 <h1>Editing article</h1>
 
 <%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <div class="alert alert-error">
-        The form contains <%= pluralize(@article.errors.count, "error") %>.
-      </div>
-      <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li>* <%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render 'shared/error_messages', object: f.object %>
 
   <div class="field">
     <%= f.label :title %><br />
@@ -28,10 +17,10 @@
     <%= f.text_area :body, :class => "redactor" %>
   </div>
   
-    <div class="field">
-      <%= f.label :published %><br />
-      <%= f.check_box :published %>
-    </div>
+  <div class="field">
+    <%= f.label :published %><br />
+    <%= f.check_box :published %>
+  </div>
   
   <div class="field">
     <%= f.label :tag_names %><br />

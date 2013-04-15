@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%= full_title(yield(:title)) %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="description" content= "<%= metadescription %>" />
     <meta name="keywords" content = "<%= keywords %>" >
@@ -36,8 +36,6 @@
       <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
-      <%= current_user %>
     </div>
   </body>
 </html>

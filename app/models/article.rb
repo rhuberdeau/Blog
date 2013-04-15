@@ -14,7 +14,7 @@
 #
 
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body, :tag_names, :published, :user_id, :summary
+  attr_accessible :title, :body, :tag_names, :published, :summary
     	
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
@@ -31,6 +31,7 @@ class Article < ActiveRecord::Base
     
   validates_presence_of :body
   validates_presence_of :summary
+  validates :user_id, presence: true
     
   scope :published, lambda { {:conditions => ['published = ?', true]} }
   scope :ordered, lambda {{:order => "Created_at DESC" }}
@@ -39,8 +40,7 @@ class Article < ActiveRecord::Base
   attr_reader :per_page
   
   after_save :assign_tags
-  #before_create :assign_user  
-  
+    
   @@per_page = 5
   
   def tag_names  

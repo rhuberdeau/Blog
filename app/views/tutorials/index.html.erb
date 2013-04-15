@@ -1,9 +1,3 @@
 <div class ="tutorial_index">
   <%= render @tutorials %>
 </div>	
-<br />
-<% if can? :create, @tutorial %>
-  <p>
-    <%= link_to 'New Tutorial', new_tutorial_path %>
-  </p>
-<% end %>
