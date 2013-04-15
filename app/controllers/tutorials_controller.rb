@@ -1,5 +1,6 @@
 class TutorialsController < ApplicationController
-  before_filter :authenticate_user, :except => [:index, :show]
+  before_filter :authenticate_user, :except => [:index, :show,]
+  before_filter :user_must_be_admin, :except => [:index, :show,]
   # GET /tutorials
   # GET /tutorials.xml
   def index

@@ -3,12 +3,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.xml
   def index
-    @comments = Comment.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @comments }
-    end
+    redirect_to articles_path
   end
 
   # GET /comments/1
@@ -46,11 +41,9 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.xml
   def create
-  	@comment = Comment.new(params[:comment])
-    @comment.article_id = :article_id
-    @comment.article_id = @comment.article_id.to_i
-    @article = Article.find(@comment.article_id)
-    @comment.name = current_user.username
+  	@article = Article.find(params[:article_id])
+    @comment = @article.comments.build(params[:comment])
+    @comment.user_id = current_user.id
     
     respond_to do |format|
       if @comment.save
