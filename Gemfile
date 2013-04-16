@@ -25,7 +25,7 @@ group :production, :staging do
 end
 
 group :production do
-  gem 'therubyracer-heroku'
+  #gem 'therubyracer-heroku'
 end
 
 group :development, :test do

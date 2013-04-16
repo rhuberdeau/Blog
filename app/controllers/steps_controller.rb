@@ -38,7 +38,7 @@ class StepsController < ApplicationController
   # GET /steps/1/edit
   def edit
   	@step = Step.find(params[:id])
-  	authorize! :edit, @step
+  	
   end
 
   # POST /steps

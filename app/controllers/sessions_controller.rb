@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
   end
 
   def callback
-    raise env["omniauth.auth"]
     user = User.from_omniauth(["omniauth.auth"])
     if user
       cookies.permanent[:remember_token] = user.remember_token
