@@ -216,8 +216,8 @@ input {
 
 #slideshow{background:#000}
 #slideshow h2{color:#fff}
-#slideshow #slidesContainer{margin:0 auto;width:560px;height:500px;overflow:auto;position:relative}
-#slideshow #slidesContainer .slide{margin:0 auto;width:540px;height:263px;color:#fff}
+#slideshow #slidesContainer{margin:0 auto;width:800px;height:500px;overflow:auto;position:relative}
+#slideshow #slidesContainer .slide{margin:0 auto;width:780px;height:263px;color:#fff}
 .control{display:block;width:45px;height:45px;text-indent:-10000px;position:relative;cursor:pointer}
 #leftControl{top:0;left:0;background:transparent url("Arrow Left.png") no-repeat 0 0;float:left}
 #rightControl{float:right;top:0;right:0;background:transparent url("Arrow Right.png") no-repeat 0 0;float:right}

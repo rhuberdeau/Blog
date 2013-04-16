@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
   var currentPosition = 0;
-  var slideWidth = 560;
+  var slideWidth = 800;
   var slides = jQuery('.slide');
   var numberOfSlides = slides.length;
 
