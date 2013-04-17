@@ -2,6 +2,6 @@
   <h2><%= link_to "#{tutorial.name}", tutorial %></h2>
   
   <div class="index_tutorial_summary">
-    <%= tutorial.summary %>
+    <%= tutorial.summary.html_safe %>
   </div>
 </div>
