@@ -14,12 +14,13 @@
 #
 
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body, :tag_names, :published, :summary
+  attr_accessible :title, :body, :tag_names, :published, :summary, :sequence_id
     	
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
   has_many :comments, :dependent => :destroy
   belongs_to :user
+  belongs_to :sequence
 
   VALID_TITLE_REGEX = /\A[a-zA-Z\s\d]+\z/i
 
@@ -40,6 +41,7 @@ class Article < ActiveRecord::Base
   attr_reader :per_page
   
   after_save :assign_tags
+  before_create :generate_slug
     
   @@per_page = 5
   
@@ -58,5 +60,9 @@ class Article < ActiveRecord::Base
         	Tag.find_or_create_by_name(name)  
         end  
       end  
+    end
+
+    def generate_slug
+      slug = "#{self.id}-#{self.title.gsub(/[^a-z0-9]+/i, '-')}".downcase
     end
 end

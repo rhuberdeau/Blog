@@ -2,6 +2,7 @@ Blog::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match 'auth/:provider/callback', to: 'sessions#callback'
+  match '/related-articles/:id', to: 'articles#related'
 
   resources :tutorials do
   	resources :steps
