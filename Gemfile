@@ -31,12 +31,12 @@ end
 group :development, :test do
   gem "pg"
   gem 'annotate'
+  gem "rspec-rails"
 end
 
 group :test do
   #gem "factory_girl_rails"
   gem "capybara", '< 2.0'
-  gem "rspec-rails"
   gem 'database_cleaner'
   gem 'cucumber-rails', require: false
   gem 'factory_girl_rails'

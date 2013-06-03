@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   before_filter :authenticate_user, :except => [:index, :show, :archive]
   before_filter :user_must_be_admin, :except => [:index, :show, :archive]
   caches_action :show
-    
+  respond_to :html, :json
+
   def index
     @articles = Article.published.page(params[:page]).per(5).ordered
     
@@ -83,5 +84,11 @@ class ArticlesController < ApplicationController
       format.html { redirect_to(articles_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def related
+    @article = Article.find(params[:id])
+    @related = Article.where("sequence_id = ?", @article.sequence_id).select("id, title, cached_slug").order('id ASC')
+    respond_with @related.to_json
   end
 end

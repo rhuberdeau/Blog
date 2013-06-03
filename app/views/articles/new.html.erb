@@ -21,8 +21,11 @@
     <%= f.text_field :tag_names %>
   </div>
   <div class="field">
-    <%= f.label :published %><br />
+    <%= f.label :published %>
     <%= f.check_box :published %>
+  </div>
+  <div class="field">
+    <%= collection_select(:sequence, :sequence_id, Sequence.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

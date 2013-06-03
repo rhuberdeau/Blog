@@ -7,12 +7,15 @@ src="http://www.facebook.com/plugins/like.php?href=www.roberthuberdeau.com&amp;l
   <%= link_to 'Back to all articles', articles_path %>
   <h1><%= @article.title %></h1>
   </div>
- <div class="article_body">
+  <div class="article_body">
     <% unless @article.user_id.nil? %>
       <p>By <%= @article.user.username %>. Published on <%= @article.created_at.strftime("%B %d, %Y") %></p>
     <% end %>
+    <div id="related_articles">
+      
+    </div>
     <p>
-      <%= raw @article.body %>
+      <%= coderay(@article.body).html_safe %>
     </p>
     <p>Tags:
     <% @article.tags.each do |tag|%>

@@ -18,4 +18,9 @@ FactoryGirl.define do
     published true
     user 
   end
+
+  factory :tutorial do
+    sequence(:name) { |n| "Tutorial #{n}"}
+    sequence(:summary) { |n| "Summary #{n}"}
+  end
 end

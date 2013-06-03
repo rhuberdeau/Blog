@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309174048) do
+ActiveRecord::Schema.define(:version => 20130603000433) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130309174048) do
     t.boolean  "published"
     t.integer  "user_id"
     t.text     "summary"
+    t.integer  "sequence_id"
   end
 
   add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
@@ -37,6 +38,12 @@ ActiveRecord::Schema.define(:version => 20130309174048) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "sequences", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "slugs", :force => true do |t|
