@@ -14,7 +14,7 @@
 #
 
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body, :tag_names, :published, :summary, :sequence_id
+  attr_accessible :title, :body, :tag_names, :published, :summary, :sequence_id, :cached_slug
     	
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
@@ -64,5 +64,9 @@ class Article < ActiveRecord::Base
 
     def generate_slug
       slug = "#{self.id}-#{self.title.gsub(/[^a-z0-9]+/i, '-')}".downcase
+    end
+
+    def self.all_cached
+      Rails.cache.fetch('Contact.all') { all }
     end
 end

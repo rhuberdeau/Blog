@@ -57,6 +57,8 @@ gem 'kaminari'
 gem "coderay"
 gem 'sass-rails',   '~> 3.2.3'
 gem 'bootstrap-sass'
+gem 'dalli'
+gem 'memcachier'
 # gem 'bj'
 # gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
