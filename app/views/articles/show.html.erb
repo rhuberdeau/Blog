@@ -12,7 +12,7 @@ src="http://www.facebook.com/plugins/like.php?href=www.roberthuberdeau.com&amp;l
       <p>By <%= @article.user.username %>. Published on <%= @article.created_at.strftime("%B %d, %Y") %></p>
     <% end %>
     <div id="related_articles">
-      
+      <p>Click here to view the entire blog series</p>
     </div>
     <p>
       <%= coderay(@article.body).html_safe %>
