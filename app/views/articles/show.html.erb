@@ -4,15 +4,15 @@
 src="http://www.facebook.com/plugins/like.php?href=www.roberthuberdeau.com&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true">
 </iframe>
   <div class="article_title">
-  <%= link_to 'Back to all articles', articles_path %>
-  <h1><%= @article.title %></h1>
+    <%= link_to 'Back to all articles', articles_path %>
+    <h1><%= @article.title %></h1>
   </div>
   <div class="article_body">
     <% unless @article.user_id.nil? %>
       <p>By <%= @article.user.username %>. Published on <%= @article.created_at.strftime("%B %d, %Y") %></p>
     <% end %>
-    <div id="related_articles">
-      <p>Click here to view the entire blog series</p>
+    <div id="sequence_<%= @article.sequence_id %>" class="related_articles" data-url="<%= @article.cached_slug %>">
+      
     </div>
     <p>
       <%= coderay(@article.body).html_safe %>
