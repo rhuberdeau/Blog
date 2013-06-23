@@ -1,35 +1,5 @@
 <h1>New article</h1>
 
-<%= form_for(@article) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-   <div class="field">
-    <%= f.label :summary %><br />
-    Summary is used as the meta description. Please keep it brief.
-    <%= f.text_area :summary %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body, :class => "redactor" %>
-  </div>
-  <div class="field">
-    <%= f.label :tag_names %><br />
-    <%= f.text_field :tag_names %>
-  </div>
-  <div class="field">
-    <%= f.label :published %>
-    <%= f.check_box :published %>
-  </div>
-  <div class="field">
-    <%= collection_select(:sequence, :sequence_id, Sequence.all, :id, :name) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', articles_path %>

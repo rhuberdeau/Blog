@@ -1,3 +1,4 @@
+<%= tinymce %>
 <h1>Editing article</h1>
 
 <%= form_for(@article) do |f| %>
@@ -14,7 +15,7 @@
   </div>
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.text_area :body, :class => "redactor" %>
+    <%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 120 %> 
   </div>
   
   <div class="field">
