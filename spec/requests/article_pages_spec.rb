@@ -54,7 +54,7 @@ describe 'article pages' do
 
       describe  "the delete article page" do
         before { delete article_path(article)}
-        specify { response.status.should equal(200)}
+        specify { response.status.should equal(302)}
       end
 
     end

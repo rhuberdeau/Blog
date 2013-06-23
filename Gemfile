@@ -52,13 +52,13 @@ end
 # gem 'ruby-debug'
 
 # Bundle the extra gems:
-gem "simple_form"
 gem 'kaminari'
 gem "coderay"
 gem 'sass-rails',   '~> 3.2.3'
 gem 'bootstrap-sass'
 gem 'dalli'
 gem 'memcachier'
+gem 'tinymce-rails'
 # gem 'bj'
 # gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'

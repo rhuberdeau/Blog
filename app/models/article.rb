@@ -28,7 +28,7 @@ class Article < ActiveRecord::Base
             presence: true,
             format: { with: VALID_TITLE_REGEX },
             uniqueness: { case_sensitive: false },
-            length: { maximum: 50, minimum: 6 }
+            length: { maximum: 55, minimum: 6 }
     
   validates_presence_of :body
   validates_presence_of :summary

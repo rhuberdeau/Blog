@@ -56,7 +56,7 @@ describe  "tutorial pages" do
 
     describe  "deletes a tutorial" do
       before { delete tutorial_path(tutorial)}
-      specify { response.status.should equal(200)}
+      specify { response.status.should equal(302)}
     end
 
   end
