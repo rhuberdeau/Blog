@@ -5,3 +5,4 @@
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
 Blog::Application.config.secret_token = '***REMOVED***'
+Blog::Application.config.secret_key_base = '***REMOVED***'

@@ -33,9 +33,8 @@ class Article < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :summary
   validates :user_id, presence: true
-    
-  scope :published, lambda { {:conditions => ['published = ?', true]} }
-  scope :ordered, lambda {{:order => "Created_at DESC" }}
+      
+  scope :published, -> { where(['published = ?', true]) }
       
   attr_writer :tag_names	
   attr_reader :per_page

@@ -1,8 +1,8 @@
 Blog::Application.routes.draw do
-  match '/about',   to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
-  match 'auth/:provider/callback', to: 'sessions#callback'
-  match '/related-articles/:id', to: 'articles#related'
+  get '/about',   to: 'static_pages#about'
+  get '/contact', to: 'static_pages#contact'
+  match 'auth/:provider/callback', to: 'sessions#callback', via: :all
+  get '/related-articles/:id', to: 'articles#related'
 
   resources :tutorials do
   	resources :steps
@@ -13,8 +13,8 @@ Blog::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup',  to: 'users#new'
-  match '/signin',  to: 'sessions#new'
+  get '/signup',  to: 'users#new'
+  get '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
   get "admin/index"
@@ -22,14 +22,13 @@ Blog::Application.routes.draw do
   get "admin/manage_comments"
   #match "/archive" => "articles#archive", :as => :archive
   #match "/:year(/:month(/:day))" => "articles#archive", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
-  match "/:year(/:month(/:day))" => "articles#archive", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
+  get "/:year(/:month(/:day))" => "articles#archive", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
     
   resources :articles do
     resources :comments
   end
 
-  match "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => {:format => :xml}
-
+  get "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => {:format => :xml}
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -83,4 +82,5 @@ Blog::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+  mount BlogEngine::Engine, at: "/blog"
 end

@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :comments
   
-  scope :approved, where(:approved => true)  
+  scope :approved, -> { where(approved: true) }
   
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token

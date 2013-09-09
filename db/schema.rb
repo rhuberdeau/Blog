@@ -97,9 +97,10 @@ ActiveRecord::Schema.define(:version => 20130603000433) do
   add_index "tutorials", ["permalink"], :name => "index_tutorials_on_permalink", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "email",           :default => "",    :null => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.datetime "reset_password_sent_at"
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "username"
     t.text     "bio"
     t.boolean  "approved"
@@ -107,7 +108,7 @@ ActiveRecord::Schema.define(:version => 20130603000433) do
     t.string   "uid"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
+    t.boolean  "admin",                  :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
