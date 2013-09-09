@@ -12,7 +12,7 @@
 
 class Tutorial < ActiveRecord::Base
   attr_accessible :name, :summary, :permalink 	
-  has_many :steps, :order => 'id'
+  has_many :steps, -> {order 'id'}
 
   validates :name, :presence => true,
             	   :length => { :maximum => 50 },
