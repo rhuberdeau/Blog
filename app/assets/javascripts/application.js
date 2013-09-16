@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require tinymce
+//= require bootstrap-wysihtml5
 //= require_tree .

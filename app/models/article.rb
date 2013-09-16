@@ -14,7 +14,6 @@
 #
 
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body, :tag_names, :published, :summary, :sequence_id, :cached_slug
     	
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings

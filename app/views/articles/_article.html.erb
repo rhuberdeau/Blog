@@ -1,7 +1,8 @@
-<div class="article_header">
-  <h2><%= link_to "#{article.title}", article %></h2>
-  By <%= article.user.username %>. Published on <%= article.created_at.strftime("%B %d, %Y") %><br />
-</div>
-  <%= raw truncate(article.body, :length => 500) %><br />
-  <%= link_to 'Read full the full article', article %>
-  <br /><br />
+<h1><%= link_to "#{article.title}", article %></h1>
+<p><%= coderay(article.body).truncate(500).html_safe %></p>
+<div>
+  <span class="badge">Posted <%= article.created_at.strftime("%B %d, %Y") %></span>
+  <% article.tags.each do |tag|%>
+	  <span class="label"><%= tag.name %></span>
+	<% end %>
+</div> 

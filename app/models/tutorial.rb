@@ -10,8 +10,7 @@
 #  updated_at :datetime         not null
 #
 
-class Tutorial < ActiveRecord::Base
-  attr_accessible :name, :summary, :permalink 	
+class Tutorial < ActiveRecord::Base 	
   has_many :steps, -> {order 'id'}
 
   validates :name, :presence => true,
