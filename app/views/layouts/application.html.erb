@@ -27,20 +27,38 @@
       })();
 
     </script>
-    <script language="javascript">
-      $(document).ready(function()  {
-        $('#markItUp').markItUp(myHtmlSettings);
-      });
-    </script> 
+    <script type="text/javascript">
+		  $(document).ready(function(){
+
+		    $('.wysihtml5').each(function(i, elem) {
+		      $(elem).wysihtml5({
+					  "html": true,
+					});
+		    });
+
+		  })
+		</script> 
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-      <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div>
+	
+		<div class="container-fluid">
+		  <div class="row-fluid">
+		    <div class="span3">
+		      <ul class="nav nav-list">
+						<li class="active"><%= link_to '<i class="icon-chevron-right"></i> Home'.html_safe, main_app.root_path %></li>
+						<li><%= link_to '<i class="icon-chevron-right"></i> Blog'.html_safe, blog_engine.articles_path %></li>
+            <li><%= link_to '<i class="icon-chevron-right"></i> Tutorials'.html_safe, main_app.tutorials_path %></li>
+            <li><%= link_to '<i class="icon-chevron-right"></i> About'.html_safe, main_app.about_path %></li>
+            <li><%= link_to '<i class="icon-chevron-right"></i> Contact'.html_safe, main_app.contact_path %></li>
+					</ul>
+		    </div>
+		    <div class="span9">
+		       <% flash.each do |key, value| %>
+			        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+			      <% end %>
+			      <%= yield %>
+		    </div>
+		  </div>
+		</div>  
   </body>
 </html>

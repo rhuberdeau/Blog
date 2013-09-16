@@ -46,7 +46,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-  	@article = current_user.articles.build(params[:article])
+  	@article = current_user.articles.build(article_params)
             
     respond_to do |format|
       if @article.save
@@ -63,7 +63,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
         
     respond_to do |format|
-      if @article.update_attributes(params[:article])
+      if @article.update_attributes(article_params)
       	expire_fragment('all_tags')
         format.html { redirect_to(@article, :notice => 'Article was successfully updated.') }
         format.xml  { head :ok }
@@ -89,4 +89,10 @@ class ArticlesController < ApplicationController
     @related = Article.where("sequence_id = ?", @article.sequence_id).select("id, title, cached_slug").order('id ASC')
     respond_with @related.to_json
   end
+  
+  private
+  
+    def article_params
+      params.require(:article).permit(:title, :body, :tag_names, :published, :summary, :sequence_id, :cached_slug)
+    end
 end
