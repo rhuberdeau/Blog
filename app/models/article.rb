@@ -14,7 +14,6 @@
 #
 
 class Article < ActiveRecord::Base
-    	
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
   has_many :comments, :dependent => :destroy
@@ -34,7 +33,8 @@ class Article < ActiveRecord::Base
   validates :user_id, presence: true
       
   scope :published, -> { where(['published = ?', true]) }
-      
+  
+  attr_accessible :title, :body, :summary      
   attr_writer :tag_names	
   attr_reader :per_page
   
