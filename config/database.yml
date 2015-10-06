@@ -1,34 +1,22 @@
-# SQLite version 3.x
-#   gem install sqlite3-ruby (not necessary on OS X Leopard)
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: blog_development
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: 
-  password: 
-  host: localhost
-  port: 5432
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+development:
+  <<: *default
+  database: blog_development
+
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: blog_test
-  pool: 5
-  username: 
-  password: 
-  host: localhost
-  port: 5432
 
 production:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: blog_production
-  pool: 5
-  username: 
-  password: 
-  host: localhost
-  port: 5432
+  username: blog
+  password: <%= ENV['VIODE_DATABASE_PASSWORD'] %>
+
+
