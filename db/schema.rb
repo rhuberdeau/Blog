@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20130911175736) do
     t.string   "title"
     t.text     "body"
     t.string   "cached_slug"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "published"
     t.integer  "user_id"
     t.text     "summary"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20130911175736) do
   create_table "comments", force: true do |t|
     t.text     "body",       null: false
     t.integer  "article_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
   end
 
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 20130911175736) do
 
   create_table "sequences", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "slugs", force: true do |t|
@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(version: 20130911175736) do
     t.text     "body"
     t.integer  "position"
     t.integer  "tutorial_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "steps", ["position"], name: "index_steps_on_position", using: :btree
@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(version: 20130911175736) do
   create_table "taggings", force: true do |t|
     t.integer  "article_id", null: false
     t.integer  "tag_id",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "taggings", ["article_id"], name: "index_taggings_on_article_id", using: :btree
@@ -99,16 +99,16 @@ ActiveRecord::Schema.define(version: 20130911175736) do
 
   create_table "tags", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tutorials", force: true do |t|
     t.string   "name"
     t.text     "summary"
     t.string   "permalink"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "tutorials", ["name"], name: "index_tutorials_on_name", unique: true, using: :btree
@@ -117,8 +117,8 @@ ActiveRecord::Schema.define(version: 20130911175736) do
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.datetime "reset_password_sent_at"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "username"
     t.text     "bio"
     t.boolean  "approved"
