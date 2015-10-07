@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/rhuberdeau/Blog-Engine.git
-  revision: 503570d3135b9d9c4e145b7cd64a95bebc3a9f47
-  specs:
-    blog_engine (0.1.1)
-      rails (~> 4.0.0)
-      rails-bootstrap-markdown
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -129,7 +121,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.0)
       sprockets-rails (~> 2.0.0)
-    rails-bootstrap-markdown (0.0.2)
     rails-observers (0.1.2)
       activemodel (~> 4.0)
     railties (4.0.0)
@@ -195,7 +186,6 @@ DEPENDENCIES
   actionpack-page_caching
   annotate
   bcrypt-ruby (~> 3.0.0)
-  blog_engine!
   bootstrap-sass
   bootstrap-wysihtml5-rails
   capybara (< 2.0.0)
