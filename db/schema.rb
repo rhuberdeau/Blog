@@ -30,21 +30,6 @@ ActiveRecord::Schema.define(version: 20130911175736) do
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
-  create_table "blog_engine_articles", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.boolean  "published"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "blog_engine_comments", force: true do |t|
-    t.text     "content"
-    t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "comments", force: true do |t|
     t.text     "body",       null: false
     t.integer  "article_id", null: false
