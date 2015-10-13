@@ -7,7 +7,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'rails'
 gem 'sass-rails'
 gem 'coffee-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.5'
 gem 'uglifier', '>= 1.0.3'
 gem 'jquery-rails'
 gem 'protected_attributes'
@@ -15,11 +15,12 @@ gem "pg"
 
 group :development, :test do
   gem 'annotate'
-  gem "rspec-rails"
+  gem 'rspec-rails', '~> 2.99'
 end
 
 group :test do
-  gem 'capybara', '< 2.0.0'
+  gem 'test-unit'
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails', require: false
   gem 'factory_girl_rails'
