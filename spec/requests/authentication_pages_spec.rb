@@ -4,13 +4,13 @@ describe "Authentication" do
 
   subject { page }
 
-  describe "signin page" do
+  describe "signin page", :type => :feature do
     before { visit signin_path }
 
     it { should have_selector('h1',    text: 'Sign in') }
   end
 
-  describe "signin" do
+  describe "signin", :type => :feature do
     before { visit signin_path }
 
     describe "with invalid information" do
@@ -22,7 +22,7 @@ describe "Authentication" do
       describe "after visiting another page" do
   	    before { click_link "Home" }
   	    it { should_not have_selector('div.alert.alert-error') }
-	  end
+	    end
     end
 
     describe "with valid information" do
@@ -50,7 +50,6 @@ describe "Authentication" do
           end
 
           describe "after signing in" do
-
             it "should render the desired protected page" do
               page.should have_selector('title', text: 'Edit user')
             end
@@ -100,8 +99,7 @@ describe "Authentication" do
           end
         end
 
-        describe  "in the Admin controller" do
-          
+        describe  "in the Admin controller" do          
           describe  "visit the admin page" do
             before { get admin_index_path }
             specify { response.should redirect_to(signin_path)}
@@ -116,9 +114,7 @@ describe "Authentication" do
             before { get admin_manage_comments_path }
             specify { response.should redirect_to(signin_path)}
           end
-
         end 
-
       end
     end
   end
