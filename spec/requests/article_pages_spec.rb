@@ -7,7 +7,7 @@ describe 'article pages' do
 
   describe 'A standard user' do
     let(:user) {FactoryGirl.create(:user) }
-    before { sign_in user }
+    before { assign_cookies user }
 
     describe  "tries to visit the new article page" do
       before { get new_article_path }
@@ -38,7 +38,7 @@ describe 'article pages' do
 
   describe 'An admin' do
     let(:admin) { FactoryGirl.create(:user, email: "admin@mail.com", admin: true) }
-    before { sign_in admin }
+    before { assign_cookies admin }
     
     describe "visits" do
           

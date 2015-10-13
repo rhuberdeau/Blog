@@ -7,7 +7,7 @@ describe  "tutorial pages" do
 
   describe  "a standard user" do
     let(:user) {FactoryGirl.create(:user) }
-    before { sign_in user }
+    before { assign_cookies user }
 
     describe  "tries to visit the new tutorial page" do
       before { get new_tutorial_path }
@@ -42,7 +42,7 @@ describe  "tutorial pages" do
 
   describe  "an admin" do
     let(:admin) { FactoryGirl.create(:user, email: "admin@mail.com", admin: true) }
-    before { sign_in admin }
+    before { assign_cookies admin }
 
     describe  "creates a tutorial" do
       before { get new_tutorial_path}

@@ -5,7 +5,7 @@ describe "User pages" do
  
   subject { page }
 
-  describe "edit" do
+  describe "edit", :type => :feature do
     let(:user) { FactoryGirl.create(:user) }
     before do
       sign_in user
@@ -41,20 +41,20 @@ describe "User pages" do
     end
   end
 
-  describe "signup page" do
+  describe "signup page", :type => :feature do
     before { visit signup_path }
 
     it { should have_selector('h1',    text: 'Sign up') }
   end
 
-  describe "profile page" do
+  describe "profile page", :type => :feature do
     let(:user) { FactoryGirl.create(:user) }
     before { visit user_path(user) }
 
     it { should have_selector('h1',    text: user.username) }
   end
 
-  describe "signup" do
+  describe "signup", :type => :feature do
 
     before { visit signup_path }
 
