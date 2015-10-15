@@ -40,25 +40,28 @@
 		</script> 
   </head>
   <body>
-	
-		<div class="container-fluid">
-		  <div class="row-fluid">
-		    <div class="span3">
-		      <ul class="nav nav-list">
-						<li class="active"><%= link_to '<i class="icon-chevron-right"></i> Home'.html_safe, root_path %></li>
-						<li><%= link_to '<i class="icon-chevron-right"></i> Blog'.html_safe, articles_path %></li>
-            <li><%= link_to '<i class="icon-chevron-right"></i> Tutorials'.html_safe, tutorials_path %></li>
-            <li><%= link_to '<i class="icon-chevron-right"></i> About'.html_safe, about_path %></li>
-            <li><%= link_to '<i class="icon-chevron-right"></i> Contact'.html_safe, contact_path %></li>
-					</ul>
-		    </div>
-		    <div class="span9">
-		       <% flash.each do |key, value| %>
-			        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-			      <% end %>
-			      <%= yield %>
-		    </div>
-		  </div>
-		</div>  
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'Home', root_path, class: "navbar-brand em-text" %>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Tutorials', tutorials_path %></li>
+            <li><%= link_to 'About', about_path %></li>
+            <li><%= link_to 'Contact', contact_path %></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <%= yield %> 
+    
   </body>
 </html>
