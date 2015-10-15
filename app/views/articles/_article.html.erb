@@ -1,8 +1,7 @@
-<h1><%= link_to "#{article.title}", article %></h1>
-<p><%= coderay(article.body).truncate(500).html_safe %></p>
-<div>
-  <span class="badge">Posted <%= article.created_at.strftime("%B %d, %Y") %></span>
-  <% article.tags.each do |tag|%>
-	  <span class="label"><%= tag.name %></span>
-	<% end %>
-</div> 
+<div class="index_padding">
+  <h1 class="article_header"><%= link_to "#{article.title}", article, class: "article_link" %></h1>
+  <p><%= article.summary %></p>
+  <div class = "article_footer">
+  <%= link_to "Read More", article, class: "btn btn-default", title: article.title  %>
+  </div> 
+</div>
