@@ -27,7 +27,7 @@ group :test do
 end
 
 # Bundle the extra gems:
-gem 'kaminari'
+gem 'will_paginate'   
 gem "coderay"
 gem 'dalli'
 gem 'memcachier'
