@@ -1,6 +1,9 @@
 <% provide(:title, 'Ruby on Rails and Quality Assurance articles') %>
 
-  <%= render @articles %>
+<section id="articles">
+  <div id="home_index" class = "container"> 
+    <%= render @articles %>
+  </div>    
+</section>
 
-<%= paginate @articles %>
-
+<%= will_paginate @articles %>
