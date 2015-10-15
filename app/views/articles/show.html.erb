@@ -1,15 +1,12 @@
 <% provide(:title, "#{@title}") %>
-
-<h1><%= @article.title %></h1>
-<p>
-<span class="badge">Posted <%= @article.created_at.strftime("%B %d, %Y") %></span>
-<% @article.tags.each do |tag|%>
-  <span class="label"><%= tag.name %></span>
-<% end %>
-</p>
-<div id="sequence_<%= @article.sequence_id %>" class="related_articles" data-url="<%= @article.cached_slug %>"></div>
-<p>
-  <%= coderay(@article.body).html_safe %>
-</p>
-  
-<%= link_to "edit", edit_article_path(@article)%>
+<section>
+  <div class = "container article_show">
+    <h1 class="article_title" ><%= @article.title %></h1>
+    <h3 class="article_user">
+      POSTED BY <span class="author">ROBERT HUBERDEAU</span>
+    </h3>  
+    <div class="article_content">
+      <%= coderay(@article.body).html_safe %>
+    </div>     
+  </div>
+</section>
