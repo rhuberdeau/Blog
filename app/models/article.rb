@@ -20,28 +20,25 @@ class Article < ActiveRecord::Base
   belongs_to :user
   belongs_to :sequence
 
-  VALID_TITLE_REGEX = /\A[a-zA-Z\s\d]+\z/i
+  attr_accessible :title, :body, :summary, :published      
+  attr_writer :tag_names  
 
-  validates :title,
-            presence: true,
-            format: { with: VALID_TITLE_REGEX },
-            uniqueness: { case_sensitive: false },
-            length: { maximum: 55, minimum: 6 }
-    
+  VALID_TITLE_REGEX = /\A[a-zA-Z\s\d]+\z/i
+  
   validates_presence_of :body
   validates_presence_of :summary
-  validates :user_id, presence: true
+  validates             :user_id, presence: true
+  validates             :title,
+                        presence: true,
+                        format: { with: VALID_TITLE_REGEX },
+                        uniqueness: { case_sensitive: false },
+                        length: { maximum: 70, minimum: 6 }
       
-  scope :published, -> { where(['published = ?', true]) }
-  
-  attr_accessible :title, :body, :summary      
-  attr_writer :tag_names	
-  attr_reader :per_page
-  
-  after_save :assign_tags
+  scope :published?, -> { where(['published = ?', true]) }
+  self.per_page = 10
+     
+  after_save    :assign_tags
   before_create :generate_slug
-    
-  @@per_page = 5
   
   def tag_names  
     @tag_names || tags.map(&:name).join(',')  
