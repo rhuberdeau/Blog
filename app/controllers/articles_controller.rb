@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @articles = Article.published.order("created_at DESC").page params[:page]
+    # @articles = Article.published?
+    @articles = Article.where(:published => true).paginate(:page => params[:page]).order('id DESC')
     
     respond_to do |format|
       format.html # index.html.erb
