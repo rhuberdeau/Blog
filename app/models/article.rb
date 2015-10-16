@@ -20,7 +20,7 @@ class Article < ActiveRecord::Base
   belongs_to :user
   belongs_to :sequence
 
-  attr_accessible :title, :body, :summary, :published      
+  attr_accessible :title, :body, :summary, :published, :user_id      
   attr_writer :tag_names  
 
   VALID_TITLE_REGEX = /\A[a-zA-Z\s\d]+\z/i
