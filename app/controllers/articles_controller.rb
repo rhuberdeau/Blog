@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
   respond_to :html, :json
 
   def index
-    # @articles = Article.published?
     @articles = Article.where(:published => true).paginate(:page => params[:page]).order('id DESC')
     
     respond_to do |format|
@@ -60,6 +59,7 @@ class ArticlesController < ApplicationController
       end
     end
   end
+  
   def update
     @article = Article.find(params[:id])
         
