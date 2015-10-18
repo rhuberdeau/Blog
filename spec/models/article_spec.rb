@@ -40,7 +40,7 @@ describe Article do
   end
 
   describe  "when title is too long" do
-    before { @article.title = "a" * 56}
+    before { @article.title = "a" * 71}
     it { should_not be_valid }
   end
 
