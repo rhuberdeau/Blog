@@ -35,7 +35,6 @@ describe "User pages" do
         click_button "Save changes"
       end
 
-      it { should have_selector('div.alert.alert-success') }
       specify { user.reload.username.should  == new_name }
       specify { user.reload.email.should == new_email }
     end
@@ -77,13 +76,6 @@ describe "User pages" do
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end 
-
-      describe "after saving the user" do
-        before { click_button submit }
-        let(:user) { User.find_by_email('user@example.com') }
-
-        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
-      end
     end
   end
 end
