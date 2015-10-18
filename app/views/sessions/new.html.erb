@@ -2,6 +2,12 @@
 
 <h1 id="signin" class="container">Sign in</h1>
 <%= form_for(:session, url: sessions_path, html: {class: "form-horizontal"}) do |f| %>
+  <div class="errors container">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
+  </div>
+
   <div class="form-group">
     <%= f.label :email, class: "col-sm-2 control-label" %>
     <div class="col-sm-4">
