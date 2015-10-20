@@ -1,26 +1,41 @@
 <% provide(:title, "Edit user") %> 
-<h1>Update your profile</h1>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :username %>
-      <%= f.text_field :username %>
+<div class="container">
+  <h1 class="edit_user">Update your profile</h1>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-    <% end %>
-
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">change</a>
-  </div>
+ 
+  <%= form_for(@user, html: {class: "form-horizontal"}) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group">
+      <%= f.label :username, class: "col-sm-2 control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :username, class: "form-control", placeholder: "username" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, class: "col-sm-2 control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :email, class: "form-control", placeholder: "email" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, class: "col-sm-2 control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :password, class: "form-control", placeholder: "password" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, "Confirm Password", class: "col-sm-2 control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_field :password_confirmation, class: "form-control", placeholder: "password" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit 'Save changes', class: "btn btn-default" %>
+      </div>
+    </div>
+  <% end %>
+  <%= gravatar_for @user %>
+  <a href="http://gravatar.com/emails">change</a>
 </div>
