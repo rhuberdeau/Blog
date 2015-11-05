@@ -35,7 +35,7 @@ class Article < ActiveRecord::Base
                         length: { maximum: 70, minimum: 6 }
       
   scope :published?, -> { where(['published = ?', true]) }
-  self.per_page = 10
+  self.per_page = 5
      
   after_save    :assign_tags
   before_create :generate_slug
