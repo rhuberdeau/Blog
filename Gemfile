@@ -28,6 +28,7 @@ end
 
 # Bundle the extra gems:
 gem 'will_paginate'   
+gem 'will_paginate-bootstrap'
 gem "coderay"
 gem 'dalli'
 gem 'memcachier'
@@ -38,3 +39,4 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'rails-observers'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
+gem "ember-cli-rails"
