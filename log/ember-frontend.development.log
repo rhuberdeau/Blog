@@ -1,0 +1,296 @@
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...
+
+Build successful - 3690ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3092ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3114ms (778 ms)     
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...
+
+Build successful - 3934ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3218ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3242ms (810 ms)     
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...
+
+Build successful - 3818ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3191ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3214ms (803 ms)     
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...BuildingBuilding.Building..Building...
+
+Build successful - 5516ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3203ms              
+Babel                                         | 277ms               
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3317ms (829 ms)     
+Babel (3)                                     | 588ms (196 ms)      
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...
+
+Build successful - 3758ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3124ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3152ms (788 ms)     
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...
+
+Build successful - 3680ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3036ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3136ms (784 ms)     
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...
+
+Build successful - 3839ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3234ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3262ms (815 ms)     
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...Building...
+
+Build successful - 4020ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3241ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3273ms (818 ms)     
+
+file deleted templates/index.hbs
+
+Build successful - 579ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 183ms               
+Funnel                                        | 84ms                
+BroccoliMergeTrees                            | 30ms                
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 193ms (48 ms)       
+Funnel (35)                                   | 116ms (3 ms)        
+BroccoliMergeTrees (3)                        | 41ms (13 ms)        
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...
+
+Build successful - 3722ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3105ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3201ms (800 ms)     
+
+file changed adapters/application.js
+
+Build successful - 628ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 169ms               
+Addon#treeFor (ember-cli-htmlbars - styles)   | 82ms                
+ES6: App Tree                                 | 45ms                
+Babel                                         | 38ms                
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 178ms (44 ms)       
+Addon#treeFor (ember-cli-htmlbars - st... (3) | 82ms (27 ms)        
+Babel (3)                                     | 45ms (15 ms)        
+ES6: App Tree (1)                             | 45ms                
+BroccoliMergeTrees (3)                        | 40ms (13 ms)        
+Funnel (35)                                   | 33ms (0 ms)         
+
+file changed adapters/application.js
+
+Build successful - 538ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 166ms               
+ConcatWithMaps                                | 81ms                
+BroccoliMergeTrees                            | 35ms                
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 249ms (62 ms)       
+BroccoliMergeTrees (3)                        | 45ms (15 ms)        
+Funnel (35)                                   | 31ms (0 ms)         
+Babel (3)                                     | 28ms (9 ms)         
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...
+
+Build successful - 3833ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3214ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3238ms (809 ms)     
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...
+
+Build successful - 3823ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3190ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3237ms (809 ms)     
+
+file changed templates/application.hbs
+
+Build successful - 527ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 226ms               
+BroccoliMergeTrees                            | 32ms                
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 235ms (58 ms)       
+BroccoliMergeTrees (3)                        | 48ms (16 ms)        
+Funnel (35)                                   | 31ms (0 ms)         
+
+file changed templates/application.hbs
+
+Build successful - 517ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 211ms               
+Funnel: App JS Files                          | 42ms                
+BroccoliMergeTrees                            | 29ms                
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 220ms (55 ms)       
+BroccoliMergeTrees (3)                        | 43ms (14 ms)        
+Funnel: App JS Files (1)                      | 42ms                
+Funnel (35)                                   | 29ms (0 ms)         
+
+file changed templates/application.hbs
+
+Build successful - 500ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 210ms               
+Funnel: App JS Files                          | 35ms                
+BroccoliMergeTrees                            | 29ms                
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 219ms (54 ms)       
+BroccoliMergeTrees (3)                        | 41ms (13 ms)        
+Funnel: App JS Files (1)                      | 35ms                
+Funnel (35)                                   | 29ms (0 ms)         
+
+Future versions of Ember CLI will not support v0.10.25. Please update to Node 0.12 or io.js.
+version: 1.13.8
+Could not find watchman, falling back to NodeWatcher for file system events.
+Visit http://www.ember-cli.com/user-guide/#watchman for more info.
+BuildingBuilding.Building..Building...
+
+Build successful - 3946ms.
+
+Slowest Trees                                 | Total               
+----------------------------------------------+---------------------
+ConcatWithMaps                                | 3314ms              
+
+Slowest Trees (cumulative)                    | Total (avg)         
+----------------------------------------------+---------------------
+ConcatWithMaps (4)                            | 3411ms (852 ms)     
+
