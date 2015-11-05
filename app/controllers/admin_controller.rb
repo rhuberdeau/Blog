@@ -4,6 +4,7 @@ class AdminController < ApplicationController
   
   def index
   	@articles = Article.all(:order => "Created_at DESC")
+    render(:layout => "layouts/admin")
   end
 
   def show
