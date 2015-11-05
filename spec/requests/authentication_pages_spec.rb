@@ -103,7 +103,7 @@ describe "Authentication" do
 
         describe  "in the Admin controller" do          
           describe  "visit the admin page" do
-            before { get admin_index_path }
+            before { get admin_path }
             specify { response.should redirect_to(signin_path)}
           end
 
