@@ -6,4 +6,6 @@
   </div>    
 </section>
 
-<%= will_paginate @articles %>
+<div id="pagination" class="container" >
+  <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+</footer>
