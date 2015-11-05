@@ -17,6 +17,6 @@ production:
   <<: *default
   database: blog_production
   username: blog
-  password: <%= ENV['VIODE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
 
 
