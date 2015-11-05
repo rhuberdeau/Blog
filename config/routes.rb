@@ -17,7 +17,7 @@ Blog::Application.routes.draw do
   get '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
-  get "admin/index"
+  get "admin", to: 'admin#index'
   get "admin/show"
   get "admin/manage_comments"
   #match "/archive" => "articles#archive", :as => :archive
