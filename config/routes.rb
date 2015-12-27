@@ -1,4 +1,5 @@
 Blog::Application.routes.draw do
+  devise_for :users
   get '/about',   to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
   match 'auth/:provider/callback', to: 'sessions#callback', via: :all
@@ -7,15 +8,13 @@ Blog::Application.routes.draw do
   resources :tutorials do
   	resources :steps
   end
-  
-  resources :users
   resources :tags
 
-  resources :sessions, only: [:new, :create, :destroy]
+  # resources :sessions, only: [:new, :create, :destroy]
 
-  get '/signup',  to: 'users#new'
-  get '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
+  # get '/signup',  to: 'users#new'
+  # get '/signin',  to: 'sessions#new'
+  # match '/signout', to: 'sessions#destroy', via: :delete
 
   get "admin", to: 'admin#index'
   get "admin/show"
