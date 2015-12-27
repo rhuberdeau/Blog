@@ -11,7 +11,6 @@
 #
 
 class Step < ActiveRecord::Base
-  attr_accessible :tutorial_id, :body, :position
   belongs_to :tutorial
   
   validates :body, :presence => true

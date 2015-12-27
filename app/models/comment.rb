@@ -12,8 +12,6 @@
 #
 
 class Comment < ActiveRecord::Base
-	attr_accessible :user_id, :body, :article_id
-	
 	belongs_to :article
 	belongs_to :user
 	

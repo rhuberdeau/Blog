@@ -11,7 +11,6 @@
 #
 
 class Tutorial < ActiveRecord::Base 
-  attr_accessible :name, :summary	
   has_many :steps, -> {order 'id'}
 
   validates :name, :presence => true,
