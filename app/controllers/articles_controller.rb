@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user, :except => [:index, :show, :archive, :related]
+  before_filter :authenticate_user!, :except => [:index, :show, :archive, :related]
   before_filter :user_must_be_admin, :except => [:index, :show, :archive, :related]
   caches_action :show
   respond_to :html, :json
