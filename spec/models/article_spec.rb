@@ -1,6 +1,6 @@
 require 'spec_helper' 
 
-describe Article do
+RSpec.describe Article, :type => :model do
   let(:user) { FactoryGirl.create(:user) }
   before do
     @article = user.articles.build(title: "A working title", body: "this is the content of the article", summary: "an article")
