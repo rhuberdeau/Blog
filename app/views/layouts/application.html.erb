@@ -41,7 +41,9 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <p class="notice"><%= notice %></p>
-    <%= yield %> 
+    <div class="container notices">
+      <%= flash_messages %>
+    </div>
+    <%= yield %>
   </body>
 </html>
