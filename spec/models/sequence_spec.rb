@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Sequence do
+RSpec.describe Sequence, :type => :model do
   before do
   	@sequence = Sequence.new(name: "Test sequence")
   end
