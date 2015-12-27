@@ -10,7 +10,6 @@ gem 'coffee-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'uglifier', '>= 1.0.3'
 gem 'jquery-rails'
-gem 'protected_attributes'
 gem "pg"
 
 group :development, :test do
@@ -32,7 +31,6 @@ gem 'will_paginate-bootstrap'
 gem "coderay"
 gem 'dalli'
 gem 'memcachier'
-gem 'tinymce-rails'
 
 # add these gems to help with the transition:
 gem 'bootstrap-wysihtml5-rails'
@@ -40,3 +38,4 @@ gem 'rails-observers'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 gem "ember-cli-rails"
+gem 'devise'
