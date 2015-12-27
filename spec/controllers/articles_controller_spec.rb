@@ -34,7 +34,7 @@ RSpec.describe ArticlesController, :type => :controller do
   describe "GET #new" do 
     context "when an admin is logged in" do
       let(:user) {FactoryGirl.create(:user, admin: true) }
-      before { assign_cookies(user) }
+      before { sign_in user }
 
       it "renders the new template" do 
         get :new
@@ -44,7 +44,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
     context "when the user is not an admin" do 
       let(:user) {FactoryGirl.create(:user) }
-      before { assign_cookies(user) }
+      before { sign_in user }
 
       it "redirects the user" do 
         get :new
@@ -65,7 +65,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
     context "when an admin is logged in" do
       let(:user) {FactoryGirl.create(:user, admin: true) }
-      before { assign_cookies(user) }
+      before { sign_in user }
 
       it "should be a success" do 
         get :edit, id: article.id
@@ -75,7 +75,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
     context "when the user is not an admin" do 
       let(:user) {FactoryGirl.create(:user) }
-      before { assign_cookies(user) }
+      before { sign_in user }
 
       it "redirects the user" do 
         get :edit, id: article.id
@@ -96,7 +96,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
     context "when an admin is logged in" do
       let(:user) {FactoryGirl.create(:user, admin: true) }
-      before { assign_cookies(user) }
+      before { sign_in user }
 
       it "should be successful" do 
         post :create, :article => article_params
@@ -110,7 +110,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
     context "when the user is not an admin" do 
       let(:user) {FactoryGirl.create(:user) }
-      before { assign_cookies(user) }
+      before { sign_in user }
 
       it "does not create a new article" do 
         expect { post :create, :article => article_params }.to change(Article, :count).by(0)
@@ -132,7 +132,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
     context "when an admin is logged in" do
       let(:user) {FactoryGirl.create(:user, admin: true) }
-      before { assign_cookies(user) }
+      before { sign_in user }
 
       it "should be successful" do 
         post :update, id: article.id, :article => article_params
@@ -148,7 +148,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
     context "when the user is not an admin" do 
       let(:user) {FactoryGirl.create(:user) }
-      before { assign_cookies(user) }
+      before { sign_in user }
 
       it "does not update the article" do 
         post :update, id: article.id, :article => article_params
@@ -171,7 +171,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
     context "when an admin is logged in" do
       let(:user) {FactoryGirl.create(:user, admin: true) }
-      before { assign_cookies(user) }
+      before { sign_in user }
 
       it "should be successful" do 
         delete :destroy, id: article.id
@@ -185,7 +185,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
     context "when the user is not an admin" do 
       let(:user) {FactoryGirl.create(:user) }
-      before { assign_cookies(user) }
+      before { sign_in user }
 
       it "does not delete the article" do
         expect { delete :destroy, id: article.id }.to change(Article, :count).by(0)
