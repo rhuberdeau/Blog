@@ -6,3 +6,4 @@ before_install:
 
 install:
 - npm install --save-dev ember-cli-rails-addon@0.0.12
+- bundle install
