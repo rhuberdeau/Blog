@@ -15,4 +15,13 @@ RSpec.describe Comment, :type => :model do
 	it { should respond_to :article_id }
 
   it { should be_valid }
+
+  describe "#recent" do 
+  	it "returns comments created in the last 7 days" do
+      comment1 = FactoryGirl.create(:comment, created_at: Date.today - 8)
+      comment2 = FactoryGirl.create(:comment, created_at: Date.today - 6)
+      comment3 = FactoryGirl.create(:comment, created_at: Date.today - 10)
+      expect(Comment.recent.to_a).to eql([comment2])  
+  	end
+  end
 end
