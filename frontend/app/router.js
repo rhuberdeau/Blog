@@ -9,7 +9,6 @@ Router.map(function() {
   this.resource('articles', function() {
     this.resource('article', { path: '/:article_id' });
   });
-  this.route('admin', {}, function() {});
 });
 
 export default Router;
