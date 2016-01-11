@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20151105051027) do
     t.string   "cached_slug"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "published"
+    t.boolean  "published", default: false
     t.integer  "user_id"
     t.text     "summary"
     t.integer  "sequence_id"
