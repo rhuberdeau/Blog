@@ -19,4 +19,6 @@ class Comment < ActiveRecord::Base
 	validates :body,
 	          :presence => {:message => "Please enter a comment"} 
 	validates_numericality_of :article_id
+
+  scope :recent, -> { where("created_at >= ?", (Time.now - 7.days)) }
 end
