@@ -15,6 +15,12 @@ FactoryGirl.define do
     user 
   end
 
+  factory :comment do 
+    body "Hey man, that was a really nice post"
+    user
+    article
+  end
+
   factory :tutorial do
     sequence(:name) { |n| "Tutorial #{n}"}
     sequence(:summary) { |n| "Summary #{n}"}
