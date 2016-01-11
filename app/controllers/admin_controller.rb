@@ -3,8 +3,8 @@ class AdminController < ApplicationController
   before_filter :user_must_be_admin	
   
   def index
-  	@articles = Article.all(:order => "Created_at DESC")
-    render(:layout => "layouts/admin")
+    @articles = Article.where(published: false)
+    @comments = Comment.recent
   end
 
   def show
