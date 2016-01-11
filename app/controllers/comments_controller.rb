@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.xml
   def new
-    @comment = @post.comments.build
+    @comment = @article.comments.build
 
     respond_to do |format|
       format.html # new.html.erb
