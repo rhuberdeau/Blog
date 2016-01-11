@@ -10,6 +10,6 @@ describe "Admin Panel", type: :feature do
     click_button 'Log in'
     visit "/admin"
 
-    expect(page).to have_content "Welcome to Ember"
+    expect(page).to have_content "Unpublished Articles"
   end
 end
