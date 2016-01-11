@@ -24,14 +24,6 @@ class ArticlesController < ApplicationController
     end
   end
   
-  def archive
-  	#@articles = Article.published
-  	#@article_months = @articles.group_by { |a| a.created_at.beginning_of_month }
-  	date = params[:year] + (params[:month] ? '-' + params[:month] : '') + (params[:day] ? '-' + params[:day] : '') + '%'
-    @articles = Article.all(:conditions => ['created_at like ? and published = ?', date, true])
-    @size = @articles.size
-  end
-  
   def new
     @article = Article.new
     respond_to do |format|
@@ -83,12 +75,6 @@ class ArticlesController < ApplicationController
       format.html { redirect_to(articles_url) }
       format.xml  { head :ok }
     end
-  end
-
-  def related
-    @article = Article.find(params[:id])
-    @related = Article.where("sequence_id = ?", @article.sequence_id).select("id, title, cached_slug").order('id ASC')
-    respond_with @related.to_json
   end
   
   private
