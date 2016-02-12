@@ -1,9 +1,9 @@
 <% provide(:title, "#{@title}") %>
 <section>
-  <div class = "container article_show">
+  <div class = "article_show col-md-8 col-md-offset-2">
     <h1 class="article_title" ><%= @article.title %></h1>
-    <h3 class="article_user">
-      POSTED BY <span class="author">ROBERT HUBERDEAU</span>
+    <h3 class="h4">
+      Posted by <span class="author">ROBERT HUBERDEAU</span>
     </h3>  
     <div class="article_content">
       <%= coderay(@article.body).html_safe %>
