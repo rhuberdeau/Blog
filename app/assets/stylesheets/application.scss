@@ -9,7 +9,7 @@
   font-size: 18px;
 }
 
-.btn:hover {
+.article-button:hover {
   background-color: #000 !important;
 }
 
@@ -28,9 +28,6 @@ div.notices {
 ///////////////////////////
 
 div#home_index {
-  width: 700px;
-  padding-left: 20px;
-  padding-right: 20px;
   font-size: 21px;
   line-height: 1.6em;
 }
@@ -49,10 +46,6 @@ h1.article_header {
   line-height: 1.2em;
 }
 
-div.article_footer {
-  margin-top: 37px;
-}
-
 div.index_padding {
   padding-top: 24px;
   padding-bottom: 24px;
@@ -68,27 +61,32 @@ div#pagination {
 /////// Article Show ///////
 ///////////////////////////
 
-div.article_show {
-  width: 700px;
-  margin-top: 40px;
-}
+// div.article_show {
+//   width: 700px;
+//   margin-top: 40px;
+// }
 
 h1.article_title {
   margin-bottom: 20px;
 }
 
-h3.article_user {
-  font-size: 14px;
-}
+// h3.article_user {
+//   font-size: 14px;
+// }
 
-span {
+span.author {
   color: #999;
+  font-size: 14px;
 }
 
 div.article_content {
   font-size: 21px;
   line-height: 1.55;
   margin-top: 48px;
+}
+
+div.article_content p {
+  margin: 0 0 30px;
 }
 
 ////////////////////////////
