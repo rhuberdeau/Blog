@@ -59,8 +59,4 @@ class Article < ActiveRecord::Base
     def generate_slug
       slug = "#{self.id}-#{self.title.gsub(/[^a-z0-9]+/i, '-')}".downcase
     end
-
-    def self.all_cached
-      Rails.cache.fetch('Contact.all') { all }
-    end
 end
