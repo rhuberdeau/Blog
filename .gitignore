@@ -12,7 +12,13 @@
 /.sass-cache
 /connect.lock
 /coverage/*
+
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+/logfile
+log/
 /libpeerconnection.log
 npm-debug.log
 testem.log
-log/*
