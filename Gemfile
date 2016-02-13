@@ -38,5 +38,4 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'rails-observers'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
-gem "ember-cli-rails"
 gem 'devise'
