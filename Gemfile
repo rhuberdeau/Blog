@@ -30,10 +30,6 @@ end
 gem 'will_paginate'   
 gem 'will_paginate-bootstrap'
 gem "coderay"
-gem 'dalli'
-gem 'memcachier'
-
-# add these gems to help with the transition:
 gem 'bootstrap-wysihtml5-rails'
 gem 'rails-observers'
 gem 'actionpack-page_caching'
