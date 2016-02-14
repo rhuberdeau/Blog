@@ -21,6 +21,3 @@ log/
 /libpeerconnection.log
 npm-debug.log
 testem.log
-
-#secret
-/config/secrets.yml
