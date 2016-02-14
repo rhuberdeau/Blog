@@ -7,6 +7,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem "pg"
+gem 'puma'
 
 group :development, :test do
   gem 'annotate'
