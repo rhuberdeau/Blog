@@ -2,7 +2,6 @@
 
 # compiled output
 /dist
-/tmp
 
 # dependencies
 /node_modules
@@ -22,3 +21,6 @@ log/
 /libpeerconnection.log
 npm-debug.log
 testem.log
+
+#secret
+/config/secrets.yml
