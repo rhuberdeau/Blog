@@ -1,20 +1,17 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.0'
-gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Bundle edge Rails instead:
-# gem 'rails'
+gem 'rails', '4.2.2'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
-gem 'uglifier', '>= 1.0.3'
+gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem "pg"
 
 group :development, :test do
   gem 'annotate'
   gem 'rspec-rails', '~> 2.99'
+  gem 'spring'
 end
 
 group :test do
@@ -31,7 +28,4 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem "coderay"
 gem 'bootstrap-wysihtml5-rails'
-gem 'rails-observers'
-gem 'actionpack-page_caching'
-gem 'actionpack-action_caching'
 gem 'devise'
