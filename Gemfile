@@ -29,3 +29,5 @@ gem 'will_paginate-bootstrap'
 gem "coderay"
 gem 'bootstrap-wysihtml5-rails'
 gem 'devise'
+
+gem 'rails_12factor', group: :production
