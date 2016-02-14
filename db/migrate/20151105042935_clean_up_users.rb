@@ -6,7 +6,7 @@ class CleanUpUsers < ActiveRecord::Migration
     remove_column :users, :username, :string
     remove_column :users, :bio, :text
     remove_column :users, :approved, :boolean
-    remove_column :users, :admin, :boolean
+    # remove_column :users, :admin, :boolean
     remove_column :users, :provider, :string
     remove_column :users, :uid, :string
   end
