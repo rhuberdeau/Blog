@@ -6,7 +6,7 @@ env:
 script:
   - RAILS_ENV=test bundle exec rake --trace db:migrate test
 before_script:
-  - psql -c 'create database myapp_test' -U postgres
+  - psql -c 'create database blog_test' -U postgres
 before_install:
 - "echo 'gem: --no-document' > ~/.gemrc"
 - "echo '--colour' > ~/.rspec"
