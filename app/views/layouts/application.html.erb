@@ -39,14 +39,14 @@
     <%= render 'layouts/header' %>
     <div class="notices">
       <% if notice.present? %>
-        <aside class="alert alert-info">
+        <div class="alert alert-info close col-md-12" data-dismiss="alert">
           <%= notice %>
-        </aside>
+        </div>
       <% end %>
       <% if alert.present? %>
-        <aside class="alert alert-danger">
+        <div class="alert alert-danger close col-md-12" data-dismiss="alert">
           <%= alert %>
-        </aside>
+        </div>
       <% end %>
     </div>
     <%= yield %>
