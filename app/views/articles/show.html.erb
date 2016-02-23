@@ -4,9 +4,14 @@
     <h1 class="article_title" ><%= @article.title %></h1>
     <h3 class="h4">
       Posted by <span class="author">ROBERT HUBERDEAU</span>
-    </h3>  
+    </h3> 
+    
+    <%= render "shared/social_share" %>
+
     <div class="article_content">
       <%= coderay(@article.body).html_safe %>
-    </div>     
+    </div> 
+
+    <%= render "shared/social_share" %>    
   </div>
 </section>
