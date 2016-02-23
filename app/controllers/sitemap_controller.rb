@@ -2,7 +2,7 @@ class SitemapController < ApplicationController
   layout nil
 
   def index
-    @articles = Article.published
+    @articles = Article.where(:published => true)
     @tutorials = Tutorial.all
     headers["Content-Type"] = "text/xml"
     respond_to do |format|
