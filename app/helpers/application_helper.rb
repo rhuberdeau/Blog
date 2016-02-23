@@ -9,7 +9,7 @@ module ApplicationHelper
   end
   
   def metadescription
-  	base_content = "A collection of tutorials and tips to help a new Rails developer"
+  	base_content = "A collection of tips and tutorials to help Rails developers"
   	if @content.nil?
   		base_content
   	else
@@ -18,12 +18,21 @@ module ApplicationHelper
   end
   
   def keywords
-  	base_keywords = "quality assurance, rails 3 tutorial, rails 3 tutorials, rails tutorial, ruby on rails tutorial, tutorials"
+  	base_keywords = "software development, ruby on rails, quality assurance, ruby on rails tutorials"
   	if @keywords.nil?
   		base_keywords
   	else
   		"#{@keywords}"
   	end
+  end
+
+  def title
+    base_title = "This is going to blow your mind"
+    if @title.nil?
+      base_title
+    else
+      "#{@title}"
+    end
   end
   
   def coderay(text)  
