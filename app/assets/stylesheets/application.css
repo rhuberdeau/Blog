@@ -13,5 +13,6 @@
  *= require_tree .
  *= require_self
  *= require 'bootstrap-sass-official'
+ *= require bootstrap-wysihtml5
  *= require 'components-font-awesome'
  */

@@ -4,11 +4,12 @@ ruby "2.2.2"
 gem 'rails', '4.2.2'
 gem 'sass-rails'
 gem 'coffee-rails'
-gem 'bootstrap-sass', '~> 3.3.5'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem "pg"
 gem 'puma'
+gem 'bower-rails'
+gem 'bootstrap-wysihtml5-rails'
 
 group :development, :test do
   gem 'annotate'
@@ -29,7 +30,6 @@ end
 gem 'will_paginate'   
 gem 'will_paginate-bootstrap'
 gem "coderay"
-gem 'bootstrap-wysihtml5-rails'
 gem 'devise'
 
 gem 'rails_12factor', group: :production
