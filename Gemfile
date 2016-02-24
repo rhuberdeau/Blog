@@ -10,6 +10,10 @@ gem "pg"
 gem 'puma'
 gem 'bower-rails'
 gem 'bootstrap-wysihtml5-rails'
+gem 'will_paginate'   
+gem 'will_paginate-bootstrap'
+gem "coderay"
+gem 'devise'
 
 group :development, :test do
   gem 'annotate'
@@ -25,11 +29,5 @@ group :test do
   gem 'factory_girl_rails'
   gem "capybara-webkit"
 end
-
-# Bundle the extra gems:
-gem 'will_paginate'   
-gem 'will_paginate-bootstrap'
-gem "coderay"
-gem 'devise'
 
 gem 'rails_12factor', group: :production
