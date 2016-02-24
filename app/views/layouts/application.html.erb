@@ -30,9 +30,7 @@
 		  $(document).ready(function(){
 
 		    $('.wysihtml5').each(function(i, elem) {
-		      $(elem).wysihtml5({
-					  "html": true,
-					});
+		      $(elem).wysihtml5({'toolbar': {'html': true}}, {useLineBreaks: false});
 		    });
 		  });
 		</script> 
