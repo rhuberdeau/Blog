@@ -14,6 +14,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem "coderay"
 gem 'devise'
+gem 'meta-tags'
 
 group :development, :test do
   gem 'annotate'
