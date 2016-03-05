@@ -1,9 +1,9 @@
 <a href="http://twitter.com/share" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
 
-<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.rhuberdeau.com&title="<%=title %>" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.rhuberdeau.com<%= request.path %>&title=<%= @article.title%>" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
 
-<a href="https://plus.google.com/share?url=http://www.rhuberdeau.com" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+<a href="https://plus.google.com/share?url=http://www.rhuberdeau.com<%= request.path %>" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
 
-<a href="http://www.stumbleupon.com/submit?url=http://www.rhuberdeau.com" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
+<a href="http://www.stumbleupon.com/submit?url=http://www.rhuberdeau.com<%= request.path %>" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
 
-<a href="http://www.linkedin.com/shareArticle?mini=true&url=http://www.rhuberdeau.com&title=<%= title %>&summary=<%= metadescription %>" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=http://www.rhuberdeau.com<%= request.path %>&title=<%= @article.title%>&summary=<%= @article.summary %>" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
