@@ -15,6 +15,7 @@ gem 'will_paginate-bootstrap'
 gem "coderay"
 gem 'devise'
 gem 'meta-tags'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'annotate'
