@@ -14,9 +14,13 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @title = @article.title
-    @content = @article.summary
-    @keywords = @article.title
+    
+    set_meta_tags title: "#{@article.title} | Robert Huberdeau"
+    set_meta_tags  description: @article.summary
+    set_meta_tags og: {
+      title: @article.title,
+      type: 'article',
+    }
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @article }
