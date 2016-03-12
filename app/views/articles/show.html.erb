@@ -11,10 +11,10 @@
     <%= coderay(@article.body).html_safe %>
   </div> 
   <div class="previous_article h4 col-md-4">
-      <%= link_to "<< #{@previous_article.title}", @previous_article, class: "btn btn-lg btn-success" if @previous_article %>
+      <%= link_to "<< Previous Article", @previous_article, class: "btn btn-lg btn-success" if @previous_article %>
   </div>
-  <div class="next_article h4 col-md-4 col-md-offset-2">
-    <%= link_to "#{@next_article.title} >>", @next_article, class: "btn btn-lg btn-success"  if @next_article %>
+  <div class="next_article h4 col-md-4 col-md-offset-4">
+    <%= link_to "Next Article >>", @next_article, class: "btn btn-lg btn-success"  if @next_article %>
   </div>
 </section>
 
