@@ -13,14 +13,21 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
-    
-    set_meta_tags title: "#{@article.title} | Robert Huberdeau"
-    set_meta_tags  description: @article.summary
-    set_meta_tags og: {
-      title: @article.title,
-      type: 'article',
-    }
+    @article          = Article.find(params[:id])
+
+    if @article 
+      id                = params[:id].split('-').first
+      @previous_article = Article.where("id < ?", id).order("created_at").first
+      @next_article     = Article.where("id > ?", id).order("created_at").first
+
+      set_meta_tags title: "#{@article.title} | Robert Huberdeau"
+      set_meta_tags  description: @article.summary
+      set_meta_tags og: {
+        title: @article.title,
+        type: 'article',
+      }
+    end
+  
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @article }
