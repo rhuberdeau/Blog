@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 
     if @article 
       id                = params[:id].split('-').first
-      @previous_article = Article.where("id < ?", id).order("created_at").first
+      @previous_article = Article.where("id < ?", id).order("created_at").last
       @next_article     = Article.where("id > ?", id).order("created_at").first
 
       set_meta_tags title: "#{@article.title} | Robert Huberdeau"
