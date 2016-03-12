@@ -15,19 +15,9 @@ RSpec.describe ArticlesController, :type => :controller do
   describe "GET #show" do 
     let (:article) { FactoryGirl.create(:article) }
 
-    it "assigns @title" do 
+    it "renders the article" do 
       get :show, id: article.id
-      expect(assigns(:title)).to eql(article.title)
-    end
-
-    it "assigns @content" do 
-      get :show, id: article.id
-      expect(assigns(:content)).to eql(article.summary)
-    end
-
-    it "assigns @keywords" do 
-      get :show, id: article.id
-      expect(assigns(:keywords)).to eql(article.title)
+      expect(response.status).to eq(200)
     end
   end
 
