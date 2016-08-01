@@ -96,6 +96,13 @@ RSpec.describe ArticlesController, :type => :controller do
       it "creates a new article" do 
         expect { post :create, :article => article_params }.to change(Article, :count).by(1)
       end 
+
+      it "does not publish the article by default" do
+        article_params = FactoryGirl.attributes_for(:article, published: false) 
+        post :create, :article => article_params
+        article = Article.last
+        expect(article.published).to eql(false)
+      end
     end
 
     context "when the user is not an admin" do 
