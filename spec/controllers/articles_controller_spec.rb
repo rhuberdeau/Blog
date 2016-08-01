@@ -188,4 +188,24 @@ RSpec.describe ArticlesController, :type => :controller do
       end
     end
   end
+
+  describe "POST #post" do 
+    let!(:article) { FactoryGirl.create(:article, published: false) }
+
+    context "when an admin is logged in" do 
+      let(:user) {FactoryGirl.create(:user, admin: true) }
+      before { sign_in user }
+
+      it "redirects to the admin page" do 
+        post :publish, id: article.id
+        expect(response).to redirect_to controller: 'admin', action: 'index'
+      end
+
+      it "publishes the article" do 
+        post :publish, id: article.id
+        article.reload
+        expect(article.published).to eql(true)
+      end
+    end
+  end
 end
