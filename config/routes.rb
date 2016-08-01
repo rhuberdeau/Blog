@@ -8,6 +8,7 @@ Blog::Application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   get "admin", to: 'admin#index'
   get "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => {:format => :xml}
+  post "/articles/:id/publish", to: "articles#publish", :as => :publish_article
 
   resources :tags
   resources :tutorials do
