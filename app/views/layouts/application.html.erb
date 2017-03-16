@@ -1,52 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <%= display_meta_tags %>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta property="og:url" content="<%= request.path %>" />
-    <META name="y_key" content="8d25c37de00d4ec6" />
-    <meta name="msvalidate.01" content="2197772BABCA691F6E16B4FFD6F1CEDD" />
-    <meta name="google-site-verification" content="6MojtDLkmdHZbn2f7suKcVZbMEd8w14IPZ5EXu2O4EI" />
-    <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= display_meta_tags %>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta property="og:url" content="<%= request.path %>" />
+  <META name="y_key" content="8d25c37de00d4ec6" />
+  <meta name="msvalidate.01" content="2197772BABCA691F6E16B4FFD6F1CEDD" />
+  <meta name="google-site-verification" content="6MojtDLkmdHZbn2f7suKcVZbMEd8w14IPZ5EXu2O4EI" />
+  <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
-    <% if Rails.env == "production" %>
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <% if Rails.env == "production" %>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-73807666-1', 'auto');
-        ga('send', 'pageview');
+      ga('create', 'UA-73807666-1', 'auto');
+      ga('send', 'pageview');
 
-      </script>
-    <% end %>
-    
-    <script type="text/javascript">
-		  $(document).ready(function(){
+    </script>
+  <% end %>
 
-		    $('.wysihtml5').each(function(i, elem) {
-		      $(elem).wysihtml5({'toolbar': {'html': true}}, {useLineBreaks: false});
-		    });
-		  });
-		</script> 
-  </head>
-  <body class="container">
-    <%= render 'layouts/header' %>
-    <div class="notices">
-      <% if notice.present? %>
-        <div class="alert alert-info col-md-12" data-dismiss="alert">
-          <%= notice %>
-        </div>
-      <% end %>
-      <% if alert.present? %>
-        <div class="alert alert-danger col-md-12" data-dismiss="alert">
-          <%= alert %>
-        </div>
-      <% end %>
-    </div>
-    <%= yield %>
-  </body>
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+      $('.wysihtml5').each(function(i, elem) {
+        $(elem).wysihtml5({'toolbar': {'html': true}}, {useLineBreaks: false});
+      });
+    });
+  </script>
+
+</head>
+<body>
+  <%= render 'shared/shim' %>
+  <%= render 'shared/navigation' %>
+
+  <%= yield %>
+  <%= render 'shared/footer' %>
+</body>
 </html>

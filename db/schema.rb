@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105051027) do
+ActiveRecord::Schema.define(version: 20160801002516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", force: true do |t|
+  create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.string   "cached_slug"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "published", default: false
+    t.boolean  "published",   default: false
     t.integer  "user_id"
     t.text     "summary"
     t.integer  "sequence_id"
@@ -30,22 +30,7 @@ ActiveRecord::Schema.define(version: 20151105051027) do
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
-  create_table "blog_engine_articles", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.boolean  "published"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "blog_engine_comments", force: true do |t|
-    t.text     "content"
-    t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "comments", force: true do |t|
+  create_table "comments", force: :cascade do |t|
     t.text     "body",       null: false
     t.integer  "article_id", null: false
     t.datetime "created_at"
@@ -53,18 +38,18 @@ ActiveRecord::Schema.define(version: 20151105051027) do
     t.integer  "user_id"
   end
 
-  create_table "roles_users", id: false, force: true do |t|
+  create_table "roles_users", id: false, force: :cascade do |t|
     t.integer "role_id"
     t.integer "user_id"
   end
 
-  create_table "sequences", force: true do |t|
+  create_table "sequences", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "slugs", force: true do |t|
+  create_table "slugs", force: :cascade do |t|
     t.string   "name"
     t.integer  "sluggable_id"
     t.integer  "sequence",                  default: 1, null: false
@@ -76,7 +61,7 @@ ActiveRecord::Schema.define(version: 20151105051027) do
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], name: "index_slugs_on_n_s_s_and_s", unique: true, using: :btree
   add_index "slugs", ["sluggable_id"], name: "index_slugs_on_sluggable_id", using: :btree
 
-  create_table "steps", force: true do |t|
+  create_table "steps", force: :cascade do |t|
     t.text     "body"
     t.integer  "position"
     t.integer  "tutorial_id", null: false
@@ -87,7 +72,7 @@ ActiveRecord::Schema.define(version: 20151105051027) do
   add_index "steps", ["position"], name: "index_steps_on_position", using: :btree
   add_index "steps", ["tutorial_id"], name: "index_steps_on_tutorial_id", using: :btree
 
-  create_table "taggings", force: true do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "article_id", null: false
     t.integer  "tag_id",     null: false
     t.datetime "created_at"
@@ -97,13 +82,13 @@ ActiveRecord::Schema.define(version: 20151105051027) do
   add_index "taggings", ["article_id"], name: "index_taggings_on_article_id", using: :btree
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
 
-  create_table "tags", force: true do |t|
+  create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tutorials", force: true do |t|
+  create_table "tutorials", force: :cascade do |t|
     t.string   "name"
     t.text     "summary"
     t.string   "permalink"
@@ -114,22 +99,21 @@ ActiveRecord::Schema.define(version: 20151105051027) do
   add_index "tutorials", ["name"], name: "index_tutorials_on_name", unique: true, using: :btree
   add_index "tutorials", ["permalink"], name: "index_tutorials_on_permalink", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
     t.datetime "reset_password_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

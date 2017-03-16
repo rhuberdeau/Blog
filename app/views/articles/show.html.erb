@@ -1,22 +1,20 @@
 <% provide(:title, "#{@title}") %>
-<section class="article col-md-8 col-md-offset-2">
-  <h1 class="article_title" ><%= @article.title %></h1>
-  <h3 class="h4">
-    Posted by <span class="author">ROBERT HUBERDEAU</span>
-  </h3> 
-  
-  <%= render "shared/social_share" %>
 
-  <div class="article_content">
-    <%= coderay(@article.body).html_safe %>
-  </div> 
-  <div class="previous_article h4 col-md-4">
-      <%= link_to "<< Previous Article", @previous_article, class: "btn btn-lg btn-success" if @previous_article %>
-  </div>
-  <div class="next_article h4 col-md-4 col-md-offset-4">
-    <%= link_to "Next Article >>", @next_article, class: "btn btn-lg btn-success"  if @next_article %>
-  </div>
-</section>
+<%= render partial: "shared/header", locals: {url: '/assets/clean_blog/post-bg.jpg',
+                                              title: @article.title,
+                                              sub_heading: @article.summary} %>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <%= coderay(@article.body).html_safe %>
+            </div>
+        </div>
+    </div>
+</article>
+
+<br>
 
 <div id="disqus_thread" class="col-md-8 col-md-offset-2"></div>
 <script>
@@ -26,9 +24,9 @@
   };
   (function() {  // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
-      
+
       s.src = '//rhuberdeau.disqus.com/embed.js';
-      
+
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
   })();

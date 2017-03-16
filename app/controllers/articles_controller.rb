@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.where(:published => true).paginate(:page => params[:page]).order('id DESC')
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @articles }
@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   def show
     @article          = Article.find(params[:id])
 
-    if @article 
+    if @article
       id                = params[:id].split('-').first
       @previous_article = Article.where("id < ?", id).order("created_at").last
       @next_article     = Article.where("id > ?", id).order("created_at").first
@@ -27,19 +27,19 @@ class ArticlesController < ApplicationController
         type: 'article',
       }
     end
-  
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @article }
     end
   end
-  
+
   def new
     @article = Article.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @article }
-    end    
+    end
   end
 
   # GET /articles/1/edit
@@ -48,8 +48,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-  	@article = current_user.articles.build(article_params)
-            
+  	@article = User.first.articles.build(article_params)
+
     respond_to do |format|
       if @article.save
       	expire_fragment('all_tags')
@@ -61,10 +61,10 @@ class ArticlesController < ApplicationController
       end
     end
   end
-  
+
   def update
     @article = Article.find(params[:id])
-        
+
     respond_to do |format|
       if @article.update_attributes(article_params)
       	expire_fragment('all_tags')
@@ -80,7 +80,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to(articles_url) }
       format.xml  { head :ok }
@@ -100,9 +100,9 @@ class ArticlesController < ApplicationController
       end
     end
   end
-  
+
   private
-  
+
     def article_params
       params.require(:article).permit(:title, :body, :tag_names, :published, :summary, :sequence_id, :cached_slug)
     end

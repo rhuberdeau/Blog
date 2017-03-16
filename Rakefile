@@ -3,5 +3,7 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
+require "frontend_generators"
+load 'tasks/add_assets.rake'
 
 Blog::Application.load_tasks
