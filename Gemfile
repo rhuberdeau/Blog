@@ -16,7 +16,6 @@ gem "coderay"
 gem 'devise'
 gem 'meta-tags'
 gem "font-awesome-rails"
-gem 'frontend-generators'
 
 group :development, :test do
   gem 'annotate'
@@ -27,8 +26,6 @@ end
 group :test do
   gem 'test-unit'
   gem 'capybara'
-  gem 'database_cleaner'
-  gem 'cucumber-rails', require: false
   gem 'factory_girl_rails'
   gem "capybara-webkit"
 end
