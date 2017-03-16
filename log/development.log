@@ -10612,3 +10612,19 @@ Completed 200 OK in 23ms (Views: 22.1ms | ActiveRecord: 0.4ms)
 
 
 Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-03-16 17:44:32 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-16 17:58:34 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.9ms)
+  [1m[35mArticle Load (2.3ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (2.2ms)
+  Rendered articles/index.html.erb within layouts/application (40.7ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  Rendered shared/_navigation.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 350ms (Views: 323.8ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-03-16 17:58:35 -0400
