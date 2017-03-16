@@ -10,12 +10,13 @@ gem "pg"
 gem 'puma'
 gem 'bower-rails'
 gem 'bootstrap-wysihtml5-rails'
-gem 'will_paginate'   
+gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem "coderay"
 gem 'devise'
 gem 'meta-tags'
 gem "font-awesome-rails"
+gem 'frontend-generators'
 
 group :development, :test do
   gem 'annotate'

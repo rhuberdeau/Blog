@@ -1,11 +1,19 @@
-<% provide(:title, 'Ruby on Rails and Quality Assurance articles') %>
+<title>Clean Blog</title>
+<%= render partial: "shared/header", locals: {url: '/assets/clean_blog/home-bg.jpg',
+                                              title: 'Blog posts',
+                                              sub_heading: 'and other ramblings'} %>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <%= render @articles %>
 
-<section id="articles">
-  <div id="home_index" class="col-md-8 col-md-offset-2"> 
-    <%= render @articles %>
-  </div>    
-</section>
+            <!-- Pager -->
+            <ul class="pager">
+                <%= will_paginate @articles, :page_links => false %>
+            </ul>
+        </div>
+    </div>
+</div>
 
-<div id="pagination" class="container" >
-  <%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
-</footer>
+<br>

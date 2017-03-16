@@ -1,7 +1,12 @@
-<div class="index_padding">
-  <h2 class="article_header h1"><%= link_to "#{article.title}", article, class: "article_link" %></h2>
-  <p><%= article.summary %></p>
-  <div class = "article_footer">
-  <%= link_to "Read More", article, class: "btn btn-lg btn-success", title: article.title  %>
-  </div> 
+<div class="post-preview">
+  <%= link_to article do %>
+    <h2 class="post-title">
+      Man must explore, and this is exploration at its greatest
+    </h2>
+    <h3 class="post-subtitle">
+        Problems look mighty small from 150 miles up
+    </h3>
+  <% end %>
+  <p class="post-meta">Posted by <a href="#">Robert Huberdeau</a> <%= article.created_at.strftime("%b %e, %Y")%></p>
 </div>
+<hr>

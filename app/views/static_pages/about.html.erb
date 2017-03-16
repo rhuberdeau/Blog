@@ -1,6 +1,13 @@
-<% provide(:title, 'About') %>
-<section>
-  <div class="article_content col-md-8 col-md-offset-2">
-    Robert Huberdeau is a software engineer with Remedy Health Media.
-  </div>
-</section>
+<%= render partial: "shared/header", locals: {url: '/assets/clean_blog/about-bg.jpg',
+                                              title: 'About Me',
+                                              sub_heading: 'This is what I do.'} %>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <p>Robert Huberdeau is a software engineer with Decisiv Inc.</p>
+        </div>
+    </div>
+</div>
+
+<br>
