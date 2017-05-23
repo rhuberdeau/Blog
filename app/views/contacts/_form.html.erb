@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <p>Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
+                <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+                <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+                <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+                <%= form_for(@contact) do |f| %>
+                  <%= render 'shared/error_messages', object: f.object %>
+                  <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                      <%= f.label :name %>
+                      <%= f.text_field :name, class: "form-control", placeholder: "Name", id: "name" %>
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div>
+                  <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                      <%= f.label :email_address %>
+                      <%= f.text_field :email_address, class: "form-control", placeholder: "Email Address", id: "email" %>
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div>
+                  <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                      <%= f.label :phone_number %>
+                      <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number (optional)", id:"phone" %>
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div>
+                  <div class="row control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                      <%= f.label :message %>
+                      <%= f.text_area :message, class: "form-control", placeholder: "Message", id: "message", rows: "5" %>
+                      <p class="help-block text-danger"></p>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    <div class="form-group col-xs-12">
+                      <%= f.submit 'Send', class: 'btn btn-default' %>
+                    </div>
+                  </div>
+                <% end %>
+        </div>
+    </div>
+</div>
+<br>
