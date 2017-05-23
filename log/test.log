@@ -7242,3 +7242,912 @@ Processing by Devise::SessionsController#new as HTML
   Rendered shared/_footer.html.erb (0.1ms)
 Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.0ms)
   [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (29.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_1@example.com' LIMIT 1[0m
+  [1m[35mSQL (13.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_1@example.com"], ["encrypted_password", "$2a$04$GFkl1EYz6Q9HjEAIUhEw0eoCm0TxhbA8v3QE807AfaiL.sq5JZrjy"], ["created_at", "2017-05-23 00:04:24.806226"], ["updated_at", "2017-05-23 00:04:24.806226"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_2@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_2@example.com"], ["encrypted_password", "$2a$04$Ta1AGKQpVljmuTx8YfNfAeMRUZs0oHy/oyI05Feodfk0cSnX71h0C"], ["created_at", "2017-05-23 00:04:24.838714"], ["updated_at", "2017-05-23 00:04:24.838714"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (1.3ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 1') LIMIT 1[0m
+  [1m[35mSQL (16.7ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 1"], ["summary", "Summary of article 1"], ["body", "This is the body of article 1"], ["published", "t"], ["user_id", 154], ["created_at", "2017-05-23 00:04:24.886523"], ["updated_at", "2017-05-23 00:04:24.886523"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#update as HTML
+  Parameters: {"article"=>{"body"=>"Brand new article content. It's much better than the old content"}, "id"=>"95"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 153]]
+Redirected to http://test.host/articles
+Filter chain halted as :user_must_be_admin rendered or redirected
+Completed 302 Found in 24ms (ActiveRecord: 0.6ms)
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 95]]
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_3@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "person_3@example.com"], ["encrypted_password", "$2a$04$R07RNTrrlP.KwdFK9RrE6eehpj.GSIZp54BgOa94u3EoeEBwZGhyG"], ["admin", "t"], ["created_at", "2017-05-23 00:04:24.953629"], ["updated_at", "2017-05-23 00:04:24.953629"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_4@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_4@example.com"], ["encrypted_password", "$2a$04$fOi1A04OfxC8mbREGRTjo..DtMa3zaTG6bjEdCWmhC1rclfPPiGz2"], ["created_at", "2017-05-23 00:04:24.959640"], ["updated_at", "2017-05-23 00:04:24.959640"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 2') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 2"], ["summary", "Summary of article 2"], ["body", "This is the body of article 2"], ["published", "t"], ["user_id", 156], ["created_at", "2017-05-23 00:04:24.967290"], ["updated_at", "2017-05-23 00:04:24.967290"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#update as HTML
+  Parameters: {"article"=>{"body"=>"Brand new article content. It's much better than the old content"}, "id"=>"96"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 155]]
+  [1m[36mArticle Load (0.6ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 96]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE (LOWER("articles"."title") = LOWER('Article 2') AND "articles"."id" != 96) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "articles" SET "body" = $1, "updated_at" = $2 WHERE "articles"."id" = $3  [["body", "Brand new article content. It's much better than the old content"], ["updated_at", "2017-05-23 00:04:24.979955"], ["id", 96]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/articles/96-Article-2
+Completed 302 Found in 13ms (ActiveRecord: 2.9ms)
+  [1m[35mArticle Load (0.4ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1  [["id", 96]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_5@example.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "person_5@example.com"], ["encrypted_password", "$2a$04$.rco2bS8BAO9pg1qrUbeWO1NGHuf/Cj5A.iUYxom6ZbSjqqoq3foS"], ["admin", "t"], ["created_at", "2017-05-23 00:04:24.990388"], ["updated_at", "2017-05-23 00:04:24.990388"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_6@example.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_6@example.com"], ["encrypted_password", "$2a$04$HG1NIQL1.bjJzhwxJ8zYm.DFaeRmaqyLcbuq3oEqGA0Ga4kfpVvQu"], ["created_at", "2017-05-23 00:04:24.996181"], ["updated_at", "2017-05-23 00:04:24.996181"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.4ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 3') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 3"], ["summary", "Summary of article 3"], ["body", "This is the body of article 3"], ["published", "t"], ["user_id", 158], ["created_at", "2017-05-23 00:04:25.004105"], ["updated_at", "2017-05-23 00:04:25.004105"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ArticlesController#update as HTML
+  Parameters: {"article"=>{"body"=>"Brand new article content. It's much better than the old content"}, "id"=>"97"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 157]]
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1  [["id", 97]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles" WHERE (LOWER("articles"."title") = LOWER('Article 3') AND "articles"."id" != 97) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "articles" SET "body" = $1, "updated_at" = $2 WHERE "articles"."id" = $3[0m  [["body", "Brand new article content. It's much better than the old content"], ["updated_at", "2017-05-23 00:04:25.010316"], ["id", 97]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/articles/97-Article-3
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_7@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_7@example.com"], ["encrypted_password", "$2a$04$/alMZJGbdNhpbNN/IbiMUONca9jqfwTyAGed9i5I6LD6At5qDRFdi"], ["created_at", "2017-05-23 00:04:25.017730"], ["updated_at", "2017-05-23 00:04:25.017730"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 4') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 4"], ["summary", "Summary of article 4"], ["body", "This is the body of article 4"], ["published", "t"], ["user_id", 159], ["created_at", "2017-05-23 00:04:25.021596"], ["updated_at", "2017-05-23 00:04:25.021596"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ArticlesController#update as HTML
+  Parameters: {"article"=>{"body"=>"Brand new article content. It's much better than the old content"}, "id"=>"98"}
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36mArticle Load (0.6ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 98]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_8@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_8@example.com"], ["encrypted_password", "$2a$04$T1s7cw1J/WMZTJ.Qa0Fme.SVDRUnCf3Oq3uKqNuVyV/nGtNJyABGS"], ["created_at", "2017-05-23 00:04:25.121791"], ["updated_at", "2017-05-23 00:04:25.121791"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 160]]
+Redirected to http://test.host/articles
+Filter chain halted as :user_must_be_admin rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_9@example.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "person_9@example.com"], ["encrypted_password", "$2a$04$8s08SmR.nnexr3rizSyfDuN0LUhT7sGrJOWc8tdusa9CbfuFbvf06"], ["admin", "t"], ["created_at", "2017-05-23 00:04:25.154032"], ["updated_at", "2017-05-23 00:04:25.154032"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 161]]
+  Rendered articles/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Processing by ArticlesController#new as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_10@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_10@example.com"], ["encrypted_password", "$2a$04$S3VOCfl1nRi92Sr4wwNe6OeUMjbMxugQ7jnCb6epmmO3ZNYWwFuiu"], ["created_at", "2017-05-23 00:04:25.191734"], ["updated_at", "2017-05-23 00:04:25.191734"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 5') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 5"], ["summary", "Summary of article 5"], ["body", "This is the body of article 5"], ["published", "t"], ["user_id", 162], ["created_at", "2017-05-23 00:04:25.194984"], ["updated_at", "2017-05-23 00:04:25.194984"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_11@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_11@example.com"], ["encrypted_password", "$2a$04$ADx1TlrRiM4WX5oxgmGT5.0erh/bvzUfm8fBRhh.qBVULfo/.U7f2"], ["created_at", "2017-05-23 00:04:25.198876"], ["updated_at", "2017-05-23 00:04:25.198876"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "articles"
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"99"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 163]]
+Redirected to http://test.host/articles
+Filter chain halted as :user_must_be_admin rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "articles"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_12@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_12@example.com"], ["encrypted_password", "$2a$04$1okS8ROkkVJ.b.PE3ek3yuwmQnN3T5q1BQ0RbAtNDfi10jitjrEmK"], ["created_at", "2017-05-23 00:04:25.247023"], ["updated_at", "2017-05-23 00:04:25.247023"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 6') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 6"], ["summary", "Summary of article 6"], ["body", "This is the body of article 6"], ["published", "t"], ["user_id", 164], ["created_at", "2017-05-23 00:04:25.250164"], ["updated_at", "2017-05-23 00:04:25.250164"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_13@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "person_13@example.com"], ["encrypted_password", "$2a$04$tzG62q6uDvCZlI5fTzn2aen7nYDa0O6ZmlFcqRgZstARWwW2a16jG"], ["admin", "t"], ["created_at", "2017-05-23 00:04:25.254363"], ["updated_at", "2017-05-23 00:04:25.254363"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "articles"[0m
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"100"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 165]]
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 100]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mTagging Load (0.8ms)[0m  [1mSELECT "taggings".* FROM "taggings" WHERE "taggings"."article_id" = $1[0m  [["article_id", 100]]
+  [1m[35mComment Load (28.8ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1  [["article_id", 100]]
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 100]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/articles
+Completed 302 Found in 113ms (ActiveRecord: 34.3ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "articles"[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_14@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_14@example.com"], ["encrypted_password", "$2a$04$1mT702RZbByKEdYWMgsI3u8LsRGMf4VvDNDHXH/TyvYYzhrqtqVr6"], ["created_at", "2017-05-23 00:04:25.393892"], ["updated_at", "2017-05-23 00:04:25.393892"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 7') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 7"], ["summary", "Summary of article 7"], ["body", "This is the body of article 7"], ["published", "t"], ["user_id", 166], ["created_at", "2017-05-23 00:04:25.397531"], ["updated_at", "2017-05-23 00:04:25.397531"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_15@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "person_15@example.com"], ["encrypted_password", "$2a$04$1oBABc4fzR8Tb0Q1UkV/S.xWu3pDfrGJvtS2wnJkRDujlzRwIFM/m"], ["admin", "t"], ["created_at", "2017-05-23 00:04:25.401624"], ["updated_at", "2017-05-23 00:04:25.401624"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"101"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 167]]
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 101]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mTagging Load (0.2ms)[0m  [1mSELECT "taggings".* FROM "taggings" WHERE "taggings"."article_id" = $1[0m  [["article_id", 101]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1  [["article_id", 101]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 101]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/articles
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_16@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_16@example.com"], ["encrypted_password", "$2a$04$dElnOIeOCnpd2GaYT7U/IuQtYfIyZIXp2zSvbqvjsGpFpfXCqubvG"], ["created_at", "2017-05-23 00:04:25.414451"], ["updated_at", "2017-05-23 00:04:25.414451"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.9ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.8ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 8') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 8"], ["summary", "Summary of article 8"], ["body", "This is the body of article 8"], ["published", "t"], ["user_id", 168], ["created_at", "2017-05-23 00:04:25.421479"], ["updated_at", "2017-05-23 00:04:25.421479"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "articles"[0m
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"id"=>"102"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "articles"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_17@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_17@example.com"], ["encrypted_password", "$2a$04$kA7l2JuHT.iw2UeBJHwPdemeTPMCKELTba9eAeAwRcH6bwsmbmmMu"], ["created_at", "2017-05-23 00:04:25.433710"], ["updated_at", "2017-05-23 00:04:25.433710"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.5ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 9') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Article 9"], ["summary", "Summary of article 9"], ["body", "This is the body of article 9"], ["user_id", 169], ["created_at", "2017-05-23 00:04:25.436962"], ["updated_at", "2017-05-23 00:04:25.436962"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_18@example.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "person_18@example.com"], ["encrypted_password", "$2a$04$H8Nt9vv5mCcClMtl77TD3.Kr5dZJWHijMdG0idrDR3gDlcEOYe3ti"], ["admin", "t"], ["created_at", "2017-05-23 00:04:25.441810"], ["updated_at", "2017-05-23 00:04:25.441810"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ArticlesController#publish as HTML
+  Parameters: {"id"=>"103"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 170]]
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1  [["id", 103]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles" WHERE (LOWER("articles"."title") = LOWER('Article 9') AND "articles"."id" != 103) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "articles" SET "published" = $1, "updated_at" = $2 WHERE "articles"."id" = $3[0m  [["published", "t"], ["updated_at", "2017-05-23 00:04:25.447569"], ["id", 103]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/admin
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 103]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_19@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_19@example.com"], ["encrypted_password", "$2a$04$6SgXG7U4PV0kKf2b1oMduOg.OwDIwTWfbGKuSD19rH2hn5FCrHv22"], ["created_at", "2017-05-23 00:04:25.455882"], ["updated_at", "2017-05-23 00:04:25.455882"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 10') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["title", "Article 10"], ["summary", "Summary of article 10"], ["body", "This is the body of article 10"], ["user_id", 171], ["created_at", "2017-05-23 00:04:25.458883"], ["updated_at", "2017-05-23 00:04:25.458883"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_20@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "person_20@example.com"], ["encrypted_password", "$2a$04$O9wa7hnFpSd/N7vUGzCkmOPVmGsApA/tCnxdkIg935scoF.zyTmX."], ["admin", "t"], ["created_at", "2017-05-23 00:04:25.463340"], ["updated_at", "2017-05-23 00:04:25.463340"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#publish as HTML
+  Parameters: {"id"=>"104"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 172]]
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 104]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE (LOWER("articles"."title") = LOWER('Article 10') AND "articles"."id" != 104) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "articles" SET "published" = $1, "updated_at" = $2 WHERE "articles"."id" = $3  [["published", "t"], ["updated_at", "2017-05-23 00:04:25.471327"], ["id", 104]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/admin
+Completed 302 Found in 7ms (ActiveRecord: 1.1ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_21@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_21@example.com"], ["encrypted_password", "$2a$04$IBBptPT.yvShRLCrkoZUvutWosPl20tfBULp0IYyPhs4lbt5KWAzi"], ["created_at", "2017-05-23 00:04:25.479408"], ["updated_at", "2017-05-23 00:04:25.479408"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 11') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 11"], ["summary", "Summary of article 11"], ["body", "This is the body of article 11"], ["published", "t"], ["user_id", 173], ["created_at", "2017-05-23 00:04:25.482702"], ["updated_at", "2017-05-23 00:04:25.482702"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"105"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1  [["id", 105]]
+  [1m[36mArticle Load (0.7ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE (id < '105')  ORDER BY created_at DESC LIMIT 1[0m
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles" WHERE (id > '105')  ORDER BY created_at LIMIT 1
+  Rendered articles/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "This is article 1"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["created_at", "2017-05-23 00:04:25.492872"], ["updated_at", "2017-05-23 00:04:25.492872"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 2') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "user_id", "published", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "This is article 2"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["published", "t"], ["created_at", "2017-05-23 00:04:25.495559"], ["updated_at", "2017-05-23 00:04:25.495559"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 3') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "This is article 3"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["created_at", "2017-05-23 00:04:25.498720"], ["updated_at", "2017-05-23 00:04:25.498720"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ArticlesController#index as HTML
+  Rendered articles/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_22@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_22@example.com"], ["encrypted_password", "$2a$04$otiAPtf6t6IX82bbaSBuLOVmAeHAryaeknZbKEiQOYQUQ8K7EZNb2"], ["created_at", "2017-05-23 00:04:25.509646"], ["updated_at", "2017-05-23 00:04:25.509646"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "articles"
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Article 12", "summary"=>"Summary of article 12", "body"=>"This is the body of article 12", "published"=>true}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 174]]
+Redirected to http://test.host/articles
+Filter chain halted as :user_must_be_admin rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "articles"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_23@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "person_23@example.com"], ["encrypted_password", "$2a$04$qS9/7XOxJXFK7QDu3WlKuOlXO5ymo3KPwQIJvpALATT2/MKMTuR0."], ["admin", "t"], ["created_at", "2017-05-23 00:04:25.522225"], ["updated_at", "2017-05-23 00:04:25.522225"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "articles"[0m
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Article 13", "summary"=>"Summary of article 13", "body"=>"This is the body of article 13", "published"=>true}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 175]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 13') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "body", "published", "summary", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 13"], ["body", "This is the body of article 13"], ["published", "t"], ["summary", "Summary of article 13"], ["user_id", 175], ["created_at", "2017-05-23 00:04:25.532750"], ["updated_at", "2017-05-23 00:04:25.532750"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/articles/109-Article-13
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "articles"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_24@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "person_24@example.com"], ["encrypted_password", "$2a$04$NyAYXO.eAJf7omBkRAWGKuancpvlD5PfW.2IhMmd3X9JbMY1tPfkO"], ["admin", "t"], ["created_at", "2017-05-23 00:04:25.539977"], ["updated_at", "2017-05-23 00:04:25.539977"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Article 14", "summary"=>"Summary of article 14", "body"=>"This is the body of article 14", "published"=>true}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 176]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.4ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 14') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "body", "published", "summary", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 14"], ["body", "This is the body of article 14"], ["published", "t"], ["summary", "Summary of article 14"], ["user_id", 176], ["created_at", "2017-05-23 00:04:25.555081"], ["updated_at", "2017-05-23 00:04:25.555081"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/articles/110-Article-14
+Completed 302 Found in 14ms (ActiveRecord: 1.7ms)
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles"  ORDER BY "articles"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_25@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "person_25@example.com"], ["encrypted_password", "$2a$04$GURAq/sjSvuAB/MDMN4qDuJmCf9L3wGVesqkD2cvl/QIOxyFZqj/u"], ["admin", "t"], ["created_at", "2017-05-23 00:04:25.563328"], ["updated_at", "2017-05-23 00:04:25.563328"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Article 15", "summary"=>"Summary of article 15", "body"=>"This is the body of article 15", "published"=>false}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 177]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 15') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "articles" ("title", "body", "summary", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["title", "Article 15"], ["body", "This is the body of article 15"], ["summary", "Summary of article 15"], ["user_id", 177], ["created_at", "2017-05-23 00:04:25.570620"], ["updated_at", "2017-05-23 00:04:25.570620"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/articles/111-Article-15
+Completed 302 Found in 6ms (ActiveRecord: 0.9ms)
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles"  ORDER BY "articles"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "articles"[0m
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Article 16", "summary"=>"Summary of article 16", "body"=>"This is the body of article 16", "published"=>true}}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "articles"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_26@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_26@example.com"], ["encrypted_password", "$2a$04$R6Z2PPNOBoz65SOo..OVC.LUyOJjVaANJz/3erEdbtxSsv/nxwqOy"], ["created_at", "2017-05-23 00:04:25.586383"], ["updated_at", "2017-05-23 00:04:25.586383"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_27@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_27@example.com"], ["encrypted_password", "$2a$04$JMZ8dMHJzYfNhDVqTkRXrenLWMHX23VHsYM1RrIH6MBDTFnc5ejU."], ["created_at", "2017-05-23 00:04:25.591088"], ["updated_at", "2017-05-23 00:04:25.591088"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 17') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 17"], ["summary", "Summary of article 17"], ["body", "This is the body of article 17"], ["published", "t"], ["user_id", 179], ["created_at", "2017-05-23 00:04:25.593685"], ["updated_at", "2017-05-23 00:04:25.593685"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"112"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 178]]
+Redirected to http://test.host/articles
+Filter chain halted as :user_must_be_admin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_28@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "person_28@example.com"], ["encrypted_password", "$2a$04$NO1wCWNJqoVpVlh2esetquEE/9R6wUnCD7HaeMRItHeskhw2e129C"], ["admin", "t"], ["created_at", "2017-05-23 00:04:25.602103"], ["updated_at", "2017-05-23 00:04:25.602103"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_29@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_29@example.com"], ["encrypted_password", "$2a$04$J2WysUtVcjXPz/uvF/6Rs.GaJT5k9qOeOEpIazQnsAMChi./TPJ.2"], ["created_at", "2017-05-23 00:04:25.606919"], ["updated_at", "2017-05-23 00:04:25.606919"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 18') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 18"], ["summary", "Summary of article 18"], ["body", "This is the body of article 18"], ["published", "t"], ["user_id", 181], ["created_at", "2017-05-23 00:04:25.610551"], ["updated_at", "2017-05-23 00:04:25.610551"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"113"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 180]]
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 113]]
+  Rendered articles/edit.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 269ms (Views: 266.6ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_30@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_30@example.com"], ["encrypted_password", "$2a$04$RjO4NahCdGd9pAhjfqz64eK6aI3vPbRpWok1imIw9uFSr0P1tv3ky"], ["created_at", "2017-05-23 00:04:25.894786"], ["updated_at", "2017-05-23 00:04:25.894786"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 19') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 19"], ["summary", "Summary of article 19"], ["body", "This is the body of article 19"], ["published", "t"], ["user_id", 182], ["created_at", "2017-05-23 00:04:25.899074"], ["updated_at", "2017-05-23 00:04:25.899074"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"114"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 1') LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["title", "This is article 1"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["created_at", "2017-05-23 00:04:25.910367"], ["updated_at", "2017-05-23 00:04:25.910367"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 2') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "user_id", "published", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "This is article 2"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["published", "t"], ["created_at", "2017-05-23 00:04:25.914215"], ["updated_at", "2017-05-23 00:04:25.914215"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 3') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["title", "This is article 3"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["created_at", "2017-05-23 00:04:25.916871"], ["updated_at", "2017-05-23 00:04:25.916871"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_31@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_31@example.com"], ["encrypted_password", "$2a$04$Lx4wgPVnwNR9MZc8d7PPQ.rG/xNrf0Bdz5K9BiVXkPNnaRPHWKUjy"], ["created_at", "2017-05-23 00:04:25.926500"], ["updated_at", "2017-05-23 00:04:25.926500"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_32@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_32@example.com"], ["encrypted_password", "$2a$04$QcnmXi/lvjfxWwnmiRxNFOk9944lt3X1J3mhiGpZNC/rC3dvkavs6"], ["created_at", "2017-05-23 00:04:25.934710"], ["updated_at", "2017-05-23 00:04:25.934710"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 20') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 20"], ["summary", "Summary of article 20"], ["body", "This is the body of article 20"], ["published", "t"], ["user_id", 184], ["created_at", "2017-05-23 00:04:25.938326"], ["updated_at", "2017-05-23 00:04:25.938326"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (13.0ms)[0m  [1mINSERT INTO "comments" ("body", "user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Hey man, that was a really nice post"], ["user_id", 183], ["article_id", 118], ["created_at", "2017-05-13 00:00:00.000000"], ["updated_at", "2017-05-23 00:04:25.942435"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_33@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_33@example.com"], ["encrypted_password", "$2a$04$AQTtxml0wIQwwuAx.3U7xuBm2JSHyJ2UIG4pXrI.A9JyjLTkzPsGC"], ["created_at", "2017-05-23 00:04:25.965302"], ["updated_at", "2017-05-23 00:04:25.965302"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_34@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_34@example.com"], ["encrypted_password", "$2a$04$Yysmz1Z.rihZb.XgQFVfOetoyRvcz0eeU6yTL/BjpAAIuXRmifjc6"], ["created_at", "2017-05-23 00:04:25.969584"], ["updated_at", "2017-05-23 00:04:25.969584"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.5ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 21') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 21"], ["summary", "Summary of article 21"], ["body", "This is the body of article 21"], ["published", "t"], ["user_id", 186], ["created_at", "2017-05-23 00:04:25.972617"], ["updated_at", "2017-05-23 00:04:25.972617"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("body", "user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Hey man, that was a really nice post"], ["user_id", 185], ["article_id", 119], ["created_at", "2017-05-16 00:00:00.000000"], ["updated_at", "2017-05-23 00:04:25.974997"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_35@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_35@example.com"], ["encrypted_password", "$2a$04$SqYiuFntrojlidAUnS1.k.mkJk0xSkEhldiRWcwlT392TgGtG8AC2"], ["created_at", "2017-05-23 00:04:25.979378"], ["updated_at", "2017-05-23 00:04:25.979378"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_36@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_36@example.com"], ["encrypted_password", "$2a$04$/xmS/52MtCMP2W8bIuJYfe1kSHX2jntPVZJiL.J1OjsFIZ7i3Qu.."], ["created_at", "2017-05-23 00:04:25.983625"], ["updated_at", "2017-05-23 00:04:25.983625"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 22') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 22"], ["summary", "Summary of article 22"], ["body", "This is the body of article 22"], ["published", "t"], ["user_id", 188], ["created_at", "2017-05-23 00:04:25.986310"], ["updated_at", "2017-05-23 00:04:25.986310"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("body", "user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Hey man, that was a really nice post"], ["user_id", 187], ["article_id", 120], ["created_at", "2017-05-12 00:00:00.000000"], ["updated_at", "2017-05-23 00:04:25.988564"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by AdminController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  Rendered text template (0.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.6ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 1') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "This is article 1"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["created_at", "2017-05-23 00:04:25.998741"], ["updated_at", "2017-05-23 00:04:25.998741"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 2') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "user_id", "published", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "This is article 2"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["published", "t"], ["created_at", "2017-05-23 00:04:26.001923"], ["updated_at", "2017-05-23 00:04:26.001923"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.6ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 3') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "This is article 3"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["created_at", "2017-05-23 00:04:26.005313"], ["updated_at", "2017-05-23 00:04:26.005313"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_37@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_37@example.com"], ["encrypted_password", "$2a$04$lKO1hXp.AtBhXecwdp.t6efufhBO.iEJx4MAi0ydWx2l2B1M2/s72"], ["created_at", "2017-05-23 00:04:26.010486"], ["updated_at", "2017-05-23 00:04:26.010486"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_38@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_38@example.com"], ["encrypted_password", "$2a$04$afMWPIW3PVA8Dgb6CkKDxe67YXa/KYW0Rw51eMVmBF5uDjSAZKc8u"], ["created_at", "2017-05-23 00:04:26.016370"], ["updated_at", "2017-05-23 00:04:26.016370"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 23') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 23"], ["summary", "Summary of article 23"], ["body", "This is the body of article 23"], ["published", "t"], ["user_id", 190], ["created_at", "2017-05-23 00:04:26.019774"], ["updated_at", "2017-05-23 00:04:26.019774"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("body", "user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Hey man, that was a really nice post"], ["user_id", 189], ["article_id", 124], ["created_at", "2017-05-13 00:00:00.000000"], ["updated_at", "2017-05-23 00:04:26.022355"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_39@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_39@example.com"], ["encrypted_password", "$2a$04$2H7ElFOi0FFxKD4XqyfHy.30FKk0niNqu4VgNoTcmnb7wTBqcttYO"], ["created_at", "2017-05-23 00:04:26.027143"], ["updated_at", "2017-05-23 00:04:26.027143"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_40@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_40@example.com"], ["encrypted_password", "$2a$04$DdSIPqG/5qhinzAJ8f1M9OjWb95CfstgMLxM1m1fJjuqZpggk2gAe"], ["created_at", "2017-05-23 00:04:26.031864"], ["updated_at", "2017-05-23 00:04:26.031864"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 24') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 24"], ["summary", "Summary of article 24"], ["body", "This is the body of article 24"], ["published", "t"], ["user_id", 192], ["created_at", "2017-05-23 00:04:26.034830"], ["updated_at", "2017-05-23 00:04:26.034830"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("body", "user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Hey man, that was a really nice post"], ["user_id", 191], ["article_id", 125], ["created_at", "2017-05-16 00:00:00.000000"], ["updated_at", "2017-05-23 00:04:26.037028"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_41@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_41@example.com"], ["encrypted_password", "$2a$04$pGYv6eLoh9b3srmFMzJcYewaQzSamc18Gpn22ot.CsehJEpCo/Ybe"], ["created_at", "2017-05-23 00:04:26.041470"], ["updated_at", "2017-05-23 00:04:26.041470"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_42@example.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_42@example.com"], ["encrypted_password", "$2a$04$KutDQniMtZ7svYY5Q/AqkO/jA6c10lCe8AZqi7cqB1FJ7r0QulIfq"], ["created_at", "2017-05-23 00:04:26.046159"], ["updated_at", "2017-05-23 00:04:26.046159"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 25') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 25"], ["summary", "Summary of article 25"], ["body", "This is the body of article 25"], ["published", "t"], ["user_id", 194], ["created_at", "2017-05-23 00:04:26.049360"], ["updated_at", "2017-05-23 00:04:26.049360"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("body", "user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Hey man, that was a really nice post"], ["user_id", 193], ["article_id", 126], ["created_at", "2017-05-12 00:00:00.000000"], ["updated_at", "2017-05-23 00:04:26.051634"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_43@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "person_43@example.com"], ["encrypted_password", "$2a$04$rtqE3xWFtl8857vob/ri2O3Z8CrDOHKGPeZEKypZ90/ZUe96SXUkO"], ["admin", "t"], ["created_at", "2017-05-23 00:04:26.055890"], ["updated_at", "2017-05-23 00:04:26.055890"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by AdminController#index as HTML
+  [1m[35mUser Load (4.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 195]]
+  Rendered admin/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 27ms (Views: 20.2ms | ActiveRecord: 4.7ms)
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE (created_at >= '2017-05-16 00:04:26.065286')[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE (created_at >= '2017-05-16 00:04:26.088548')
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 1') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "This is article 1"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["created_at", "2017-05-23 00:04:26.098505"], ["updated_at", "2017-05-23 00:04:26.098505"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.6ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 2') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "user_id", "published", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "This is article 2"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["published", "t"], ["created_at", "2017-05-23 00:04:26.101926"], ["updated_at", "2017-05-23 00:04:26.101926"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.5ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('This is article 3') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "This is article 3"], ["summary", "An article"], ["body", "This is the article body"], ["user_id", 1], ["created_at", "2017-05-23 00:04:26.105131"], ["updated_at", "2017-05-23 00:04:26.105131"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_44@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_44@example.com"], ["encrypted_password", "$2a$04$pRwaGwQC8GnTN02cJpSBcu1ec.L3KDkLR1XExieCZgrbZ5AlvTbz6"], ["created_at", "2017-05-23 00:04:26.109782"], ["updated_at", "2017-05-23 00:04:26.109782"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_45@example.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_45@example.com"], ["encrypted_password", "$2a$04$Vn3TalASzyQaT0qQmhZdE.GooLgGG1Qji2uKe2aR/EIliELpFm7Xa"], ["created_at", "2017-05-23 00:04:26.113902"], ["updated_at", "2017-05-23 00:04:26.113902"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 26') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 26"], ["summary", "Summary of article 26"], ["body", "This is the body of article 26"], ["published", "t"], ["user_id", 197], ["created_at", "2017-05-23 00:04:26.116533"], ["updated_at", "2017-05-23 00:04:26.116533"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("body", "user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Hey man, that was a really nice post"], ["user_id", 196], ["article_id", 130], ["created_at", "2017-05-13 00:00:00.000000"], ["updated_at", "2017-05-23 00:04:26.118548"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_46@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_46@example.com"], ["encrypted_password", "$2a$04$rMPP1NPhrFgd5dxzCShmTOc8Xk1YII48wqZ.CygQSbtUx90CKqT0O"], ["created_at", "2017-05-23 00:04:26.122461"], ["updated_at", "2017-05-23 00:04:26.122461"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_47@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_47@example.com"], ["encrypted_password", "$2a$04$9zmwRBvsMPrHQ2vOJKIfM.MTPxCVBBAeae95g77Qhkc667JfUlH7m"], ["created_at", "2017-05-23 00:04:26.126735"], ["updated_at", "2017-05-23 00:04:26.126735"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 27') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "Article 27"], ["summary", "Summary of article 27"], ["body", "This is the body of article 27"], ["published", "t"], ["user_id", 199], ["created_at", "2017-05-23 00:04:26.129352"], ["updated_at", "2017-05-23 00:04:26.129352"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("body", "user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "Hey man, that was a really nice post"], ["user_id", 198], ["article_id", 131], ["created_at", "2017-05-16 00:00:00.000000"], ["updated_at", "2017-05-23 00:04:26.131354"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_48@example.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_48@example.com"], ["encrypted_password", "$2a$04$F54Dq1gbow07izVbx.AbWuW5cuBE5veuDEGog7Hm1VEr79NHew/GS"], ["created_at", "2017-05-23 00:04:26.135172"], ["updated_at", "2017-05-23 00:04:26.135172"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_49@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_49@example.com"], ["encrypted_password", "$2a$04$6yl4bmSrH/ADJ4foZ9S2muenazk6ikMmsRiZvboenpLupLPHQgapG"], ["created_at", "2017-05-23 00:04:26.139251"], ["updated_at", "2017-05-23 00:04:26.139251"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Article 28') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "articles" ("title", "summary", "body", "published", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Article 28"], ["summary", "Summary of article 28"], ["body", "This is the body of article 28"], ["published", "t"], ["user_id", 201], ["created_at", "2017-05-23 00:04:26.141797"], ["updated_at", "2017-05-23 00:04:26.141797"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("body", "user_id", "article_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "Hey man, that was a really nice post"], ["user_id", 200], ["article_id", 132], ["created_at", "2017-05-12 00:00:00.000000"], ["updated_at", "2017-05-23 00:04:26.143757"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_50@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "person_50@example.com"], ["encrypted_password", "$2a$04$VYradtBCJ25m2whQ0scRne87I/paFUXET1SGw4XNmerR33C.L7kOC"], ["admin", "t"], ["created_at", "2017-05-23 00:04:26.147368"], ["updated_at", "2017-05-23 00:04:26.147368"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by AdminController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 202]]
+  Rendered admin/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:04:27 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (5.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (54.2ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  Rendered shared/_navigation.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 88ms (Views: 79.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (2.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_51@example.com' LIMIT 1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "admin", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "person_51@example.com"], ["encrypted_password", "$2a$04$9HbJ3Nw/thOlur9g9GKMA.sKn3oG2tkfYxoB6T9MxobxLpDy94eTe"], ["admin", "t"], ["created_at", "2017-05-23 00:04:27.735461"], ["updated_at", "2017-05-23 00:04:27.735461"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:04:27 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"person_51@example.com", "password"=>"foobar123", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "person_51@example.com"]]
+Completed 401 Unauthorized in 11ms (ActiveRecord: 1.9ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"person_51@example.com", "password"=>"foobar123", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+Started GET "/admin" for 127.0.0.1 at 2017-05-22 20:04:27 -0400
+Processing by AdminController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:04:27 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_52@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_52@example.com"], ["encrypted_password", "$2a$04$jcK8s.DbxTEep86fzIXH3OiWROXvyA97M6kcAJqXmBSZYCV2nud/u"], ["created_at", "2017-05-23 00:04:30.062871"], ["updated_at", "2017-05-23 00:04:30.062871"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_53@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_53@example.com"], ["encrypted_password", "$2a$04$iIeoCaM3hgwFaOUj0heOiO665NxTyioghPFgjJnRW1v8XpWt3YR3S"], ["created_at", "2017-05-23 00:04:30.095533"], ["updated_at", "2017-05-23 00:04:30.095533"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_54@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_54@example.com"], ["encrypted_password", "$2a$04$1L6INhtEvzJlTu8D8Vm5R.r9hj6oCVCmChn3WschgI4oOfzznl6t."], ["created_at", "2017-05-23 00:04:30.102835"], ["updated_at", "2017-05-23 00:04:30.102835"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_55@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_55@example.com"], ["encrypted_password", "$2a$04$R5KnEo01iokpCl3.mTqNKu.gHLpL6yWBc3NfxdCOqNyYs7Io2jAF2"], ["created_at", "2017-05-23 00:04:30.110201"], ["updated_at", "2017-05-23 00:04:30.110201"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.8ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('A working title') LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_56@example.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_56@example.com"], ["encrypted_password", "$2a$04$nIzmeLEslyMlXFKJ4pUp/OKdpTQuT.e8AQgY.7p62iyBR2tJ14MDm"], ["created_at", "2017-05-23 00:04:30.128611"], ["updated_at", "2017-05-23 00:04:30.128611"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_57@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_57@example.com"], ["encrypted_password", "$2a$04$JztgNR3ZjM7nAE5tgwnrce.a4R1uld5NRhnOMZW8u7E2v.TyHFrfW"], ["created_at", "2017-05-23 00:04:30.135712"], ["updated_at", "2017-05-23 00:04:30.135712"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('A working title') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_58@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_58@example.com"], ["encrypted_password", "$2a$04$wtZUd78Mo2gi.JFMja.1uuksN3Uk96mu7/70n4kXVIuRCtip2ySMW"], ["created_at", "2017-05-23 00:04:30.145471"], ["updated_at", "2017-05-23 00:04:30.145471"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('A WORKING TITLE') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("title", "body", "user_id", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["title", "A WORKING TITLE"], ["body", "this is the content of the article"], ["user_id", 210], ["summary", "an article"], ["created_at", "2017-05-23 00:04:30.151383"], ["updated_at", "2017-05-23 00:04:30.151383"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('A working title') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_59@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_59@example.com"], ["encrypted_password", "$2a$04$pBh8T5zDljnCHPYLe9ZMseHRAPP98zrCh2pYfGUuF6KpH1VdHaX1q"], ["created_at", "2017-05-23 00:04:30.158911"], ["updated_at", "2017-05-23 00:04:30.158911"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('A working title') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_60@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_60@example.com"], ["encrypted_password", "$2a$04$2uDGhR0GkwUiVeaOAhMJjOit0.4yYJAN3iQ23vYeQNXXoZO4ljJMW"], ["created_at", "2017-05-23 00:04:30.166678"], ["updated_at", "2017-05-23 00:04:30.166678"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('some b@d st#ff') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_61@example.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_61@example.com"], ["encrypted_password", "$2a$04$Ma9GBuWeTJy/lkQb45i6C.AT.a31oMI5MLQ2wXtC9d0fqHXqwCgya"], ["created_at", "2017-05-23 00:04:30.175666"], ["updated_at", "2017-05-23 00:04:30.175666"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER(' ') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_62@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_62@example.com"], ["encrypted_password", "$2a$04$4J8wehyXeyOVh7BjZ5KPSubOeXBlRCyHy/H8fhy8XoU.bZXTqtJ72"], ["created_at", "2017-05-23 00:04:30.184442"], ["updated_at", "2017-05-23 00:04:30.184442"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('A working title') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_63@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "person_63@example.com"], ["encrypted_password", "$2a$04$irbNLNM866n5yrYU4xIs6.GV.9lF5.dwXF0gk.y59/LTtQ9ZYK7vq"], ["created_at", "2017-05-23 00:04:30.191711"], ["updated_at", "2017-05-23 00:04:30.191711"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('aaaaa') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_64@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_64@example.com"], ["encrypted_password", "$2a$04$efPfXFF1Om4lIeoEo1nS7ui7KWCwWla3Cohc0j5ICmht7EP2zYsnO"], ["created_at", "2017-05-23 00:04:30.199326"], ["updated_at", "2017-05-23 00:04:30.199326"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'person_65@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "person_65@example.com"], ["encrypted_password", "$2a$04$Lec8rUCL39Y8.aZPMpMaY.iQQi0U/5qGl1sC33GBbQ0a0a.qYQdpq"], ["created_at", "2017-05-23 00:04:30.208402"], ["updated_at", "2017-05-23 00:04:30.208402"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mArticle Exists (0.3ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (19.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateContacts (20170523001214)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (307.0ms)[0m  [1mCREATE TABLE "contacts" ("id" serial primary key, "name" character varying, "email_address" character varying, "phone_number" character varying, "message" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170523001214"]]
+  [1m[36m (27.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'articles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'blog_engine_articles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'blog_engine_comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'contacts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'roles_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'sequences'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'slugs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'steps'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'taggings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tutorials'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m

@@ -10853,3 +10853,2759 @@ Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.9ms)
 
 
 Started GET "/assets/clean_blog/post-bg.jpg" for 127.0.0.1 at 2017-03-16 18:39:27 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-16 18:41:57 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.4ms)
+  [1m[35mArticle Load (2.0ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (2.0ms)
+  Rendered articles/index.html.erb within layouts/application (29.3ms)
+  Rendered shared/_shim.html.erb (0.3ms)
+  Rendered shared/_navigation.html.erb (1.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 386ms (Views: 367.4ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-03-16 18:41:57 -0400
+
+
+Started GET "/about" for 127.0.0.1 at 2017-03-16 18:41:59 -0400
+Processing by StaticPagesController#about as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered static_pages/about.html.erb within layouts/application (4.0ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (1.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 70ms (Views: 69.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/about-bg.jpg" for 127.0.0.1 at 2017-03-16 18:41:59 -0400
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-03-16 18:42:00 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[36mArticle Load (0.5ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  Rendered articles/_article.html.erb (0.6ms)
+  Rendered articles/index.html.erb within layouts/application (4.8ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 43.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-03-16 18:42:00 -0400
+
+
+Started GET "/contact" for 127.0.0.1 at 2017-03-16 18:42:01 -0400
+Processing by StaticPagesController#contact as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered static_pages/contact.html.erb within layouts/application (2.8ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-03-16 18:42:01 -0400
+
+
+Started GET "/articles" for 127.0.0.1 at 2017-03-16 18:42:02 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[35mArticle Load (0.4ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (0.6ms)
+  Rendered articles/index.html.erb within layouts/application (3.2ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-03-16 18:42:02 -0400
+
+
+Started GET "/articles/1-Man-must-explore" for 127.0.0.1 at 2017-03-16 18:42:03 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1-Man-must-explore"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mArticle Load (0.5ms)[0m  SELECT  "articles".* FROM "articles" WHERE (id < '1')  ORDER BY created_at DESC LIMIT 1
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE (id > '1')  ORDER BY created_at LIMIT 1[0m
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered articles/show.html.erb within layouts/application (4.0ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 29ms (Views: 24.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/clean_blog/post-bg.jpg" for 127.0.0.1 at 2017-03-16 18:42:03 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 19:55:26 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (29.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.6ms)
+  [1m[35mArticle Load (47.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (2.2ms)
+  Rendered articles/index.html.erb within layouts/application (262.7ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  Rendered shared/_navigation.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 1125ms (Views: 969.2ms | ActiveRecord: 88.8ms)
+
+
+Started GET "/assets/application.self-4ae7891d1b9083b8d05f389e6740a66a4ef321c16b9182699d141f9fd8e2b1ed.css?body=1" for 127.0.0.1 at 2017-05-22 19:55:28 -0400
+
+
+Started GET "/assets/angular_test_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 19:55:28 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2017-05-22 19:55:28 -0400
+
+
+Started GET "/assets/admin_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 19:55:28 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2017-05-22 19:55:28 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2017-05-22 19:55:28 -0400
+
+
+Started GET "/assets/clean_blog/clean-blog.self-e09e1ce4fa9e44a0f71cd294dad53942ddc54f24ad16a0c07db881c07a10f130.js?body=1" for 127.0.0.1 at 2017-05-22 19:55:28 -0400
+
+
+Started GET "/assets/application.self-29c15a76104243fc4fab0b953f6571b7056bbebdb2b4019eaab82bf4f241caae.js?body=1" for 127.0.0.1 at 2017-05-22 19:55:28 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 19:55:29 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (38.9ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (149.1ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 19:55:29 -0400
+
+
+Started GET "/articles/1-Man-must-explore" for 127.0.0.1 at 2017-05-22 19:55:34 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1-Man-must-explore"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mArticle Load (0.7ms)[0m  SELECT  "articles".* FROM "articles" WHERE (id < '1')  ORDER BY created_at DESC LIMIT 1
+  [1m[36mArticle Load (0.5ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE (id > '1')  ORDER BY created_at LIMIT 1[0m
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered articles/show.html.erb within layouts/application (3.0ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 27.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 19:55:34 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (38.7ms)
+
+
+Started GET "/assets/clean_blog/post-bg.jpg" for 127.0.0.1 at 2017-05-22 19:55:34 -0400
+
+
+Started GET "/contact" for 127.0.0.1 at 2017-05-22 19:56:08 -0400
+Processing by StaticPagesController#contact as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered static_pages/contact.html.erb within layouts/application (3.1ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 28ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 19:56:09 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (71.8ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 19:56:09 -0400
+
+
+Started GET "/contact" for 127.0.0.1 at 2017-05-22 20:08:05 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#contact as HTML
+  Rendered shared/_header.html.erb (0.6ms)
+  Rendered static_pages/contact.html.erb within layouts/application (6.7ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  Rendered shared/_navigation.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 313ms (Views: 312.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:08:06 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.9ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (12.9ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (67.7ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:08:06 -0400
+
+
+Started GET "/contact" for 127.0.0.1 at 2017-05-22 20:08:08 -0400
+Processing by StaticPagesController#contact as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered static_pages/contact.html.erb within layouts/application (0.6ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 45.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:08:09 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:08:09 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.1ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2017-05-22 20:09:30 -0400
+Processing by StaticPagesController#contact as HTML
+  Rendered shared/_header.html.erb (0.2ms)
+  Rendered static_pages/contact.html.erb within layouts/application (1.8ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:09:30 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:13:12 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.2) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.2) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:776:in `_run_call_callbacks'
+  activesupport (4.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateContacts (20170523001214)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (409.0ms)[0m  [1mCREATE TABLE "contacts" ("id" serial primary key, "name" character varying, "email_address" character varying, "phone_number" character varying, "message" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170523001214"]]
+  [1m[36m (28.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'articles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'contacts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'roles_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'sequences'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'slugs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'steps'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'taggings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tutorials'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:14:16 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.7ms)
+  Rendered contacts/new.html.erb within layouts/application (7.8ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  Rendered shared/_navigation.html.erb (3.1ms)
+Completed 500 Internal Server Error in 889ms (ActiveRecord: 3.0ms)
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"contacts"} missing required keys: [:id]):
+    24:                     <%= link_to "Blog", articles_path %>
+    25:                 </li>
+    26:                 <li>
+    27:                     <%= link_to "Contact", contact_path, data: { no_turbolink: true }%>
+    28:                 </li>
+    29:             </ul>
+    30:         </div>
+  app/views/shared/_navigation.html.erb:27:in `_app_views_shared__navigation_html_erb__565644036181883659_47143820'
+  app/views/layouts/application.html.erb:42:in `_app_views_layouts_application_html_erb___1618420508220126104_46721500'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (25.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (48.6ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:15:04 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered contacts/new.html.erb within layouts/application (0.6ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (1.2ms)
+  Rendered shared/_footer.html.erb (0.9ms)
+Completed 200 OK in 54ms (Views: 53.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-05-22 20:15:04 -0400
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:15:04 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:15:11 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered contacts/new.html.erb within layouts/application (0.7ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:15:11 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered contacts/_form.html.erb (0.4ms)
+  Rendered contacts/new.html.erb within layouts/application (5.4ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-4ae7891d1b9083b8d05f389e6740a66a4ef321c16b9182699d141f9fd8e2b1ed.css?body=1" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/assets/clean_blog/clean-blog.self-e09e1ce4fa9e44a0f71cd294dad53942ddc54f24ad16a0c07db881c07a10f130.js?body=1" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/assets/angular_test_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/assets/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/assets/clean_blog/manifest.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/assets/admin_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/assets/application.self-29c15a76104243fc4fab0b953f6571b7056bbebdb2b4019eaab82bf4f241caae.js?body=1" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:16:29 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:25:00 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (5.9ms)
+  Rendered contacts/_form.html.erb (60.0ms)
+  Rendered contacts/new.html.erb within layouts/application (60.9ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 80ms (Views: 80.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:25:00 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:26:17 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (4.6ms)
+  Rendered contacts/new.html.erb within layouts/application (5.5ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 25ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:26:18 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:26:43 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered contacts/_form.html.erb (0.7ms)
+  Rendered contacts/new.html.erb within layouts/application (1.9ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 23ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:26:43 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:28:11 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (6.5ms)
+  Rendered contacts/new.html.erb within layouts/application (7.7ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 28ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:28:12 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:28:27 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (35.5ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (3.5ms)
+  Rendered contacts/new.html.erb within layouts/application (4.3ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-4ae7891d1b9083b8d05f389e6740a66a4ef321c16b9182699d141f9fd8e2b1ed.css?body=1" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/assets/admin_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/assets/angular_test_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/assets/clean_blog/clean-blog.self-e09e1ce4fa9e44a0f71cd294dad53942ddc54f24ad16a0c07db881c07a10f130.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/assets/clean_blog/manifest.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/assets/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/assets/application.self-29c15a76104243fc4fab0b953f6571b7056bbebdb2b4019eaab82bf4f241caae.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (34.3ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:29:01 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (4.5ms)
+  Rendered contacts/new.html.erb within layouts/application (5.9ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 26ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-4ae7891d1b9083b8d05f389e6740a66a4ef321c16b9182699d141f9fd8e2b1ed.css?body=1" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+
+
+Started GET "/assets/admin_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+
+
+Started GET "/assets/angular_test_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+
+
+Started GET "/assets/clean_blog/clean-blog.self-e09e1ce4fa9e44a0f71cd294dad53942ddc54f24ad16a0c07db881c07a10f130.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+
+
+Started GET "/assets/clean_blog/manifest.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+
+
+Started GET "/assets/application.self-29c15a76104243fc4fab0b953f6571b7056bbebdb2b4019eaab82bf4f241caae.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+
+
+Started GET "/assets/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:18 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:29:19 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.5ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:29:19 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (14.8ms)
+  Rendered contacts/new.html.erb within layouts/application (15.7ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/assets/application.self-4ae7891d1b9083b8d05f389e6740a66a4ef321c16b9182699d141f9fd8e2b1ed.css?body=1" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/assets/angular_test_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/assets/admin_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/assets/clean_blog/clean-blog.self-e09e1ce4fa9e44a0f71cd294dad53942ddc54f24ad16a0c07db881c07a10f130.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/assets/clean_blog/manifest.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/assets/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/assets/application.self-29c15a76104243fc4fab0b953f6571b7056bbebdb2b4019eaab82bf4f241caae.js?body=1" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.9ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (37.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:29:32 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:30:23 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (0.9ms)
+  Rendered contacts/new.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/robert/projects/Blog/app/views/contacts/_form.html.erb:40: syntax error, unexpected tLABEL, expecting '='
+...uffer.append=( f.submit, class: 'btn btn-default' );@output_...
+...                               ^):
+  app/views/contacts/_form.html.erb:40: syntax error, unexpected tLABEL, expecting '='
+  app/views/contacts/new.html.erb:5:in `_app_views_contacts_new_html_erb__4395832626986630279_70048182755220'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.0ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:30:50 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (4.4ms)
+  Rendered contacts/new.html.erb within layouts/application (5.6ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/angular_test_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 20:30:50 -0400
+
+
+Started GET "/assets/application.self-4ae7891d1b9083b8d05f389e6740a66a4ef321c16b9182699d141f9fd8e2b1ed.css?body=1" for 127.0.0.1 at 2017-05-22 20:30:50 -0400
+
+
+Started GET "/assets/clean_blog/clean-blog.self-e09e1ce4fa9e44a0f71cd294dad53942ddc54f24ad16a0c07db881c07a10f130.js?body=1" for 127.0.0.1 at 2017-05-22 20:30:50 -0400
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2017-05-22 20:30:51 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for 127.0.0.1 at 2017-05-22 20:30:51 -0400
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2017-05-22 20:30:51 -0400
+
+
+Started GET "/assets/clean_blog/manifest.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for 127.0.0.1 at 2017-05-22 20:30:51 -0400
+
+
+Started GET "/assets/admin_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2017-05-22 20:30:51 -0400
+
+
+Started GET "/assets/application.self-29c15a76104243fc4fab0b953f6571b7056bbebdb2b4019eaab82bf4f241caae.js?body=1" for 127.0.0.1 at 2017-05-22 20:30:51 -0400
+
+
+Started GET "/assets/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-05-22 20:30:51 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:30:51 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.8ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:30:51 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:32:08 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (3.7ms)
+  Rendered contacts/new.html.erb within layouts/application (4.7ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 33ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:32:09 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 20:37:08 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZrR3gy5HTXsRI303EESRjS+45tUaRr/xBFEdpMPGPSNfQocKXPK0HKw2cJAt8lzOAA5rKBPZytOhcdD/05sE+Q==", "contact"=>{"name"=>"Phil", "email_address"=>"phil@mailinator.com", "phone_number"=>"(555) 555-5555", "message"=>"I like to poop."}, "commit"=>"Send"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Phil"], ["email_address", "phil@mailinator.com"], ["phone_number", "(555) 555-5555"], ["message", "I like to poop."], ["created_at", "2017-05-23 00:37:09.047829"], ["updated_at", "2017-05-23 00:37:09.047829"]]
+  [1m[35m (39.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 54ms (ActiveRecord: 43.2ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2017-05-22 20:37:09 -0400
+Processing by ContactsController#index as HTML
+  [1m[36mContact Load (0.7ms)[0m  [1mSELECT "contacts".* FROM "contacts"[0m
+  Rendered contacts/index.html.erb within layouts/application (2.8ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 20:37:36 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZrR3gy5HTXsRI303EESRjS+45tUaRr/xBFEdpMPGPSNfQocKXPK0HKw2cJAt8lzOAA5rKBPZytOhcdD/05sE+Q==", "contact"=>{"name"=>"Bob", "email_address"=>"bob@mailinator.com", "phone_number"=>"(555) 555-5555", "message"=>"I like to poop."}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Bob"], ["email_address", "bob@mailinator.com"], ["phone_number", "(555) 555-5555"], ["message", "I like to poop."], ["created_at", "2017-05-23 00:37:36.403412"], ["updated_at", "2017-05-23 00:37:36.403412"]]
+  [1m[35m (52.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 63ms (ActiveRecord: 54.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 20:37:36 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[36mArticle Load (1.9ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  Rendered articles/_article.html.erb (1.6ms)
+  Rendered articles/index.html.erb within layouts/application (18.8ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 51ms (Views: 37.0ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 20:37:36 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:37:44 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (42.3ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:39:04 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (4.0ms)
+  Rendered contacts/new.html.erb within layouts/application (5.2ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 26ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:39:04 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.5ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:39:04 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 20:39:12 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5R2Ex7kYau/y3wiWHwIuA9gR4wgsRVyaDsn7RFgaIf/c63ROy62TiE/KBTEitONA96du9SXaKbir6TYfSEcYJQ==", "contact"=>{"name"=>"adfsdf", "email_address"=>"asfasdf", "phone_number"=>"asdfsafas", "message"=>"asdfdfs"}, "commit"=>"Send"}
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "adfsdf"], ["email_address", "asfasdf"], ["phone_number", "asdfsafas"], ["message", "asdfdfs"], ["created_at", "2017-05-23 00:39:12.287364"], ["updated_at", "2017-05-23 00:39:12.287364"]]
+  [1m[35m (54.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 59ms (ActiveRecord: 55.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 20:39:12 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  [1m[36mArticle Load (0.8ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  Rendered articles/_article.html.erb (0.5ms)
+  Rendered articles/index.html.erb within layouts/application (3.0ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 20:39:12 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:39:12 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (33.8ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:40:17 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered contacts/_form.html.erb (3.1ms)
+  Rendered contacts/new.html.erb within layouts/application (4.2ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:40:17 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:40:17 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (44.7ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 20:40:25 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uzn180xMpnThYP/dA5ZKP1EYPUvASJTa4Tw4IjsEwlKCzwV6PvlfE1x18no+IId8fq6wtsnX4fhEHPV5K1n7iA==", "contact"=>{"name"=>"afsadf", "email_address"=>"asdfsdf", "phone_number"=>"asfasdf", "message"=>"asfasafasd asdf asdf asf asdf"}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "afsadf"], ["email_address", "asdfsdf"], ["phone_number", "asfasdf"], ["message", "asfasafasd asdf asdf asf asdf"], ["created_at", "2017-05-23 00:40:25.172726"], ["updated_at", "2017-05-23 00:40:25.172726"]]
+  [1m[35m (91.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 95ms (ActiveRecord: 91.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 20:40:25 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  [1m[36mArticle Load (0.9ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  Rendered articles/_article.html.erb (0.4ms)
+  Rendered articles/index.html.erb within layouts/application (2.7ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 20:40:25 -0400
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:40:25 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 20:42:14 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[35mArticle Load (0.5ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (0.4ms)
+  Rendered articles/index.html.erb within layouts/application (6.1ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:42:14 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (30.9ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 20:42:14 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:42:15 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (2.4ms)
+  Rendered contacts/new.html.erb within layouts/application (3.2ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:42:15 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (12.9ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (42.4ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:42:16 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 20:42:23 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jIvL3wbfkV+BLe7CPegSWSzLl8d8+3B6sGCt6cLvXsO1fTtWdGpoODw442UAXt8aA30aOnVkBVgVQGCy0rJnGQ==", "contact"=>{"name"=>"fasdf asf s", "email_address"=>"f fasdf asdf", "phone_number"=>"asdf sdf saf ", "message"=>"sdfasf asdf asd "}, "commit"=>"Send"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "fasdf asf s"], ["email_address", "f fasdf asdf"], ["phone_number", "asdf sdf saf "], ["message", "sdfasf asdf asd "], ["created_at", "2017-05-23 00:42:23.768483"], ["updated_at", "2017-05-23 00:42:23.768483"]]
+  [1m[36m (81.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 85ms (ActiveRecord: 81.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 20:42:23 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[35mArticle Load (0.4ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (0.5ms)
+  Rendered articles/index.html.erb within layouts/application (3.3ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2017-05-22 20:42:24 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.16.0) lib/puma/server.rb:557:in `handle_request'
+  puma (2.16.0) lib/puma/server.rb:404:in `process_client'
+  puma (2.16.0) lib/puma/server.rb:270:in `block in run'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `call'
+  puma (2.16.0) lib/puma/thread_pool.rb:106:in `block in spawn_thread'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.1ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 20:42:24 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:44:33 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (2.8ms)
+  Rendered contacts/new.html.erb within layouts/application (3.7ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 43ms (Views: 23.9ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:44:33 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 20:44:40 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fEV964S7NU6ZlVtLDgDu7GkZG8nXyPjDXxvMlL4w2DdFs41i9g7MKSSAVuwztiOvRq+WNN5XjeH6OwHPrm3h7Q==", "contact"=>{"name"=>"fdaf asdf asdf ", "email_address"=>"asdf asdf df sad", "phone_number"=>"fsdf sf asd f", "message"=>"asdf asf asdf"}, "commit"=>"Send"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "fdaf asdf asdf "], ["email_address", "asdf asdf df sad"], ["phone_number", "fsdf sf asd f"], ["message", "asdf asf asdf"], ["created_at", "2017-05-23 00:44:40.271181"], ["updated_at", "2017-05-23 00:44:40.271181"]]
+  [1m[36m (80.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 84ms (ActiveRecord: 80.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 20:44:40 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (0.8ms)
+  Rendered articles/index.html.erb within layouts/application (10.3ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 34.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 20:44:40 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:44:42 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (2.6ms)
+  Rendered contacts/new.html.erb within layouts/application (16.5ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 36ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:44:42 -0400
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2017-05-22 20:44:46 -0400
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mContact Load (0.3ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = $1 LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Contact with 'id'=index):
+  app/controllers/contacts_controller.rb:53:in `set_contact'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.4ms)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2017-05-22 20:45:03 -0400
+Processing by ContactsController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:45:03 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.4ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 41ms (Views: 27.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-05-22 20:45:16 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (4.8ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2017-05-22 20:47:50 -0400
+Processing by ContactsController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:47:50 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.6ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 23.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-05-22 20:47:52 -0400
+Processing by RegistrationsController#new as HTML
+  [1m[35m (15.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :one_user_registered? rendered or redirected
+Completed 302 Found in 18ms (ActiveRecord: 15.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:47:52 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.4ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-05-22 20:47:54 -0400
+Processing by RegistrationsController#new as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :one_user_registered? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:47:54 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 27ms (Views: 26.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:47:57 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RTYFoBW7dmpXEMf437SKP8d/opXTxU5dYLsjxVEmeid8wPUpZw6PDeoFyl/iAkd86MkvaNpaO3/Fm+6eQXtD/Q==", "user"=>{"email"=>"", "password"=>"", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RTYFoBW7dmpXEMf437SKP8d/opXTxU5dYLsjxVEmeid8wPUpZw6PDeoFyl/iAkd86MkvaNpaO3/Fm+6eQXtD/Q==", "user"=>{"email"=>"", "password"=>"", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.4ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-05-22 20:47:58 -0400
+Processing by RegistrationsController#new as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :one_user_registered? rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:47:58 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered shared/_shim.html.erb (0.2ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:48:40 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.2ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 53ms (Views: 38.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-05-22 20:48:41 -0400
+
+SyntaxError (/home/robert/projects/Blog/app/controllers/registrations_controller.rb:10: syntax error, unexpected keyword_end, expecting ')'):
+  app/controllers/registrations_controller.rb:10: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (16.7ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/robert/.rvm/gems/ruby-2.2.2@blog/gems/actionpack-4.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-05-22 20:48:52 -0400
+Processing by RegistrationsController#new as HTML
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "users"
+Redirected to http://localhost:3000/
+Filter chain halted as :one_user_registered? rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 20:48:52 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  Rendered articles/_article.html.erb (0.9ms)
+  Rendered articles/index.html.erb within layouts/application (10.0ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 36ms (Views: 27.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 20:48:52 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 20:49:00 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (3.0ms)
+  Rendered contacts/new.html.erb within layouts/application (3.9ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 29ms (Views: 23.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 20:49:01 -0400
+
+
+Started GET "/contacts/" for 127.0.0.1 at 2017-05-22 20:49:03 -0400
+Processing by ContactsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-05-22 20:49:03 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.7ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 24.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-05-22 20:49:06 -0400
+Processing by RegistrationsController#new as HTML
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "users"
+Redirected to http://localhost:3000/
+Filter chain halted as :one_user_registered? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 20:49:06 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[36mArticle Load (0.9ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  Rendered articles/_article.html.erb (0.4ms)
+  Rendered articles/index.html.erb within layouts/application (3.6ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 20:49:07 -0400
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2017-05-22 20:49:13 -0400
+Processing by Devise::PasswordsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/passwords/new.html.erb within layouts/application (2.7ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 63ms (Views: 61.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 21:14:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.6ms)
+  Rendered shared/_error_messages.html.erb (4.1ms)
+  Rendered contacts/_form.html.erb (40.1ms)
+  Rendered contacts/new.html.erb within layouts/application (47.8ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  Rendered shared/_navigation.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 347ms (Views: 331.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 21:14:03 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 21:14:15 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered contacts/_form.html.erb (4.9ms)
+  Rendered contacts/new.html.erb within layouts/application (6.1ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 52ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 21:14:15 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 22:25:15 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (2.8ms)
+  Rendered contacts/new.html.erb within layouts/application (3.7ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 38ms (Views: 22.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 22:25:16 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 22:25:46 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5Aq6jZbz9zrDlsBl/MnoP+KskDxiFbOlRFR2oxuo6Xzd/EoE5EYOXX6DzcLBfyV8zRodwWuKxofhdLv4C/XQpg==", "contact"=>{"name"=>"Ted", "email_address"=>"ted@mailinator.com", "phone_number"=>"(555) 555-5555", "message"=>"I just wanted to say your articles are great. Thanks."}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ted"], ["email_address", "ted@mailinator.com"], ["phone_number", "(555) 555-5555"], ["message", "I just wanted to say your articles are great. Thanks."], ["created_at", "2017-05-23 02:25:46.670439"], ["updated_at", "2017-05-23 02:25:46.670439"]]
+  [1m[35m (51.7ms)[0m  COMMIT
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: fbdc04fe-27ed-44d2-8405-9004f84d772a) to Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/7
+[ActiveJob]   [1m[36mContact Load (0.7ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = $1 LIMIT 1[0m  [["id", 7]]
+[ActiveJob] [ActionMailer::DeliveryJob] [fbdc04fe-27ed-44d2-8405-9004f84d772a] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/7
+[ActiveJob] [ActionMailer::DeliveryJob] [fbdc04fe-27ed-44d2-8405-9004f84d772a]   Rendered contact_mailer/new_contact.html.erb within layouts/mailer (0.6ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [fbdc04fe-27ed-44d2-8405-9004f84d772a]   Rendered contact_mailer/new_contact.text.erb within layouts/mailer (0.4ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [fbdc04fe-27ed-44d2-8405-9004f84d772a] 
+ContactMailer#new_contact: processed outbound mail in 274.8ms
+[ActiveJob] [ActionMailer::DeliveryJob] [fbdc04fe-27ed-44d2-8405-9004f84d772a] 
+Sent mail to rhuberdeau@gmail.com (35.4ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [fbdc04fe-27ed-44d2-8405-9004f84d772a] Date: Mon, 22 May 2017 22:25:47 -0400
+From: from@example.com
+To: rhuberdeau@gmail.com
+Message-ID: <59239dab1db92_30b23fc0f6016f0c3893b@robert-MS-7693.mail>
+Subject: Someone is trying to contact me
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59239dab1780e_30b23fc0f6016f0c388dd";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59239dab1780e_30b23fc0f6016f0c388dd
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+New contact request from Ted
+===============================================
+
+Email: ted@mailinator.com
+
+Phone: (555) 555-5555
+
+I just wanted to say your articles are great. Thanks.
+
+
+----==_mimepart_59239dab1780e_30b23fc0f6016f0c388dd
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New contact request from Ted</h1>
+    <p>
+      Email: ted@mailinator.com
+    </p>
+    <p>
+      Phone: (555) 555-5555
+    </p>
+    <p>
+      I just wanted to say your articles are great. Thanks.
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_59239dab1780e_30b23fc0f6016f0c388dd--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [fbdc04fe-27ed-44d2-8405-9004f84d772a] Performed ActionMailer::DeliveryJob from Inline(mailers) in 311.16ms
+Redirected to http://localhost:3000/
+Completed 302 Found in 465ms (ActiveRecord: 53.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 22:25:47 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  [1m[35mArticle Load (0.7ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (1.5ms)
+  Rendered articles/index.html.erb within layouts/application (13.9ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 42ms (Views: 30.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 22:25:47 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 22:30:43 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (3.0ms)
+  Rendered contacts/new.html.erb within layouts/application (4.0ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 24ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 22:30:43 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 22:31:10 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"04MaVENu78OLSZZods5TE6gjY5GCVj3SHxhhQWXTXZXqderdMdsWpDZcm89LeJ5Qh5XubIvJSPC6OKwadY5kTw==", "contact"=>{"name"=>"Ted", "email_address"=>"ted@mailinator.com", "phone_number"=>"(555) 555-5555", "message"=>"Hi, just wanted to say your site is great."}, "commit"=>"Send"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "Ted"], ["email_address", "ted@mailinator.com"], ["phone_number", "(555) 555-5555"], ["message", "Hi, just wanted to say your site is great."], ["created_at", "2017-05-23 02:31:10.679949"], ["updated_at", "2017-05-23 02:31:10.679949"]]
+  [1m[36m (78.7ms)[0m  [1mCOMMIT[0m
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: d31bbd46-b975-434f-a53a-5bd73123c863) to Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/8
+[ActiveJob]   [1m[35mContact Load (0.3ms)[0m  SELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = $1 LIMIT 1  [["id", 8]]
+[ActiveJob] [ActionMailer::DeliveryJob] [d31bbd46-b975-434f-a53a-5bd73123c863] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/8
+[ActiveJob] [ActionMailer::DeliveryJob] [d31bbd46-b975-434f-a53a-5bd73123c863]   Rendered contact_mailer/new_contact.html.erb within layouts/mailer (0.1ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [d31bbd46-b975-434f-a53a-5bd73123c863]   Rendered contact_mailer/new_contact.text.erb within layouts/mailer (0.0ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [d31bbd46-b975-434f-a53a-5bd73123c863] 
+ContactMailer#new_contact: processed outbound mail in 6.5ms
+[ActiveJob] [ActionMailer::DeliveryJob] [d31bbd46-b975-434f-a53a-5bd73123c863] 
+Sent mail to rhuberdeau@gmail.com (3.1ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [d31bbd46-b975-434f-a53a-5bd73123c863] Date: Mon, 22 May 2017 22:31:10 -0400
+From: from@example.com
+To: rhuberdeau@gmail.com
+Message-ID: <59239eeebd3c3_30b23fc0f6b5c59c391ee@robert-MS-7693.mail>
+Subject: Someone is trying to contact me
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59239eeebcc6f_30b23fc0f6b5c59c39046";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59239eeebcc6f_30b23fc0f6b5c59c39046
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+New contact request from Ted
+===============================================
+
+Email: ted@mailinator.com
+
+Phone: (555) 555-5555
+
+Hi, just wanted to say your site is great.
+
+
+----==_mimepart_59239eeebcc6f_30b23fc0f6b5c59c39046
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New contact request from Ted</h1>
+    <p>
+      Email: ted@mailinator.com
+    </p>
+    <p>
+      Phone: (555) 555-5555
+    </p>
+    <p>
+      Hi, just wanted to say your site is great.
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_59239eeebcc6f_30b23fc0f6b5c59c39046--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [d31bbd46-b975-434f-a53a-5bd73123c863] Performed ActionMailer::DeliveryJob from Inline(mailers) in 10.34ms
+Redirected to http://localhost:3000/
+Completed 302 Found in 99ms (ActiveRecord: 79.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 22:31:10 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  Rendered articles/_article.html.erb (0.3ms)
+  Rendered articles/index.html.erb within layouts/application (2.4ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 22:31:11 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 22:59:12 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (3.3ms)
+  Rendered contacts/new.html.erb within layouts/application (4.3ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 25ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 22:59:12 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 22:59:19 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+flJsHtJ6JvWYS4uco+Zk49YE5PcpEXYlS4G6ADDnsTAD7k5CfwR/Gt0I4lPOVTQoO6ebtU7MPowDsuzEJ6nHg==", "contact"=>{"name"=>"afasdfasd", "email_address"=>"asdfasdfasd", "phone_number"=>"asfasdfas", "message"=>"asdfasdfasdfasd"}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "afasdfasd"], ["email_address", "asdfasdfasd"], ["phone_number", "asfasdfas"], ["message", "asdfasdfasdfasd"], ["created_at", "2017-05-23 02:59:19.929149"], ["updated_at", "2017-05-23 02:59:19.929149"]]
+  [1m[35m (82.8ms)[0m  COMMIT
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: cf2edf7a-d7f2-40ce-886a-52d03024c0a5) to Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/9
+[ActiveJob]   [1m[36mContact Load (0.6ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = $1 LIMIT 1[0m  [["id", 9]]
+[ActiveJob] [ActionMailer::DeliveryJob] [cf2edf7a-d7f2-40ce-886a-52d03024c0a5] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/9
+[ActiveJob] [ActionMailer::DeliveryJob] [cf2edf7a-d7f2-40ce-886a-52d03024c0a5]   Rendered contact_mailer/new_contact.html.erb within layouts/mailer (0.1ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [cf2edf7a-d7f2-40ce-886a-52d03024c0a5]   Rendered contact_mailer/new_contact.text.erb within layouts/mailer (0.0ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [cf2edf7a-d7f2-40ce-886a-52d03024c0a5] 
+ContactMailer#new_contact: processed outbound mail in 5.7ms
+[ActiveJob] [ActionMailer::DeliveryJob] [cf2edf7a-d7f2-40ce-886a-52d03024c0a5] 
+Sent mail to rhuberdeau@gmail.com (3.0ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [cf2edf7a-d7f2-40ce-886a-52d03024c0a5] Date: Mon, 22 May 2017 22:59:20 -0400
+From: from@example.com
+To: rhuberdeau@gmail.com
+Message-ID: <5923a5886aac_30b23fc10a007da4393fe@robert-MS-7693.mail>
+Subject: Someone is trying to contact me
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5923a58863d5_30b23fc10a007da43924d";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5923a58863d5_30b23fc10a007da43924d
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+New contact request from afasdfasd
+===============================================
+
+Email: asdfasdfasd
+
+Phone: asfasdfas
+
+asdfasdfasdfasd
+
+
+----==_mimepart_5923a58863d5_30b23fc10a007da43924d
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New contact request from afasdfasd</h1>
+    <p>
+      Email: asdfasdfasd
+    </p>
+    <p>
+      Phone: asfasdfas
+    </p>
+    <p>
+      asdfasdfasdfasd
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5923a58863d5_30b23fc10a007da43924d--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [cf2edf7a-d7f2-40ce-886a-52d03024c0a5] Performed ActionMailer::DeliveryJob from Inline(mailers) in 9.29ms
+Redirected to http://localhost:3000/
+Completed 302 Found in 102ms (ActiveRecord: 83.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 22:59:20 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  [1m[35mArticle Load (0.8ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (0.3ms)
+  Rendered articles/index.html.erb within layouts/application (2.9ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 22:59:20 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 23:00:31 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (6.5ms)
+  Rendered contacts/new.html.erb within layouts/application (7.5ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 23:00:31 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 23:00:38 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uJDFeMYrBoshpfXVT2tcU1I96PO40vveAHgrU6lbRXeBZjXxtJ7/7Jyw+HJy3ZEQfYtlDrFNjvylWOYIuQZ8rQ==", "contact"=>{"name"=>"fadfasfsa", "email_address"=>"asfsadfsdf", "phone_number"=>"asdfsfsdf", "message"=>"fdfad sdf asdf sdf asdf sad"}, "commit"=>"Send"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "fadfasfsa"], ["email_address", "asfsadfsdf"], ["phone_number", "asdfsfsdf"], ["message", "fdfad sdf asdf sdf asdf sad"], ["created_at", "2017-05-23 03:00:38.867088"], ["updated_at", "2017-05-23 03:00:38.867088"]]
+  [1m[36m (84.5ms)[0m  [1mCOMMIT[0m
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: efcddf54-2305-4433-b406-31a5ec76b483) to Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/10
+[ActiveJob]   [1m[35mContact Load (0.3ms)[0m  SELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = $1 LIMIT 1  [["id", 10]]
+[ActiveJob] [ActionMailer::DeliveryJob] [efcddf54-2305-4433-b406-31a5ec76b483] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/10
+[ActiveJob] [ActionMailer::DeliveryJob] [efcddf54-2305-4433-b406-31a5ec76b483]   Rendered contact_mailer/new_contact.html.erb within layouts/mailer (0.1ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [efcddf54-2305-4433-b406-31a5ec76b483]   Rendered contact_mailer/new_contact.text.erb within layouts/mailer (0.0ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [efcddf54-2305-4433-b406-31a5ec76b483] 
+ContactMailer#new_contact: processed outbound mail in 5.1ms
+[ActiveJob] [ActionMailer::DeliveryJob] [efcddf54-2305-4433-b406-31a5ec76b483] 
+Sent mail to rhuberdeau@gmail.com (3.0ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [efcddf54-2305-4433-b406-31a5ec76b483] Date: Mon, 22 May 2017 23:00:38 -0400
+From: from@example.com
+To: rhuberdeau@gmail.com
+Message-ID: <5923a5d6eb7fd_30b23fc0f719614c395d8@robert-MS-7693.mail>
+Subject: Someone is trying to contact me
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5923a5d6eb106_30b23fc0f719614c39418";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5923a5d6eb106_30b23fc0f719614c39418
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+New contact request from fadfasfsa
+===============================================
+
+Email: asfsadfsdf
+
+Phone: asdfsfsdf
+
+fdfad sdf asdf sdf asdf sad
+
+
+----==_mimepart_5923a5d6eb106_30b23fc0f719614c39418
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New contact request from fadfasfsa</h1>
+    <p>
+      Email: asfsadfsdf
+    </p>
+    <p>
+      Phone: asdfsfsdf
+    </p>
+    <p>
+      fdfad sdf asdf sdf asdf sad
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5923a5d6eb106_30b23fc0f719614c39418--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [efcddf54-2305-4433-b406-31a5ec76b483] Performed ActionMailer::DeliveryJob from Inline(mailers) in 8.75ms
+Redirected to http://localhost:3000/
+Completed 302 Found in 102ms (ActiveRecord: 85.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 23:00:38 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  Rendered articles/_article.html.erb (0.5ms)
+  Rendered articles/index.html.erb within layouts/application (3.2ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 23:00:39 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 23:07:35 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (4.0ms)
+  Rendered contacts/new.html.erb within layouts/application (5.3ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 23:07:35 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 23:07:44 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JhVlpGHjxeoKG42g5JLVEs5TYsV0n9ZrjVAsUO/ijIQf45UtE1Y8jbcOgAfZJBhR4eXvOH0Ao0kocOEL/7+1Xg==", "contact"=>{"name"=>"afsdaf asdf ", "email_address"=>"asdf asf sadf asd", "phone_number"=>"asdf sdf saf asdf as", "message"=>"asdf asdf asdf sadf asf asdf s"}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "afsdaf asdf "], ["email_address", "asdf asf sadf asd"], ["phone_number", "asdf sdf saf asdf as"], ["message", "asdf asdf asdf sadf asf asdf s"], ["created_at", "2017-05-23 03:07:44.348415"], ["updated_at", "2017-05-23 03:07:44.348415"]]
+  [1m[35m (74.6ms)[0m  COMMIT
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 5747d1eb-1c1c-4b5b-8b54-bfa7e520b0d8) to Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/11
+[ActiveJob]   [1m[36mContact Load (0.7ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = $1 LIMIT 1[0m  [["id", 11]]
+[ActiveJob] [ActionMailer::DeliveryJob] [5747d1eb-1c1c-4b5b-8b54-bfa7e520b0d8] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/11
+[ActiveJob] [ActionMailer::DeliveryJob] [5747d1eb-1c1c-4b5b-8b54-bfa7e520b0d8]   Rendered contact_mailer/new_contact.html.erb within layouts/mailer (0.1ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [5747d1eb-1c1c-4b5b-8b54-bfa7e520b0d8]   Rendered contact_mailer/new_contact.text.erb within layouts/mailer (0.0ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [5747d1eb-1c1c-4b5b-8b54-bfa7e520b0d8] 
+ContactMailer#new_contact: processed outbound mail in 7.7ms
+[ActiveJob] [ActionMailer::DeliveryJob] [5747d1eb-1c1c-4b5b-8b54-bfa7e520b0d8] 
+Sent mail to rhuberdeau@gmail.com (5.5ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [5747d1eb-1c1c-4b5b-8b54-bfa7e520b0d8] Date: Mon, 22 May 2017 23:07:44 -0400
+From: from@example.com
+To: rhuberdeau@gmail.com
+Message-ID: <5923a7806b145_30b23fc0f6c6e0d4397e8@robert-MS-7693.mail>
+Subject: Someone is trying to contact me
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5923a7806a523_30b23fc0f6c6e0d4396bd";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5923a7806a523_30b23fc0f6c6e0d4396bd
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+New contact request from afsdaf asdf 
+===============================================
+
+Email: asdf asf sadf asd
+
+Phone: asdf sdf saf asdf as
+
+asdf asdf asdf sadf asf asdf s
+
+
+----==_mimepart_5923a7806a523_30b23fc0f6c6e0d4396bd
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New contact request from afsdaf asdf </h1>
+    <p>
+      Email: asdf asf sadf asd
+    </p>
+    <p>
+      Phone: asdf sdf saf asdf as
+    </p>
+    <p>
+      asdf asdf asdf sadf asf asdf s
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5923a7806a523_30b23fc0f6c6e0d4396bd--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [5747d1eb-1c1c-4b5b-8b54-bfa7e520b0d8] Performed ActionMailer::DeliveryJob from Inline(mailers) in 14.17ms
+Redirected to http://localhost:3000/
+Completed 302 Found in 98ms (ActiveRecord: 76.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 23:07:44 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  [1m[35mArticle Load (0.4ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (0.5ms)
+  Rendered articles/index.html.erb within layouts/application (3.2ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 23:07:44 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 23:08:41 -0400
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered contacts/_form.html.erb (3.0ms)
+  Rendered contacts/new.html.erb within layouts/application (3.9ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 31ms (Views: 23.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 23:08:42 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 23:08:51 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bYAvHZbNykUSkv/1vKnu6e5ASPrju9lVCaOR4opHT+5Udt+U5HgzIq+H8lKBHyOqwfbFB+okrHesg1y5mhp2NA==", "contact"=>{"name"=>"dafsdf sf sdf asdf ", "email_address"=>"asdf sadf sadf asdf as", "phone_number"=>"asf sadf asdf asdf asf ", "message"=>"asdf asdf asdf asdf asdf asdf asdfa"}, "commit"=>"Send"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "dafsdf sf sdf asdf "], ["email_address", "asdf sadf sadf asdf as"], ["phone_number", "asf sadf asdf asdf asf "], ["message", "asdf asdf asdf asdf asdf asdf asdfa"], ["created_at", "2017-05-23 03:08:51.730215"], ["updated_at", "2017-05-23 03:08:51.730215"]]
+  [1m[36m (64.8ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/robert/projects/Blog/app/controllers/contacts_controller.rb:29)
+  Rendered contact_mailer/new_contact.html.erb within layouts/mailer (0.1ms)
+  Rendered contact_mailer/new_contact.text.erb within layouts/mailer (0.0ms)
+
+ContactMailer#new_contact: processed outbound mail in 5.4ms
+
+Sent mail to rhuberdeau@gmail.com (3.2ms)
+Date: Mon, 22 May 2017 23:08:51 -0400
+From: from@example.com
+To: rhuberdeau@gmail.com
+Message-ID: <5923a7c3c50bb_30b23fc0f62c562c3992d@robert-MS-7693.mail>
+Subject: Someone is trying to contact me
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5923a7c3c4974_30b23fc0f62c562c3984c";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5923a7c3c4974_30b23fc0f62c562c3984c
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+New contact request from dafsdf sf sdf asdf 
+===============================================
+
+Email: asdf sadf sadf asdf as
+
+Phone: asf sadf asdf asdf asf 
+
+asdf asdf asdf asdf asdf asdf asdfa
+
+
+----==_mimepart_5923a7c3c4974_30b23fc0f62c562c3984c
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New contact request from dafsdf sf sdf asdf </h1>
+    <p>
+      Email: asdf sadf sadf asdf as
+    </p>
+    <p>
+      Phone: asf sadf asdf asdf asf 
+    </p>
+    <p>
+      asdf asdf asdf asdf asdf asdf asdfa
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5923a7c3c4974_30b23fc0f62c562c3984c--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 81ms (ActiveRecord: 65.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 23:08:51 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (0.8ms)
+  Rendered articles/index.html.erb within layouts/application (9.7ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 32ms (Views: 24.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 23:08:51 -0400
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 23:14:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.9ms)
+  Rendered shared/_error_messages.html.erb (3.9ms)
+  Rendered contacts/_form.html.erb (39.2ms)
+  Rendered contacts/new.html.erb within layouts/application (47.3ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  Rendered shared/_navigation.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 339ms (Views: 328.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 23:14:21 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 23:14:27 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GNJterlmHadPpWjKuEaumITkvC6BwD5gp9UgxltCU6MhJJ3zy9PkwPKwZW2F8GPbq1Ix04hfS0IC9e2dSx9qeQ==", "contact"=>{"name"=>"fadfasd fasdf asf as", "email_address"=>"asf asf saf as", "phone_number"=>"asfd asf asdf asdf ", "message"=>"asdf asdf asdf asdf s"}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "fadfasd fasdf asf as"], ["email_address", "asf asf saf as"], ["phone_number", "asfd asf asdf asdf "], ["message", "asdf asdf asdf asdf s"], ["created_at", "2017-05-23 03:14:27.866363"], ["updated_at", "2017-05-23 03:14:27.866363"]]
+  [1m[35m (65.6ms)[0m  COMMIT
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/robert/projects/Blog/app/controllers/contacts_controller.rb:29)
+  Rendered contact_mailer/new_contact.html.erb within layouts/mailer (0.6ms)
+  Rendered contact_mailer/new_contact.text.erb within layouts/mailer (0.4ms)
+
+ContactMailer#new_contact: processed outbound mail in 216.5ms
+
+Sent mail to rhuberdeau@gmail.com (2222.0ms)
+Date: Mon, 22 May 2017 23:14:28 -0400
+From: from@example.com
+To: rhuberdeau@gmail.com
+Message-ID: <5923a9142a375_404d3f9fb860c51063776@robert-MS-7693.mail>
+Subject: Someone is trying to contact me
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5923a91429201_404d3f9fb860c510636c";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5923a91429201_404d3f9fb860c510636c
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+New contact request from fadfasd fasdf asf as
+===============================================
+
+Email: asf asf saf as
+
+Phone: asfd asf asdf asdf 
+
+asdf asdf asdf asdf s
+
+
+----==_mimepart_5923a91429201_404d3f9fb860c510636c
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New contact request from fadfasd fasdf asf as</h1>
+    <p>
+      Email: asf asf saf as
+    </p>
+    <p>
+      Phone: asfd asf asdf asdf 
+    </p>
+    <p>
+      asdf asdf asdf asdf s
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5923a91429201_404d3f9fb860c510636c--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 2529ms (ActiveRecord: 66.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 23:14:30 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[36mArticle Load (0.8ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0[0m
+  Rendered articles/_article.html.erb (1.8ms)
+  Rendered articles/index.html.erb within layouts/application (18.0ms)
+  Rendered shared/_shim.html.erb (0.1ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 50ms (Views: 35.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 23:14:30 -0400
+  [1m[36mSQL (23.4ms)[0m  [1mDELETE FROM "contacts"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "contacts"
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2017-05-22 23:20:59 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContactsController#new as HTML
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered shared/_error_messages.html.erb (1.8ms)
+  Rendered contacts/_form.html.erb (26.3ms)
+  Rendered contacts/new.html.erb within layouts/application (32.5ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  Rendered shared/_navigation.html.erb (1.6ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 402ms (Views: 388.2ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/assets/clean_blog/contact-bg.jpg" for 127.0.0.1 at 2017-05-22 23:21:00 -0400
+
+
+Started POST "/contacts" for 127.0.0.1 at 2017-05-22 23:21:20 -0400
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iqmhq85LGpoCoEjHcruVxYv5b9f8WbgYzvLggGQ71dmzX1EivP7j/b+1RWBPDViGpE/iKvXGzTpr0i3bdGbsAw==", "contact"=>{"name"=>"Ted", "email_address"=>"ted@mailinator.com", "phone_number"=>"(555) 555-5555", "message"=>"Hey, your site is great!"}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "contacts" ("name", "email_address", "phone_number", "message", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ted"], ["email_address", "ted@mailinator.com"], ["phone_number", "(555) 555-5555"], ["message", "Hey, your site is great!"], ["created_at", "2017-05-23 03:21:20.106458"], ["updated_at", "2017-05-23 03:21:20.106458"]]
+  [1m[35m (32.3ms)[0m  COMMIT
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: ac6bcc6a-59da-4fb9-b627-25fb498a391e) to Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/14
+[ActiveJob]   [1m[36mContact Load (0.3ms)[0m  [1mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = $1 LIMIT 1[0m  [["id", 14]]
+[ActiveJob] [ActionMailer::DeliveryJob] [ac6bcc6a-59da-4fb9-b627-25fb498a391e] Performing ActionMailer::DeliveryJob from Inline(mailers) with arguments: "ContactMailer", "new_contact", "deliver_now", gid://blog/Contact/14
+[ActiveJob] [ActionMailer::DeliveryJob] [ac6bcc6a-59da-4fb9-b627-25fb498a391e]   Rendered contact_mailer/new_contact.html.erb within layouts/mailer (2.4ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [ac6bcc6a-59da-4fb9-b627-25fb498a391e]   Rendered contact_mailer/new_contact.text.erb within layouts/mailer (0.5ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [ac6bcc6a-59da-4fb9-b627-25fb498a391e] 
+ContactMailer#new_contact: processed outbound mail in 186.5ms
+[ActiveJob] [ActionMailer::DeliveryJob] [ac6bcc6a-59da-4fb9-b627-25fb498a391e] 
+Sent mail to rhuberdeau@gmail.com (1662.0ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [ac6bcc6a-59da-4fb9-b627-25fb498a391e] Date: Mon, 22 May 2017 23:21:20 -0400
+From: from@example.com
+To: rhuberdeau@gmail.com
+Message-ID: <5923aab062002_41af2c4188072150@robert-MS-7693.mail>
+Subject: Someone is trying to contact me
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5923aab060dc3_41af2c41880720b2";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5923aab060dc3_41af2c41880720b2
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+New contact request from Ted
+===============================================
+
+Email: ted@mailinator.com
+
+Phone: (555) 555-5555
+
+Hey, your site is great!
+
+
+----==_mimepart_5923aab060dc3_41af2c41880720b2
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New contact request from Ted</h1>
+    <p>
+      Email: ted@mailinator.com
+    </p>
+    <p>
+      Phone: (555) 555-5555
+    </p>
+    <p>
+      Hey, your site is great!
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5923aab060dc3_41af2c41880720b2--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [ac6bcc6a-59da-4fb9-b627-25fb498a391e] Performed ActionMailer::DeliveryJob from Inline(mailers) in 1849.73ms
+Redirected to http://localhost:3000/
+Completed 302 Found in 1961ms (ActiveRecord: 33.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-22 23:21:22 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.1ms)
+  [1m[35mArticle Load (0.7ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = 't'  ORDER BY id DESC LIMIT 5 OFFSET 0
+  Rendered articles/_article.html.erb (1.5ms)
+  Rendered articles/index.html.erb within layouts/application (14.8ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 31.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for 127.0.0.1 at 2017-05-22 23:21:22 -0400
