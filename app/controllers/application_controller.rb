@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
+
   private
     def user_must_be_admin
       unless current_user.try(:admin?)
@@ -8,4 +8,3 @@ class ApplicationController < ActionController::Base
       end
     end
 end
-

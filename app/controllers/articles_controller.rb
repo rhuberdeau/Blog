@@ -87,20 +87,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def publish
-    @article = Article.find(params[:id])
-    respond_to do |format|
-      if @article.update_attributes(published: true)
-        flash[:notice] = "'#{@article.title}' was successfully published."
-        format.html { redirect_to(controller: 'admin', action: 'index') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
   private
 
     def article_params

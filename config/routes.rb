@@ -1,5 +1,7 @@
 Blog::Application.routes.draw do
   resources :contacts
+  resources :articles
+  resources :tags
   # See how all your routes lay out with "rake routes"
 
   devise_for :users, controllers: { registrations: "registrations"}
@@ -10,8 +12,8 @@ Blog::Application.routes.draw do
 
   get "admin", to: 'admin#index'
   get "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => {:format => :xml}
-  post "/articles/:id/publish", to: "articles#publish", :as => :publish_article
 
-  resources :tags
-  resources :articles
+  namespace :articles do
+    resources :publish, only: [:update]
+  end
 end
