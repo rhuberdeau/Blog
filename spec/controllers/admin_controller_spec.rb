@@ -25,14 +25,10 @@ RSpec.describe AdminController, :type => :controller do
   let(:valid_attributes) { {  } }
 
   describe "GET index" do
-    before do 
+    before do
       article1 = Article.create!(title: "This is article 1", summary: "An article", body: "This is the article body", user_id: 1 )
       article2 = Article.create!(title: "This is article 2", summary: "An article", body: "This is the article body", user_id: 1, published: true )
       article3 = Article.create!(title: "This is article 3", summary: "An article", body: "This is the article body", user_id: 1 )
-
-      comment1 = FactoryGirl.create(:comment, created_at: Date.today - 9)
-      comment2 = FactoryGirl.create(:comment, created_at: Date.today - 6)
-      comment3 = FactoryGirl.create(:comment, created_at: Date.today - 10)
     end
 
     context "when an admin is logged in" do
@@ -43,14 +39,9 @@ RSpec.describe AdminController, :type => :controller do
         get :index
         assigns(:articles).should eq(Article.where(published: false))
       end
-
-      it "assigns all recent comments as @comments" do 
-        get :index
-        assigns(:comments).to_a.should eq(Comment.recent.to_a)
-      end
     end
 
-    context "when an admin is not logged in" do 
+    context "when an admin is not logged in" do
       it "redirects the user " do
         get :index
         expect(response.status).to eq(302)
