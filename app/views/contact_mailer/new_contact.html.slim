@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    meta[content="text/html; charset=UTF-8" http-equiv="Content-Type"]
+  body
+    h1
+      | New contact request from
+      = @contact.name
+    p
+      |  Email:
+      = @contact.email_address
+    p
+      |  Phone:
+      = @contact.phone_number
+    p
+      = @contact.message

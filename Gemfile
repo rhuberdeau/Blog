@@ -16,6 +16,7 @@ gem "coderay"
 gem 'devise'
 gem 'meta-tags'
 gem "font-awesome-rails"
+gem "slim-rails"
 
 group :development, :test do
   gem 'annotate'

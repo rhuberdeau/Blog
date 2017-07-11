@@ -1,0 +1,10 @@
+article[ng-app="angular_test"]
+  header
+    h1[ng-if="name"]
+      | Hello, {{name}}
+  section
+    form.form-inline
+      .form-group
+        label[for="name"]
+          | Name
+        input.form-control[name="name" type="text" placeholder="Enter your name" autofocus ng-model="name"]
