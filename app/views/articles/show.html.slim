@@ -1,12 +1,14 @@
 = render partial: "shared/header", locals: {url: '/assets/clean_blog/post-bg.jpg',
                                             title: @article.title,
                                             sub_heading: @article.summary}
+
 article
   .container
     .row
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-        = coderay(@article.body).html_safe
+        = markdown(@article.body)
 br
+
 #disqus_thread.col-md-8.col-md-offset-2
 script
   |  var disqus_config = function () { this.page.url = 'http://www.rhuberdeau.com<ruby code="= request.path"></ruby>'; this.page.identifier = '<ruby code="= @article.title"></ruby>'; }; (function() { var d = document, s = d.createElement('script'); s.src = '//rhuberdeau.disqus.com/embed.js'; s.setAttribute('data-timestamp', +new Date()); (d.head || d.body).appendChild(s); })();

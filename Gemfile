@@ -17,6 +17,7 @@ gem 'devise'
 gem 'meta-tags'
 gem "font-awesome-rails"
 gem "slim-rails"
+gem 'redcarpet'
 
 group :development, :test do
   gem 'annotate'
