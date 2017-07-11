@@ -1,0 +1,42 @@
+#admin_index.container
+  h2
+    | Unpublished Articles
+    = link_to('Logout', destroy_user_session_path, method: :delete)
+  table.table.table-bordered.row
+    tr
+      th
+        | Title
+      th
+        | Summary
+      th
+        | links
+    - @articles.each do |article|
+      tr
+        td.col-xs-3
+          = article.title
+        td.col-xs-5
+          = article.summary
+        td.col-xs-4
+          = link_to 'Show', article_path(article), html_options = {class: "btn btn-success"}
+          = link_to 'Edit', edit_article_path(article), html_options = {class: "btn btn-info"}
+          = link_to "Publish", articles_publish_path(article), html_options = {class: "btn btn-info",  method: :put}
+  = link_to 'Create new article', new_article_path, html_options = {class: "btn btn-success"}
+  h2
+    | Published Articles
+  table.table.table-bordered.row
+    tr
+      th
+        | Title
+      th.admin_summary
+        | Summary
+      th
+        | links
+    - @published_articles.each do |article|
+      tr
+        td.col-xs-3
+          = article.title
+        td.col-xs-5
+          = article.summary
+        td.col-xs-4
+          = link_to 'Show', article_path(article), html_options = {class: "btn btn-success"}
+          = link_to 'Edit', edit_article_path(article), html_options = {class: "btn btn-info"}

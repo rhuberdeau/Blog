@@ -1,8 +1,0 @@
-<div class="comment">
-  <% unless comment.user_id.nil? %>
-    <strong><%= comment.user.username %></strong> <span class="date"><%=comment.created_at.strftime("%B %d, %Y")%></span><br />
-  <% else %>
-    <strong>Guest</strong> <span class="date"><%=comment.created_at.strftime("%B %d, %Y")%></span><br />
-  <% end %>
-  <%= comment.body %>
-</div>

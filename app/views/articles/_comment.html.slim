@@ -1,0 +1,14 @@
+.comment
+  - unless comment.user_id.nil?
+    strong
+      = comment.user.username
+    span.date
+      =comment.created_at.strftime("%B %d, %Y")
+    br
+  - else
+    strong
+      | Guest
+    span.date
+      =comment.created_at.strftime("%B %d, %Y")
+    br
+  = comment.body
