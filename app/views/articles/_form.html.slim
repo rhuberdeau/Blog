@@ -16,12 +16,13 @@
     = f.label :tag_names, class: "col-sm-2 control-label"
     .col-sm-4
       = f.text_field :tag_names, class: "form-control", placeholder: "Tags"
-  .form-group
-    .col-sm-offset-2.col-sm-10
-      .checkbox
-        label
-          input#article_published.checkbox[name="article[published]" type="checkbox" value="1"]
-          |  Publish
+  - if @article.persisted?
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        .checkbox
+          label
+            = f.check_box :published
+            |  published
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit 'Save', class: "btn btn-default"

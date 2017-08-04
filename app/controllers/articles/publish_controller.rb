@@ -2,7 +2,7 @@ class Articles::PublishController < ApplicationController
   def update
     @article = Article.find(params[:id])
     respond_to do |format|
-      if @article.update_attributes(published: true)
+      if @article.update_attributes(published: true, published_on: Time.now)
         flash[:notice] = "'#{@article.title}' was successfully published."
         format.html { redirect_to admin_path }
         format.xml  { head :ok }
