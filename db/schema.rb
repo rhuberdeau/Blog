@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613022128) do
+ActiveRecord::Schema.define(version: 20170804033426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,28 +22,14 @@ ActiveRecord::Schema.define(version: 20170613022128) do
     t.string   "cached_slug"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "published",   default: false
+    t.boolean  "published",    default: false
     t.integer  "user_id"
     t.text     "summary"
     t.integer  "sequence_id"
+    t.datetime "published_on"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
-
-  create_table "blog_engine_articles", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.boolean  "published"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "blog_engine_comments", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "article_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "body",       null: false
