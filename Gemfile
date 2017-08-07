@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.2.2"
 
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.9'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier', '>= 1.3.0'
@@ -18,6 +18,7 @@ gem 'meta-tags'
 gem "font-awesome-rails"
 gem "slim-rails"
 gem 'redcarpet'
+gem 'rake', '< 11.0'
 
 group :development, :test do
   gem 'annotate'
