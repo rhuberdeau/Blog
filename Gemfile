@@ -30,7 +30,6 @@ group :test do
   gem 'test-unit'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem "capybara-webkit"
 end
 
 gem 'rails_12factor', group: :production
