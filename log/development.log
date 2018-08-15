@@ -17656,3 +17656,468 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+
+
+Started GET "/" for ::1 at 2018-08-14 22:15:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (1.7ms)
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = $1  ORDER BY id DESC LIMIT 5 OFFSET 0  [["published", "t"]]
+  Rendered collection (0.0ms)
+  Rendered articles/index.html.slim within layouts/application (30.9ms)
+  Rendered shared/_shim.html.erb (0.5ms)
+  Rendered shared/_navigation.html.erb (1.3ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 4350ms (Views: 4333.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.self-aed0055216d512bf69042e061ee60ca04e23df0f575981cfdc1591daf61362e9.css?body=1" for ::1 at 2018-08-14 22:15:42 -0400
+
+
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2018-08-14 22:15:42 -0400
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2018-08-14 22:15:42 -0400
+
+
+Started GET "/assets/admin_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2018-08-14 22:15:42 -0400
+
+
+Started GET "/assets/angular_test_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2018-08-14 22:15:42 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for ::1 at 2018-08-14 22:15:42 -0400
+
+
+Started GET "/assets/clean_blog/clean-blog.self-e09e1ce4fa9e44a0f71cd294dad53942ddc54f24ad16a0c07db881c07a10f130.js?body=1" for ::1 at 2018-08-14 22:15:42 -0400
+
+
+Started GET "/assets/clean_blog/manifest.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for ::1 at 2018-08-14 22:15:42 -0400
+
+
+Started GET "/assets/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-08-14 22:15:42 -0400
+
+
+Started GET "/assets/application.self-29c15a76104243fc4fab0b953f6571b7056bbebdb2b4019eaab82bf4f241caae.js?body=1" for ::1 at 2018-08-14 22:15:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for ::1 at 2018-08-14 22:15:42 -0400
+
+
+Started GET "/admin" for ::1 at 2018-08-14 22:16:09 -0400
+Processing by AdminController#index as HTML
+Completed 401 Unauthorized in 21ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2018-08-14 22:16:09 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (35.6ms)
+  Rendered shared/_shim.html.erb (0.4ms)
+  Rendered shared/_navigation.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 171ms (Views: 151.6ms | ActiveRecord: 2.6ms)
+  [1m[36mUser Load (7.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/users/sign_up" for ::1 at 2018-08-14 22:17:36 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RegistrationsController#new as HTML
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (31.2ms)
+  Rendered shared/_shim.html.erb (0.6ms)
+  Rendered shared/_navigation.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 633ms (Views: 570.5ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/users" for ::1 at 2018-08-14 22:17:49 -0400
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YHy+SQtzs+qYYjHOhsxdHCQaXGrDUIfiMhDi4H5bNTIOYEjMrIAyE+tRjrAZt4sXfxaerCkZMINP8x8qm2bk8g==", "user"=>{"email"=>"rhuberdeau@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (2.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'rhuberdeau@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "rhuberdeau@gmail.com"], ["encrypted_password", "$2a$10$2zlCw4vbQObmJ8KvQhPb4uHfQYY4lPABxWyBHkoocMg1Fyv2j0onS"], ["created_at", "2018-08-15 02:17:49.265298"], ["updated_at", "2018-08-15 02:17:49.265298"]]
+  [1m[36m (5.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["last_sign_in_at", "2018-08-15 02:17:49.275008"], ["current_sign_in_at", "2018-08-15 02:17:49.275008"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2018-08-15 02:17:49.276543"], ["id", 1]]
+  [1m[35m (4.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 137ms (ActiveRecord: 14.1ms)
+
+
+Started GET "/admin" for ::1 at 2018-08-14 22:17:49 -0400
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/articles
+Filter chain halted as :user_must_be_admin rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/articles" for ::1 at 2018-08-14 22:17:49 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.4ms)
+  [1m[35mArticle Load (0.4ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = $1  ORDER BY id DESC LIMIT 5 OFFSET 0  [["published", "t"]]
+  Rendered collection (0.0ms)
+  Rendered articles/index.html.slim within layouts/application (22.1ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 64ms (Views: 44.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for ::1 at 2018-08-14 22:17:49 -0400
+
+
+Started GET "/articles/new" for ::1 at 2018-08-14 22:17:54 -0400
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/articles
+Filter chain halted as :user_must_be_admin rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/articles" for ::1 at 2018-08-14 22:17:54 -0400
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (0.0ms)
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = $1  ORDER BY id DESC LIMIT 5 OFFSET 0  [["published", "t"]]
+  Rendered collection (0.0ms)
+  Rendered articles/index.html.slim within layouts/application (2.4ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for ::1 at 2018-08-14 22:17:55 -0400
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemovePasswordDigestFromUsers (20180815021951)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "users" DROP "password_digest"[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20180815021951"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'articles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'contacts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'roles_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'sequences'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'slugs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'steps'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'taggings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tutorials'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "admin" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["admin", "t"], ["updated_at", "2018-08-15 02:21:01.681944"], ["id", 1]]
+  [1m[35m (5.9ms)[0m  COMMIT
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/articles" for ::1 at 2018-08-14 22:21:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  Rendered shared/_header.html.erb (1.6ms)
+  [1m[35mArticle Load (0.4ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."published" = $1  ORDER BY id DESC LIMIT 5 OFFSET 0  [["published", "t"]]
+  Rendered collection (0.0ms)
+  Rendered articles/index.html.slim within layouts/application (48.6ms)
+  Rendered shared/_shim.html.erb (0.5ms)
+  Rendered shared/_navigation.html.erb (1.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 580ms (Views: 560.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.self-aed0055216d512bf69042e061ee60ca04e23df0f575981cfdc1591daf61362e9.css?body=1" for ::1 at 2018-08-14 22:21:21 -0400
+
+
+Started GET "/assets/admin_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2018-08-14 22:21:21 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2018-08-14 22:21:21 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for ::1 at 2018-08-14 22:21:21 -0400
+
+
+Started GET "/assets/angular_test_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2018-08-14 22:21:21 -0400
+
+
+Started GET "/assets/clean_blog/clean-blog.self-e09e1ce4fa9e44a0f71cd294dad53942ddc54f24ad16a0c07db881c07a10f130.js?body=1" for ::1 at 2018-08-14 22:21:21 -0400
+
+
+Started GET "/assets/clean_blog/manifest.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for ::1 at 2018-08-14 22:21:21 -0400
+
+
+Started GET "/assets/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-08-14 22:21:21 -0400
+
+
+Started GET "/assets/application.self-29c15a76104243fc4fab0b953f6571b7056bbebdb2b4019eaab82bf4f241caae.js?body=1" for ::1 at 2018-08-14 22:21:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2018-08-14 22:21:21 -0400
+
+
+Started GET "/assets/clean_blog/home-bg.jpg" for ::1 at 2018-08-14 22:21:21 -0400
+
+
+Started GET "/articles/new" for ::1 at 2018-08-14 22:21:25 -0400
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_error_messages.html.erb (3.3ms)
+  Rendered articles/_form.html.slim (66.3ms)
+  Rendered articles/new.html.slim within layouts/application (82.4ms)
+  Rendered shared/_shim.html.erb (0.5ms)
+  Rendered shared/_navigation.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 265ms (Views: 195.0ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/articles" for ::1 at 2018-08-14 22:23:06 -0400
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OI1PtZxNMgOXAZMuRFTpm7hdJvG04W9yIzEVoOfT18dWkbkwO76z+uQyLFDbLz+Q41HkN16o2BNe0uhqAu4GBw==", "article"=>{"title"=>"Da Title", "summary"=>"A title for the article", "body"=>"#header text\r\n  Hello from Markdown!\r\n\r\np: markdown: Tag with **inline** markdown!", "tag_names"=>""}, "commit"=>"Save"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mArticle Exists (2.0ms)[0m  SELECT  1 AS one FROM "articles" WHERE LOWER("articles"."title") = LOWER('Da Title') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "body", "summary", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Da Title"], ["body", "#header text\r\n  Hello from Markdown!\r\n\r\np: markdown: Tag with **inline** markdown!"], ["summary", "A title for the article"], ["user_id", 1], ["created_at", "2018-08-15 02:23:06.317266"], ["updated_at", "2018-08-15 02:23:06.317266"]]
+  [1m[35mTag Load (30.9ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = $1  [["article_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/articles/1-Da-Title
+Completed 302 Found in 140ms (ActiveRecord: 42.7ms)
+
+
+Started GET "/articles/1-Da-Title" for ::1 at 2018-08-14 22:23:06 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1-Da-Title"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mArticle Load (0.9ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE (id < '1')  ORDER BY created_at DESC LIMIT 1[0m
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles" WHERE (id > '1')  ORDER BY created_at LIMIT 1
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered articles/show.html.slim within layouts/application (7.5ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 44ms (Views: 40.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/clean_blog/post-bg.jpg" for ::1 at 2018-08-14 22:23:06 -0400
+
+
+Started GET "/articles/1-Da-Title" for ::1 at 2018-08-14 22:25:18 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1-Da-Title"}
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mArticle Load (0.6ms)[0m  SELECT  "articles".* FROM "articles" WHERE (id < '1')  ORDER BY created_at DESC LIMIT 1
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE (id > '1')  ORDER BY created_at LIMIT 1[0m
+  Rendered shared/_header.html.erb (0.4ms)
+  Rendered articles/show.html.slim within layouts/application (6.4ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 34.1ms | ActiveRecord: 1.4ms)
+
+
+
+
+Started GET "/assets/application.self-aed0055216d512bf69042e061ee60ca04e23df0f575981cfdc1591daf61362e9.css?body=1" for ::1 at 2018-08-14 22:25:18 -0400
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2018-08-14 22:25:18 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2018-08-14 22:25:18 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for ::1 at 2018-08-14 22:25:18 -0400
+
+
+Started GET "/assets/clean_blog/clean-blog.self-e09e1ce4fa9e44a0f71cd294dad53942ddc54f24ad16a0c07db881c07a10f130.js?body=1" for ::1 at 2018-08-14 22:25:18 -0400
+
+
+Started GET "/assets/admin_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2018-08-14 22:25:18 -0400
+
+
+
+
+Started GET "/assets/clean_blog/manifest.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for ::1 at 2018-08-14 22:25:18 -0400
+Started GET "/assets/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-08-14 22:25:18 -0400
+
+
+Started GET "/assets/angular_test_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2018-08-14 22:25:18 -0400
+
+
+Started GET "/assets/application.self-29c15a76104243fc4fab0b953f6571b7056bbebdb2b4019eaab82bf4f241caae.js?body=1" for ::1 at 2018-08-14 22:25:18 -0400
+
+
+Started GET "/assets/clean_blog/post-bg.jpg" for ::1 at 2018-08-14 22:25:19 -0400
+
+
+Started GET "/articles/1-Da-Title" for ::1 at 2018-08-14 22:25:25 -0400
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1-Da-Title"}
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE (id < '1')  ORDER BY created_at DESC LIMIT 1[0m
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE (id > '1')  ORDER BY created_at LIMIT 1
+  Rendered shared/_header.html.erb (0.1ms)
+  Rendered articles/show.html.slim within layouts/application (5.3ms)
+  Rendered shared/_shim.html.erb (0.0ms)
+  Rendered shared/_navigation.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-aed0055216d512bf69042e061ee60ca04e23df0f575981cfdc1591daf61362e9.css?body=1" for ::1 at 2018-08-14 22:25:25 -0400
+
+
+Started GET "/assets/bootstrap.self-6c92f650931beefe48977f272b7015d6b9b45da8b09831ebf88e05193c12d355.js?body=1" for ::1 at 2018-08-14 22:25:25 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2018-08-14 22:25:25 -0400
+
+
+Started GET "/assets/admin_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2018-08-14 22:25:25 -0400
+
+
+Started GET "/assets/clean_blog/clean-blog.self-e09e1ce4fa9e44a0f71cd294dad53942ddc54f24ad16a0c07db881c07a10f130.js?body=1" for ::1 at 2018-08-14 22:25:25 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2018-08-14 22:25:25 -0400
+
+
+Started GET "/assets/contacts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-08-14 22:25:25 -0400
+
+
+Started GET "/assets/angular_test_app.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for ::1 at 2018-08-14 22:25:25 -0400
+
+
+Started GET "/assets/clean_blog/manifest.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for ::1 at 2018-08-14 22:25:25 -0400
+
+
+Started GET "/assets/application.self-29c15a76104243fc4fab0b953f6571b7056bbebdb2b4019eaab82bf4f241caae.js?body=1" for ::1 at 2018-08-14 22:25:25 -0400
+
+
+Started GET "/assets/clean_blog/post-bg.jpg" for ::1 at 2018-08-14 22:25:25 -0400
