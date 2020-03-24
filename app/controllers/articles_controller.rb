@@ -4,7 +4,9 @@ class ArticlesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @articles = Article.where(:published => true).paginate(:page => params[:page]).order('id DESC')
+    @articles = Article.published
+                       .paginate(:page => params[:page])
+                       .order('id DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,12 +15,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article          = Article.find(params[:id])
+    @article = Article.find(params[:id])
 
     if @article
-      id                = params[:id].split('-').first
-      @previous_article = Article.where("id < ?", id).order("created_at").last
-      @next_article     = Article.where("id > ?", id).order("created_at").first
+      id = params[:id].split('-').first
 
       set_meta_tags title: "#{@article.title} | Robert Huberdeau"
       set_meta_tags  description: @article.summary

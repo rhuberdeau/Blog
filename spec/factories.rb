@@ -1,8 +1,8 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     sequence(:email) { |n| "person_#{n}@example.com"}
-    password "foobar123"
-    password_confirmation "foobar123"
+    password {"foobar123"}
+    password_confirmation {"foobar123"}
   end
 
 
@@ -10,12 +10,12 @@ FactoryGirl.define do
     sequence(:title)  { |n| "Article #{n}" }
     sequence(:summary) { |n| "Summary of article #{n}" }
     sequence(:body) { |n| "This is the body of article #{n}"}
-    published true
+    published {true}
     user
   end
 
   factory :comment do
-    body "Hey man, that was a really nice post"
+    body {"Hey man, that was a really nice post"}
     user
     article
   end

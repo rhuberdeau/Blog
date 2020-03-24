@@ -32,7 +32,7 @@ class Article < ActiveRecord::Base
                         uniqueness: { case_sensitive: false },
                         length: { maximum: 70, minimum: 6 }
 
-  scope :published?, -> { where(['published = ?', true]) }
+  scope :published, -> { where(published: true) }
   self.per_page = 5
 
   after_save    :assign_tags

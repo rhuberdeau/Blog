@@ -13,7 +13,7 @@ RSpec.describe ArticlesController, :type => :controller do
   end
 
   describe "GET #show" do
-    let (:article) { FactoryGirl.create(:article) }
+    let (:article) { FactoryBot.create(:article) }
 
     it "renders the article" do
       get :show, id: article.id
@@ -23,7 +23,7 @@ RSpec.describe ArticlesController, :type => :controller do
 
   describe "GET #new" do
     context "when an admin is logged in" do
-      let(:user) {FactoryGirl.create(:user, admin: true) }
+      let(:user) {FactoryBot.create(:user, admin: true) }
       before { sign_in user }
 
       it "renders the new template" do
@@ -33,7 +33,7 @@ RSpec.describe ArticlesController, :type => :controller do
     end
 
     context "when the user is not an admin" do
-      let(:user) {FactoryGirl.create(:user) }
+      let(:user) {FactoryBot.create(:user) }
       before { sign_in user }
 
       it "redirects the user" do
@@ -51,10 +51,10 @@ RSpec.describe ArticlesController, :type => :controller do
   end
 
   describe "GET #edit" do
-    let (:article) { FactoryGirl.create(:article) }
+    let (:article) { FactoryBot.create(:article) }
 
     context "when an admin is logged in" do
-      let(:user) {FactoryGirl.create(:user, admin: true) }
+      let(:user) {FactoryBot.create(:user, admin: true) }
       before { sign_in user }
 
       it "should be a success" do
@@ -64,7 +64,7 @@ RSpec.describe ArticlesController, :type => :controller do
     end
 
     context "when the user is not an admin" do
-      let(:user) {FactoryGirl.create(:user) }
+      let(:user) {FactoryBot.create(:user) }
       before { sign_in user }
 
       it "redirects the user" do
@@ -82,10 +82,10 @@ RSpec.describe ArticlesController, :type => :controller do
   end
 
   describe "POST #create" do
-    let(:article_params) { FactoryGirl.attributes_for(:article) }
+    let(:article_params) { FactoryBot.attributes_for(:article) }
 
     context "when an admin is logged in" do
-      let(:user) {FactoryGirl.create(:user, admin: true) }
+      let(:user) {FactoryBot.create(:user, admin: true) }
       before { sign_in user }
 
       it "should be successful" do
@@ -98,7 +98,7 @@ RSpec.describe ArticlesController, :type => :controller do
       end
 
       it "does not publish the article by default" do
-        article_params = FactoryGirl.attributes_for(:article, published: false)
+        article_params = FactoryBot.attributes_for(:article, published: false)
         post :create, :article => article_params
         article = Article.last
         expect(article.published).to eql(false)
@@ -106,7 +106,7 @@ RSpec.describe ArticlesController, :type => :controller do
     end
 
     context "when the user is not an admin" do
-      let(:user) {FactoryGirl.create(:user) }
+      let(:user) {FactoryBot.create(:user) }
       before { sign_in user }
 
       it "does not create a new article" do
@@ -122,13 +122,13 @@ RSpec.describe ArticlesController, :type => :controller do
   end
 
   describe "POST #update" do
-    let(:article) { FactoryGirl.create(:article) }
+    let(:article) { FactoryBot.create(:article) }
     let(:article_params) do
       { body: "Brand new article content. It's much better than the old content" }
     end
 
     context "when an admin is logged in" do
-      let(:user) {FactoryGirl.create(:user, admin: true) }
+      let(:user) {FactoryBot.create(:user, admin: true) }
       before { sign_in user }
 
       it "should be successful" do
@@ -144,7 +144,7 @@ RSpec.describe ArticlesController, :type => :controller do
     end
 
     context "when the user is not an admin" do
-      let(:user) {FactoryGirl.create(:user) }
+      let(:user) {FactoryBot.create(:user) }
       before { sign_in user }
 
       it "does not update the article" do
@@ -164,10 +164,10 @@ RSpec.describe ArticlesController, :type => :controller do
   end
 
   describe "DELETE #delete" do
-    let!(:article) { FactoryGirl.create(:article) }
+    let!(:article) { FactoryBot.create(:article) }
 
     context "when an admin is logged in" do
-      let(:user) {FactoryGirl.create(:user, admin: true) }
+      let(:user) {FactoryBot.create(:user, admin: true) }
       before { sign_in user }
 
       it "should be successful" do
@@ -181,7 +181,7 @@ RSpec.describe ArticlesController, :type => :controller do
     end
 
     context "when the user is not an admin" do
-      let(:user) {FactoryGirl.create(:user) }
+      let(:user) {FactoryBot.create(:user) }
       before { sign_in user }
 
       it "does not delete the article" do

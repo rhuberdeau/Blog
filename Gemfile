@@ -27,7 +27,7 @@ end
 
 group :test do
   gem 'test-unit'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
 end
 
 gem 'rails_12factor', group: :production

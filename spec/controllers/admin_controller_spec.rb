@@ -32,7 +32,7 @@ RSpec.describe AdminController, :type => :controller do
     end
 
     context "when an admin is logged in" do
-      let(:user) {FactoryGirl.create(:user, admin: true) }
+      let(:user) {FactoryBot.create(:user, admin: true) }
       before { sign_in user }
 
       it "assigns all unpublished articles as @articles" do

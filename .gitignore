@@ -14,10 +14,10 @@
 
 
 # Ignore all logfiles and tempfiles.
-/log
-/tmp
-/logfile
-log/
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
 /libpeerconnection.log
 npm-debug.log
 testem.log
