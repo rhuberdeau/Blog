@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.2.2"
+ruby "2.5.3"
 
 gem 'rails', '4.2.9'
 gem 'sass-rails'
@@ -20,13 +20,13 @@ gem 'redcarpet'
 gem 'rake', '< 11.0'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.99'
+  gem 'rspec-rails'
+  gem 'capybara'
   gem 'spring'
 end
 
 group :test do
   gem 'test-unit'
-  gem 'capybara'
   gem 'factory_girl_rails'
 end
 
