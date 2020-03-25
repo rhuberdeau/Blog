@@ -11,6 +11,7 @@ before_install:
 - "echo 'gem: --no-document' > ~/.gemrc"
 - "echo '--colour' > ~/.rspec"
 - export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
+services:
+  - xvfb
 install:
 - bundle install
