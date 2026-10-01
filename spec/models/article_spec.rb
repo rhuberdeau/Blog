@@ -1,5 +1,5 @@
 
-RSpec.describe Article, :type => :model do
+RSpec.describe Article, type: :model do
   let(:user) { create(:user) }
   before do
     @article = user.articles.build(title: "A working title", body: "this is the content of the article", summary: "an article")
@@ -17,38 +17,38 @@ RSpec.describe Article, :type => :model do
     before { @article.user_id = nil }
     it { should_not be_valid }
   end
-  
-  describe  "when title is not present" do
-  	before { @article.title = " "}
-  	it { should_not be_valid}
-  end
 
-  describe  "when body isn't present" do
-  	before { @article.body = ""}
-  	it { should_not be_valid }
-  end
-
-  describe  "when summary isn't present" do
-  	before { @article.summary = ""}
-  	it { should_not be_valid }
-  end
-
-  describe  "when title has invalid characters" do
-    before { @article.title = "some b@d st#ff"}
+  describe "when title is not present" do
+    before { @article.title = " " }
     it { should_not be_valid }
   end
 
-  describe  "when title is too long" do
-    before { @article.title = "a" * 71}
+  describe "when body isn't present" do
+    before { @article.body = "" }
     it { should_not be_valid }
   end
 
-  describe  "when title is too short" do
-    before { @article.title = "a" * 5}
+  describe "when summary isn't present" do
+    before { @article.summary = "" }
     it { should_not be_valid }
   end
 
-  describe  "when title is already taken" do
+  describe "when title has invalid characters" do
+    before { @article.title = "some b@d st#ff" }
+    it { should_not be_valid }
+  end
+
+  describe "when title is too long" do
+    before { @article.title = "a" * 71 }
+    it { should_not be_valid }
+  end
+
+  describe "when title is too short" do
+    before { @article.title = "a" * 5 }
+    it { should_not be_valid }
+  end
+
+  describe "when title is already taken" do
     before do
       article_with_same_title = @article.dup
       article_with_same_title.title = @article.title.upcase

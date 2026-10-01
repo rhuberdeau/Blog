@@ -6,9 +6,9 @@ admin.admin = true
 admin.save!
 
 [
-  ["Hello again", "The blog is back, running in Docker.", "ruby,docker", true],
-  ["Upgrading Rails one step at a time", "Notes on moving an old app forward.", "ruby,rails", true],
-  ["A draft nobody sees", "Still being written.", "drafts", false],
+  [ "Hello again", "The blog is back, running in Docker.", "ruby,docker", true ],
+  [ "Upgrading Rails one step at a time", "Notes on moving an old app forward.", "ruby,rails", true ],
+  [ "A draft nobody sees", "Still being written.", "drafts", false ]
 ].each do |title, summary, tags, published|
   article = admin.articles.find_or_initialize_by(title: title)
   article.summary   = summary

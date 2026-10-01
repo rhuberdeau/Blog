@@ -6,7 +6,7 @@ describe ContactMailer do
 
     mail = ContactMailer.new_contact(contact)
 
-    expect(mail.to).to eq(["me@example.com"])
+    expect(mail.to).to eq([ "me@example.com" ])
     expect(mail.body.encoded).to include("Hello there")
   end
 end

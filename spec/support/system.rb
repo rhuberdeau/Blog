@@ -8,7 +8,7 @@ RSpec.configure do |config|
     Capybara.server_host = "0.0.0.0"
     Capybara.app_host = "http://#{IPSocket.getaddress(Socket.gethostname)}:#{Capybara.server_port}"
 
-    driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1000], options: {
+    driven_by :selenium, using: :headless_chrome, screen_size: [ 1400, 1000 ], options: {
       browser: :remote,
       url: ENV.fetch("SELENIUM_URL")
     }

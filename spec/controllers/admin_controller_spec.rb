@@ -17,11 +17,11 @@
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe AdminController, :type => :controller do
+RSpec.describe AdminController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # AdminController. As you add validations to AdminController, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { {} }
 
   describe "GET index" do
     before do
@@ -31,7 +31,7 @@ RSpec.describe AdminController, :type => :controller do
     end
 
     context "when an admin is logged in" do
-      let(:user) {create(:user, admin: true) }
+      let(:user) { create(:user, admin: true) }
       before { sign_in user }
 
       it "assigns all unpublished articles as @articles" do

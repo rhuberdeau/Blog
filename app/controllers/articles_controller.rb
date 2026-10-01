@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :user_must_be_admin, except: [:index, :show]
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :user_must_be_admin, except: [ :index, :show ]
+  before_action :set_article, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @articles = Article.published.order(id: :desc).paginate(page: params[:page])
@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   def show
     set_meta_tags title: "#{@article.title} | Robert Huberdeau",
                   description: @article.summary,
-                  og: { title: @article.title, type: 'article' }
+                  og: { title: @article.title, type: "article" }
   end
 
   def new
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build(article_params)
 
     if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
+      redirect_to @article, notice: "Article was successfully created."
     else
       # Turbo only re-renders a failed form submission on a 4xx response.
       render :new, status: :unprocessable_content
@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to @article, notice: 'Article was successfully updated.'
+      redirect_to @article, notice: "Article was successfully updated."
     else
       render :edit, status: :unprocessable_content
     end

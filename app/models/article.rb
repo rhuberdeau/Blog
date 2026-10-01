@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
-  has_many :taggings, :dependent => :destroy
-  has_many :tags, :through => :taggings
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
   belongs_to :user
 
   attr_writer :tag_names
@@ -22,7 +22,7 @@ class Article < ApplicationRecord
   after_save :assign_tags
 
   def tag_names
-    @tag_names || tags.map(&:name).join(',')
+    @tag_names || tags.map(&:name).join(",")
   end
 
   def to_param
@@ -32,7 +32,7 @@ class Article < ApplicationRecord
   private
     def assign_tags
       if @tag_names
-        names = @tag_names.split(',').map(&:strip).reject(&:blank?).uniq
+        names = @tag_names.split(",").map(&:strip).reject(&:blank?).uniq
         self.tags = names.map { |name| Tag.find_or_create_by(name: name) }
       end
     end
