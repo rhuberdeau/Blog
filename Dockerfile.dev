@@ -1,6 +1,6 @@
 # Development image. Ruby comes from the build arg so each step of the Rails
 # upgrade can move the runtime without editing this file.
-ARG RUBY_VERSION=2.7
+ARG RUBY_VERSION=3.3
 FROM ruby:${RUBY_VERSION}
 
 # The full ruby image (buildpack-deps) already ships libpq-dev and a compiler.
@@ -15,6 +15,6 @@ WORKDIR /app
 ENV BUNDLE_PATH=/bundle \
     BUNDLE_JOBS=4
 
-# Last Bundler that supports Ruby 2.7.
-ARG BUNDLER_VERSION=2.4.22
+# Pinned so every machine resolves the lockfile the same way.
+ARG BUNDLER_VERSION=2.6.9
 RUN gem install bundler -v ${BUNDLER_VERSION}

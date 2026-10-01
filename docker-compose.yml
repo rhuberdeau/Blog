@@ -22,8 +22,8 @@ services:
 
   db:
     image: postgres:16
-    # TEMPORARY for the Rails 4.2/5.2 steps: their Debian libpq (9.4) predates
-    # SCRAM, so passwords are stored as md5 until the Ruby image moves on.
+    # TEMPORARY: the Rails 4.2 image's libpq (9.4) predated SCRAM. Removed once
+    # the volume is recreated at the end of the upgrade.
     command: postgres -c password_encryption=md5
     environment:
       POSTGRES_USER: blog

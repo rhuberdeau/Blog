@@ -1,11 +1,9 @@
 source 'https://rubygems.org'
-ruby "~> 2.7.0"
+ruby "~> 3.3.0"
 
-gem 'rails', '~> 6.1.7'
-# concurrent-ruby 1.3.5 stopped requiring 'logger', which Rails < 7.1 relied on.
-gem 'concurrent-ruby', '< 1.3.5'
+gem 'rails', '~> 7.2.2'
 gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.6'
+gem 'puma', '~> 6.4'
 gem 'bootsnap', require: false
 
 # Asset pipeline (replaced by Propshaft + importmap later in the upgrade).
@@ -27,7 +25,7 @@ gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 6.1'
+  gem 'rspec-rails', '~> 7.1'
 end
 
 group :development do
