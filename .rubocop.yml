@@ -1,0 +1,12 @@
+# Omakase Ruby styling for Rails
+inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+
+AllCops:
+  Exclude:
+    - "db/schema.rb"
+    - "db/migrate/2010*"
+    - "db/migrate/2011*"
+    - "db/migrate/2012*"
+    - "db/migrate/201[3-8]*"
+    - "bin/*"
+    - "vendor/**/*"

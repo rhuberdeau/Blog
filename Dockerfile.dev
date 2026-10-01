@@ -1,6 +1,6 @@
 # Development image. Ruby comes from the build arg so it can move without
 # editing this file; .ruby-version and the Gemfile say the same thing.
-ARG RUBY_VERSION=3.3
+ARG RUBY_VERSION=4.0
 FROM ruby:${RUBY_VERSION}
 
 # The full ruby image (buildpack-deps) already ships libpq-dev and a compiler.
@@ -11,5 +11,5 @@ ENV BUNDLE_PATH=/bundle \
     BUNDLE_JOBS=4
 
 # Pinned so every machine resolves the lockfile the same way.
-ARG BUNDLER_VERSION=2.6.9
+ARG BUNDLER_VERSION=4.0.20
 RUN gem install bundler -v ${BUNDLER_VERSION}

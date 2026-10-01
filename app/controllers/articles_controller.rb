@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
       redirect_to @article, notice: 'Article was successfully created.'
     else
       # Turbo only re-renders a failed form submission on a 4xx response.
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article, notice: 'Article was successfully updated.'
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 

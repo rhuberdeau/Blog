@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+# Create or migrate the database before the server starts; any other command
+# (a console, a rake task) runs untouched.
+if [ "$1" == "./bin/rails" ] && [ "$2" == "server" ]; then
+  ./bin/rails db:prepare
+fi
+
+exec "${@}"

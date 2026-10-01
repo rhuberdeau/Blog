@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
-ruby "~> 3.3.0"
+ruby "~> 4.0.0"
 
-gem 'rails', '~> 7.2.2'
+gem 'rails', '~> 8.1.4'
 gem 'pg', '~> 1.1'
-gem 'puma', '~> 6.4'
+gem 'puma', '>= 7.0'
 gem 'bootsnap', require: false
 
 # Rails 8 front-end defaults: no build step, no Node.
@@ -12,7 +12,7 @@ gem 'importmap-rails'
 gem 'turbo-rails'
 gem 'stimulus-rails'
 
-gem 'devise', '~> 4.9'
+gem 'devise', '~> 5.0'
 gem 'meta-tags'
 gem 'slim-rails'
 gem 'redcarpet'
@@ -20,7 +20,10 @@ gem 'coderay'
 gem 'will_paginate', '~> 4.0'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 7.1'
+  gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
+  gem 'rubocop-rails-omakase', require: false
+  gem 'rspec-rails', '~> 8.0'
 end
 
 group :test do

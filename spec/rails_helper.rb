@@ -18,4 +18,10 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Warden::Test::Helpers
   config.after { Warden.test_reset! }
+
+  # Start from empty tables. `db:prepare` seeds every database it creates,
+  # including the test one, and examples here count rows.
+  config.before(:suite) do
+    ActiveRecord::Base.connection.truncate_tables(*ActiveRecord::Base.connection.tables - %w[schema_migrations ar_internal_metadata])
+  end
 end

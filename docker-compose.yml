@@ -27,14 +27,10 @@ services:
 
   db:
     image: postgres:16
-    # TEMPORARY: the Rails 4.2 image's libpq (9.4) predated SCRAM. Removed once
-    # the volume is recreated at the end of the upgrade.
-    command: postgres -c password_encryption=md5
     environment:
       POSTGRES_USER: blog
       POSTGRES_PASSWORD: blog
       POSTGRES_DB: blog_development
-      POSTGRES_INITDB_ARGS: --auth-host=md5
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:

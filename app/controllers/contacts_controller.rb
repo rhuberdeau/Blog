@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
       ContactMailer.new_contact(@contact).deliver_later if ENV["MY_EMAIL"].present?
       redirect_to root_url, notice: 'Your message was sent.'
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -40,7 +40,7 @@ class ContactsController < ApplicationController
     if @contact.update(contact_params)
       redirect_to @contact, notice: 'Contact was successfully updated.'
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 
