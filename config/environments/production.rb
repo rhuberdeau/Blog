@@ -56,12 +56,12 @@ Rails.application.configure do
   # Only use :id for inspections in production.
   config.active_record.attributes_for_inspect = [ :id ]
 
-  # Enable DNS rebinding protection and other `Host` header attacks.
-  # config.hosts = [
-  #   "example.com",     # Allow requests from example.com
-  #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
-  # ]
-  #
-  # Skip DNS rebinding protection for the default health check endpoint.
-  # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  # Answer only for the blog's own names (DNS rebinding / Host header
+  # attacks). BLOG_HOSTS is the comma-separated list kamal-proxy serves; the
+  # first is canonical and the rest redirect to it (ApplicationController).
+  # The health check is exempt: kamal-proxy calls it by container address.
+  if (hosts = ENV["BLOG_HOSTS"].to_s.split(",").map(&:strip).reject(&:empty?)).any?
+    config.hosts = hosts
+    config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  end
 end

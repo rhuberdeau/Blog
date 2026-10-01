@@ -17,7 +17,8 @@ servers:
 # http to https; the app sees X-Forwarded-Proto (config.assume_ssl).
 proxy:
   ssl: true
-  host: <%= ENV.fetch("BLOG_HOST") %>
+  # One certificate per name; the app redirects all but the first to it.
+  hosts: <%= ENV.fetch("BLOG_HOSTS").split(",").map(&:strip).to_json %>
   app_port: 3000
   healthcheck:
     path: /up
@@ -43,6 +44,7 @@ env:
     - ADMIN_EMAIL
     - ADMIN_PASSWORD
   clear:
+    BLOG_HOSTS: "<%= ENV.fetch("BLOG_HOSTS") %>"
     CONTACT_EMAIL: "<%= ENV.fetch("CONTACT_EMAIL", "") %>"
 
 # The SQLite database. A host directory rather than a named volume so its

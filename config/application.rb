@@ -24,6 +24,10 @@ module Blog
     # Optional address shown on the About page (there is no contact form).
     config.x.contact_email = ENV["CONTACT_EMAIL"]
 
+    # The one address the blog answers on; other names it serves (BLOG_HOSTS)
+    # redirect here. Unset in development and test.
+    config.x.canonical_host = ENV["BLOG_HOSTS"].to_s.split(",").first&.strip.presence
+
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.

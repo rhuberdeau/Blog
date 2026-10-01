@@ -99,7 +99,8 @@ sudo chown 1000:1000 /var/lib/blog/storage/*
 
 | Variable (in `.env.deploy`) | Purpose |
 | --- | --- |
-| `BLOG_SERVER_IP`, `BLOG_HOST` | the Lightsail static IP and the domain pointing at it |
+| `BLOG_SERVER_IP` | the Lightsail static IP |
+| `BLOG_HOSTS` | comma-separated names the blog serves, canonical first (the rest 301 to it); each needs a DNS A record to the IP |
 | `SECRET_KEY_BASE` | signs session cookies; generate once (`bin/rails secret`) and keep it |
 | `ADMIN_EMAIL`, `ADMIN_PASSWORD` | the author, created on first boot |
 | `CONTACT_EMAIL` | optional; shown as a mailto on the About page |
