@@ -25,7 +25,8 @@ services:
         condition: service_started
 
   chrome:
-    image: selenium/standalone-chromium:latest
+    # Pinned: system specs should not change browser under you. Bump on purpose.
+    image: selenium/standalone-chromium:152.0.7977.82
     shm_size: 2g
 
 volumes:

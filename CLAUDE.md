@@ -7,33 +7,40 @@
 There is no Ruby on the host. Use the compose services:
 
 ```bash
-docker compose up -d db                          # infra first
-docker compose run --rm app bundle exec rspec    # tests (needs the chrome service; compose starts it)
+docker compose run --rm app bundle exec rspec    # tests (compose starts the chrome service)
 docker compose run --rm app bin/ci               # the full check: RuboCop, audits, Brakeman, RSpec
 docker compose run --rm app bin/rails console
 docker compose up app                            # dev server, host port 3001 (BLOG_PORT)
 ```
 
-Gems live in the `bundle` named volume and `tmp/` in `tmp`, not on the
-Windows bind mount. After changing the Gemfile, run `bundle install` through
-the container. Docker Desktop's daemon is often stopped: check `docker info`
-first.
+Gems (`bundle`), `tmp/` and the SQLite files (`storage`) are named volumes,
+not the Windows bind mount; SQLite's locking is unreliable across it. After
+changing the Gemfile, run `bundle install` through the container. Docker
+Desktop's daemon is often stopped: check `docker info` first.
 
 Text files are stored with LF (`.gitattributes`); scripts in `bin/` break in
 the Linux container with CRLF.
 
+Chrome in the `chrome` service upgrades single-label hostnames like
+`http://app:3000` to HTTPS; reach the app by container IP (as
+`spec/support/system.rb` does).
+
 ## Conventions
 
+- One author, no roles. Every action requires sign-in unless its controller
+  calls `allow_unauthenticated_access`; keep it that way rather than adding
+  per-action checks.
+- Drafts are articles with no `published_at`. Public reads go through
+  `Article.published`; `ArticlesController#set_article` shows drafts only to
+  the signed-in author.
+- Markdown goes through `ApplicationHelper#markdown` (commonmarker), which
+  drops raw HTML. Don't render article text any other way.
 - Tests must pass on an empty database; `rails_helper` truncates tables
   before the suite because `db:prepare` seeds the test DB too.
-- Failed form submissions render with `status: :unprocessable_content` and
-  destructive redirects use `status: :see_other`; Turbo ignores anything else.
-- No rails-ujs: anything that isn't a GET is a `button_to`, never
-  `link_to ... method:`.
-- JavaScript is Stimulus controllers in `app/javascript/controllers`, loaded
-  by importmap. No jQuery, no build step.
-- The Clean Blog theme expects each page to open with the `shared/header`
-  image banner; pages without one get navbar fixes from `blog.css`
-  (`body:not(:has(.intro-header))`).
-- No secrets in the repo: production reads `SECRET_KEY_BASE` and mail
-  credentials from the environment.
+- Failed form submissions render with `status: :unprocessable_content`;
+  destructive redirects use `status: :see_other`. Turbo ignores anything else.
+- No rails-ujs: anything that isn't a GET is a `button_to`.
+- Views are ERB. JavaScript is Stimulus controllers loaded by importmap; no
+  Bootstrap JS, no jQuery, no build step.
+- `clean_blog.css` is the vendored theme, unmodified; put changes in `app.css`.
+- No secrets in the repo: production reads `SECRET_KEY_BASE` from the env.
