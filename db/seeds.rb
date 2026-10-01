@@ -19,6 +19,5 @@ return if Rails.env.production?
   article.body      = "#{summary}\n\n```ruby\nputs 'hello'\n```\n"
   article.tag_names = tags
   article.published = published
-  article.published_on ||= Time.current if published
   article.save!
 end

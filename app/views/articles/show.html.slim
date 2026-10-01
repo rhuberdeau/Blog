@@ -1,3 +1,6 @@
+- content_for :title, @article.title
+- content_for :description, @article.summary
+- content_for :og_type, "article"
 = render partial: "shared/header", locals: {url: asset_path('clean_blog/post-bg.jpg'),
                                             title: @article.title,
                                             sub_heading: @article.summary}

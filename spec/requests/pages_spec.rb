@@ -18,7 +18,14 @@ describe "Pages", type: :request do
     get article_path(article)
     expect(response.status).to eq(200)
     expect(response.body).to include("<strong>world</strong>")
-    expect(response.body).to include("CodeRay")
+    expect(response.body).to match(%r{<pre[^>]*style="[^"]*background-color})
+  end
+
+  it "drops raw HTML from article bodies" do
+    article.update!(body: "Hi <script>alert(1)</script> <img src=x onerror=alert(1)>")
+    get article_path(article)
+    expect(response.body).not_to include("<script>alert")
+    expect(response.body).not_to include("onerror")
   end
 
   it "shows the articles carrying a tag" do

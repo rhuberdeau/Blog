@@ -1,20 +1,10 @@
 module ApplicationHelper
-  class CodeRayify < Redcarpet::Render::HTML
-    def block_code(code, language)
-      CodeRay.scan(code, language).div(line_numbers: :table)
-    end
-  end
+  # GitHub-flavoured Markdown. Raw HTML in an article is dropped, not
+  # rendered, so a body can't inject scripts; fenced code blocks are
+  # highlighted with inline styles, so no stylesheet has to match a theme.
+  MARKDOWN_PLUGINS = { syntax_highlighter: { theme: "InspiredGitHub" } }.freeze
 
   def markdown(text)
-    coderayified = CodeRayify.new(filter_html: true,
-                                  hard_wrap: true)
-    options = {
-      fenced_code_blocks: true,
-      no_intra_emphasis: true,
-      autolink: true,
-      lax_html_blocks: true
-    }
-    markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
-    markdown_to_html.render(text).html_safe
+    Commonmarker.to_html(text.to_s, plugins: MARKDOWN_PLUGINS).html_safe
   end
 end

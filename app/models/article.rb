@@ -5,28 +5,35 @@ class Article < ApplicationRecord
 
   attr_writer :tag_names
 
-  VALID_TITLE_REGEX = /\A[a-zA-Z\s\d]+\z/i
+  validates :title, presence: true, length: { maximum: 70 }, uniqueness: { case_sensitive: false }
+  validates :summary, :body, presence: true
 
-  validates_presence_of :body
-  validates_presence_of :summary
-  validates             :user_id, presence: true
-  validates             :title,
-                        presence: true,
-                        format: { with: VALID_TITLE_REGEX },
-                        uniqueness: { case_sensitive: false },
-                        length: { maximum: 70, minimum: 6 }
-
-  scope :published, -> { where(published: true) }
-  self.per_page = 5
+  scope :published, -> { where.not(published_at: nil) }
+  scope :drafts,    -> { where(published_at: nil) }
 
   after_save :assign_tags
+
+  def published?
+    published_at.present?
+  end
+  alias_method :published, :published?
+
+  # The form's "published" checkbox. Publishing keeps the first publish
+  # date; unpublishing turns the article back into a draft.
+  def published=(value)
+    if ActiveModel::Type::Boolean.new.cast(value)
+      self.published_at ||= Time.current
+    else
+      self.published_at = nil
+    end
+  end
 
   def tag_names
     @tag_names || tags.map(&:name).join(",")
   end
 
   def to_param
-    "#{id}-#{title.gsub(/[^a-z0-9]+/i, '-')}"
+    [ id, title.parameterize.presence ].compact.join("-")
   end
 
   private

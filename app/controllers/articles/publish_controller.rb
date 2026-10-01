@@ -1,7 +1,7 @@
 class Articles::PublishController < ApplicationController
   def update
     @article = Article.find(params[:id])
-    if @article.update(published: true, published_on: Time.now)
+    if @article.update(published: true)
       flash[:notice] = "'#{@article.title}' was successfully published."
     else
       flash[:alert] = @article.errors.full_messages.to_sentence

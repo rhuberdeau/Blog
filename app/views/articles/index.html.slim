@@ -6,5 +6,8 @@
     .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
       = render @articles
       ul.pager
-        = will_paginate @articles, :page_links => false
+        - if @newer_page
+          li.previous = link_to "← Newer posts", articles_path(page: @newer_page)
+        - if @older_page
+          li.next = link_to "Older posts →", articles_path(page: @older_page)
 br

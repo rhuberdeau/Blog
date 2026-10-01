@@ -33,9 +33,10 @@ RSpec.describe Article, type: :model do
     it { should_not be_valid }
   end
 
-  describe "when title has invalid characters" do
-    before { @article.title = "some b@d st#ff" }
-    it { should_not be_valid }
+  describe "when title has punctuation" do
+    before { @article.title = "Rails 8: what changed?" }
+    it { should be_valid }
+    it { expect(subject.tap(&:save!).to_param).to eq("#{subject.id}-rails-8-what-changed") }
   end
 
   describe "when title is too long" do
@@ -43,10 +44,6 @@ RSpec.describe Article, type: :model do
     it { should_not be_valid }
   end
 
-  describe "when title is too short" do
-    before { @article.title = "a" * 5 }
-    it { should_not be_valid }
-  end
 
   describe "when title is already taken" do
     before do
@@ -56,6 +53,27 @@ RSpec.describe Article, type: :model do
     end
 
     it { should_not be_valid }
+  end
+
+  describe "publishing" do
+    it "starts as a draft" do
+      expect(subject.published?).to eq(false)
+      expect(Article.drafts).to include(subject.tap(&:save!))
+    end
+
+    it "keeps the first publish date and can go back to draft" do
+      subject.update!(published: "1")
+      first = subject.published_at
+      expect(Article.published).to include(subject)
+
+      travel 1.day do
+        subject.update!(published: "1")
+        expect(subject.published_at).to eq(first)
+      end
+
+      subject.update!(published: "0")
+      expect(subject.published_at).to be_nil
+    end
   end
 
   describe "assign a user" do

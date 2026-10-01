@@ -2,14 +2,21 @@ class ArticlesController < ApplicationController
   allow_unauthenticated_access only: %i[ index show ]
   before_action :set_article, only: [ :show, :edit, :update, :destroy ]
 
+  PER_PAGE = 5
+
+  # Newest first, five a page, with Newer/Older links (the theme's pager).
+  # Fetching one extra row says whether an older page exists without a count.
   def index
-    @articles = Article.published.order(id: :desc).paginate(page: params[:page])
+    page = [ params[:page].to_i, 1 ].max
+    articles = Article.published.order(published_at: :desc)
+      .offset((page - 1) * PER_PAGE).limit(PER_PAGE + 1).to_a
+
+    @articles   = articles.first(PER_PAGE)
+    @newer_page = page - 1 if page > 1
+    @older_page = page + 1 if articles.size > PER_PAGE
   end
 
   def show
-    set_meta_tags title: "#{@article.title} | Robert Huberdeau",
-                  description: @article.summary,
-                  og: { title: @article.title, type: "article" }
   end
 
   def new
@@ -46,7 +53,9 @@ class ArticlesController < ApplicationController
   private
 
     def set_article
-      @article = Article.find(params[:id])
+      # Drafts exist only for the author; to anyone else they are a 404.
+      scope = authenticated? ? Article.all : Article.published
+      @article = scope.find(params[:id])
     end
 
     def article_params

@@ -13,11 +13,8 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 gem "bcrypt", "~> 3.1" # has_secure_password
-gem "meta-tags"
 gem "slim-rails"
-gem "redcarpet"
-gem "coderay"
-gem "will_paginate", "~> 4.0"
+gem "commonmarker", "~> 2.0" # GitHub-flavoured Markdown, with syntax highlighting
 
 group :development, :test do
   gem "brakeman", require: false

@@ -11,6 +11,33 @@ describe "Articles", type: :request do
     expect(response.body).not_to include(draft.title)
   end
 
+  it "hides drafts from readers but shows them to the author" do
+    draft = create(:article, user: author, published: false)
+    get article_path(draft)
+    expect(response).to have_http_status(:not_found)
+
+    sign_in_as(author)
+    get article_path(draft)
+    expect(response).to have_http_status(:ok)
+  end
+
+  it "pages through articles five at a time, newest first" do
+    Article.delete_all
+    titles = (1..7).map { |n| create(:article, user: author, published_at: n.days.ago).title }
+
+    get articles_path
+    expect(response.body).to include(titles.first)
+    expect(response.body).not_to include(titles[5])
+    expect(response.body).to include(articles_path(page: 2))
+    expect(response.body).not_to include("Newer posts")
+
+    get articles_path(page: 2)
+    expect(response.body).to include(titles[5], titles[6])
+    expect(response.body).not_to include(titles.first)
+    expect(response.body).to include("Newer posts")
+    expect(response.body).not_to include("Older posts")
+  end
+
   it "shows an article to anyone" do
     get article_path(article)
     expect(response).to have_http_status(:ok)

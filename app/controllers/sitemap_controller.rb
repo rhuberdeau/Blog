@@ -3,7 +3,7 @@ class SitemapController < ApplicationController
   layout nil
 
   def index
-    @articles = Article.where(published: true)
+    @articles = Article.published
     respond_to do |format|
       format.xml { render layout: false }
     end

@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   def index
-    @articles = Article.where(published: false)
-    @published_articles = Article.where(published: true)
+    @articles = Article.drafts.order(updated_at: :desc)
+    @published_articles = Article.published.order(published_at: :desc)
   end
 end

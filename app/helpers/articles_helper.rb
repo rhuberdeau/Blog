@@ -10,6 +10,6 @@ module ArticlesHelper
   end
 
   def publish_date(article)
-    article.published_on ? article.published_on.strftime(" %b %e, %Y") : article.created_at.strftime(" %b %e, %Y")
+    (article.published_at || article.created_at).strftime("%b %-d, %Y")
   end
 end
