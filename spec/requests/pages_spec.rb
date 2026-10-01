@@ -39,6 +39,7 @@ describe "Pages", type: :request do
     get about_path
     expect(response.status).to eq(200)
     expect(response.body).to include("mailto:me@example.com")
+    expect(response.body).to include("Senior Software Engineer")
   end
 
 
