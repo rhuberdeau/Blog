@@ -6,7 +6,7 @@ RSpec.describe "Reading the site", type: :system do
     visit root_path
 
     expect(page).not_to have_link("About")
-    click_button "Toggle navigation"
+    click_button "Menu"
     expect(page).to have_link("About")
   ensure
     page.driver.browser.manage.window.resize_to(1400, 1000)

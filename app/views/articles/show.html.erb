@@ -1,0 +1,23 @@
+<% content_for :title, @article.title %>
+<% content_for :description, @article.summary %>
+<% content_for :og_type, "article" %>
+
+<%= render "shared/masthead", image: "clean_blog/post-bg.jpg", kind: "post",
+      title: @article.title, subheading: @article.summary,
+      meta: @article.published? ? "Posted on #{publish_date(@article)}" : "Draft" %>
+
+<article class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <%= markdown(@article.body) %>
+
+        <% if @article.tags.any? %>
+          <p class="post-meta">
+            Tagged <%= safe_join(@article.tags.map { |tag| link_to(tag.name, tag) }, ", ") %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</article>

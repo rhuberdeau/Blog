@@ -1,7 +1,0 @@
-= render partial: "shared/header", locals: {url: asset_path('clean_blog/home-bg.jpg'),
-                                            title: "Tagged “#{@tag.name}”",
-                                            sub_heading: pluralize(@articles.size, 'article')}
-.container
-  .row
-    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-      = render @articles

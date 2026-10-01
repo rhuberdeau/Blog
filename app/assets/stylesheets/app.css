@@ -1,0 +1,32 @@
+/* This app's additions to the Clean Blog theme (clean_blog.css, which
+   bundles Bootstrap 5 and is vendored unmodified). */
+
+/* The theme assumes every page opens with a full-width image masthead under
+   a transparent navbar. Pages without one (admin, article forms, sign-in)
+   would sit under the navbar, with its white links invisible on white. */
+body:not(:has(.masthead)) main {
+  padding-top: 7rem;
+}
+@media (min-width: 992px) {
+  body:not(:has(.masthead)) #mainNav:not(.is-fixed) {
+    background-color: #212529;
+  }
+}
+
+/* Flash messages above a masthead must clear the navbar. */
+body:has(.masthead) .flash-messages {
+  padding-top: 6rem;
+}
+
+/* Highlighted code blocks scroll rather than overflow the column. */
+article pre {
+  border: 1px solid #dee2e6;
+  border-radius: .375rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.footer-icon svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}

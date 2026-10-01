@@ -13,7 +13,6 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 gem "bcrypt", "~> 3.1" # has_secure_password
-gem "slim-rails"
 gem "commonmarker", "~> 2.0" # GitHub-flavoured Markdown, with syntax highlighting
 
 group :development, :test do

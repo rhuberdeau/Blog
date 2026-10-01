@@ -1,17 +1,16 @@
-<%= render partial: "shared/header", locals: {url: asset_path('clean_blog/about-bg.jpg'),
-                                              title: 'About Me',
-                                              sub_heading: 'This is what I do.'} %>
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <p>Robert Huberdeau is a software engineer with Decisiv Inc.</p>
-            <p>
-              Find me on <a href="https://github.com/rhuberdeau">GitHub</a><% if (email = Rails.configuration.x.contact_email).present? %>
-              or email <%= mail_to email %><% end %>.
-            </p>
-        </div>
-    </div>
-</div>
+<%= render "shared/masthead", image: "clean_blog/about-bg.jpg", kind: "page",
+      title: "About Me", subheading: "This is what I do." %>
 
-<br>
+<div class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <p>Robert Huberdeau is a software engineer with Decisiv Inc.</p>
+        <p>
+          Find me on <a href="https://github.com/rhuberdeau">GitHub</a><% if (email = Rails.configuration.x.contact_email).present? %>
+          or email <%= mail_to email %><% end %>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

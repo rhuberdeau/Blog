@@ -1,0 +1,32 @@
+<div class="container px-4 px-lg-5 mb-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <%= link_to "New article", new_article_path, class: "btn btn-primary" %>
+    <%= button_to "Sign out", session_path, method: :delete, class: "btn btn-outline-secondary" %>
+  </div>
+
+  <% [ [ "Unpublished Articles", @articles ], [ "Published Articles", @published_articles ] ].each do |heading, articles| %>
+    <h2 class="h4"><%= heading %></h2>
+    <table class="table table-bordered align-middle mb-5">
+      <thead>
+        <tr><th class="w-25">Title</th><th>Summary</th><th class="w-25"></th></tr>
+      </thead>
+      <tbody>
+        <% articles.each do |article| %>
+          <tr>
+            <td><%= article.title %></td>
+            <td><%= article.summary %></td>
+            <td>
+              <div class="d-flex gap-2">
+                <%= link_to "Show", article, class: "btn btn-sm btn-outline-primary" %>
+                <%= link_to "Edit", edit_article_path(article), class: "btn btn-sm btn-outline-primary" %>
+                <% unless article.published? %>
+                  <%= button_to "Publish", articles_publish_path(article), method: :put, class: "btn btn-sm btn-primary" %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
