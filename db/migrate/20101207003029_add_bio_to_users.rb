@@ -1,4 +1,4 @@
-class AddBioToUsers < ActiveRecord::Migration
+class AddBioToUsers < ActiveRecord::Migration[4.2]
   def self.up
     add_column :users, :bio, :text
   end

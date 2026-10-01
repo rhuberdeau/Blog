@@ -1,4 +1,4 @@
-class DropRolesTable < ActiveRecord::Migration
+class DropRolesTable < ActiveRecord::Migration[4.2]
   def up
   	drop_table :roles
   end

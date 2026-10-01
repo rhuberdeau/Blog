@@ -1,4 +1,4 @@
-class CreateSteps < ActiveRecord::Migration
+class CreateSteps < ActiveRecord::Migration[4.2]
   def self.up
     create_table :steps do |t|
       t.text :body

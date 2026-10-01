@@ -1,4 +1,4 @@
-class CreateTaggings < ActiveRecord::Migration
+class CreateTaggings < ActiveRecord::Migration[4.2]
   def self.up
     create_table :taggings do |t|
       t.integer :article_id, :null => false, :options =>

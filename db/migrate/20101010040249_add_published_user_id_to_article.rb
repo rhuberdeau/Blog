@@ -1,4 +1,4 @@
-class AddPublishedUserIdToArticle < ActiveRecord::Migration
+class AddPublishedUserIdToArticle < ActiveRecord::Migration[4.2]
   def self.up
     add_column :articles, :published, :boolean, :options =>
      {:default => 2}

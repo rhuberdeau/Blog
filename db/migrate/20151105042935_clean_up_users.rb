@@ -1,4 +1,4 @@
-class CleanUpUsers < ActiveRecord::Migration
+class CleanUpUsers < ActiveRecord::Migration[4.2]
   def change
     # Dropping columns that do not belong in the user model
     # This limits the user class to a thin active record backed model

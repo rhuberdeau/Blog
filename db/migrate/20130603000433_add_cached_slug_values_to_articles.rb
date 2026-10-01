@@ -1,4 +1,4 @@
-class AddCachedSlugValuesToArticles < ActiveRecord::Migration
+class AddCachedSlugValuesToArticles < ActiveRecord::Migration[4.2]
   def change
   	a = Article.all
   	a.each do |a|
