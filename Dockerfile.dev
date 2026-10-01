@@ -1,0 +1,20 @@
+# Development image. Ruby comes from the build arg so each step of the Rails
+# upgrade can move the runtime without editing this file.
+ARG RUBY_VERSION=2.2
+FROM ruby:${RUBY_VERSION}
+
+# The full ruby image (buildpack-deps) already ships libpq-dev and a compiler.
+# A JS runtime is still needed for ExecJS (CoffeeScript/Uglifier) until the
+# asset pipeline moves to Propshaft + importmap; a static Node binary avoids
+# depending on the archived apt mirrors of old Debian releases.
+ARG NODE_VERSION=16.20.2
+RUN curl -fsSL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz \
+    | tar -xz -C /usr/local --strip-components=1 --exclude='*.md' --exclude=LICENSE
+
+WORKDIR /app
+ENV BUNDLE_PATH=/bundle \
+    BUNDLE_JOBS=4
+
+# The lockfile was written by Bundler 1.16; old Rubies can't run Bundler 2.
+ARG BUNDLER_VERSION=1.16.3
+RUN gem install bundler -v ${BUNDLER_VERSION}

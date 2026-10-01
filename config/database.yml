@@ -1,22 +1,18 @@
+# Connection details come from the environment (docker-compose.yml locally,
+# the host's DATABASE_URL in production).
 default: &default
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
 
 development:
   <<: *default
-  database: blog_development
+  url: <%= ENV["DATABASE_URL"] %>
 
 test:
   <<: *default
-  database: blog_test
+  url: <%= ENV["TEST_DATABASE_URL"] %>
 
 production:
   <<: *default
-  database: blog_production
-  username: blog
-  password: <%= ENV['BLOG_DATABASE_PASSWORD'] %>
-
-
+  url: <%= ENV["DATABASE_URL"] %>

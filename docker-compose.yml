@@ -1,0 +1,44 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0 -p 3000"
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://blog:blog@db:5432/blog_development
+      TEST_DATABASE_URL: postgres://blog:blog@db:5432/blog_test
+      WEB_CONCURRENCY: "0"
+    volumes:
+      - .:/app
+      # Gems and tmp stay off the Windows bind mount: native extensions are
+      # built for Linux, and bind-mount I/O is slow.
+      - bundle:/bundle
+      - tmp:/app/tmp
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16
+    # TEMPORARY for the Rails 4.2/5.2 steps: their Debian libpq (9.4) predates
+    # SCRAM, so passwords are stored as md5 until the Ruby image moves on.
+    command: postgres -c password_encryption=md5
+    environment:
+      POSTGRES_USER: blog
+      POSTGRES_PASSWORD: blog
+      POSTGRES_DB: blog_development
+      POSTGRES_INITDB_ARGS: --auth-host=md5
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U blog"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  bundle:
+  tmp:
+  pgdata:
