@@ -1,12 +1,7 @@
 module ArticlesHelper
-  # Returns the full title on a per-page basis.
+  # "Robert Huberdeau", or "Robert Huberdeau - <page title>" when the page sets one.
   def full_title(page_title = "")
-    base_title = "Robert Huberdeau"
-    if page_title.empty?
-        base_title
-    else
-        "#{base_title} - #{page_title}"
-    end
+    [ "Robert Huberdeau", page_title.presence ].compact.join(" - ")
   end
 
   def publish_date(article)

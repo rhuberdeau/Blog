@@ -1,8 +1,8 @@
 # Blog
 
 Robert Huberdeau's personal blog: articles written in Markdown (with
-syntax-highlighted code), tags, an About page and an XML sitemap. One author
-writes and publishes from `/admin`.
+syntax-highlighted code), tags, an About page, an Atom feed (`/feed`) and an
+XML sitemap. One author writes and publishes from `/admin`.
 
 Rails 8.1 on Ruby 4.0, SQLite, Rails' built-in authentication. Front end:
 one hand-written stylesheet (`app/assets/stylesheets/application.css`, light and

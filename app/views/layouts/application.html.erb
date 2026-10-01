@@ -10,8 +10,9 @@
   <meta property="og:title" content="<%= full_title(yield(:title)) %>">
   <meta property="og:type" content="<%= content_for?(:og_type) ? yield(:og_type) : "website" %>">
   <meta property="og:url" content="<%= request.original_url %>">
-  <meta name="msvalidate.01" content="2197772BABCA691F6E16B4FFD6F1CEDD">
-  <meta name="google-site-verification" content="6MojtDLkmdHZbn2f7suKcVZbMEd8w14IPZ5EXu2O4EI">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <%= auto_discovery_link_tag :atom, feed_url, title: "Robert Huberdeau" %>
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>

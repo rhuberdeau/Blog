@@ -181,6 +181,8 @@ main {
   a { color: var(--muted); }
   a:hover { color: var(--text); }
   svg { width: 1.5rem; height: 1.5rem; display: block; }
+
+  .footer-links { display: flex; align-items: center; gap: 1.25rem; }
 }
 
 /* 4. Post list ---------------------------------------------------------- */

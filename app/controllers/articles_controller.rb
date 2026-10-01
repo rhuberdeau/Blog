@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  allow_unauthenticated_access only: %i[ index show ]
+  allow_unauthenticated_access only: %i[ index show feed ]
   before_action :set_article, only: [ :show, :edit, :update, :destroy ]
 
   PER_PAGE = 5
@@ -14,6 +14,11 @@ class ArticlesController < ApplicationController
     @articles   = articles.first(PER_PAGE)
     @newer_page = page - 1 if page > 1
     @older_page = page + 1 if articles.size > PER_PAGE
+  end
+
+  # Atom feed of the latest published articles, newest first.
+  def feed
+    @articles = Article.published.includes(:tags).order(published_at: :desc).limit(20)
   end
 
   def show

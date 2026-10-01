@@ -1,3 +1,13 @@
-<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="256" cy="256" r="256" fill="red"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    rect { fill: #1f5fa8; }
+    text { fill: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      rect { fill: #7fb0ec; }
+      text { fill: #0f1115; }
+    }
+  </style>
+  <rect width="64" height="64" rx="14"/>
+  <text x="32" y="43" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="30" font-weight="700" letter-spacing="-1">RH</text>
 </svg>

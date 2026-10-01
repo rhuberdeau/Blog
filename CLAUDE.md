@@ -46,4 +46,9 @@ Chrome in the `chrome` service upgrades single-label hostnames like
   Colours are custom properties with a light and a dark set; use the tokens,
   never literal colours, so dark mode keeps working. Code highlighting colours
   commonmarker's scope classes from the same tokens.
+- A strict Content-Security-Policy is on (`config/initializers/content_security_policy.rb`):
+  no inline `<script>`, `<style>` or `style=""`, and no third-party hosts. Turbo
+  and the importmap get a per-request nonce; anything new needs one too.
+- Never hard-code the domain: absolute URLs come from the request (`root_url`,
+  `article_url`), as in the sitemap and the feed.
 - No secrets in the repo: production reads `SECRET_KEY_BASE` from the env.

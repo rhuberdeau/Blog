@@ -63,6 +63,21 @@ describe "Pages", type: :request do
     expect(draft.reload.published).to eq(true)
   end
 
+  it "sends a strict Content-Security-Policy with a nonce for the importmap" do
+    get root_path
+    policy = response.headers["Content-Security-Policy"]
+    expect(policy).to include("default-src 'self'", "object-src 'none'", "frame-ancestors 'none'")
+    nonce = policy[/script-src 'self' 'nonce-([^']+)'/, 1]
+    expect(nonce).to be_present
+    expect(response.body).to include(%(nonce="#{nonce}"))
+  end
+
+  it "builds sitemap URLs from the request, not a hard-coded domain" do
+    get sitemap_path
+    expect(response.body).to include("<loc>#{root_url}</loc>")
+    expect(response.body).not_to include("roberthuberdeau.com")
+  end
+
   it "keeps the admin panel from visitors" do
     get admin_path
     expect(response).to redirect_to(new_session_path)

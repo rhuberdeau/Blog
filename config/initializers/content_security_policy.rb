@@ -1,29 +1,25 @@
-# Be sure to restart your server when you modify this file.
+# A strict Content-Security-Policy. The site serves no third-party scripts,
+# styles or fonts and has no inline scripts or styles of its own, so
+# everything comes from 'self'. The exceptions are the importmap's inline
+# <script> tags and Turbo's progress-bar <style>, which carry a per-request
+# nonce (javascript_importmap_tags adds it; Turbo reads it from csp_meta_tag).
+#
+# Keep it that way: no inline scripts or style="" attributes. Images may come
+# from https: so an article can embed a remote picture in Markdown.
+Rails.application.configure do
+  config.content_security_policy do |policy|
+    policy.default_src     :self
+    policy.script_src      :self
+    policy.style_src       :self
+    policy.img_src         :self, :https, :data
+    policy.font_src        :self
+    policy.connect_src     :self
+    policy.object_src      :none
+    policy.base_uri        :self
+    policy.form_action     :self
+    policy.frame_ancestors :none
+  end
 
-# Define an application-wide content security policy.
-# See the Securing Rails Applications Guide for more information:
-# https://guides.rubyonrails.org/security.html#content-security-policy-header
-
-# Rails.application.configure do
-#   config.content_security_policy do |policy|
-#     policy.default_src :self, :https
-#     policy.font_src    :self, :https, :data
-#     policy.img_src     :self, :https, :data
-#     policy.object_src  :none
-#     policy.script_src  :self, :https
-#     policy.style_src   :self, :https
-#     # Specify URI for violation reports
-#     # policy.report_uri "/csp-violation-report-endpoint"
-#   end
-#
-#   # Generate session nonces for permitted importmap, inline scripts, and inline styles.
-#   config.content_security_policy_nonce_generator = ->(request) { request.session.id.to_s }
-#   config.content_security_policy_nonce_directives = %w(script-src style-src)
-#
-#   # Automatically add `nonce` to `javascript_tag`, `javascript_include_tag`, and `stylesheet_link_tag`
-#   # if the corresponding directives are specified in `content_security_policy_nonce_directives`.
-#   # config.content_security_policy_nonce_auto = true
-#
-#   # Report violations without enforcing the policy.
-#   # config.content_security_policy_report_only = true
-# end
+  config.content_security_policy_nonce_generator = ->(_request) { SecureRandom.base64(16) }
+  config.content_security_policy_nonce_directives = %w[script-src style-src]
+end
