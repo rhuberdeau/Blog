@@ -27,20 +27,13 @@ describe "Pages", type: :request do
     expect(response.body).to include(article.title)
   end
 
-  it "renders the about page" do
+  it "renders the about page, with the contact address when one is set" do
+    allow(Rails.configuration.x).to receive(:contact_email).and_return("me@example.com")
     get about_path
     expect(response.status).to eq(200)
+    expect(response.body).to include("mailto:me@example.com")
   end
 
-  it "accepts a message from the contact form" do
-    get new_contact_path
-    expect(response.status).to eq(200)
-
-    expect {
-      post contacts_path, params: { contact: { name: "Ann", email_address: "ann@example.com", message: "Hi" } }
-    }.to change(Contact, :count).by(1)
-    expect(response).to redirect_to(root_url)
-  end
 
   it "lists published articles in the sitemap" do
     get sitemap_path

@@ -3,11 +3,9 @@ require_relative "boot"
 require "rails"
 # Only the frameworks this app uses.
 require "active_model/railtie"
-require "active_job/railtie"
 require "active_record/railtie"
 # require "active_storage/engine"
 require "action_controller/railtie"
-require "action_mailer/railtie"
 # require "action_mailbox/engine"
 # require "action_text/engine"
 require "action_view/railtie"
@@ -22,6 +20,9 @@ module Blog
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.1
+
+    # Optional address shown on the About page (there is no contact form).
+    config.x.contact_email = ENV["CONTACT_EMAIL"]
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.

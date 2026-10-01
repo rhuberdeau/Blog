@@ -6,6 +6,10 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <p>Robert Huberdeau is a software engineer with Decisiv Inc.</p>
+            <p>
+              Find me on <a href="https://github.com/rhuberdeau">GitHub</a><% if (email = Rails.configuration.x.contact_email).present? %>
+              or email <%= mail_to email %><% end %>.
+            </p>
         </div>
     </div>
 </div>
