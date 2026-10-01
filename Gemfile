@@ -14,6 +14,10 @@ gem "turbo-rails"
 gem "bcrypt", "~> 3.1" # has_secure_password
 gem "commonmarker", "~> 2.0" # GitHub-flavoured Markdown, with syntax highlighting
 
+group :development do
+  gem "kamal", require: false
+end
+
 group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit", require: false

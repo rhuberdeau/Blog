@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
+      target: dev
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0 -p 3000"
     ports:
       # 3001 on the host so this can run beside other projects on 3000.
@@ -28,6 +29,24 @@ services:
     # Pinned: system specs should not change browser under you. Bump on purpose.
     image: selenium/standalone-chromium:152.0.7977.82
     shm_size: 2g
+
+  # Runs Kamal: docker compose --profile deploy run --rm deploy bin/kamal deploy
+  # Settings and secrets come from .env.deploy (gitignored; see
+  # .env.deploy.example). The SSH key for the server is read from ~/.ssh.
+  deploy:
+    profiles: [deploy]
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: deploy
+    env_file:
+      - path: .env.deploy
+        required: false
+    volumes:
+      - .:/app
+      - bundle:/bundle
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${USERPROFILE:-~}/.ssh:/root/.ssh:ro
 
 volumes:
   bundle:

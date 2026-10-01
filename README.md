@@ -50,20 +50,61 @@ service, so the Turbo forms and the phone layout are exercised for real.
 
 ## Production
 
-`Dockerfile` builds a production image. It runs `db:prepare` on start, answers
-`/up` for health checks, and keeps the SQLite database in `/rails/storage`:
-mount a volume there and back that volume up.
+The blog runs on one AWS Lightsail instance (Ubuntu, 1 GB), deployed with
+[Kamal](https://kamal-deploy.org) (`config/deploy.yml`):
+
+- **kamal-proxy** terminates HTTPS with a Let's Encrypt certificate and
+  redirects http to https. It health-checks `/up`.
+- **The app container** is the production `Dockerfile` image (from
+  `ghcr.io/rhuberdeau/blog`). It runs `db:prepare` on start. The SQLite
+  database lives in `/var/lib/blog/storage` on the server.
+- **The litestream accessory** streams every database change to S3
+  (continuous backup).
+
+The instance's launch script (`config/server/init.sh`) does what Kamal can't
+do as the `ubuntu` user: it installs Docker, creates the storage directory,
+adds swap, and turns on automatic security updates.
+
+### Deploying
+
+Kamal runs in a container (the `deploy` compose service), so the host needs
+no Ruby. It reads `.env.deploy`: copy `.env.deploy.example` and fill it in. The
+SSH key for the server is `~/.ssh/blog_lightsail`.
 
 ```bash
-docker build -t blog .
-docker run -p 3000:3000 -v blog_storage:/rails/storage \
-  -e SECRET_KEY_BASE=$(openssl rand -hex 64) blog
+alias kamal='docker compose --profile deploy run --rm deploy bin/kamal'
+
+kamal setup        # first time: proxy, certificate, app, backups
+kamal deploy       # every release (zero downtime); deploys the committed HEAD
+kamal rollback <version>
+kamal logs         # follow app logs
+kamal console      # Rails console on the server
+kamal accessory logs litestream
 ```
 
-It expects to sit behind a TLS-terminating proxy (`assume_ssl` / `force_ssl`).
+### Backups and restore
 
-| Variable | Purpose |
+Litestream writes to `s3://$LITESTREAM_BUCKET/blog`. To restore (for example
+onto a new server, before `kamal setup`):
+
+```bash
+docker run --rm -v /var/lib/blog/storage:/rails/storage \
+  -e AWS_ACCESS_KEY_ID=… -e AWS_SECRET_ACCESS_KEY=… -e AWS_REGION=us-east-1 \
+  litestream/litestream:0.5.17 \
+  restore -o /rails/storage/production.sqlite3 s3://BUCKET/blog
+sudo chown 1000:1000 /var/lib/blog/storage/*
+```
+
+### Settings
+
+| Variable (in `.env.deploy`) | Purpose |
 | --- | --- |
-| `SECRET_KEY_BASE` | signs session cookies; generate once and keep it |
-| `ADMIN_EMAIL`, `ADMIN_PASSWORD` | the author, created by `db:seed` |
+| `BLOG_SERVER_IP`, `BLOG_HOST` | the Lightsail static IP and the domain pointing at it |
+| `SECRET_KEY_BASE` | signs session cookies; generate once (`bin/rails secret`) and keep it |
+| `ADMIN_EMAIL`, `ADMIN_PASSWORD` | the author, created on first boot |
 | `CONTACT_EMAIL` | optional; shown as a mailto on the About page |
+| `KAMAL_REGISTRY_PASSWORD` | GitHub token with `write:packages` |
+| `LITESTREAM_*` | backup bucket, region and an IAM key limited to that bucket |
+
+The image also runs anywhere else with a volume on `/rails/storage` and
+`SECRET_KEY_BASE` set, behind a TLS-terminating proxy.

@@ -1,7 +1,7 @@
 # Development image. Ruby comes from the build arg so it can move without
 # editing this file; .ruby-version and the Gemfile say the same thing.
 ARG RUBY_VERSION=4.0
-FROM ruby:${RUBY_VERSION}
+FROM ruby:${RUBY_VERSION} AS dev
 
 # The full ruby image (buildpack-deps) already ships libpq-dev and a compiler.
 # No Node: assets are served by Propshaft and JavaScript through importmap.
@@ -13,3 +13,13 @@ ENV BUNDLE_PATH=/bundle \
 # Pinned so every machine resolves the lockfile the same way.
 ARG BUNDLER_VERSION=4.0.20
 RUN gem install bundler -v ${BUNDLER_VERSION}
+
+# Deploy tooling: Kamal runs from this stage so the host needs no Ruby. It
+# drives the host's Docker (socket mounted by the `deploy` compose service)
+# to build the production image, so it needs the Docker CLI and buildx.
+FROM dev AS deploy
+COPY --from=docker:cli /usr/local/bin/docker /usr/local/bin/docker
+COPY --from=docker/buildx-bin /buildx /usr/libexec/docker/cli-plugins/docker-buildx
+# Kamal builds from a git checkout of HEAD; the repo is a bind mount owned by
+# another user, which git refuses without this.
+RUN git config --global --add safe.directory /app

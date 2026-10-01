@@ -1,0 +1,80 @@
+# Kamal deploy to a single AWS Lightsail instance. Run Kamal through the
+# `deploy` compose service (the host has no Ruby):
+#
+#   docker compose --profile deploy run --rm deploy bin/kamal deploy
+#
+# Values that differ per installation (server IP, domain, backup bucket) and
+# all secrets come from .env.deploy; see .env.deploy.example and README.
+
+service: blog
+image: rhuberdeau/blog
+
+servers:
+  web:
+    - <%= ENV.fetch("BLOG_SERVER_IP") %>
+
+# kamal-proxy terminates TLS with a Let's Encrypt certificate and redirects
+# http to https; the app sees X-Forwarded-Proto (config.assume_ssl).
+proxy:
+  ssl: true
+  host: <%= ENV.fetch("BLOG_HOST") %>
+  app_port: 3000
+  healthcheck:
+    path: /up
+
+registry:
+  server: ghcr.io
+  username: rhuberdeau
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  arch: amd64
+
+ssh:
+  # Lightsail's Ubuntu user. config/server/init.sh (the instance's launch
+  # script) installs Docker and adds this user to the docker group.
+  user: ubuntu
+  keys: [ "/root/.ssh/blog_lightsail" ]
+
+env:
+  secret:
+    - SECRET_KEY_BASE
+    - ADMIN_EMAIL
+    - ADMIN_PASSWORD
+  clear:
+    CONTACT_EMAIL: "<%= ENV.fetch("CONTACT_EMAIL", "") %>"
+
+# The SQLite database. A host directory rather than a named volume so its
+# owner (uid 1000, the app's user) is set once by config/server/init.sh and
+# doesn't depend on which container happens to create it first.
+volumes:
+  - /var/lib/blog/storage:/rails/storage
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
+
+accessories:
+  # Streams every SQLite change to S3 within seconds (continuous backup).
+  # Restore: see README.
+  litestream:
+    image: litestream/litestream:0.5.17
+    host: <%= ENV.fetch("BLOG_SERVER_IP") %>
+    cmd: replicate
+    # Same user as the app, so files it creates beside the database (the
+    # WAL index, its own metadata) stay writable by the app.
+    options:
+      user: "1000:1000"
+    files:
+      - config/litestream.yml:/etc/litestream.yml
+    volumes:
+      - /var/lib/blog/storage:/rails/storage
+    env:
+      clear:
+        LITESTREAM_BUCKET: "<%= ENV.fetch("LITESTREAM_BUCKET") %>"
+        AWS_REGION: "<%= ENV.fetch("LITESTREAM_REGION", "us-east-1") %>"
+      secret:
+        - AWS_ACCESS_KEY_ID
+        - AWS_SECRET_ACCESS_KEY

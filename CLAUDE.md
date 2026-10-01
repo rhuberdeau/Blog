@@ -52,3 +52,7 @@ Chrome in the `chrome` service upgrades single-label hostnames like
 - Never hard-code the domain: absolute URLs come from the request (`root_url`,
   `article_url`), as in the sitemap and the feed.
 - No secrets in the repo: production reads `SECRET_KEY_BASE` from the env.
+- Deploys run Kamal through the `deploy` compose service
+  (`docker compose --profile deploy run --rm deploy bin/kamal …`). Secrets and
+  per-install values live in the gitignored `.env.deploy`; never commit it.
+  Creating or changing AWS resources needs the user's explicit go-ahead.

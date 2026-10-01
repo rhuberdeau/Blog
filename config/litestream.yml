@@ -1,0 +1,6 @@
+# Continuous replication of the production database to S3. Litestream
+# expands ${VAR} from its environment (set in config/deploy.yml).
+dbs:
+  - path: /rails/storage/production.sqlite3
+    replica:
+      url: s3://${LITESTREAM_BUCKET}/blog
