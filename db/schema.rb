@@ -10,31 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_021951) do
-
+ActiveRecord::Schema[8.1].define(version: 2026_10_01_160000) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "articles", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.string "cached_slug"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean "published", default: false
     t.integer "user_id"
     t.text "summary"
-    t.integer "sequence_id"
     t.datetime "published_on"
     t.index ["user_id"], name: "index_articles_on_user_id"
-  end
-
-  create_table "comments", id: :serial, force: :cascade do |t|
-    t.text "body", null: false
-    t.integer "article_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer "user_id"
   end
 
   create_table "contacts", id: :serial, force: :cascade do |t|
@@ -44,38 +33,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_021951) do
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "roles_users", id: false, force: :cascade do |t|
-    t.integer "role_id"
-    t.integer "user_id"
-  end
-
-  create_table "sequences", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "slugs", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.integer "sluggable_id"
-    t.integer "sequence", default: 1, null: false
-    t.string "sluggable_type", limit: 40
-    t.string "scope"
-    t.datetime "created_at"
-    t.index ["name", "sluggable_type", "sequence", "scope"], name: "index_slugs_on_n_s_s_and_s", unique: true
-    t.index ["sluggable_id"], name: "index_slugs_on_sluggable_id"
-  end
-
-  create_table "steps", id: :serial, force: :cascade do |t|
-    t.text "body"
-    t.integer "position"
-    t.integer "tutorial_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["position"], name: "index_steps_on_position"
-    t.index ["tutorial_id"], name: "index_steps_on_tutorial_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -91,16 +48,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_021951) do
     t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "tutorials", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.text "summary"
-    t.string "permalink"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["name"], name: "index_tutorials_on_name", unique: true
-    t.index ["permalink"], name: "index_tutorials_on_permalink", unique: true
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -122,5 +69,4 @@ ActiveRecord::Schema.define(version: 2018_08_15_021951) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 end
