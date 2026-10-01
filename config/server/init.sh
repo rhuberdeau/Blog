@@ -2,7 +2,9 @@
 # Launch script for the Lightsail instance (passed as user data when the
 # instance is created; runs once, as root, on first boot). It prepares what
 # Kamal can't do as the non-root `ubuntu` user.
-set -euo pipefail
+# Lightsail prepends its own lines to launch scripts, so the shebang above is
+# not the first line and the script runs under /bin/sh: keep it POSIX.
+set -eu
 
 # Docker, usable by the deploy user without sudo.
 curl -fsSL https://get.docker.com | sh
