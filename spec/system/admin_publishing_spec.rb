@@ -1,16 +1,17 @@
-# The admin's path through the app, in a real browser: sign in, write an
+# The author's path through the app, in a real browser: sign in, write an
 # article with tags, publish it from the admin panel, and see it on the site.
 # Exercises Turbo form submissions (422 on errors, 303 redirects) and the
 # button_to forms that replaced rails-ujs links.
 RSpec.describe "Publishing an article", type: :system do
-  let!(:admin) { create(:user, admin: true, password: "secret12345", password_confirmation: "secret12345") }
+  let!(:author) { create(:user, password: "secret12345") }
 
   it "goes from draft to the home page" do
-    visit new_user_session_path
-    fill_in "Email", with: admin.email
+    visit admin_path
+    expect(page).to have_current_path(new_session_path)
+    fill_in "Email", with: author.email_address
     fill_in "Password", with: "secret12345"
-    click_button "Log in"
-    expect(page).to have_content("Signed in successfully.")
+    click_button "Sign in"
+    expect(page).to have_content("Unpublished Articles")
 
     visit new_article_path
     fill_in "Title", with: "x"
@@ -36,9 +37,9 @@ RSpec.describe "Publishing an article", type: :system do
     expect(page).to have_content("Running Rails in Docker")
 
     visit admin_path
-    click_button "Logout"
-    expect(page).to have_content("Signed out successfully.")
+    click_button "Sign out"
+    expect(page).to have_current_path(new_session_path)
     visit admin_path
-    expect(page).to have_current_path(new_user_session_path)
+    expect(page).to have_current_path(new_session_path)
   end
 end

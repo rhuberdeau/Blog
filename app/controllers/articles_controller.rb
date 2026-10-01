@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [ :index, :show ]
-  before_action :user_must_be_admin, except: [ :index, :show ]
+  allow_unauthenticated_access only: %i[ index show ]
   before_action :set_article, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -21,7 +20,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.build(article_params)
+    @article = Current.user.articles.build(article_params)
 
     if @article.save
       redirect_to @article, notice: "Article was successfully created."

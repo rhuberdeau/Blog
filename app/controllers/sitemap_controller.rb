@@ -1,4 +1,5 @@
 class SitemapController < ApplicationController
+  allow_unauthenticated_access
   layout nil
 
   def index

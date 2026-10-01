@@ -1,10 +1,6 @@
+# Every action requires a signed-in author unless its controller opts out
+# with allow_unauthenticated_access (see Authentication).
 class ApplicationController < ActionController::Base
+  include Authentication
   protect_from_forgery with: :exception
-
-  private
-    def user_must_be_admin
-      unless current_user.try(:admin?)
-        redirect_to(articles_path)
-      end
-    end
 end

@@ -12,7 +12,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 
-gem "devise", "~> 5.0"
+gem "bcrypt", "~> 3.1" # has_secure_password
 gem "meta-tags"
 gem "slim-rails"
 gem "redcarpet"
@@ -30,5 +30,4 @@ group :test do
   gem "capybara", "~> 3.40"
   gem "selenium-webdriver"
   gem "factory_bot_rails", "~> 6.4"
-  gem "rails-controller-testing"
 end

@@ -15,9 +15,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include FactoryBot::Syntax::Methods
-  config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Warden::Test::Helpers
-  config.after { Warden.test_reset! }
+  config.before { Rails.cache.clear }
 
   # Start from empty tables. `db:prepare` seeds every database it creates,
   # including the test one, and examples here count rows.

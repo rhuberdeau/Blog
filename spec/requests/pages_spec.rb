@@ -3,7 +3,7 @@
 # layouts, partials and assets, so they catch the breakage a Rails upgrade
 # causes far more reliably than the controller specs do.
 describe "Pages", type: :request do
-  let!(:admin)   { create(:user, admin: true) }
+  let!(:admin)   { create(:user) }
   let!(:article) { create(:article, user: admin, body: "Hello **world**\n\n```ruby\nputs 1\n```", tag_names: "ruby, docker") }
   let!(:draft)   { create(:article, user: admin, published: false, title: "Secret draft") }
 
@@ -51,7 +51,7 @@ describe "Pages", type: :request do
   end
 
   it "shows drafts in the admin panel and publishes them" do
-    login_as(admin, scope: :user)
+    sign_in_as(admin)
     get admin_path
     expect(response.status).to eq(200)
     expect(response.body).to include(draft.title)
@@ -63,6 +63,6 @@ describe "Pages", type: :request do
 
   it "keeps the admin panel from visitors" do
     get admin_path
-    expect(response).to redirect_to(new_user_session_path)
+    expect(response).to redirect_to(new_session_path)
   end
 end

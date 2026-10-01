@@ -1,6 +1,6 @@
 #admin_index.container
   .pull-right
-    = button_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-default"
+    = button_to 'Sign out', session_path, method: :delete, class: "btn btn-default"
   h2 Unpublished Articles
   table.table.table-bordered
     tr

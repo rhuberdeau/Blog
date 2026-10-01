@@ -1,7 +1,4 @@
 class Articles::PublishController < ApplicationController
-  before_action :authenticate_user!
-  before_action :user_must_be_admin
-
   def update
     @article = Article.find(params[:id])
     if @article.update(published: true, published_on: Time.now)
