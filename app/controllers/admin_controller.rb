@@ -6,17 +6,4 @@ class AdminController < ApplicationController
     @articles = Article.where(published: false)
     @published_articles = Article.where(published: true)
   end
-
-  def show
-  	 @article = Article.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @article }
-    end
-  end
-
-  def manage_comments
-  	@comments = Comment.all
-  end
 end

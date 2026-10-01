@@ -1,15 +1,14 @@
 class Articles::PublishController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :user_must_be_admin
+
   def update
     @article = Article.find(params[:id])
-    respond_to do |format|
-      if @article.update_attributes(published: true, published_on: Time.now)
-        flash[:notice] = "'#{@article.title}' was successfully published."
-        format.html { redirect_to admin_path }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
-      end
+    if @article.update_attributes(published: true, published_on: Time.now)
+      flash[:notice] = "'#{@article.title}' was successfully published."
+    else
+      flash[:alert] = @article.errors.full_messages.to_sentence
     end
+    redirect_to admin_path
   end
 end

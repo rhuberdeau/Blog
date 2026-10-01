@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-  	@article = User.first.articles.build(article_params)
+  	@article = current_user.articles.build(article_params)
 
     respond_to do |format|
       if @article.save
@@ -90,6 +90,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :body, :tag_names, :published, :summary, :sequence_id, :cached_slug)
+      params.require(:article).permit(:title, :body, :tag_names, :published, :summary)
     end
 end

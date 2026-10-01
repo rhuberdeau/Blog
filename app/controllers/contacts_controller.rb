@@ -26,7 +26,9 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.save
-      ContactMailer.new_contact(@contact).deliver_later
+      # Messages are stored and listed at /contacts; the email is a notification
+      # on top, sent only where an address is configured.
+      ContactMailer.new_contact(@contact).deliver_later if ENV["MY_EMAIL"].present?
       redirect_to root_url, notice: 'Your message was sent.'
     else
       render :new

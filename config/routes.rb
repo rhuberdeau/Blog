@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :contacts
   resources :articles
-  resources :tags
+  resources :tags, only: :show
+  put 'articles/:id/publish', to: 'articles/publish#update', as: :articles_publish
 
   devise_for :users, controllers: { registrations: "registrations"}
   root :to => 'articles#index'
