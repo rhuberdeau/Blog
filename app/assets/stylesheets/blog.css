@@ -398,3 +398,25 @@ body {
 table.CodeRay {
   width: 100%;
 }
+
+/* Additions after the Rails 8 upgrade (not part of the Clean Blog theme). */
+
+/* button_to renders a form; keep it on the same line as the link buttons. */
+.inline-form {
+  display: inline-block;
+}
+
+/* The theme assumes every page opens with a full-width image header under a
+   transparent navbar. Pages without one (admin, article forms, sign-in)
+   would sit under the fixed navbar, with its white links invisible on white. */
+body:not(:has(.intro-header)) {
+  padding-top: 90px;
+}
+body:not(:has(.intro-header)) .navbar-custom {
+  background-color: #404040;
+}
+
+/* Flash messages above an image header must clear the fixed navbar. */
+body:has(.intro-header) .flash-messages {
+  padding-top: 70px;
+}

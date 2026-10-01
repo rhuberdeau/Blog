@@ -1,18 +1,7 @@
-title
-  | Clean Blog
-= render partial: "shared/header", locals: {url: '/assets/clean_blog/home-bg.jpg',
+= render partial: "shared/header", locals: {url: asset_path('clean_blog/home-bg.jpg'),
                                                title: 'Blog posts',
                                                sub_heading: 'and other ramblings'}
 .container
-  - if notice.present?
-    .row
-      aside.alert.alert-info
-        = notice
-      div
-
-  - if alert.present?
-    aside.alert.alert-danger
-      = alert
   .row
     .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
       = render @articles

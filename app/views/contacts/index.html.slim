@@ -30,6 +30,6 @@ table
         td
           = link_to 'Edit', edit_contact_path(contact)
         td
-          = link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }
+          = button_to 'Destroy', contact, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }
 br
 = link_to 'New Contact', new_contact_path

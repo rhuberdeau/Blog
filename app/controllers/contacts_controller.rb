@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
       ContactMailer.new_contact(@contact).deliver_later if ENV["MY_EMAIL"].present?
       redirect_to root_url, notice: 'Your message was sent.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -40,14 +40,14 @@ class ContactsController < ApplicationController
     if @contact.update(contact_params)
       redirect_to @contact, notice: 'Contact was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /contacts/1
   def destroy
     @contact.destroy
-    redirect_to contacts_url, notice: 'Contact was successfully destroyed.'
+    redirect_to contacts_url, notice: "Contact was successfully destroyed.", status: :see_other
   end
 
   private

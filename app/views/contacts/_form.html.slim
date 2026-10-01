@@ -6,24 +6,24 @@
       = form_for(@contact) do |f|
         = render 'shared/error_messages', object: f.object
         .row.control-group
-          .form-group.col-xs-12.floating-label-form-group.controls
+          .form-group.col-xs-12.floating-label-form-group.controls[data-controller="floating-label" data-action="input->floating-label#update focusin->floating-label#focus focusout->floating-label#blur"]
             = f.label :name
-            = f.text_field :name, class: "form-control", placeholder: "Name", id: "name"
+            = f.text_field :name, class: "form-control", placeholder: "Name"
             p.help-block.text-danger
         .row.control-group
-          .form-group.col-xs-12.floating-label-form-group.controls
+          .form-group.col-xs-12.floating-label-form-group.controls[data-controller="floating-label" data-action="input->floating-label#update focusin->floating-label#focus focusout->floating-label#blur"]
             = f.label :email_address
-            = f.text_field :email_address, class: "form-control", placeholder: "Email Address", id: "email"
+            = f.text_field :email_address, class: "form-control", placeholder: "Email Address"
             p.help-block.text-danger
         .row.control-group
-          .form-group.col-xs-12.floating-label-form-group.controls
+          .form-group.col-xs-12.floating-label-form-group.controls[data-controller="floating-label" data-action="input->floating-label#update focusin->floating-label#focus focusout->floating-label#blur"]
             = f.label :phone_number
-            = f.text_field :phone_number, class: "form-control", placeholder: "Phone Number (optional)", id:"phone"
+            = f.text_field :phone_number, class: "form-control", placeholder: "Phone Number (optional)"
             p.help-block.text-danger
         .row.control-group
-          .form-group.col-xs-12.floating-label-form-group.controls
+          .form-group.col-xs-12.floating-label-form-group.controls[data-controller="floating-label" data-action="input->floating-label#update focusin->floating-label#focus focusout->floating-label#blur"]
             = f.label :message
-            = f.text_area :message, class: "form-control", placeholder: "Message", id: "message", rows: "5"
+            = f.text_area :message, class: "form-control", placeholder: "Message", rows: "5"
             p.help-block.text-danger
         br
         .row
