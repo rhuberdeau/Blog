@@ -1,5 +1,0 @@
-class AddSequenceToArticles < ActiveRecord::Migration[4.2]
-  def change
-    add_column :articles, :sequence_id, :integer
-  end
-end

@@ -5,6 +5,8 @@
 /.env*
 /log/*
 /tmp/*
+/storage/*
+!/storage/.keep
 /spec/
 /node_modules/
 /public/assets

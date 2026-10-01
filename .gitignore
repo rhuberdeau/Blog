@@ -25,3 +25,6 @@ testem.log
 /log/*
 !/log/.keep
 /tmp/*
+
+/storage/*
+!/storage/.keep

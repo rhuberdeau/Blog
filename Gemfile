@@ -2,7 +2,7 @@ source "https://rubygems.org"
 ruby "~> 4.0.0"
 
 gem "rails", "~> 8.1.4"
-gem "pg", "~> 1.1"
+gem "sqlite3", ">= 2.1"
 gem "puma", ">= 7.0"
 gem "bootsnap", require: false
 

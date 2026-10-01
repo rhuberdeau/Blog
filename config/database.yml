@@ -1,18 +1,18 @@
-# Connection details come from the environment (docker-compose.yml locally,
-# the host's DATABASE_URL in production).
+# SQLite: one file per environment under storage/, which is a Docker volume
+# both in development (docker-compose.yml) and production (Dockerfile).
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+  timeout: 5000
 
 development:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  database: storage/development.sqlite3
 
 test:
   <<: *default
-  url: <%= ENV["TEST_DATABASE_URL"] %>
+  database: storage/test.sqlite3
 
 production:
   <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  database: storage/production.sqlite3

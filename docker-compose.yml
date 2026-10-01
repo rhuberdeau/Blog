@@ -8,37 +8,21 @@ services:
       # 3001 on the host so this can run beside other projects on 3000.
       - "${BLOG_PORT:-3001}:3000"
     environment:
-      DATABASE_URL: postgres://blog:blog@db:5432/blog_development
-      TEST_DATABASE_URL: postgres://blog:blog@db:5432/blog_test
       WEB_CONCURRENCY: "0"
       # System specs drive this browser; Capybara serves the app from the
       # test process and tells Chrome its container address.
       SELENIUM_URL: http://chrome:4444/wd/hub
     volumes:
       - .:/app
-      # Gems and tmp stay off the Windows bind mount: native extensions are
-      # built for Linux, and bind-mount I/O is slow.
+      # Gems, tmp and the SQLite databases stay off the Windows bind mount:
+      # native extensions are built for Linux, bind-mount I/O is slow, and
+      # SQLite's file locking is unreliable across it.
       - bundle:/bundle
       - tmp:/app/tmp
+      - storage:/app/storage
     depends_on:
-      db:
-        condition: service_healthy
       chrome:
         condition: service_started
-
-  db:
-    image: postgres:16
-    environment:
-      POSTGRES_USER: blog
-      POSTGRES_PASSWORD: blog
-      POSTGRES_DB: blog_development
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U blog"]
-      interval: 2s
-      timeout: 3s
-      retries: 30
 
   chrome:
     image: selenium/standalone-chromium:latest
@@ -47,4 +31,4 @@ services:
 volumes:
   bundle:
   tmp:
-  pgdata:
+  storage:

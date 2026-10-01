@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 # Production image, after the Rails 8 template. Build and run:
 #   docker build -t blog .
-#   docker run -p 3000:3000 -e DATABASE_URL=... -e SECRET_KEY_BASE=... blog
+#   docker run -p 3000:3000 -v blog_storage:/rails/storage -e SECRET_KEY_BASE=... blog
 # (development uses Dockerfile.dev through docker-compose.yml.)
 
 ARG RUBY_VERSION=4.0.7
@@ -9,9 +9,9 @@ FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
 WORKDIR /rails
 
-# Runtime packages only: libpq for pg, jemalloc to keep Ruby's memory in check.
+# Runtime packages only: SQLite, and jemalloc to keep Ruby's memory in check.
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 libpq5 && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libsqlite3-0 && \
     ln -s /usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2 /usr/local/lib/libjemalloc.so && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
@@ -24,7 +24,7 @@ ENV RAILS_ENV="production" \
 FROM base AS build
 
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libpq-dev libyaml-dev pkg-config && \
+    apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 COPY Gemfile Gemfile.lock ./
@@ -46,6 +46,10 @@ USER 1000:1000
 
 COPY --chown=rails:rails --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
 COPY --chown=rails:rails --from=build /rails /rails
+
+# The SQLite database lives in storage/; mount a volume there so it outlives
+# the container.
+VOLUME /rails/storage
 
 # Prepares the database (create / migrate) before the server starts.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
