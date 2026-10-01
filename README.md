@@ -19,7 +19,7 @@ Everything runs in Docker; nothing needs installing on the host.
 docker compose up -d db                              # Postgres
 docker compose run --rm app bundle install           # gems go in a named volume
 docker compose run --rm app bin/rails db:prepare db:seed
-docker compose up app                                # http://localhost:3000
+docker compose up app                                # http://localhost:3001
 ```
 
 The seed creates an admin, `admin@example.com` / `password123`, plus a few

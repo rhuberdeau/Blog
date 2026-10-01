@@ -11,7 +11,7 @@ docker compose up -d db                          # infra first
 docker compose run --rm app bundle exec rspec    # tests (needs the chrome service; compose starts it)
 docker compose run --rm app bin/ci               # the full check: RuboCop, audits, Brakeman, RSpec
 docker compose run --rm app bin/rails console
-docker compose up app                            # dev server :3000
+docker compose up app                            # dev server, host port 3001 (BLOG_PORT)
 ```
 
 Gems live in the `bundle` named volume and `tmp/` in `tmp`, not on the
