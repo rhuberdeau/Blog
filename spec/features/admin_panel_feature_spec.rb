@@ -1,7 +1,6 @@
-require 'spec_helper'
 
 describe "Admin Panel", type: :feature do
-  let(:user) { FactoryGirl.create :user, admin: true}
+  let(:user) { create :user, admin: true}
 
   before do
     login_as(user, :scope => :user)

@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :user_must_be_admin
+  before_action :authenticate_user!
+  before_action :user_must_be_admin
 
   def index
     @articles = Article.where(published: false)

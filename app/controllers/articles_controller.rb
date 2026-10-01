@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
-  before_filter :user_must_be_admin, :except => [:index, :show]
-  respond_to :html, :json
+  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :user_must_be_admin, :except => [:index, :show]
 
   def index
     @articles = Article.where(:published => true).paginate(:page => params[:page]).order('id DESC')
@@ -66,7 +65,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     respond_to do |format|
-      if @article.update_attributes(article_params)
+      if @article.update(article_params)
       	expire_fragment('all_tags')
         format.html { redirect_to(@article, :notice => 'Article was successfully updated.') }
         format.xml  { head :ok }

@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, :except => [:new, :create]
-  before_filter :user_must_be_admin, :except => [:new, :create]
+  before_action :authenticate_user!, :except => [:new, :create]
+  before_action :user_must_be_admin, :except => [:new, :create]
 
   # GET /contacts
   def index

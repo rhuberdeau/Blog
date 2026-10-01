@@ -1,7 +1,6 @@
-require 'spec_helper' 
 
 RSpec.describe Article, :type => :model do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
   before do
     @article = user.articles.build(title: "A working title", body: "this is the content of the article", summary: "an article")
   end
@@ -60,6 +59,6 @@ RSpec.describe Article, :type => :model do
   end
 
   describe "assign a user" do
-    specify (:user_id) { should_not be_blank }
+    it { expect(subject.user_id).to eq(user.id) }
   end
 end

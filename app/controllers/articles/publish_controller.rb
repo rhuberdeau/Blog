@@ -1,10 +1,10 @@
 class Articles::PublishController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :user_must_be_admin
+  before_action :authenticate_user!
+  before_action :user_must_be_admin
 
   def update
     @article = Article.find(params[:id])
-    if @article.update_attributes(published: true, published_on: Time.now)
+    if @article.update(published: true, published_on: Time.now)
       flash[:notice] = "'#{@article.title}' was successfully published."
     else
       flash[:alert] = @article.errors.full_messages.to_sentence
