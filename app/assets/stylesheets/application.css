@@ -1,0 +1,406 @@
+/* The whole site's styles: no framework, no build step (Propshaft serves this
+   file as-is). Colours are tokens with a light and a dark set; the reader's
+   system setting picks one.
+
+   1. Tokens   2. Base   3. Layout   4. Post list   5. Prose
+   6. Code     7. Forms, buttons, tables, alerts      8. Utilities */
+
+/* 1. Tokens ------------------------------------------------------------- */
+
+:root {
+  color-scheme: light dark;
+
+  --font-body: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-code: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1.06rem, 1rem + 0.3vw, 1.2rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --step-3: clamp(1.9rem, 1.5rem + 2vw, 2.75rem);
+
+  --measure: 42rem;
+  --space: 1.5rem;
+  --radius: 6px;
+
+  --bg: #fdfcfa;
+  --text: #24221f;
+  --muted: #6b665e;
+  --rule: #e6e2da;
+  --surface: #f4f1ec;
+  --accent: #1f5fa8;
+  --accent-text: #ffffff;
+  --danger: #a3271f;
+  --danger-bg: #fbeceb;
+  --info-bg: #eaf1fa;
+
+  /* Syntax colours */
+  --code-comment: #6e6a63;
+  --code-keyword: #a3271f;
+  --code-string: #2f6f3e;
+  --code-constant: #1f5fa8;
+  --code-entity: #7a3e9d;
+  --code-support: #8a5a00;
+  --code-variable: #24221f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17181b;
+    --text: #e4e2dd;
+    --muted: #9a968e;
+    --rule: #2e3035;
+    --surface: #202227;
+    --accent: #7fb0ec;
+    --accent-text: #0f1115;
+    --danger: #f19087;
+    --danger-bg: #3a1f1d;
+    --info-bg: #1c2836;
+
+    --code-comment: #8b8780;
+    --code-keyword: #f19087;
+    --code-string: #9fd3a6;
+    --code-constant: #7fb0ec;
+    --code-entity: #d3a6f0;
+    --code-support: #e8c07a;
+    --code-variable: #e4e2dd;
+  }
+}
+
+/* 2. Base --------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: var(--step-0) / 1.65 var(--font-body);
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-ui);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 2em 0 0.6em;
+}
+h1 { font-size: var(--step-3); margin-top: 0; }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); }
+h4 { font-size: var(--step-0); }
+
+p, ul, ol, blockquote, pre, table, figure { margin: 0 0 1.25em; }
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+img { max-width: 100%; height: auto; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* 3. Layout ------------------------------------------------------------- */
+
+.site-header,
+main,
+.site-footer {
+  width: min(100% - 2 * var(--space), var(--measure));
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding: 2rem 0 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-ui);
+
+  .site-name {
+    font-weight: 700;
+    font-size: var(--step-1);
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    &:hover, &[aria-current="page"] { color: var(--text); }
+  }
+}
+
+main {
+  padding: 3rem 0 2rem;
+  min-height: 60vh;
+}
+
+.site-footer {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font: var(--step--1) var(--font-ui);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  a { color: var(--muted); }
+  a:hover { color: var(--text); }
+  svg { width: 1.5rem; height: 1.5rem; display: block; }
+}
+
+/* 4. Post list ---------------------------------------------------------- */
+
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  > li + li {
+    border-top: 1px solid var(--rule);
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+
+  h2 {
+    margin: 0 0 0.3em;
+    font-size: var(--step-2);
+
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: var(--accent); }
+  }
+
+  p { margin: 0 0 0.5em; }
+}
+
+.post-meta {
+  color: var(--muted);
+  font: var(--step--1) var(--font-ui);
+
+  a { color: inherit; }
+  a:hover { color: var(--accent); }
+}
+
+.page-intro {
+  margin-bottom: 3rem;
+
+  h1 { margin-bottom: 0.3em; }
+  p { color: var(--muted); font-size: var(--step-1); margin: 0; }
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  font-family: var(--font-ui);
+
+  a { font-weight: 600; text-decoration: none; }
+}
+
+/* 5. Prose: an article body and the About page -------------------------- */
+
+.article-header {
+  margin-bottom: 2.5rem;
+
+  .dek {
+    color: var(--muted);
+    font-size: var(--step-1);
+    line-height: 1.4;
+    margin: 0 0 0.75em;
+  }
+}
+
+.prose {
+  > :first-child { margin-top: 0; }
+
+  ul, ol { padding-left: 1.4em; }
+  li + li { margin-top: 0.3em; }
+
+  blockquote {
+    margin-inline: 0;
+    padding-left: 1.25em;
+    border-left: 3px solid var(--rule);
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--step--1);
+    font-family: var(--font-ui);
+  }
+  th, td {
+    padding: 0.5em 0.75em;
+    border-bottom: 1px solid var(--rule);
+    text-align: left;
+  }
+}
+
+/* 6. Code --------------------------------------------------------------- */
+
+code, pre { font-family: var(--font-code); font-size: 0.86em; }
+
+:not(pre) > code {
+  background: var(--surface);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+pre {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  line-height: 1.5;
+  tab-size: 2;
+}
+
+/* commonmarker emits TextMate scopes as classes; colour the broad ones and
+   let anything nested inside a comment or string keep that colour. */
+.syntax-highlighting {
+  .comment { color: var(--code-comment); font-style: italic; }
+  .keyword, .storage { color: var(--code-keyword); }
+  .string { color: var(--code-string); }
+  .constant { color: var(--code-constant); }
+  .entity.name, .entity.other { color: var(--code-entity); }
+  .support { color: var(--code-support); }
+  .variable { color: var(--code-variable); }
+  .comment *, .string * { color: inherit; }
+}
+
+/* 7. Forms, buttons, tables, alerts (admin and sign-in) ------------------ */
+
+form { font-family: var(--font-ui); }
+
+.field {
+  margin-bottom: 1.25rem;
+
+  label { display: block; font-weight: 600; margin-bottom: 0.35rem; font-size: var(--step--1); }
+  .hint { color: var(--muted); font-size: var(--step--1); margin: 0.35rem 0 0; }
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+
+  &:focus { border-color: var(--accent); outline: 2px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+}
+
+textarea.code { font-family: var(--font-code); font-size: 0.9rem; }
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.button, button, input[type="submit"] {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font: 600 0.95rem var(--font-ui);
+  color: var(--accent-text);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover { filter: brightness(1.08); }
+
+  &.secondary {
+    color: var(--text);
+    background: transparent;
+    border-color: var(--rule);
+  }
+
+  &.small { padding: 0.25rem 0.6rem; font-size: 0.85rem; }
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font: var(--step--1) var(--font-ui);
+  margin-bottom: 3rem;
+
+  th, td { padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: middle; }
+  th { color: var(--muted); font-weight: 600; }
+  .actions { white-space: nowrap; text-align: right; }
+}
+
+.alert {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius);
+  font: var(--step--1) var(--font-ui);
+  background: var(--info-bg);
+
+  &.danger { background: var(--danger-bg); color: var(--danger); }
+  ul { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+}
+
+/* 8. Utilities ---------------------------------------------------------- */
+
+/* button_to wraps its button in a form; keep it inline beside links. */
+.inline { display: inline; }
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.narrow { max-width: 24rem; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

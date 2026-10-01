@@ -5,9 +5,9 @@ syntax-highlighted code), tags, an About page and an XML sitemap. One author
 writes and publishes from `/admin`.
 
 Rails 8.1 on Ruby 4.0, SQLite, Rails' built-in authentication. Front end:
-Propshaft, importmap, Turbo and Stimulus over the
-[Clean Blog](https://startbootstrap.com/theme/clean-blog) theme (Bootstrap 5),
-with no Node and no build step.
+one hand-written stylesheet (`app/assets/stylesheets/application.css`, light and
+dark from the reader's system setting) served by Propshaft, plus Turbo via
+importmap. No CSS framework, no Node, no build step.
 
 It began as a Rails 4.2 app on Heroku; the `rails-8-upgrade` history walks it
 forward one version at a time, then trims it to what a single-author blog needs.
@@ -46,7 +46,7 @@ docker compose run --rm app bin/ci              # RuboCop, audits, Brakeman, RSp
 ```
 
 System specs (`spec/system`) drive headless Chromium in the `chrome` compose
-service, so the Turbo forms and Stimulus controllers are exercised for real.
+service, so the Turbo forms and the phone layout are exercised for real.
 
 ## Production
 

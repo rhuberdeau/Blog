@@ -40,7 +40,10 @@ Chrome in the `chrome` service upgrades single-label hostnames like
 - Failed form submissions render with `status: :unprocessable_content`;
   destructive redirects use `status: :see_other`. Turbo ignores anything else.
 - No rails-ujs: anything that isn't a GET is a `button_to`.
-- Views are ERB. JavaScript is Stimulus controllers loaded by importmap; no
-  Bootstrap JS, no jQuery, no build step.
-- `clean_blog.css` is the vendored theme, unmodified; put changes in `app.css`.
+- Views are ERB with semantic HTML. JavaScript is Turbo only (importmap); no
+  build step. Add stimulus-rails if a page ever needs behaviour.
+- All styles live in `app/assets/stylesheets/application.css`: no framework.
+  Colours are custom properties with a light and a dark set; use the tokens,
+  never literal colours, so dark mode keeps working. Code highlighting colours
+  commonmarker's scope classes from the same tokens.
 - No secrets in the repo: production reads `SECRET_KEY_BASE` from the env.

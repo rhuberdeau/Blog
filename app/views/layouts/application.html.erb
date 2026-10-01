@@ -12,17 +12,15 @@
   <meta property="og:url" content="<%= request.original_url %>">
   <meta name="msvalidate.01" content="2197772BABCA691F6E16B4FFD6F1CEDD">
   <meta name="google-site-verification" content="6MojtDLkmdHZbn2f7suKcVZbMEd8w14IPZ5EXu2O4EI">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet">
-  <%= stylesheet_link_tag "clean_blog", "app", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= javascript_importmap_tags %>
 </head>
 <body>
   <%= render "shared/navigation" %>
-  <%= render "shared/flash" %>
   <main>
+    <%= render "shared/flash" %>
     <%= yield %>
   </main>
   <%= render "shared/footer" %>

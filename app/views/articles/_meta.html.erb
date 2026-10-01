@@ -1,0 +1,11 @@
+<%# Date (or "Draft") and tags, under a post in a list and on its own page. %>
+<p class="post-meta">
+  <% if article.published? %>
+    <time datetime="<%= article.published_at.iso8601 %>"><%= publish_date(article) %></time>
+  <% else %>
+    Draft
+  <% end %>
+  <% if article.tags.any? %>
+    · <%= safe_join(article.tags.map { |tag| link_to(tag.name, tag) }, ", ") %>
+  <% end %>
+</p>

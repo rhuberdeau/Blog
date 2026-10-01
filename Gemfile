@@ -6,11 +6,10 @@ gem "sqlite3", ">= 2.1"
 gem "puma", ">= 7.0"
 gem "bootsnap", require: false
 
-# Rails 8 front-end defaults: no build step, no Node.
+# Front end: no build step, no Node. Styles are plain CSS (Propshaft).
 gem "propshaft"
 gem "importmap-rails"
 gem "turbo-rails"
-gem "stimulus-rails"
 
 gem "bcrypt", "~> 3.1" # has_secure_password
 gem "commonmarker", "~> 2.0" # GitHub-flavoured Markdown, with syntax highlighting

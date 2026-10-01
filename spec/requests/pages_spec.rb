@@ -18,7 +18,8 @@ describe "Pages", type: :request do
     get article_path(article)
     expect(response.status).to eq(200)
     expect(response.body).to include("<strong>world</strong>")
-    expect(response.body).to match(%r{<pre[^>]*style="[^"]*background-color})
+    expect(response.body).to include(%(<pre class="syntax-highlighting">))
+    expect(response.body).to include(%(class="support function builtin ruby"))
   end
 
   it "drops raw HTML from article bodies" do

@@ -1,23 +1,10 @@
-<%= render "shared/masthead", image: "clean_blog/home-bg.jpg", kind: "site",
-      title: "Blog posts", subheading: "and other ramblings" %>
+<ul class="post-list">
+  <%= render @articles %>
+</ul>
 
-<div class="container px-4 px-lg-5">
-  <div class="row gx-4 gx-lg-5 justify-content-center">
-    <div class="col-md-10 col-lg-8 col-xl-7">
-      <%= render @articles %>
-
-      <div class="d-flex justify-content-between mb-4">
-        <div>
-          <% if @newer_page %>
-            <%= link_to "← Newer posts", articles_path(page: @newer_page), class: "btn btn-primary text-uppercase" %>
-          <% end %>
-        </div>
-        <div>
-          <% if @older_page %>
-            <%= link_to "Older posts →", articles_path(page: @older_page), class: "btn btn-primary text-uppercase" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<% if @newer_page || @older_page %>
+  <nav class="pager" aria-label="Pages">
+    <span><%= link_to "← Newer posts", articles_path(page: @newer_page) if @newer_page %></span>
+    <span><%= link_to "Older posts →", articles_path(page: @older_page) if @older_page %></span>
+  </nav>
+<% end %>
