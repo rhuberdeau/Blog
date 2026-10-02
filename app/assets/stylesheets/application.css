@@ -4,7 +4,7 @@
 
    1. Tokens   2. Base   3. Layout   4. Post list   5. Prose
    6. Code     7. Forms, buttons, tables, alerts
-   7b. Article editor                                 8. Utilities */
+   7b. Article editor   7c. AI assistant              8. Utilities */
 
 /* 1. Tokens ------------------------------------------------------------- */
 
@@ -342,7 +342,7 @@ form { font-family: var(--font-ui); }
   margin-bottom: 1.25rem;
 
   label { display: block; font-weight: 600; margin-bottom: 0.35rem; font-size: var(--step--1); }
-  .hint { color: var(--muted); font-size: var(--step--1); margin: 0.35rem 0 0; }
+  .hint { margin: 0.35rem 0 0; }
 }
 
 input[type="text"], input[type="email"], input[type="password"], textarea {
@@ -432,18 +432,19 @@ main.wide { width: min(100% - 2 * var(--space), 80rem); }
   }
 }
 
+.preview-label {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font: 600 var(--step--1) var(--font-ui);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .editor-preview {
   /* It sits inside the form, whose UI font would otherwise leak into the
      article; match the published page. */
   font-family: var(--font-body);
 
-  .preview-label {
-    margin: 0 0 1rem;
-    color: var(--muted);
-    font: 600 var(--step--1) var(--font-ui);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
   > article {
     padding: 1.5rem;
     border: 1px dashed var(--rule);
@@ -452,25 +453,37 @@ main.wide { width: min(100% - 2 * var(--space), 80rem); }
 }
 .editor.preview-stale .editor-preview > article { opacity: 0.6; }
 
+/* The fields, then beside them (wide) or as tabs (narrow): the preview or
+   the AI assistant. data-mode is write | preview | assistant. */
+.editor-tabs { display: flex; }
+
 @media (min-width: 900px) {
   .editor {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 2.5rem;
+    grid-template-rows: auto 1fr;
+    column-gap: 2.5rem;
     align-items: start;
   }
-  .editor-preview {
+  .editor-write { grid-column: 1; grid-row: 1 / span 2; }
+  .editor-tabs { grid-column: 2; grid-row: 1; }
+  .editor-tabs .tab-write { display: none; }
+  .editor-preview, .editor-assistant {
+    grid-column: 2;
+    grid-row: 2;
     position: sticky;
     top: 1rem;
     max-height: calc(100vh - 2rem);
     overflow-y: auto;
   }
+  .editor[data-mode="assistant"] .editor-preview,
+  .editor:not([data-mode="assistant"]) .editor-assistant { display: none; }
 }
 
 @media (max-width: 899.98px) {
-  .editor-tabs { display: flex; }
-  .editor[data-mode="write"] .editor-preview,
-  .editor[data-mode="preview"] .editor-write { display: none; }
+  .editor:not([data-mode="write"]) .editor-write,
+  .editor:not([data-mode="preview"]) .editor-preview,
+  .editor:not([data-mode="assistant"]) .editor-assistant { display: none; }
 }
 
 .form-actions {
@@ -513,7 +526,114 @@ main.wide { width: min(100% - 2 * var(--space), 80rem); }
   .draft-actions { display: flex; gap: 0.5rem; align-items: center; }
 }
 
+/* 7c. AI assistant: editor panel and /admin/ai ----------------------------- */
+
+.editor-assistant { font-family: var(--font-ui); }
+
+.ai-spend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  meter { width: 8rem; }
+}
+
+.ai-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.ai-request {
+  margin: 1rem 0 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-family: var(--font-ui);
+  font-size: var(--step--1);
+
+  h3 { font-size: var(--step-0); margin: 1.25rem 0 0.5rem; }
+  .prose { font-family: var(--font-body); font-size: var(--step-0); }
+}
+
+.ai-status { margin: 0 0 0.75rem; color: var(--muted); }
+.ai-error { color: var(--danger); }
+
+.ai-spinner {
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.4em;
+  border: 2px solid var(--rule);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: ai-spin 0.8s linear infinite;
+  vertical-align: -0.1em;
+}
+@keyframes ai-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ai-spinner { animation: none; } }
+
+.ai-findings {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  > li { padding: 0.75rem 0; border-top: 1px solid var(--rule); }
+  > li.applied { opacity: 0.55; }
+  blockquote {
+    margin: 0.5rem 0;
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--rule);
+    font-family: var(--font-body);
+  }
+  p { margin: 0.35rem 0; }
+}
+
+.ai-tag {
+  display: inline-block;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.ai-tag-fact-check, .ai-tag-structure { color: var(--danger); }
+
+.ai-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+
+.ai-options {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  > li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.4rem 0;
+    border-top: 1px solid var(--rule);
+  }
+}
+
+.ai-sources { padding-left: 1.4em; li + li { margin-top: 0.3rem; } }
+
+.ai-forms {
+  display: grid;
+  gap: 1rem 2.5rem;
+  margin-bottom: 2rem;
+  @media (min-width: 900px) { grid-template-columns: 1fr 1fr; }
+  h2 { margin-top: 1rem; }
+  select { width: 100%; padding: 0.5rem; font: 1rem var(--font-ui); }
+}
+
 /* 8. Utilities ---------------------------------------------------------- */
+
+/* Secondary notes under fields and panels. */
+.hint {
+  color: var(--muted);
+  font: var(--step--1) / 1.5 var(--font-ui);
+}
 
 /* button_to wraps its button in a form; keep it inline beside links. */
 .inline { display: inline; }

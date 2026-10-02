@@ -1,18 +1,31 @@
 # SQLite: one file per environment under storage/, which is a Docker volume
 # both in development (docker-compose.yml) and production (Dockerfile).
+# Background jobs (Solid Queue) get their own database file so queue churn
+# stays out of the main database and its Litestream backups.
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
   timeout: 5000
 
 development:
-  <<: *default
-  database: storage/development.sqlite3
+  primary:
+    <<: *default
+    database: storage/development.sqlite3
+  queue:
+    <<: *default
+    database: storage/development_queue.sqlite3
+    migrations_paths: db/queue_migrate
 
+# Tests run jobs with the :test adapter, so no queue database.
 test:
   <<: *default
   database: storage/test.sqlite3
 
 production:
-  <<: *default
-  database: storage/production.sqlite3
+  primary:
+    <<: *default
+    database: storage/production.sqlite3
+  queue:
+    <<: *default
+    database: storage/production_queue.sqlite3
+    migrations_paths: db/queue_migrate

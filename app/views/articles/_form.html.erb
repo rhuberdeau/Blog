@@ -7,13 +7,19 @@
                                        unsaved_changes_dirty_value: @article.errors.any? } do |f| %>
   <%= render "shared/error_messages", object: f.object %>
 
-  <div class="editor" data-mode="write" data-controller="preview"
-       data-preview-url-value="<%= preview_articles_path(id: @article.id) %>">
+  <%# The right-hand side (or a tab on a phone) also holds the AI assistant
+      (assistant_controller.js): suggestions are applied only on click. %>
+  <div class="editor" data-mode="write" data-controller="preview assistant"
+       data-preview-url-value="<%= preview_articles_path(id: @article.id) %>"
+       data-assistant-url-value="<%= ai_requests_path(context: "editor") %>"
+       data-assistant-article-id-value="<%= @article.id %>">
     <div class="editor-tabs" role="tablist" aria-label="Editor view">
-      <button type="button" role="tab" aria-selected="true" class="tab"
+      <button type="button" role="tab" aria-selected="true" class="tab tab-write"
               data-preview-target="writeTab" data-action="preview#showWrite">Write</button>
       <button type="button" role="tab" aria-selected="false" class="tab"
               data-preview-target="previewTab" data-action="preview#showPreview">Preview</button>
+      <button type="button" role="tab" aria-selected="false" class="tab"
+              data-preview-target="assistantTab" data-action="preview#showAssistant">Assistant</button>
     </div>
 
     <div class="editor-write">
@@ -63,6 +69,17 @@
       <article data-preview-target="output">
         <%= render "articles/preview", article: @article %>
       </article>
+    </section>
+
+    <section class="editor-assistant" aria-label="Assistant">
+      <p class="preview-label">Assistant</p>
+      <%= render "ai_requests/spend" %>
+      <p class="hint">Sends the draft as currently typed to Claude (Anthropic). Nothing changes until you click Apply or Use.</p>
+      <p class="ai-buttons">
+        <button type="button" class="button" data-kind="review" data-action="assistant#request">Review draft</button>
+        <button type="button" class="button secondary" data-kind="metadata" data-action="assistant#request">Suggest titles, summary &amp; tags</button>
+      </p>
+      <div class="ai-results" data-assistant-target="results" aria-live="polite"></div>
     </section>
   </div>
 <% end %>

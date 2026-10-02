@@ -57,6 +57,14 @@ Chrome in the `chrome` service upgrades single-label hostnames like
   and the importmap get a per-request nonce; anything new needs one too.
 - Never hard-code the domain: absolute URLs come from the request (`root_url`,
   `article_url`), as in the sitemap and the feed.
+- AI (the writing assistant) goes through `Ai::Client` only; each feature is
+  an `Ai::Tasks::*` class with a JSON schema, a prompt and a `fake_result`.
+  Tests run with `Ai::Client.fake!` and a real client raises in the test env,
+  so CI never calls Anthropic or spends money. AI output is shown, never
+  applied: the author clicks Apply / Use / Start a draft. Requests run as
+  `AiRequestJob` on Solid Queue (in Puma, own SQLite DB) and record their cost;
+  `Ai::Budget` enforces `AI_MONTHLY_BUDGET_USD`. Running a real AI request
+  spends the user's money: ask first.
 - No secrets in the repo: production reads `SECRET_KEY_BASE` from the env.
 - Deploys run Kamal through the `deploy` compose service
   (`docker compose --profile deploy run --rm deploy bin/kamal …`). Secrets and

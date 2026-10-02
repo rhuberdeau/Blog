@@ -1,0 +1,8 @@
+<%# This month's AI spend against the cap (Ai::Budget). %>
+<% spent = Ai::Budget.spent_usd %>
+<% limit = Ai::Budget.limit_usd %>
+<p class="ai-spend hint">
+  AI this month: <%= number_to_currency(spent, precision: 2) %> of <%= number_to_currency(limit, precision: 2) %>
+  <meter min="0" max="<%= limit %>" value="<%= [ spent, limit ].min %>" high="<%= limit * 0.8 %>" optimum="0"></meter>
+  <% unless Ai.configured? %><strong>· not configured (set ANTHROPIC_API_KEY)</strong><% end %>
+</p>

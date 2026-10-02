@@ -13,6 +13,11 @@ services:
       # System specs drive this browser; Capybara serves the app from the
       # test process and tells Chrome its container address.
       SELENIUM_URL: http://chrome:4444/wd/hub
+    # Optional local settings, e.g. ANTHROPIC_API_KEY for the AI assistant
+    # (gitignored; without it the assistant shows "not configured").
+    env_file:
+      - path: .env.development
+        required: false
     volumes:
       - .:/app
       # Gems, tmp and the SQLite databases stay off the Windows bind mount:

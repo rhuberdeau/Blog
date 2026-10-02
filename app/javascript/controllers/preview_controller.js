@@ -9,8 +9,13 @@ const DELAY_MS = 300
 const WORDS_PER_MINUTE = 230
 
 export default class extends Controller {
-  static targets = ["output", "body", "count", "writeTab", "previewTab"]
+  static targets = ["output", "body", "count", "writeTab", "previewTab", "assistantTab"]
   static values = { url: String }
+
+  // Wide screens always show the fields, so start with the preview beside them.
+  connect() {
+    if (window.matchMedia("(min-width: 900px)").matches) this.setMode("preview")
+  }
 
   disconnect() {
     clearTimeout(this.timer)
@@ -70,9 +75,17 @@ export default class extends Controller {
     this.render()
   }
 
+  showAssistant() {
+    this.setMode("assistant")
+  }
+
+  // Modes: write, preview, assistant. On wide screens the fields are always
+  // shown and the mode picks what's beside them (preview unless assistant);
+  // on narrow screens the mode is the one pane shown.
   setMode(mode) {
     this.element.dataset.mode = mode
     this.writeTabTarget.setAttribute("aria-selected", mode === "write")
     this.previewTabTarget.setAttribute("aria-selected", mode === "preview")
+    if (this.hasAssistantTabTarget) this.assistantTabTarget.setAttribute("aria-selected", mode === "assistant")
   }
 }

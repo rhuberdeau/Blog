@@ -18,6 +18,9 @@ RSpec.configure do |config|
   config.include ActiveSupport::Testing::TimeHelpers
   config.before { Rails.cache.clear }
 
+  # The AI assistant never calls Anthropic from tests (Ai::Client refuses to).
+  config.before(:suite) { Ai::Client.fake! }
+
   # Start from empty tables. `db:prepare` seeds every database it creates,
   # including the test one, and examples here count rows.
   config.before(:suite) do

@@ -1,0 +1,69 @@
+<% content_for :title, "AI assistant" %>
+<% content_for :main_class, "wide" %>
+
+<div class="toolbar">
+  <h1>AI assistant</h1>
+  <%= link_to "Admin", admin_path, class: "button secondary" %>
+</div>
+<%= render "ai_requests/spend" %>
+<p class="hint">Uses Claude (Anthropic). What you type here is sent to Anthropic to answer it.</p>
+
+<div class="ai-forms">
+  <section>
+    <h2>Research a topic</h2>
+    <%= form_with url: ai_requests_path do |f| %>
+      <%= hidden_field_tag :kind, "research" %>
+      <div class="field">
+        <%= label_tag :research_topic, "Topic" %>
+        <%= text_field_tag :topic, nil, id: "research_topic", required: true, placeholder: "e.g. SQLite in production for small Rails apps" %>
+      </div>
+      <div class="field">
+        <%= label_tag :research_notes, "Notes or angle (optional)" %>
+        <%= text_area_tag :notes, nil, id: "research_notes", rows: 3 %>
+      </div>
+      <%= f.submit "Research", data: { disable_with: "Starting…" } %>
+      <p class="hint">Searches the web (up to <%= Ai::Tasks::Research::MAX_SEARCHES %> searches) and reads sources. Usually 15–50¢.</p>
+    <% end %>
+  </section>
+
+  <section>
+    <h2>Build an outline</h2>
+    <%= form_with url: ai_requests_path do |f| %>
+      <%= hidden_field_tag :kind, "outline" %>
+      <div class="field">
+        <%= label_tag :outline_topic, "Topic" %>
+        <%= text_field_tag :topic, nil, id: "outline_topic", required: true %>
+      </div>
+      <div class="field">
+        <%= label_tag :outline_notes, "Notes (optional)" %>
+        <%= text_area_tag :notes, nil, id: "outline_notes", rows: 3 %>
+      </div>
+      <div class="field">
+        <%= label_tag :research_id, "Use research (optional)" %>
+        <%= select_tag :research_id, options_from_collection_for_select(@research_notes, :id, :subject),
+              include_blank: "None" %>
+      </div>
+      <%= f.submit "Outline", data: { disable_with: "Starting…" } %>
+    <% end %>
+  </section>
+</div>
+
+<h2>History</h2>
+<% if @ai_requests.empty? %>
+  <p class="hint">Nothing yet.</p>
+<% else %>
+  <table class="admin-table">
+    <thead><tr><th>When</th><th>Kind</th><th>About</th><th>Status</th><th>Cost</th></tr></thead>
+    <tbody>
+      <% @ai_requests.each do |request| %>
+        <tr>
+          <td><%= l(request.created_at, format: :short) %></td>
+          <td><%= request.kind %></td>
+          <td><%= link_to request.subject, request %></td>
+          <td><%= request.status %></td>
+          <td><%= number_to_currency(request.cost_usd, precision: 2) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

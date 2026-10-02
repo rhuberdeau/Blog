@@ -44,6 +44,42 @@ bin/rails runner 'User.find_or_initialize_by(email_address: "you@example.com").u
 Or set `ADMIN_EMAIL` and `ADMIN_PASSWORD` and run `bin/rails db:seed` (in
 production it only creates the author, no sample articles).
 
+## AI assistant
+
+Claude (Anthropic's API, model `claude-opus-5`) helps write; it never changes
+anything until you click.
+
+- **In the editor**, the Assistant tab offers two buttons:
+  - **Review draft** lists spelling, grammar, clarity, structure, fact-check and
+    tone findings. Spelling and wording fixes have **Apply**; all findings have
+    **Find**.
+  - **Suggest titles, summary & tags** gives options you can **Use**.
+- **`/admin/ai`** (the "AI assistant" button on the admin page):
+  - **Research** searches and reads the web (up to 5 searches) and returns a
+    summary, key points, post ideas and cited sources.
+  - **Outline** builds a post outline from a topic, optionally from saved
+    research. "Start a draft" turns the outline into a new draft with the
+    sources listed.
+
+Requests run in the background (Solid Queue, inside Puma; jobs in their own
+SQLite file) and the page updates when they're done. Every request records its
+tokens and cost.
+
+Costs, roughly: a review 5–10¢, research 15–50¢, an outline about 5¢. New
+requests are refused once the month's recorded spend reaches
+`AI_MONTHLY_BUDGET_USD` (default $10). Also set a spend limit in the Anthropic
+Console.
+
+Setup:
+- Create an API key at console.anthropic.com. It's billed separately from a
+  Claude.ai subscription.
+- Production: put it in `.env.deploy` as `ANTHROPIC_API_KEY`.
+- Development: put it in a gitignored `.env.development`.
+- Without a key, the assistant says it isn't configured.
+- The model and its prices are in `app/services/ai.rb`.
+
+Drafts and research topics are sent to Anthropic to answer them.
+
 ## Tests and checks
 
 ```bash

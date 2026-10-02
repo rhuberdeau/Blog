@@ -1,0 +1,23 @@
+<h3>Title options</h3>
+<ul>
+  <% Array(result["title_options"]).each do |title| %>
+    <li><%= title %></li>
+  <% end %>
+</ul>
+
+<p class="dek"><%= result["summary"] %></p>
+
+<% Array(result["sections"]).each do |section| %>
+  <h3><%= section["heading"] %></h3>
+  <ul>
+    <% Array(section["points"]).each do |point| %>
+      <li><%= point %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if ai_request.input["research_id"] %>
+  <p class="hint">Based on <%= link_to "research: #{AiRequest.find_by(id: ai_request.input["research_id"])&.subject}", ai_request_path(ai_request.input["research_id"]) %>; its sources go into the draft.</p>
+<% end %>
+
+<%= button_to "Start a draft from this outline", draft_ai_request_path(ai_request), class: "button" %>

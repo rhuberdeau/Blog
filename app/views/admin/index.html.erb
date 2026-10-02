@@ -1,5 +1,8 @@
 <div class="toolbar">
-  <%= link_to "New article", new_article_path, class: "button" %>
+  <span class="ai-buttons">
+    <%= link_to "New article", new_article_path, class: "button" %>
+    <%= link_to "AI assistant", admin_ai_path, class: "button secondary" %>
+  </span>
   <%= button_to "Sign out", session_path, method: :delete, class: "button secondary" %>
 </div>
 

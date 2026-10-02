@@ -43,9 +43,11 @@ env:
     - SECRET_KEY_BASE
     - ADMIN_EMAIL
     - ADMIN_PASSWORD
+    - ANTHROPIC_API_KEY
   clear:
     BLOG_HOSTS: "<%= ENV.fetch("BLOG_HOSTS") %>"
     CONTACT_EMAIL: "<%= ENV.fetch("CONTACT_EMAIL", "") %>"
+    AI_MONTHLY_BUDGET_USD: "<%= ENV.fetch("AI_MONTHLY_BUDGET_USD", "10") %>"
 
 # The SQLite database. A host directory rather than a named volume so its
 # owner (uid 1000, the app's user) is set once by config/server/init.sh and

@@ -1,0 +1,30 @@
+<div class="prose"><%= markdown(result["summary"]) %></div>
+
+<h3>Key points</h3>
+<ul>
+  <% Array(result["key_points"]).each do |point| %>
+    <li><%= point %></li>
+  <% end %>
+</ul>
+
+<h3>Angles worth writing</h3>
+<ul class="ai-options">
+  <% Array(result["angles"]).each do |angle| %>
+    <li>
+      <span><%= angle %></span>
+      <%= button_to "Outline this", ai_requests_path,
+            params: { kind: "outline", topic: angle, research_id: ai_request.id },
+            class: "button secondary small", form_class: "inline" %>
+    </li>
+  <% end %>
+</ul>
+
+<h3>Sources</h3>
+<ol class="ai-sources">
+  <% Array(result["sources"]).each do |source| %>
+    <li>
+      <%= link_to source["title"].presence || source["url"], source["url"], rel: "noopener noreferrer nofollow", target: "_blank" if source["url"].to_s.start_with?("http://", "https://") %>
+      <% if source["supports"].present? %><span class="hint"> · <%= source["supports"] %></span><% end %>
+    </li>
+  <% end %>
+</ol>

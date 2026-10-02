@@ -15,6 +15,10 @@ gem "stimulus-rails"
 gem "bcrypt", "~> 3.1" # has_secure_password
 gem "commonmarker", "~> 2.0" # GitHub-flavoured Markdown, with syntax highlighting
 
+# AI writing assistant: Claude via the official SDK; jobs run in Puma.
+gem "anthropic"
+gem "solid_queue"
+
 group :development do
   gem "kamal", require: false
 end

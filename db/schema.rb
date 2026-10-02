@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_02_000004) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_02_120000) do
+  create_table "ai_requests", force: :cascade do |t|
+    t.string "kind", null: false
+    t.integer "article_id"
+    t.string "status", default: "queued", null: false
+    t.json "input", default: {}, null: false
+    t.json "result"
+    t.text "error"
+    t.string "model"
+    t.integer "input_tokens", default: 0, null: false
+    t.integer "output_tokens", default: 0, null: false
+    t.integer "web_searches", default: 0, null: false
+    t.decimal "cost_usd", precision: 10, scale: 4, default: "0.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_ai_requests_on_article_id"
+    t.index ["created_at"], name: "index_ai_requests_on_created_at"
+  end
+
   create_table "articles", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
@@ -57,6 +75,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_02_000004) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "ai_requests", "articles", on_delete: :nullify
   add_foreign_key "articles", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "taggings", "articles"

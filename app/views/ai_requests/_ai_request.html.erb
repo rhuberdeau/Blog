@@ -1,0 +1,25 @@
+<%# One AI request as a panel. While it's queued or running, ai_request_controller
+    polls this partial (with the same context) and swaps it in until it's done.
+    context: "editor" (Apply/Use buttons work on the form) or "page". %>
+<div class="ai-request" id="<%= dom_id(ai_request) %>"
+     <% unless ai_request.finished? %>
+       data-controller="ai-request"
+       data-ai-request-url-value="<%= ai_request_path(ai_request, context: context) %>"
+     <% end %>>
+  <p class="ai-status">
+    <% case ai_request.status %>
+    <% when "queued", "running" %>
+      <span class="ai-spinner" aria-hidden="true"></span>
+      Working on it<%= " (searching the web; this can take a minute or two)" if ai_request.kind == "research" %>…
+    <% when "failed" %>
+      <span class="ai-error">Failed: <%= ai_request.error %></span>
+    <% when "done" %>
+      <%= ai_request.kind.capitalize %> finished · <%= number_to_currency(ai_request.cost_usd, precision: 2) %>
+      <% if ai_request.web_searches.positive? %>· <%= pluralize(ai_request.web_searches, "search") %><% end %>
+    <% end %>
+  </p>
+
+  <% if ai_request.done? %>
+    <%= render "ai_requests/results/#{ai_request.kind}", ai_request: ai_request, result: ai_request.result, context: context %>
+  <% end %>
+</div>

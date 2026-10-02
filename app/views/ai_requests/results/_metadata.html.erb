@@ -1,0 +1,32 @@
+<% editor = context == "editor" %>
+<h3>Titles</h3>
+<ul class="ai-options">
+  <% Array(result["titles"]).each do |title| %>
+    <li>
+      <span><%= title %></span>
+      <% if editor %>
+        <button type="button" class="button secondary small" data-action="assistant#use" data-field="article_title" data-value="<%= title %>">Use</button>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<h3>Summary</h3>
+<ul class="ai-options">
+  <li>
+    <span><%= result["summary"] %></span>
+    <% if editor %>
+      <button type="button" class="button secondary small" data-action="assistant#use" data-field="article_summary" data-value="<%= result["summary"] %>">Use</button>
+    <% end %>
+  </li>
+</ul>
+
+<h3>Tags</h3>
+<ul class="ai-options">
+  <li>
+    <span><%= Array(result["tags"]).join(", ") %></span>
+    <% if editor %>
+      <button type="button" class="button secondary small" data-action="assistant#use" data-field="article_tag_names" data-value="<%= Array(result["tags"]).join(", ") %>">Use</button>
+    <% end %>
+  </li>
+</ul>

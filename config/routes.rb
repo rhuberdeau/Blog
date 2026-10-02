@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   root to: "articles#index"
   get "/about",   to: "static_pages#about"
   get "admin", to: "admin#index"
+
+  # AI writing assistant (author only).
+  get "admin/ai", to: "ai_requests#index", as: :admin_ai
+  resources :ai_requests, only: %i[ create show ] do
+    post :draft, on: :member
+  end
   get "/sitemap" => "sitemap#index", :as => :sitemap, :defaults => { format: :xml }
   get "feed" => "articles#feed", as: :feed, defaults: { format: :atom }
 

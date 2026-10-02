@@ -1,0 +1,11 @@
+<% content_for :title, "AI #{@ai_request.kind}: #{@ai_request.subject}" %>
+
+<div class="toolbar">
+  <h1><%= @ai_request.kind.capitalize %>: <%= @ai_request.subject %></h1>
+  <%= link_to "AI assistant", admin_ai_path, class: "button secondary" %>
+</div>
+<% if @ai_request.article %>
+  <p class="hint">For <%= link_to @ai_request.article.title, edit_article_path(@ai_request.article) %>.</p>
+<% end %>
+
+<%= render "ai_requests/ai_request", ai_request: @ai_request, context: "page" %>
