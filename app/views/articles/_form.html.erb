@@ -19,15 +19,20 @@
     <div class="editor-write">
       <div class="field">
         <%= f.label :title %>
-        <%= f.text_field :title, data: { action: "input->preview#refresh" } %>
+        <%# Prose fields: the browser's own spell checker (and Edge's grammar
+            checker) runs on them; autocapitalize/autocorrect help on phones. %>
+        <%= f.text_field :title, spellcheck: true, lang: "en", autocorrect: "on",
+              data: { action: "input->preview#refresh" } %>
       </div>
       <div class="field">
         <%= f.label :summary %>
-        <%= f.text_area :summary, rows: 2, data: { action: "input->preview#refresh" } %>
+        <%= f.text_area :summary, rows: 2, spellcheck: true, lang: "en", autocapitalize: "sentences", autocorrect: "on",
+              data: { action: "input->preview#refresh" } %>
       </div>
       <div class="field">
         <%= f.label :body %>
-        <%= f.text_area :body, rows: 24, class: "code", data: { action: "input->preview#refresh", preview_target: "body" } %>
+        <%= f.text_area :body, rows: 24, class: "code", spellcheck: true, lang: "en", autocapitalize: "sentences", autocorrect: "on",
+              data: { action: "input->preview#refresh", preview_target: "body" } %>
         <p class="hint" data-preview-target="count" aria-live="polite">
           <%= pluralize(@article.word_count, "word") %> · <%= @article.reading_minutes %> min read
         </p>
@@ -35,7 +40,9 @@
       </div>
       <div class="field">
         <%= f.label :tag_names %>
-        <%= f.text_field :tag_names, data: { action: "input->preview#refresh" } %>
+        <%# Tags are short labels, not prose: don't flag them as misspelled. %>
+        <%= f.text_field :tag_names, spellcheck: false, autocapitalize: "none", autocorrect: "off",
+              data: { action: "input->preview#refresh" } %>
         <p class="hint">Comma-separated.</p>
       </div>
       <% if @article.persisted? %>

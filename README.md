@@ -12,7 +12,8 @@ a little Stimulus via importmap. No CSS framework, no Node, no build step.
 The editor at `/articles/new` shows a live preview beside the Markdown
 (rendered by the server exactly as the article will look), a "Markdown help"
 reference, word count and reading time; Ctrl/Cmd+S saves, and it warns before
-leaving with unsaved changes.
+leaving with unsaved changes. Spelling is checked by the browser (Edge's Enhanced
+spell check adds grammar).
 
 It began as a Rails 4.2 app on Heroku; the `rails-8-upgrade` history walks it
 forward one version at a time, then trims it to what a single-author blog needs.

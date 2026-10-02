@@ -59,6 +59,16 @@ describe "Articles", type: :request do
   context "when signed in" do
     before { sign_in_as(author) }
 
+    it "lets the browser spell-check the prose fields but not the tags" do
+      get edit_article_path(article)
+      form = Nokogiri::HTML(response.body)
+      %w[article_title article_summary article_body].each do |id|
+        expect(form.at_css("##{id}")["spellcheck"]).to eq("true")
+        expect(form.at_css("##{id}")["lang"]).to eq("en")
+      end
+      expect(form.at_css("#article_tag_names")["spellcheck"]).to eq("false")
+    end
+
     it "renders the new and edit forms" do
       get new_article_path
       expect(response).to have_http_status(:ok)
