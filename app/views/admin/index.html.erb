@@ -15,7 +15,7 @@
           <td><%= article.title %></td>
           <td><%= article.summary %></td>
           <td class="actions">
-            <%= link_to "Show", article, class: "button secondary small" %>
+            <%= link_to article.published? ? "View" : "Preview", article, class: "button secondary small" %>
             <%= link_to "Edit", edit_article_path(article), class: "button secondary small" %>
             <% unless article.published? %>
               <%= button_to "Publish", articles_publish_path(article), method: :put, class: "button small", form_class: "inline" %>

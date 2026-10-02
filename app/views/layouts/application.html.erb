@@ -20,7 +20,7 @@
 </head>
 <body>
   <%= render "shared/navigation" %>
-  <main>
+  <main class="<%= content_for(:main_class) %>">
     <%= render "shared/flash" %>
     <%= yield %>
   </main>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resource :session, only: %i[ new create destroy ]
-  resources :articles
+  resources :articles do
+    # The editor's live preview: renders unsaved form values (author only).
+    post :preview, on: :collection
+  end
   resources :tags, only: :show
   put "articles/:id/publish", to: "articles/publish#update", as: :articles_publish
 

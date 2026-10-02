@@ -1,0 +1,13 @@
+<%# The article as readers see it: used by the article page and by the
+    editor's live preview, so the two can't drift apart. %>
+<header class="article-header">
+  <h1><%= article.title.presence || "Untitled" %></h1>
+  <% if article.summary.present? %>
+    <p class="dek"><%= article.summary %></p>
+  <% end %>
+  <%= render "articles/meta", article: article %>
+</header>
+
+<div class="prose">
+  <%= markdown(article.body) %>
+</div>

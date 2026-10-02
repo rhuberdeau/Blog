@@ -40,8 +40,14 @@ Chrome in the `chrome` service upgrades single-label hostnames like
 - Failed form submissions render with `status: :unprocessable_content`;
   destructive redirects use `status: :see_other`. Turbo ignores anything else.
 - No rails-ujs: anything that isn't a GET is a `button_to`.
-- Views are ERB with semantic HTML. JavaScript is Turbo only (importmap); no
-  build step. Add stimulus-rails if a page ever needs behaviour.
+- Views are ERB with semantic HTML. JavaScript is Turbo plus a few Stimulus
+  controllers (importmap, no build step), currently only the article editor.
+- The editor preview is rendered by the server with the article page's own
+  partial (`articles/_article_body`); never add a client-side Markdown
+  renderer, or the preview and the published page can drift. Requests from
+  JavaScript send the global CSRF token (`X-CSRF-Token`), not a form's
+  per-form token. The test env disables CSRF, so editor system specs turn it
+  back on.
 - All styles live in `app/assets/stylesheets/application.css`: no framework.
   Colours are custom properties with a light and a dark set; use the tokens,
   never literal colours, so dark mode keeps working. Code highlighting colours

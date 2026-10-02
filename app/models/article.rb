@@ -28,6 +28,24 @@ class Article < ApplicationRecord
     end
   end
 
+  # Typical adult silent reading speed; the editor's live counter
+  # (preview_controller.js) uses the same number and word rule.
+  WORDS_PER_MINUTE = 230
+
+  def word_count
+    body.to_s.scan(/\S+/).size
+  end
+
+  def reading_minutes
+    [ (word_count / WORDS_PER_MINUTE.to_f).ceil, 1 ].max
+  end
+
+  # True when tag_names was assigned but not saved yet (the editor preview):
+  # those names may not exist as tags, so they can't be linked.
+  def unsaved_tag_names?
+    !@tag_names.nil?
+  end
+
   def tag_names
     @tag_names || tags.map(&:name).join(",")
   end

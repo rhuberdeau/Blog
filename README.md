@@ -6,8 +6,13 @@ XML sitemap. One author writes and publishes from `/admin`.
 
 Rails 8.1 on Ruby 4.0, SQLite, Rails' built-in authentication. Front end:
 one hand-written stylesheet (`app/assets/stylesheets/application.css`, light and
-dark from the reader's system setting) served by Propshaft, plus Turbo via
-importmap. No CSS framework, no Node, no build step.
+dark from the reader's system setting) served by Propshaft, plus Turbo and
+a little Stimulus via importmap. No CSS framework, no Node, no build step.
+
+The editor at `/articles/new` shows a live preview beside the Markdown
+(rendered by the server exactly as the article will look), a "Markdown help"
+reference, word count and reading time; Ctrl/Cmd+S saves, and it warns before
+leaving with unsaved changes.
 
 It began as a Rails 4.2 app on Heroku; the `rails-8-upgrade` history walks it
 forward one version at a time, then trims it to what a single-author blog needs.

@@ -1,11 +1,16 @@
-<%# Date (or "Draft") and tags, under a post in a list and on its own page. %>
+<%# Date (or "Draft"), reading time and tags, under a post in a list, on its
+    own page and in the editor preview. %>
 <p class="post-meta">
-  <% if article.published? %>
+  <% if article.published_at %>
     <time datetime="<%= article.published_at.iso8601 %>"><%= publish_date(article) %></time>
   <% else %>
     Draft
   <% end %>
-  <% if article.tags.any? %>
+  · <%= article.reading_minutes %> min read
+  <% if article.unsaved_tag_names? %>
+    <% names = article.tag_names.split(",").map(&:strip).reject(&:blank?) %>
+    <% if names.any? %>· <%= names.join(", ") %><% end %>
+  <% elsif article.tags.any? %>
     · <%= safe_join(article.tags.map { |tag| link_to(tag.name, tag) }, ", ") %>
   <% end %>
 </p>

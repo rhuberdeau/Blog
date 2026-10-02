@@ -2,14 +2,16 @@
 <% content_for :description, @article.summary %>
 <% content_for :og_type, "article" %>
 
-<article>
-  <header class="article-header">
-    <h1><%= @article.title %></h1>
-    <p class="dek"><%= @article.summary %></p>
-    <%= render "articles/meta", article: @article %>
-  </header>
-
-  <div class="prose">
-    <%= markdown(@article.body) %>
+<% unless @article.published? %>
+  <div class="draft-notice" role="status">
+    <span><strong>Draft</strong>: only you can see this page.</span>
+    <span class="draft-actions">
+      <%= link_to "Edit", edit_article_path(@article), class: "button secondary small" %>
+      <%= button_to "Publish", articles_publish_path(@article), method: :put, class: "button small", form_class: "inline" %>
+    </span>
   </div>
+<% end %>
+
+<article>
+  <%= render "articles/article_body", article: @article %>
 </article>

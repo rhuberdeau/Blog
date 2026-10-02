@@ -24,6 +24,15 @@ class ArticlesController < ApplicationController
   def show
   end
 
+  # The editor's live preview: the form's current, unsaved values rendered
+  # with the same partial as the article page. Nothing is saved; id (when
+  # editing) only supplies what the form doesn't send, like the publish date.
+  def preview
+    article = params[:id].present? ? Article.find(params[:id]) : Current.user.articles.build
+    article.assign_attributes(article_params)
+    render partial: "articles/preview", locals: { article: article }
+  end
+
   def new
     @article = Article.new
   end

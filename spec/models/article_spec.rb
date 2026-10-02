@@ -76,6 +76,17 @@ RSpec.describe Article, type: :model do
     end
   end
 
+  describe "word count and reading time" do
+    it "counts words in the Markdown and rounds reading time up, at least a minute" do
+      expect(Article.new(body: "").reading_minutes).to eq(1)
+      expect(Article.new(body: "one two
+
+three").word_count).to eq(3)
+      expect(Article.new(body: ([ "word" ] * 460).join(" ")).reading_minutes).to eq(2)
+      expect(Article.new(body: ([ "word" ] * 461).join(" ")).reading_minutes).to eq(3)
+    end
+  end
+
   describe "assign a user" do
     it { expect(subject.user_id).to eq(user.id) }
   end

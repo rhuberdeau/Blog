@@ -1,3 +1,8 @@
-<h1>Edit article</h1>
+<% content_for :title, "Edit #{@article.title_was}" %>
+<% content_for :main_class, "wide" %>
+
+<div class="toolbar">
+  <h1>Edit article</h1>
+  <%= link_to @article.published? ? "View" : "View as published", @article, class: "button secondary" %>
+</div>
 <%= render "form" %>
-<p class="post-meta"><%= link_to "View", @article %> · <%= link_to "Admin", admin_path %></p>

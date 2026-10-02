@@ -1,3 +1,4 @@
-// Turbo only: the site has no client-side behaviour of its own. To add some,
-// `bundle add stimulus-rails && bin/rails stimulus:install`.
+// Turbo for navigation and forms; Stimulus controllers in
+// app/javascript/controllers for the article editor.
 import "@hotwired/turbo-rails"
+import "controllers"

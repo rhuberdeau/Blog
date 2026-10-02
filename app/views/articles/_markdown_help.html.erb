@@ -1,0 +1,19 @@
+<details class="markdown-help">
+  <summary>Markdown help</summary>
+  <p class="hint">
+    GitHub-flavoured Markdown. Raw HTML is not rendered (it's dropped for safety).
+    Code blocks are highlighted when you name the language after the opening
+    <code>```</code>: ruby, javascript, html, css, sql, bash, yaml, json, and most others.
+  </p>
+  <table>
+    <thead><tr><th>Write</th><th>Get</th></tr></thead>
+    <tbody>
+      <% ArticlesHelper::MARKDOWN_EXAMPLES.each do |name, source| %>
+        <tr>
+          <td><span class="example-name"><%= name %></span><pre><code><%= source %></code></pre></td>
+          <td class="prose"><%= markdown(source) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</details>

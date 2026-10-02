@@ -3,7 +3,8 @@
    system setting picks one.
 
    1. Tokens   2. Base   3. Layout   4. Post list   5. Prose
-   6. Code     7. Forms, buttons, tables, alerts      8. Utilities */
+   6. Code     7. Forms, buttons, tables, alerts
+   7b. Article editor                                 8. Utilities */
 
 /* 1. Tokens ------------------------------------------------------------- */
 
@@ -273,6 +274,33 @@ main {
   }
 }
 
+/* Markdown extras: heading anchors (commonmarker adds an empty link to each
+   heading), task lists and footnotes. */
+.prose {
+  :is(h2, h3, h4) { position: relative; }
+  .anchor {
+    margin-left: 0.4em;
+    color: var(--muted);
+    text-decoration: none;
+    opacity: 0;
+  }
+  .anchor::before { content: "#"; }
+  :is(h2, h3, h4):hover .anchor,
+  .anchor:focus-visible { opacity: 1; }
+
+  li:has(> input[type="checkbox"]) { list-style: none; margin-left: -1.4em; }
+  li > input[type="checkbox"] { margin-right: 0.5em; }
+
+  .footnotes {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: var(--step--1);
+  }
+  .footnote-ref a, .footnote-backref { text-decoration: none; }
+}
+
 /* 6. Code --------------------------------------------------------------- */
 
 code, pre { font-family: var(--font-code); font-size: 0.86em; }
@@ -381,6 +409,108 @@ textarea.code { font-family: var(--font-code); font-size: 0.9rem; }
 
   &.danger { background: var(--danger-bg); color: var(--danger); }
   ul { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+}
+
+/* 7b. Article editor: fields beside a live preview ------------------------ */
+
+main.wide { width: min(100% - 2 * var(--space), 80rem); }
+
+.editor-tabs {
+  display: none;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+
+  .tab {
+    color: var(--muted);
+    background: transparent;
+    border-color: var(--rule);
+  }
+  .tab[aria-selected="true"] {
+    color: var(--accent-text);
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+.editor-preview {
+  /* It sits inside the form, whose UI font would otherwise leak into the
+     article; match the published page. */
+  font-family: var(--font-body);
+
+  .preview-label {
+    margin: 0 0 1rem;
+    color: var(--muted);
+    font: 600 var(--step--1) var(--font-ui);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  > article {
+    padding: 1.5rem;
+    border: 1px dashed var(--rule);
+    border-radius: var(--radius);
+  }
+}
+.editor.preview-stale .editor-preview > article { opacity: 0.6; }
+
+@media (min-width: 900px) {
+  .editor {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .editor-preview {
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 899.98px) {
+  .editor-tabs { display: flex; }
+  .editor[data-mode="write"] .editor-preview,
+  .editor[data-mode="preview"] .editor-write { display: none; }
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  .hint { margin: 0; }
+}
+
+.markdown-help {
+  margin-top: 0.75rem;
+  font-family: var(--font-ui);
+  font-size: var(--step--1);
+
+  summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; }
+  th, td { padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+  th { color: var(--muted); }
+  td { width: 50%; }
+  .example-name { display: block; margin-bottom: 0.3rem; font-weight: 600; }
+  td pre { margin: 0; padding: 0.5rem 0.75rem; font-size: 0.85rem; white-space: pre-wrap; }
+  td.prose { font-family: var(--font-body); }
+  td.prose > :last-child { margin-bottom: 0; }
+  td.prose :is(h2, h3) { margin: 0 0 0.3em; }
+}
+
+.draft-notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  background: var(--info-bg);
+  font: var(--step--1) var(--font-ui);
+
+  .draft-actions { display: flex; gap: 0.5rem; align-items: center; }
 }
 
 /* 8. Utilities ---------------------------------------------------------- */
