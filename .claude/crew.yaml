@@ -1,0 +1,26 @@
+# Crew for Blog: edit, then `handoffs render Blog` (in C:\Users\Robert\projects\agent-handoffs).
+project: Blog
+roles:
+  - use: developer
+  - use: qa
+    append: |
+      System specs need the compose `chrome` service, and Chrome upgrades single-label hosts like
+      http://app:3000 to HTTPS, so reach the app by container IP as spec/support/system.rb does.
+      Tests run with Ai::Client.fake!; never make a real AI call to "check" something.
+  - use: reviewer
+    append: |
+      Hold these lines from CLAUDE.md: strict CSP (no inline <script>/<style>/style="", no third-party
+      hosts, nonces for anything new); colours only through the CSS custom-property tokens; Markdown only
+      through ApplicationHelper#markdown; AI only through Ai::Client with an Ai::Tasks class; failed forms
+      render :unprocessable_content and destructive redirects use :see_other; no rails-ujs.
+  - use: ux-designer
+  - use: security-reviewer
+pipeline: [developer, qa, reviewer]
+max_rounds: 2
+test_command: docker compose run --rm app bin/ci
+notes: |
+  - Running a real AI request spends the user's money: ask first.
+  - Creating or changing AWS resources, and deploying, need the user's explicit go-ahead.
+  - Never commit `.env.deploy` or any secret.
+hindsight: {enabled: true, bank: blog}
+second_brain: true

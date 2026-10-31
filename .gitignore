@@ -17,3 +17,5 @@
 
 /config/master.key
 /config/credentials/*.key
+# agent-handoffs run notes
+.handoffs/
